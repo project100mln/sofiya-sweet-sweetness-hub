@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { stores } from "@/data/stores";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Leaf, Sparkles, Heart, Award } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
