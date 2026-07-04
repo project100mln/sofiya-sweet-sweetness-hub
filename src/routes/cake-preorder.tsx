@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { site, waLink } from "@/config/site";
 import { stores } from "@/data/stores";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 
 export const Route = createFileRoute("/cake-preorder")({

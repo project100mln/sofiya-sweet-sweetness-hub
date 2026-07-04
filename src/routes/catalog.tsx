@@ -2,6 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { categories, products } from "@/data/catalog";
 import { ProductCard } from "@/components/site/ProductCard";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 
 interface CatalogSearch {

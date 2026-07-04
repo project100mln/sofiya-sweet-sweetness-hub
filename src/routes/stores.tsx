@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { stores, cities } from "@/data/stores";
 import { StoreCard } from "@/components/site/StoreCard";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Search, MapPin } from "lucide-react";
 
 export const Route = createFileRoute("/stores")({

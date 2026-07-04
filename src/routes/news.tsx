@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { news } from "@/data/news";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 
 export const Route = createFileRoute("/news")({
   head: () => ({

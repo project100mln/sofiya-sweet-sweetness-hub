@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { site, waLink } from "@/config/site";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Coffee, Users, Cake, Briefcase, Calendar, PartyPopper, Check } from "lucide-react";
 
 export const Route = createFileRoute("/catering")({

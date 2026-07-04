@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { site, instagramLink, waLink } from "@/config/site";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { stores } from "@/data/stores";
 import { Instagram, MessageCircle, Phone, MapPin, Check } from "lucide-react";
 
