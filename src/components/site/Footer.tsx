@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import logo from "@/assets/sofiya-logo.png.asset.json";
 import { site, instagramLink, waLink } from "@/config/site";
 import { categories } from "@/data/catalog";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Instagram, MessageCircle, Phone, MapPin } from "lucide-react";
 
 export function Footer() {
