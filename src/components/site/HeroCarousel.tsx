@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { IMG } from "@/data/catalog";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 
 interface Slide {
   eyebrow: string;
