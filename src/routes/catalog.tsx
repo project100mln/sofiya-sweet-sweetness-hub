@@ -28,6 +28,7 @@ export const Route = createFileRoute("/catalog")({
 
 function CatalogPage() {
   const search = Route.useSearch();
+  const navigate = useNavigate({ from: "/catalog" });
   const [q, setQ] = useState(search.q ?? "");
   const [filterOpen, setFilterOpen] = useState(false);
   const [tags, setTags] = useState<Set<string>>(new Set());
