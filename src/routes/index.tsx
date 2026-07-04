@@ -8,6 +8,7 @@ import { products, IMG } from "@/data/catalog";
 import { stores } from "@/data/stores";
 import { news } from "@/data/news";
 import { site, instagramLink } from "@/config/site";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { ArrowRight, Cake, Coffee, Pizza, Sandwich, Instagram, Users, Gift, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/")({
