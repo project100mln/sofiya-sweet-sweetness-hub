@@ -5,8 +5,8 @@ import { IMG } from "@/data/catalog";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 
 interface Slide {
-  eyebrow: string;
-  title: string;
+  eyebrow: React.ReactNode;
+  title: React.ReactNode;
   desc: string;
   cta: string;
   href: string;
