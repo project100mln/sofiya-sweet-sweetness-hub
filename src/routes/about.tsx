@@ -19,7 +19,7 @@ function AboutPage() {
       <section className="bg-gradient-to-b from-[color:var(--accent)] to-background">
         <div className="container-page py-10 md:py-14">
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">О компании</p>
-          <h1 className="mt-2 text-4xl md:text-5xl font-bold">SOFIYA — вкусные моменты, доступные каждому</h1>
+          <h1 className="mt-2 text-4xl md:text-5xl font-bold"><SofiyaWordmark /> — вкусные моменты, доступные каждому</h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
             Казахстанская сеть кофеен и пекарен. Мы работаем в Шымкенте и Туркестанской области — свежая выпечка, фирменные торты и кофе каждый день.
           </p>
@@ -57,7 +57,7 @@ function AboutPage() {
 
       <section className="container-page py-14">
         <div className="rounded-3xl bg-[color:var(--cream)] p-8 md:p-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold">Присоединяйтесь к семье SOFIYA</h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Присоединяйтесь к семье <SofiyaWordmark /></h2>
           <p className="mt-3 text-muted-foreground max-w-xl mx-auto">Загляните в ближайшую кофейню или подпишитесь на наш Instagram, чтобы первыми узнавать о новинках.</p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link to="/stores" className="btn-primary btn-primary-hover">Найти магазин</Link>
