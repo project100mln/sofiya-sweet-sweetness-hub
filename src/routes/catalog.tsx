@@ -92,9 +92,8 @@ function CatalogPage() {
             <SlidersHorizontal className="h-4 w-4" /> Фильтры {tags.size ? `· ${tags.size}` : ""}
           </button>
           <select value={search.sort} onChange={(e) => {
-            const v = e.target.value as CatalogSearch["sort"];
-            history.replaceState(null, "", `?${new URLSearchParams({ ...(search.cat ? { cat: search.cat } : {}), sort: v || "" })}`);
-            location.reload();
+            const v = e.target.value as NonNullable<CatalogSearch["sort"]>;
+            navigate({ search: (prev: CatalogSearch) => ({ ...prev, sort: v }) });
           }} className="h-12 rounded-full border border-border bg-card px-4 text-sm font-semibold">
             <option value="recommended">Рекомендуем</option>
             <option value="new">Сначала новинки</option>
