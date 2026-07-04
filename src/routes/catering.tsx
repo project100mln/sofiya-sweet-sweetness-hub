@@ -47,7 +47,7 @@ function CateringPage() {
       <section className="bg-gradient-to-b from-[color:var(--accent)] to-background">
         <div className="container-page py-10 md:py-14">
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">Кейтеринг</p>
-          <h1 className="mt-2 text-4xl md:text-5xl font-bold">SOFIYA для ваших событий</h1>
+          <h1 className="mt-2 text-4xl md:text-5xl font-bold"><SofiyaWordmark /> для ваших событий</h1>
           <p className="mt-3 text-muted-foreground max-w-2xl">Соберём меню под ваш формат: кофе-брейки, десертные столы, корпоративные события и большие заказы.</p>
         </div>
       </section>

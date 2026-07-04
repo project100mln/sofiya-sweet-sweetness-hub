@@ -18,7 +18,7 @@ function NewsPage() {
       <section className="bg-gradient-to-b from-[color:var(--accent)] to-background">
         <div className="container-page py-10 md:py-14">
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">Новости</p>
-          <h1 className="mt-2 text-4xl md:text-5xl font-bold">Что нового в SOFIYA</h1>
+          <h1 className="mt-2 text-4xl md:text-5xl font-bold">Что нового в <SofiyaWordmark /></h1>
         </div>
       </section>
       <section className="container-page py-12">

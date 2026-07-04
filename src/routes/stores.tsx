@@ -33,7 +33,7 @@ function StoresPage() {
     <>
       <section className="bg-gradient-to-b from-[color:var(--accent)] to-background">
         <div className="container-page py-10 md:py-14">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">Сеть SOFIYA</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-primary">Сеть <SofiyaWordmark /></p>
           <h1 className="mt-2 text-4xl md:text-5xl font-bold">Магазины и кофейни</h1>
           <p className="mt-3 text-muted-foreground max-w-xl">{stores.length} точек в Шымкенте и Туркестанской области.</p>
         </div>
