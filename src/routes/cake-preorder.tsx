@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { site, waLink } from "@/config/site";
 import { stores } from "@/data/stores";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 
 export const Route = createFileRoute("/cake-preorder")({
@@ -77,7 +78,7 @@ function PreorderPage() {
     <section className="container-page py-10 md:py-14">
       <div className="max-w-3xl mx-auto">
         <p className="text-xs font-semibold uppercase tracking-widest text-primary">Торты на заказ</p>
-        <h1 className="mt-2 text-3xl md:text-5xl font-bold">Соберите свой торт SOFIYA</h1>
+        <h1 className="mt-2 text-3xl md:text-5xl font-bold">Соберите свой торт <SofiyaWordmark /></h1>
         <p className="mt-3 text-muted-foreground">Шаг {step + 1} из {STEPS.length}: {STEPS[step]}</p>
 
         <div className="mt-6 h-2 rounded-full bg-muted overflow-hidden">

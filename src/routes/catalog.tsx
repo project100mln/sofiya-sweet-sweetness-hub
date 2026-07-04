@@ -2,6 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { categories, products } from "@/data/catalog";
 import { ProductCard } from "@/components/site/ProductCard";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 
 interface CatalogSearch {
@@ -62,7 +63,7 @@ function CatalogPage() {
       <section className="bg-gradient-to-b from-[color:var(--accent)] to-background">
         <div className="container-page py-10 md:py-14">
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">Каталог</p>
-          <h1 className="mt-2 text-4xl md:text-5xl font-bold">{activeCat ? activeCat.name : "Всё меню SOFIYA"}</h1>
+          <h1 className="mt-2 text-4xl md:text-5xl font-bold">{activeCat ? activeCat.name : <>Всё меню <SofiyaWordmark /></>}</h1>
           <p className="mt-3 text-muted-foreground max-w-xl">{activeCat ? activeCat.short : "Торты, десерты, выпечка, самса, завтраки, пицца и напитки."}</p>
         </div>
       </section>

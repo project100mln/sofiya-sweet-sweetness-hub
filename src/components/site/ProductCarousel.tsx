@@ -4,7 +4,7 @@ import { ProductCard } from "./ProductCard";
 import type { Product } from "@/data/catalog";
 
 export function ProductCarousel({ items, title, subtitle, action }: {
-  items: Product[]; title: string; subtitle?: string; action?: React.ReactNode;
+  items: Product[]; title: React.ReactNode; subtitle?: React.ReactNode; action?: React.ReactNode;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const scroll = (dir: 1 | -1) => {

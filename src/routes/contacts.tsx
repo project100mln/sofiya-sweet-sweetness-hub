@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { site, instagramLink, waLink } from "@/config/site";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { stores } from "@/data/stores";
 import { Instagram, MessageCircle, Phone, MapPin, Check } from "lucide-react";
 
@@ -32,7 +33,7 @@ function ContactsPage() {
       <section className="bg-gradient-to-b from-[color:var(--accent)] to-background">
         <div className="container-page py-10 md:py-14">
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">Контакты</p>
-          <h1 className="mt-2 text-4xl md:text-5xl font-bold">Связаться с SOFIYA</h1>
+          <h1 className="mt-2 text-4xl md:text-5xl font-bold">Связаться с <SofiyaWordmark /></h1>
           <p className="mt-3 text-muted-foreground max-w-xl">Мы всегда на связи в WhatsApp и Instagram.</p>
         </div>
       </section>

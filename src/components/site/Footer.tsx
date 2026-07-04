@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import logo from "@/assets/sofiya-logo.png.asset.json";
 import { site, instagramLink, waLink } from "@/config/site";
 import { categories } from "@/data/catalog";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Instagram, MessageCircle, Phone, MapPin } from "lucide-react";
 
 export function Footer() {
@@ -37,7 +38,7 @@ export function Footer() {
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-widest text-white/60">Компания</h4>
           <ul className="mt-4 space-y-2 text-sm">
-            <li><Link to="/about" className="text-white/85 hover:text-[color:var(--gold)]">О SOFIYA</Link></li>
+            <li><Link to="/about" className="text-white/85 hover:text-[color:var(--gold)]">О <SofiyaWordmark /></Link></li>
             <li><Link to="/stores" className="text-white/85 hover:text-[color:var(--gold)]">Магазины</Link></li>
             <li><Link to="/cake-preorder" className="text-white/85 hover:text-[color:var(--gold)]">Торты на заказ</Link></li>
             <li><Link to="/catering" className="text-white/85 hover:text-[color:var(--gold)]">Кейтеринг</Link></li>
@@ -60,7 +61,7 @@ export function Footer() {
             </li>
           </ul>
           <div className="mt-5">
-            <p className="text-xs uppercase tracking-widest text-white/50">SOFIYA Club — скоро</p>
+            <p className="text-xs uppercase tracking-widest text-white/50"><SofiyaWordmark /> Club — скоро</p>
             <div className="mt-2 flex gap-2">
               <span className="inline-flex items-center rounded-lg border border-white/25 px-3 py-2 text-xs">App Store · Скоро</span>
               <span className="inline-flex items-center rounded-lg border border-white/25 px-3 py-2 text-xs">Google Play · Скоро</span>
@@ -71,7 +72,7 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-page py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/55">
-          <p>© {new Date().getFullYear()} SOFIYA Sweet. Все права защищены.</p>
+          <p>© {new Date().getFullYear()} <SofiyaWordmark /> Sweet. Все права защищены.</p>
           <div className="flex gap-5">
             <Link to="/privacy" className="hover:text-white">Политика конфиденциальности</Link>
             <Link to="/terms" className="hover:text-white">Пользовательское соглашение</Link>
