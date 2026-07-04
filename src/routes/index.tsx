@@ -28,7 +28,7 @@ function Home() {
       <CategoryGrid />
 
       <ProductCarousel
-        title="Хиты SOFIYA"
+        title={<>Хиты <SofiyaWordmark /></>}
         subtitle="Самые любимые торты и десерты наших гостей."
         items={hero.length ? hero : bestsellers}
         action={<Link to="/catalog" className="hidden md:inline-flex btn-outline btn-outline-hover">Весь каталог</Link>}
@@ -52,7 +52,7 @@ function Home() {
               <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-white/15 backdrop-blur px-3 py-1 text-xs font-semibold uppercase tracking-widest">
                 <Sparkles className="h-3.5 w-3.5" /> Сезонная коллекция
               </span>
-              <h2 className="mt-4 text-3xl md:text-5xl font-bold max-w-lg">Ягодная коллекция SOFIYA</h2>
+              <h2 className="mt-4 text-3xl md:text-5xl font-bold max-w-lg">Ягодная коллекция <SofiyaWordmark /></h2>
               <p className="mt-3 max-w-md text-white/85">Свежие ягоды, воздушные кремы и лёгкие цитрусовые ноты — вкус тёплого сезона.</p>
               <Link to="/catalog" search={{ cat: "cakes" }} className="mt-6 w-fit btn-primary btn-primary-hover">Смотреть коллекцию <ArrowRight className="h-4 w-4" /></Link>
             </div>
@@ -84,7 +84,7 @@ function Home() {
       {/* Preorder cakes carousel */}
       <ProductCarousel
         title="Торты на заказ"
-        subtitle="Оформите фирменный торт SOFIYA к вашему празднику."
+        subtitle={<>Оформите фирменный торт <SofiyaWordmark /> к вашему празднику.</>}
         items={preorderPreview}
         action={<Link to="/cake-preorder" className="hidden md:inline-flex btn-primary btn-primary-hover">Оформить <ArrowRight className="h-4 w-4" /></Link>}
       />
@@ -97,7 +97,7 @@ function Home() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
             <div className="relative h-full p-8 md:p-10 flex flex-col justify-end text-white">
               <Sandwich className="h-6 w-6" />
-              <h3 className="mt-2 text-3xl font-bold">Завтраки в SOFIYA</h3>
+              <h3 className="mt-2 text-3xl font-bold">Завтраки в <SofiyaWordmark /></h3>
               <p className="mt-2 text-white/85 max-w-md">Кофе, тёплая выпечка и лёгкие блюда. Загляните с утра — начните день правильно.</p>
               <span className="mt-4 text-sm font-semibold text-[color:var(--gold)]">Посмотреть завтраки →</span>
             </div>
@@ -120,7 +120,7 @@ function Home() {
         <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
           <div>
             <span className="text-xs font-semibold uppercase tracking-widest text-primary">Новости и акции</span>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold">Что нового в SOFIYA</h2>
+            <h2 className="mt-2 text-3xl md:text-4xl font-bold">Что нового в <SofiyaWordmark /></h2>
           </div>
           <Link to="/news" className="btn-outline btn-outline-hover">Все новости</Link>
         </div>
@@ -144,7 +144,7 @@ function Home() {
       <section className="container-page py-14 md:py-20">
         <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-widest text-primary">Сеть SOFIYA</span>
+            <span className="text-xs font-semibold uppercase tracking-widest text-primary">Сеть <SofiyaWordmark /></span>
             <h2 className="mt-2 text-3xl md:text-4xl font-bold">Магазины и кофейни</h2>
             <p className="mt-2 text-muted-foreground max-w-xl">{stores.length} точек в Шымкенте, Ленгере, Аксукенте, Сайраме и Манкенте.</p>
           </div>
@@ -162,7 +162,7 @@ function Home() {
             <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold uppercase tracking-widest">
               <Coffee className="h-3.5 w-3.5" /> Кейтеринг
             </span>
-            <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground">SOFIYA для ваших событий</h2>
+            <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground"><SofiyaWordmark /> для ваших событий</h2>
             <p className="mt-3 text-muted-foreground max-w-xl">Кофе-брейки, десертные столы, корпоративные праздники и большие заказы. Соберём меню под ваш формат.</p>
             <Link to="/catering" className="mt-6 inline-flex btn-primary btn-primary-hover">Оставить заявку <ArrowRight className="h-4 w-4" /></Link>
           </div>
@@ -196,7 +196,7 @@ function Home() {
         <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
           <div>
             <span className="text-xs font-semibold uppercase tracking-widest text-primary">Instagram</span>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold">SOFIYA в кадре</h2>
+            <h2 className="mt-2 text-3xl md:text-4xl font-bold"><SofiyaWordmark /> в кадре</h2>
             <p className="mt-2 text-muted-foreground">Подписывайтесь на {site.instagramHandle}</p>
           </div>
           <a href={instagramLink} target="_blank" rel="noreferrer" className="btn-primary btn-primary-hover">
