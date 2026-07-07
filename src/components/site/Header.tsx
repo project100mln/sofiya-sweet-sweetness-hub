@@ -2,19 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import logo from "@/assets/sofiya-logo.png.asset.json";
 import { site, instagramLink, waLink } from "@/config/site";
+import { nav } from "@/config/navigation";
 import { Instagram, Menu, MessageCircle, Phone, X } from "lucide-react";
-
-const nav = [
-  { to: "/", label: "Главная" },
-  { to: "/catalog", label: "Каталог" },
-  { to: "/promotions", label: "Акции" },
-  { to: "/stores", label: "Магазины" },
-  { to: "/cake-preorder", label: "Торты на заказ" },
-  { to: "/catering", label: "Кейтеринг" },
-  { to: "/about", label: "О нас" },
-  { to: "/career", label: "Карьера" },
-  { to: "/contacts", label: "Контакты" },
-] as const;
 
 export function Header() {
   const [sticky, setSticky] = useState(false);
