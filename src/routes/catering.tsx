@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { site, waLink } from "@/config/site";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
-import { Coffee, Users, Cake, Briefcase, Calendar, PartyPopper, Check } from "lucide-react";
+import { SERVICES } from "@/data/catering-services";
+import { Check } from "lucide-react";
 
 export const Route = createFileRoute("/catering")({
   head: () => ({
@@ -13,15 +14,6 @@ export const Route = createFileRoute("/catering")({
   }),
   component: CateringPage,
 });
-
-const SERVICES = [
-  { i: Coffee, t: "Кофе-брейки", d: "Свежий кофе, выпечка и напитки для встреч." },
-  { i: Briefcase, t: "Корпоративные события", d: "Меню для мероприятий и презентаций." },
-  { i: Cake, t: "Десертные столы", d: "Фирменные торты и порционные десерты." },
-  { i: PartyPopper, t: "Праздники", d: "Дни рождения и семейные торжества." },
-  { i: Calendar, t: "Деловые встречи", d: "Лёгкие завтраки и обеды для команды." },
-  { i: Users, t: "Большие заказы", d: "Готовим для больших групп и мероприятий." },
-];
 
 function CateringPage() {
   const [f, setF] = useState({ type: "", date: "", guests: "", budget: "", name: "", phone: "", comment: "" });
