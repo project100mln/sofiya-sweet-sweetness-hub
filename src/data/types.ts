@@ -14,6 +14,7 @@ export interface Product {
   shortDescription: string;
   fullDescription: string | null;
   price: number | null;
+  variants?: { label: string; price: number }[];
   weight: string | null;
   servings: string | null;
   ingredients: string[] | null;
