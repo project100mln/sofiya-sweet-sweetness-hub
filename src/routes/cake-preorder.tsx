@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { site, waLink } from "@/config/site";
 import { stores } from "@/data/stores";
+import { CAKE_TYPES, SIZES, CANDLES, PACKAGING } from "@/data/cake-options";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -19,11 +20,6 @@ const STEPS = [
   "Тип торта", "Размер", "Порции", "Дата", "Точка", "Время", "Надпись",
   "Свечи", "Упаковка", "Имя", "Телефон", "Комментарий", "Готово",
 ] as const;
-
-const CAKE_TYPES = ["Ягодный", "Шоколадный со Snickers", "Медовик", "Наполеон карамельный", "Matilda Cake", "Свой вариант"];
-const SIZES = ["1 кг", "1,5 кг", "2 кг", "2,5 кг", "3 кг", "Уточнить"];
-const CANDLES = ["Не нужны", "Цифра", "Свечи-звёздочки", "Классические"];
-const PACKAGING = ["Стандартная коробка", "Подарочная упаковка", "Без упаковки"];
 
 function PreorderPage() {
   const [step, setStep] = useState(0);
