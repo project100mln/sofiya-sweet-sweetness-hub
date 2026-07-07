@@ -1,20 +1,4 @@
-export interface StoreRecord {
-  id: string;
-  slug: string;
-  city: string;
-  district: string | null;
-  address: string;
-  landmark: string | null;
-  phone: string | null;
-  whatsapp: string | null;
-  workingHours: string | null;
-  latitude: number | null;
-  longitude: number | null;
-  mapUrl: string | null;
-  services: string[];
-  image: string | null;
-  isPublished: boolean;
-}
+import type { StoreRecord } from "./types";
 
 export const stores: StoreRecord[] = [
   {

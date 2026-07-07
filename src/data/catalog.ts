@@ -6,6 +6,7 @@ import beignets from "@/assets/beignets.jpg.asset.json";
 import snickersCake from "@/assets/snickers-cake.jpg.asset.json";
 import pastryMix from "@/assets/pastry-mix.jpg.asset.json";
 import medovik from "@/assets/medovik.jpg.asset.json";
+import type { Category, Product } from "./types";
 
 export const IMG = {
   cakeBerry: cakeBerry.url,
@@ -18,14 +19,6 @@ export const IMG = {
   medovik: medovik.url,
 };
 
-export interface Category {
-  id: string;
-  slug: string;
-  name: string;
-  short: string;
-  image: string;
-}
-
 export const categories: Category[] = [
   { id: "cakes", slug: "cakes", name: "Торты", short: "Праздничные и авторские", image: IMG.snickersCake },
   { id: "desserts", slug: "desserts", name: "Порционные десерты", short: "Тарты, пирожные, эклеры", image: IMG.tartAssorti },
@@ -37,29 +30,6 @@ export const categories: Category[] = [
   { id: "drinks", slug: "drinks", name: "Напитки", short: "Кофе, чай, лимонады", image: IMG.cakeBerry },
   { id: "gifts", slug: "gifts", name: "Подарочные наборы", short: "Сладкие сюрпризы", image: IMG.tartAssorti },
 ];
-
-export interface Product {
-  id: string;
-  slug: string;
-  name: string;
-  categoryId: string;
-  shortDescription: string;
-  fullDescription: string | null;
-  price: number | null;
-  weight: string | null;
-  servings: string | null;
-  ingredients: string[] | null;
-  allergens: string[] | null;
-  shelfLife: string | null;
-  storage: string | null;
-  images: string[];
-  isHero: boolean;
-  isBestseller: boolean;
-  isNew: boolean;
-  isSeasonal: boolean;
-  isPreorder: boolean;
-  isPublished: boolean;
-}
 
 export const products: Product[] = [
   {

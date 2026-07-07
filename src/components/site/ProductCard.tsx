@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import type { Product } from "@/data/catalog";
+import type { Product } from "@/data/types";
 import { Sparkles, Star, Flame } from "lucide-react";
 
 export function ProductCard({ p }: { p: Product }) {

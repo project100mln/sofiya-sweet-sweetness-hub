@@ -1,16 +1,5 @@
-export interface NewsItem {
-  id: string;
-  slug: string;
-  title: string;
-  category: "promo" | "product" | "season" | "company" | "store" | "app";
-  date: string;
-  cover: string;
-  summary: string;
-  body: string;
-  isPublished: boolean;
-}
-
 import { IMG } from "./catalog";
+import type { NewsItem } from "./types";
 
 export const news: NewsItem[] = [
   {

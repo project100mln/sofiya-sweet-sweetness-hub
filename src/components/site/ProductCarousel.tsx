@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ProductCard } from "./ProductCard";
-import type { Product } from "@/data/catalog";
+import type { Product } from "@/data/types";
 
 export function ProductCarousel({ items, title, subtitle, action }: {
   items: Product[]; title: React.ReactNode; subtitle?: React.ReactNode; action?: React.ReactNode;

@@ -1,5 +1,5 @@
 import { MapPin, Clock } from "lucide-react";
-import type { StoreRecord } from "@/data/stores";
+import type { StoreRecord } from "@/data/types";
 
 export function StoreCard({ s }: { s: StoreRecord }) {
   return (
