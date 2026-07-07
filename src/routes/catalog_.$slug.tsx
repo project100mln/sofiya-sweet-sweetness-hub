@@ -4,7 +4,7 @@ import { site, waLink } from "@/config/site";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Instagram, MessageCircle, ChevronRight } from "lucide-react";
 
-export const Route = createFileRoute("/catalog/$slug")({
+export const Route = createFileRoute("/catalog_/$slug")({
   loader: ({ params }) => {
     const product = getProduct(params.slug);
     if (!product) throw notFound();

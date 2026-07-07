@@ -22,7 +22,7 @@ import { Route as CakePreorderRouteImport } from './routes/cake-preorder'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
-import { Route as CatalogSlugRouteImport } from './routes/catalog.$slug'
+import { Route as CatalogSlugRouteImport } from './routes/catalog_.$slug'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -90,9 +90,9 @@ const NewsSlugRoute = NewsSlugRouteImport.update({
   getParentRoute: () => NewsRoute,
 } as any)
 const CatalogSlugRoute = CatalogSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => CatalogRoute,
+  id: '/catalog_/$slug',
+  path: '/catalog/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -100,7 +100,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/cake-preorder': typeof CakePreorderRoute
   '/career': typeof CareerRoute
-  '/catalog': typeof CatalogRouteWithChildren
+  '/catalog': typeof CatalogRoute
   '/catering': typeof CateringRoute
   '/contacts': typeof ContactsRoute
   '/news': typeof NewsRouteWithChildren
@@ -116,7 +116,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/cake-preorder': typeof CakePreorderRoute
   '/career': typeof CareerRoute
-  '/catalog': typeof CatalogRouteWithChildren
+  '/catalog': typeof CatalogRoute
   '/catering': typeof CateringRoute
   '/contacts': typeof ContactsRoute
   '/news': typeof NewsRouteWithChildren
@@ -133,7 +133,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/cake-preorder': typeof CakePreorderRoute
   '/career': typeof CareerRoute
-  '/catalog': typeof CatalogRouteWithChildren
+  '/catalog': typeof CatalogRoute
   '/catering': typeof CateringRoute
   '/contacts': typeof ContactsRoute
   '/news': typeof NewsRouteWithChildren
@@ -141,7 +141,7 @@ export interface FileRoutesById {
   '/promotions': typeof PromotionsRoute
   '/stores': typeof StoresRoute
   '/terms': typeof TermsRoute
-  '/catalog/$slug': typeof CatalogSlugRoute
+  '/catalog_/$slug': typeof CatalogSlugRoute
   '/news/$slug': typeof NewsSlugRoute
 }
 export interface FileRouteTypes {
@@ -191,7 +191,7 @@ export interface FileRouteTypes {
     | '/promotions'
     | '/stores'
     | '/terms'
-    | '/catalog/$slug'
+    | '/catalog_/$slug'
     | '/news/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -200,7 +200,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CakePreorderRoute: typeof CakePreorderRoute
   CareerRoute: typeof CareerRoute
-  CatalogRoute: typeof CatalogRouteWithChildren
+  CatalogRoute: typeof CatalogRoute
   CateringRoute: typeof CateringRoute
   ContactsRoute: typeof ContactsRoute
   NewsRoute: typeof NewsRouteWithChildren
@@ -208,6 +208,7 @@ export interface RootRouteChildren {
   PromotionsRoute: typeof PromotionsRoute
   StoresRoute: typeof StoresRoute
   TermsRoute: typeof TermsRoute
+  CatalogSlugRoute: typeof CatalogSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -303,26 +304,15 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsSlugRouteImport
       parentRoute: typeof NewsRoute
     }
-    '/catalog/$slug': {
-      id: '/catalog/$slug'
-      path: '/$slug'
+    '/catalog_/$slug': {
+      id: '/catalog_/$slug'
+      path: '/catalog/$slug'
       fullPath: '/catalog/$slug'
       preLoaderRoute: typeof CatalogSlugRouteImport
-      parentRoute: typeof CatalogRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
-
-interface CatalogRouteChildren {
-  CatalogSlugRoute: typeof CatalogSlugRoute
-}
-
-const CatalogRouteChildren: CatalogRouteChildren = {
-  CatalogSlugRoute: CatalogSlugRoute,
-}
-
-const CatalogRouteWithChildren =
-  CatalogRoute._addFileChildren(CatalogRouteChildren)
 
 interface NewsRouteChildren {
   NewsSlugRoute: typeof NewsSlugRoute
@@ -339,7 +329,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CakePreorderRoute: CakePreorderRoute,
   CareerRoute: CareerRoute,
-  CatalogRoute: CatalogRouteWithChildren,
+  CatalogRoute: CatalogRoute,
   CateringRoute: CateringRoute,
   ContactsRoute: ContactsRoute,
   NewsRoute: NewsRouteWithChildren,
@@ -347,7 +337,18 @@ const rootRouteChildren: RootRouteChildren = {
   PromotionsRoute: PromotionsRoute,
   StoresRoute: StoresRoute,
   TermsRoute: TermsRoute,
+  CatalogSlugRoute: CatalogSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
