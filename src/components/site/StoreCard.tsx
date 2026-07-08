@@ -20,18 +20,31 @@ export function StoreCard({ s }: { s: StoreRecord }) {
       {s.services.length > 0 && (
         <div className="mt-4 flex flex-wrap gap-1.5">
           {s.services.map((sv) => (
-            <span key={sv} className="rounded-full bg-accent text-accent-foreground px-2.5 py-1 text-xs">{sv}</span>
+            <span
+              key={sv}
+              className="rounded-full bg-accent text-accent-foreground px-2.5 py-1 text-xs"
+            >
+              {sv}
+            </span>
           ))}
         </div>
       )}
       <div className="mt-4 flex flex-wrap items-center gap-4">
         {s.mapUrl && (
-          <a href={s.mapUrl} target="_blank" rel="noreferrer" className="text-sm font-semibold text-primary hover:text-primary-hover">
+          <a
+            href={s.mapUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm font-semibold text-primary hover:text-primary-hover"
+          >
             Построить маршрут →
           </a>
         )}
         {s.phone && (
-          <a href={`tel:${s.phone.replace(/\s+/g, "")}`} className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground/80 hover:text-primary">
+          <a
+            href={`tel:${s.phone.replace(/\s+/g, "")}`}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground/80 hover:text-primary"
+          >
             <Phone className="h-4 w-4" /> Позвонить
           </a>
         )}

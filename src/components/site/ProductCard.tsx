@@ -10,7 +10,12 @@ export function ProductCard({ p }: { p: Product }) {
       className="group flex flex-col rounded-3xl bg-card border border-border/60 overflow-hidden hover:border-primary/40 hover:shadow-lift transition-all"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-        <img src={p.images[0]} alt={p.name} className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+        <img
+          src={p.images[0]}
+          alt={p.name}
+          className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
         <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
           {p.isHero && (
             <span className="inline-flex items-center gap-1 rounded-full bg-primary text-primary-foreground px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider">
@@ -30,7 +35,9 @@ export function ProductCard({ p }: { p: Product }) {
         </div>
       </div>
       <div className="p-5 flex flex-col flex-1">
-        <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">{p.name}</h3>
+        <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+          {p.name}
+        </h3>
         <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">{p.shortDescription}</p>
         <div className="mt-4 flex items-center justify-between pt-4 border-t border-border/60">
           <span className="text-sm text-muted-foreground">

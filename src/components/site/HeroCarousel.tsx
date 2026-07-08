@@ -18,31 +18,45 @@ const slides: Slide[] = [
     eyebrow: "Кондитерская SOFIYA",
     title: "Фирменные торты SOFIYA",
     desc: "Ягоды, шоколад, крем и настроение праздника — в каждом торте.",
-    cta: "Смотреть каталог", href: "/catalog", image: IMG.cakeBerry, search: { cat: "cakes" },
+    cta: "Смотреть каталог",
+    href: "/catalog",
+    image: IMG.cakeBerry,
+    search: { cat: "cakes" },
   },
   {
     eyebrow: "Каждое утро",
     title: "Свежая выпечка каждый день",
     desc: "Слойки, самса и десерты из наших пекарен — только что из печи.",
-    cta: "Выбрать выпечку", href: "/catalog", image: IMG.samsa, search: { cat: "pastry" },
+    cta: "Выбрать выпечку",
+    href: "/catalog",
+    image: IMG.samsa,
+    search: { cat: "pastry" },
   },
   {
     eyebrow: "Утро в SOFIYA",
     title: "Завтраки в SOFIYA",
     desc: "Кофе, тёплая выпечка и лёгкие блюда — начните день правильно.",
-    cta: "Посмотреть завтраки", href: "/catalog", image: IMG.beignets, search: { cat: "breakfast" },
+    cta: "Посмотреть завтраки",
+    href: "/catalog",
+    image: IMG.beignets,
+    search: { cat: "breakfast" },
   },
   {
     eyebrow: "Для семьи",
     title: "Пицца для семьи и компании",
     desc: "Тонкое тесто, много начинки и настроение большого стола.",
-    cta: "Посмотреть пиццу", href: "/catalog", image: IMG.pastryMix, search: { cat: "pizza" },
+    cta: "Посмотреть пиццу",
+    href: "/catalog",
+    image: IMG.pastryMix,
+    search: { cat: "pizza" },
   },
   {
     eyebrow: "Событие ждёт торта",
     title: "Торт к вашему событию",
     desc: "Соберите торт по своему сценарию — за 3 минуты, прямо на сайте.",
-    cta: "Оформить предзаказ", href: "/cake-preorder", image: IMG.snickersCake,
+    cta: "Оформить предзаказ",
+    href: "/cake-preorder",
+    image: IMG.snickersCake,
   },
 ];
 
@@ -77,7 +91,9 @@ export function HeroCarousel() {
             <Link to={s.href} search={s.search as never} className="btn-primary btn-primary-hover">
               {s.cta} <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link to="/stores" className="btn-outline btn-outline-hover">Найти магазин</Link>
+            <Link to="/stores" className="btn-outline btn-outline-hover">
+              Найти магазин
+            </Link>
           </div>
           <div className="mt-8 flex items-center gap-3">
             {slides.map((_, idx) => (
@@ -92,7 +108,10 @@ export function HeroCarousel() {
         </div>
         <div className="order-1 lg:order-2 relative">
           <div className="absolute -inset-8 rounded-[3rem] bg-primary/10 blur-3xl -z-10" />
-          <div key={s.image} className="animate-fade-up relative aspect-[4/5] md:aspect-[5/6] rounded-[2rem] overflow-hidden shadow-lift">
+          <div
+            key={s.image}
+            className="animate-fade-up relative aspect-[4/5] md:aspect-[5/6] rounded-[2rem] overflow-hidden shadow-lift"
+          >
             <img src={s.image} alt={s.title} className="h-full w-full object-cover" />
             <div className="absolute top-4 left-4 rounded-full bg-background/90 backdrop-blur px-3 py-1 text-xs font-semibold text-primary">
               SOFIYA · Fresh

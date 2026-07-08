@@ -3,7 +3,8 @@ import type { NewsItem } from "./types";
 
 export const news: NewsItem[] = [
   {
-    id: "n-club", slug: "sofiya-club-skoro",
+    id: "n-club",
+    slug: "sofiya-club-skoro",
     title: "SOFIYA Club — программа лояльности скоро в приложении",
     category: "app",
     date: "2026-06-15",
@@ -13,7 +14,8 @@ export const news: NewsItem[] = [
     isPublished: true,
   },
   {
-    id: "n-cake-preorder", slug: "torty-na-zakaz",
+    id: "n-cake-preorder",
+    slug: "torty-na-zakaz",
     title: "Оформите торт к вашему событию онлайн",
     category: "product",
     date: "2026-05-20",
@@ -23,7 +25,8 @@ export const news: NewsItem[] = [
     isPublished: true,
   },
   {
-    id: "n-network", slug: "rastyom-po-turkistanu",
+    id: "n-network",
+    slug: "rastyom-po-turkistanu",
     title: "Растём по Туркестанской области",
     category: "company",
     date: "2026-04-10",

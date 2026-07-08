@@ -1,4 +1,22 @@
-import { Apple, Coffee, Gift, QrCode, Sparkles, SquarePlay } from "lucide-react";
+import {
+  Apple,
+  BatteryFull,
+  Check,
+  ChevronLeft,
+  Coffee,
+  Gift,
+  Home,
+  Menu,
+  MessageSquare,
+  QrCode,
+  Signal,
+  Sparkles,
+  SquarePlay,
+  Star,
+  User,
+  Wifi,
+} from "lucide-react";
+import { SofiyaWordmark } from "./SofiyaWordmark";
 
 export function AppPromo() {
   return (
@@ -17,8 +35,8 @@ export function AppPromo() {
                 <span className="text-[color:var(--gold)]">получите 6-й бесплатно</span>
               </h2>
               <p className="mt-4 text-white/85 max-w-lg">
-                Готовим мобильное приложение SOFIYA Club: цифровая карта клиента, персональный QR-код,
-                история покупок, бонусы и персональные предложения.
+                Готовим мобильное приложение SOFIYA Club: цифровая карта клиента, персональный
+                QR-код, история покупок, бонусы и персональные предложения.
               </p>
               <ul className="mt-6 grid sm:grid-cols-2 gap-3 text-sm">
                 {[
@@ -28,7 +46,9 @@ export function AppPromo() {
                   { i: Sparkles, t: "Персональные предложения" },
                 ].map(({ i: Icon, t }) => (
                   <li key={t} className="flex items-center gap-2">
-                    <span className="grid h-8 w-8 place-items-center rounded-full bg-white/15"><Icon className="h-4 w-4" /></span>
+                    <span className="grid h-8 w-8 place-items-center rounded-full bg-white/15">
+                      <Icon className="h-4 w-4" />
+                    </span>
                     {t}
                   </li>
                 ))}
@@ -40,7 +60,9 @@ export function AppPromo() {
                 >
                   <Apple className="h-4 w-4" />
                   <span className="text-[10px] uppercase">App Store</span>
-                  <span className="rounded-full bg-[color:var(--gold)] text-foreground text-[10px] font-bold px-2 py-0.5">Скоро</span>
+                  <span className="rounded-full bg-[color:var(--gold)] text-foreground text-[10px] font-bold px-2 py-0.5">
+                    Скоро
+                  </span>
                 </span>
                 <span
                   aria-disabled="true"
@@ -48,7 +70,9 @@ export function AppPromo() {
                 >
                   <SquarePlay className="h-4 w-4" />
                   <span className="text-[10px] uppercase">Google Play</span>
-                  <span className="rounded-full bg-[color:var(--gold)] text-foreground text-[10px] font-bold px-2 py-0.5">Скоро</span>
+                  <span className="rounded-full bg-[color:var(--gold)] text-foreground text-[10px] font-bold px-2 py-0.5">
+                    Скоро
+                  </span>
                 </span>
               </div>
             </div>
@@ -67,50 +91,119 @@ export function AppPromo() {
               {/* device frame: metallic bezel > inner black gap > screen */}
               <div className="relative aspect-[9/16] rounded-[2.75rem] bg-gradient-to-b from-neutral-200 via-neutral-500 to-neutral-300 p-[3px] shadow-2xl">
                 {/* side buttons */}
-                <span aria-hidden="true" className="absolute -left-[2px] top-[16%] h-7 w-[3px] rounded-l-sm bg-gradient-to-b from-neutral-300 via-neutral-500 to-neutral-300" />
-                <span aria-hidden="true" className="absolute -left-[2px] top-[24%] h-11 w-[3px] rounded-l-sm bg-gradient-to-b from-neutral-300 via-neutral-500 to-neutral-300" />
-                <span aria-hidden="true" className="absolute -right-[2px] top-[20%] h-14 w-[3px] rounded-r-sm bg-gradient-to-b from-neutral-300 via-neutral-500 to-neutral-300" />
+                <span
+                  aria-hidden="true"
+                  className="absolute -left-[2px] top-[16%] h-7 w-[3px] rounded-l-sm bg-gradient-to-b from-neutral-300 via-neutral-500 to-neutral-300"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute -left-[2px] top-[24%] h-11 w-[3px] rounded-l-sm bg-gradient-to-b from-neutral-300 via-neutral-500 to-neutral-300"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute -right-[2px] top-[20%] h-14 w-[3px] rounded-r-sm bg-gradient-to-b from-neutral-300 via-neutral-500 to-neutral-300"
+                />
 
                 <div className="h-full w-full rounded-[2.6rem] bg-gradient-to-b from-neutral-800 via-black to-neutral-800 p-[6px]">
                   <div className="relative h-full w-full rounded-[2.3rem] bg-background overflow-hidden">
                     <div className="absolute top-2.5 left-1/2 -translate-x-1/2 h-6 w-28 rounded-full bg-black z-10 flex items-center justify-end pr-2.5">
-                      <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-neutral-700 ring-1 ring-neutral-600" />
+                      <span
+                        aria-hidden="true"
+                        className="h-1.5 w-1.5 rounded-full bg-neutral-700 ring-1 ring-neutral-600"
+                      />
                     </div>
-                    <div className="h-full w-full flex flex-col p-4 pt-8 bg-gradient-to-br from-[color:var(--accent)] to-background">
-                  <div className="rounded-2xl bg-gradient-to-br from-primary to-[color:var(--secondary)] text-primary-foreground p-4 shadow-lift">
-                    <p className="text-[10px] uppercase tracking-widest opacity-80">SOFIYA Club</p>
-                    <p className="mt-1 text-lg font-semibold">Гость SOFIYA</p>
-                    <div className="mt-4 flex items-end justify-between">
-                      <div>
-                        <p className="text-[10px] opacity-80">Бонусы</p>
-                        <p className="text-2xl font-bold">1 240</p>
+                    <div className="h-full w-full flex flex-col overflow-y-auto p-4 pt-8 bg-gradient-to-br from-[color:var(--accent)] to-background">
+                      <div className="flex items-center justify-between text-[10px] font-semibold text-foreground/70">
+                        <span>9:41</span>
+                        <div className="flex items-center gap-1">
+                          <Signal className="h-3 w-3" />
+                          <Wifi className="h-3 w-3" />
+                          <BatteryFull className="h-3 w-3" />
+                        </div>
                       </div>
-                      <div className="h-14 w-14 rounded-lg bg-white/95 grid place-items-center">
-                        <QrCode className="h-9 w-9 text-primary" />
+                      <div className="mt-3 flex items-center justify-between">
+                        <span className="grid h-8 w-8 place-items-center rounded-full bg-white/70">
+                          <ChevronLeft className="h-4 w-4" />
+                        </span>
+                        <SofiyaWordmark className="h-5 text-primary" />
+                        <span className="grid h-8 w-8 place-items-center rounded-full bg-white/70">
+                          <User className="h-4 w-4" />
+                        </span>
                       </div>
-                    </div>
-                  </div>
-                  <p className="mt-4 text-xs font-semibold text-muted-foreground uppercase tracking-widest">5 кофе — 6-й в подарок</p>
-                  <div className="mt-2 flex gap-1.5">
-                    {[1,2,3,0,0].map((v,i) => (
-                      <div key={i} className={`h-8 flex-1 rounded-lg border-2 ${v ? "border-primary bg-primary/10" : "border-dashed border-border"}`}>
-                        {v ? <div className="grid place-items-center h-full text-primary"><Coffee className="h-4 w-4" /></div> : null}
+                      <h3 className="mt-4 text-lg font-bold text-foreground">
+                        Программа лояльности
+                      </h3>
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        Спасибо, что выбираете SOFIYA каждый день!
+                      </p>
+                      <div className="mt-4 rounded-2xl bg-gradient-to-br from-primary to-[color:var(--secondary)] text-primary-foreground p-4 shadow-lift">
+                        <p className="text-[10px] uppercase tracking-widest opacity-80">
+                          Ваш бонус
+                        </p>
+                        <p className="mt-1 text-base font-bold leading-snug">
+                          Купи 5 кофе — 6-й бесплатно
+                        </p>
+                        <p className="mt-1 text-[11px] opacity-85">
+                          Собирайте штампы и получите любимый кофе в подарок!
+                        </p>
                       </div>
-                    ))}
-                  </div>
-                  <p className="mt-4 text-xs font-semibold text-muted-foreground uppercase tracking-widest">История</p>
-                  <div className="mt-2 space-y-2">
-                    {[
-                      ["Капучино", "+50 бонусов"],
-                      ["Медовик", "+120 бонусов"],
-                      ["Самса", "+30 бонусов"],
-                    ].map(([n,b]) => (
-                      <div key={n} className="flex items-center justify-between rounded-xl bg-card border border-border/60 px-3 py-2 text-xs">
-                        <span className="font-medium text-foreground">{n}</span>
-                        <span className="text-primary font-semibold">{b}</span>
+                      <div className="mt-4 flex justify-between">
+                        {[1, 2, 3, 4, 5, 6].map((n) => {
+                          const done = n <= 5;
+                          return (
+                            <div key={n} className="flex flex-1 flex-col items-center gap-1">
+                              <div
+                                className={`grid h-8 w-8 place-items-center rounded-full text-xs font-bold ${done ? "bg-primary text-primary-foreground" : "border-2 border-dashed border-border text-muted-foreground"}`}
+                              >
+                                {done ? <Check className="h-4 w-4" /> : n}
+                              </div>
+                              <span className="text-[8px] leading-tight text-center text-muted-foreground">
+                                {done ? (
+                                  n
+                                ) : (
+                                  <>
+                                    6-я
+                                    <br />
+                                    бесплатно
+                                  </>
+                                )}
+                              </span>
+                            </div>
+                          );
+                        })}
                       </div>
-                    ))}
-                  </div>
+                      <div className="mt-4 flex items-center gap-3 rounded-xl bg-card border border-border/60 px-3 py-2.5">
+                        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-primary/10 text-primary">
+                          <Coffee className="h-4 w-4" />
+                        </span>
+                        <div>
+                          <p className="text-xs font-semibold text-foreground">Ваш прогресс 5/6</p>
+                          <p className="text-[10px] text-muted-foreground">
+                            Ещё 1 кофе — и напиток в подарок!
+                          </p>
+                        </div>
+                      </div>
+                      <div className="mt-auto pt-3 flex items-center justify-between border-t border-border/60">
+                        {[
+                          { i: Home, t: "Главная", active: false },
+                          { i: Menu, t: "Меню", active: false },
+                          { i: Star, t: "Бонусы", active: true },
+                          { i: MessageSquare, t: "Отзывы", active: false },
+                          { i: User, t: "Профиль", active: false },
+                        ].map(({ i: Icon, t, active }) => (
+                          <div
+                            key={t}
+                            className={`flex flex-1 flex-col items-center gap-0.5 ${active ? "text-primary" : "text-muted-foreground"}`}
+                          >
+                            <span
+                              className={`grid h-7 w-7 place-items-center rounded-full ${active ? "bg-primary/10" : ""}`}
+                            >
+                              <Icon className="h-4 w-4" />
+                            </span>
+                            <span className="text-[8px] font-medium">{t}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
