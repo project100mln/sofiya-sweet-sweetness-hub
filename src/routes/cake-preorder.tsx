@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { site, waLink } from "@/config/site";
 import { stores } from "@/data/stores";
-import { CAKE_TYPES, SIZES, CANDLES, PACKAGING } from "@/data/cake-options";
+import { CAKE_TYPES, SIZES, PACKAGING } from "@/data/cake-options";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 
