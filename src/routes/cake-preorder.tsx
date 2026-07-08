@@ -184,7 +184,7 @@ function PreorderPage() {
               onChange={(v) => set("packaging", v)}
             />
           )}
-          {step === 9 && (
+          {step === 7 && (
             <Field
               label="Ваше имя"
               value={data.name}
@@ -192,7 +192,7 @@ function PreorderPage() {
               placeholder="Как к вам обращаться"
             />
           )}
-          {step === 10 && (
+          {step === 8 && (
             <Field
               label="Телефон"
               type="tel"
@@ -201,14 +201,14 @@ function PreorderPage() {
               placeholder="+7 ___ ___ __ __"
             />
           )}
-          {step === 11 && (
+          {step === 9 && (
             <TextArea
               label="Комментарий (по желанию)"
               value={data.comment}
               onChange={(v) => set("comment", v)}
             />
           )}
-          {step === 12 && (
+          {step === 10 && (
             <div>
               <h3 className="text-lg font-semibold mb-4">Проверьте заказ</h3>
               <dl className="space-y-2 text-sm">
@@ -219,8 +219,6 @@ function PreorderPage() {
                   Дата: data.date,
                   Время: data.time,
                   Точка: data.store,
-                  Надпись: data.inscription,
-                  Свечи: data.candles,
                   Упаковка: data.packaging,
                   Имя: data.name,
                   Телефон: data.phone,
