@@ -1,4 +1,4 @@
-import { Coffee, Gift, QrCode, Sparkles } from "lucide-react";
+import { Apple, Coffee, Gift, QrCode, Sparkles, SquarePlay } from "lucide-react";
 
 export function AppPromo() {
   return (
@@ -34,12 +34,20 @@ export function AppPromo() {
                 ))}
               </ul>
               <div className="mt-8 flex flex-wrap gap-3">
-                <span className="inline-flex items-center gap-2 rounded-2xl bg-black/40 backdrop-blur border border-white/15 px-4 py-3 text-sm font-medium">
-                  <span className="text-[10px] uppercase opacity-80">App Store</span>
+                <span
+                  aria-disabled="true"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-black/40 backdrop-blur border border-white/15 px-4 py-3 text-sm font-medium opacity-60 cursor-not-allowed select-none"
+                >
+                  <Apple className="h-4 w-4" />
+                  <span className="text-[10px] uppercase">App Store</span>
                   <span className="rounded-full bg-[color:var(--gold)] text-foreground text-[10px] font-bold px-2 py-0.5">Скоро</span>
                 </span>
-                <span className="inline-flex items-center gap-2 rounded-2xl bg-black/40 backdrop-blur border border-white/15 px-4 py-3 text-sm font-medium">
-                  <span className="text-[10px] uppercase opacity-80">Google Play</span>
+                <span
+                  aria-disabled="true"
+                  className="inline-flex items-center gap-2 rounded-2xl bg-black/40 backdrop-blur border border-white/15 px-4 py-3 text-sm font-medium opacity-60 cursor-not-allowed select-none"
+                >
+                  <SquarePlay className="h-4 w-4" />
+                  <span className="text-[10px] uppercase">Google Play</span>
                   <span className="rounded-full bg-[color:var(--gold)] text-foreground text-[10px] font-bold px-2 py-0.5">Скоро</span>
                 </span>
               </div>
@@ -61,7 +69,7 @@ export function AppPromo() {
                       </div>
                     </div>
                   </div>
-                  <p className="mt-4 text-xs font-semibold text-muted-foreground uppercase tracking-widest">5+1 кофе</p>
+                  <p className="mt-4 text-xs font-semibold text-muted-foreground uppercase tracking-widest">5 кофе — 6-й в подарок</p>
                   <div className="mt-2 flex gap-1.5">
                     {[1,2,3,0,0].map((v,i) => (
                       <div key={i} className={`h-8 flex-1 rounded-lg border-2 ${v ? "border-primary bg-primary/10" : "border-dashed border-border"}`}>
