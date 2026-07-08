@@ -53,9 +53,30 @@ export function AppPromo() {
               </div>
             </div>
             <div className="relative mx-auto w-full max-w-sm">
-              <div className="relative aspect-[9/16] rounded-[2.5rem] bg-background border-[10px] border-black/60 shadow-2xl overflow-hidden">
-                <div className="absolute top-2 left-1/2 -translate-x-1/2 h-5 w-24 rounded-b-2xl bg-black/60 z-10" />
-                <div className="h-full w-full flex flex-col p-4 pt-8 bg-gradient-to-br from-[color:var(--accent)] to-background">
+              {/* decorative colored glow behind the device — purely visual, no interaction */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-6 -inset-y-8 rounded-[3rem] bg-gradient-to-br from-[color:var(--gold)]/40 via-white/10 to-transparent blur-3xl"
+              />
+              {/* soft ambient ground shadow */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-4 inset-x-10 h-8 rounded-full bg-black/40 blur-2xl"
+              />
+
+              {/* device frame: metallic bezel > inner black gap > screen */}
+              <div className="relative aspect-[9/16] rounded-[2.75rem] bg-gradient-to-b from-neutral-200 via-neutral-500 to-neutral-300 p-[3px] shadow-2xl">
+                {/* side buttons */}
+                <span aria-hidden="true" className="absolute -left-[2px] top-[16%] h-7 w-[3px] rounded-l-sm bg-gradient-to-b from-neutral-300 via-neutral-500 to-neutral-300" />
+                <span aria-hidden="true" className="absolute -left-[2px] top-[24%] h-11 w-[3px] rounded-l-sm bg-gradient-to-b from-neutral-300 via-neutral-500 to-neutral-300" />
+                <span aria-hidden="true" className="absolute -right-[2px] top-[20%] h-14 w-[3px] rounded-r-sm bg-gradient-to-b from-neutral-300 via-neutral-500 to-neutral-300" />
+
+                <div className="h-full w-full rounded-[2.6rem] bg-gradient-to-b from-neutral-800 via-black to-neutral-800 p-[6px]">
+                  <div className="relative h-full w-full rounded-[2.3rem] bg-background overflow-hidden">
+                    <div className="absolute top-2.5 left-1/2 -translate-x-1/2 h-6 w-28 rounded-full bg-black z-10 flex items-center justify-end pr-2.5">
+                      <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-neutral-700 ring-1 ring-neutral-600" />
+                    </div>
+                    <div className="h-full w-full flex flex-col p-4 pt-8 bg-gradient-to-br from-[color:var(--accent)] to-background">
                   <div className="rounded-2xl bg-gradient-to-br from-primary to-[color:var(--secondary)] text-primary-foreground p-4 shadow-lift">
                     <p className="text-[10px] uppercase tracking-widest opacity-80">SOFIYA Club</p>
                     <p className="mt-1 text-lg font-semibold">Гость SOFIYA</p>
@@ -89,6 +110,8 @@ export function AppPromo() {
                         <span className="text-primary font-semibold">{b}</span>
                       </div>
                     ))}
+                  </div>
+                    </div>
                   </div>
                 </div>
               </div>
