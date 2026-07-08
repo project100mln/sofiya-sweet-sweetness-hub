@@ -1,4 +1,4 @@
-import { MapPin, Clock } from "lucide-react";
+import { MapPin, Clock, Phone, MessageCircle } from "lucide-react";
 import type { StoreRecord } from "@/data/types";
 
 export function StoreCard({ s }: { s: StoreRecord }) {
@@ -24,11 +24,28 @@ export function StoreCard({ s }: { s: StoreRecord }) {
           ))}
         </div>
       )}
-      {s.mapUrl && (
-        <a href={s.mapUrl} target="_blank" rel="noreferrer" className="mt-4 text-sm font-semibold text-primary hover:text-primary-hover">
-          Построить маршрут →
-        </a>
-      )}
+      <div className="mt-4 flex flex-wrap items-center gap-4">
+        {s.mapUrl && (
+          <a href={s.mapUrl} target="_blank" rel="noreferrer" className="text-sm font-semibold text-primary hover:text-primary-hover">
+            Построить маршрут →
+          </a>
+        )}
+        {s.phone && (
+          <a href={`tel:${s.phone.replace(/\s+/g, "")}`} className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground/80 hover:text-primary">
+            <Phone className="h-4 w-4" /> Позвонить
+          </a>
+        )}
+        {s.whatsapp && (
+          <a
+            href={`https://wa.me/${s.whatsapp}?text=${encodeURIComponent(`Здравствуйте, SOFIYA! Интересует магазин: ${s.address}.`)}`}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground/80 hover:text-primary"
+          >
+            <MessageCircle className="h-4 w-4" /> WhatsApp
+          </a>
+        )}
+      </div>
     </article>
   );
 }

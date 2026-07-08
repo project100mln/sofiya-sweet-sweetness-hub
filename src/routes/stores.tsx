@@ -8,7 +8,7 @@ import { Search, MapPin } from "lucide-react";
 export const Route = createFileRoute("/stores")({
   head: () => ({
     meta: [
-      { title: "Магазины и кофейни SOFIYA — 16 точек" },
+      { title: `Магазины и кофейни SOFIYA — ${stores.length} точек` },
       { name: "description", content: "Адреса пекарен и кофеен SOFIYA в Шымкенте, Ленгере, Аксукенте, Сайраме и Манкенте." },
     ],
   }),
@@ -16,11 +16,11 @@ export const Route = createFileRoute("/stores")({
 });
 
 function StoresPage() {
-  const [city, setCity] = useState<string | null>(null);
+  const [city, setCity] = useState<string>("Шымкент");
   const [q, setQ] = useState("");
   const filtered = useMemo(() => {
     return stores.filter((s) => {
-      if (city && s.city !== city) return false;
+      if (s.city !== city) return false;
       if (q.trim()) {
         const t = q.toLowerCase();
         return s.address.toLowerCase().includes(t) || s.city.toLowerCase().includes(t) || (s.landmark ?? "").toLowerCase().includes(t);
@@ -48,9 +48,6 @@ function StoresPage() {
           </div>
         </div>
         <div className="mt-4 no-scrollbar -mx-4 px-4 md:mx-0 md:px-0 flex gap-2 overflow-x-auto pb-2">
-          <button onClick={() => setCity(null)} className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold border ${!city ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary"}`}>
-            Все города
-          </button>
           {cities.map((c) => (
             <button key={c} onClick={() => setCity(c)}
                     className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold border ${city === c ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary"}`}>
@@ -65,7 +62,7 @@ function StoresPage() {
             {filtered.length === 0 ? (
               <div className="rounded-3xl border border-dashed border-border p-12 text-center">
                 <p className="text-lg font-semibold">Магазины не найдены</p>
-                <button onClick={() => { setCity(null); setQ(""); }} className="mt-4 btn-outline btn-outline-hover">Сбросить</button>
+                <button onClick={() => setQ("")} className="mt-4 btn-outline btn-outline-hover">Сбросить</button>
               </div>
             ) : (
               <div className="grid gap-4 md:grid-cols-2">
