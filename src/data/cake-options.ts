@@ -2,7 +2,7 @@ import { products } from "./catalog";
 
 const CAKE_TYPE_LABELS: Record<string, string> = {
   "yagodnyy-tort-sofiya": "Ягодный",
-  "shokoladnyy-tort-snickers": "Шоколадный со Snickers",
+  "shokoladnyy-tort-snickers": "Торт Сникерс",
   medovik: "Медовик",
   "napoleon-karamelnyy": "Наполеон карамельный",
   "matilda-cake": "Matilda Cake",
