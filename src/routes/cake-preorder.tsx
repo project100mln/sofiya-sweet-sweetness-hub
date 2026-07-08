@@ -51,15 +51,13 @@ function PreorderPage() {
       "date",
       "store",
       "time",
-      "inscription",
-      "candles",
       "packaging",
       "name",
       "phone",
       "comment",
       "review",
     ][step];
-    if (["inscription", "comment", "time"].includes(k)) return true;
+    if (["comment", "time"].includes(k)) return true;
     if (k === "review") return true;
     return !!data[k];
   }, [step, data]);
@@ -74,8 +72,6 @@ function PreorderPage() {
 Дата: ${data.date ?? "-"}
 Время: ${data.time ?? "-"}
 Точка самовывоза: ${data.store ?? "-"}
-Надпись: ${data.inscription || "-"}
-Свечи: ${data.candles ?? "-"}
 Упаковка: ${data.packaging ?? "-"}
 Имя: ${data.name ?? "-"}
 Телефон: ${data.phone ?? "-"}
@@ -181,22 +177,6 @@ function PreorderPage() {
             />
           )}
           {step === 6 && (
-            <Field
-              label="Надпись на торте (по желанию)"
-              placeholder="Например: С днём рождения, София!"
-              value={data.inscription}
-              onChange={(v) => set("inscription", v)}
-            />
-          )}
-          {step === 7 && (
-            <Choices
-              label="Свечи"
-              options={CANDLES}
-              value={data.candles}
-              onChange={(v) => set("candles", v)}
-            />
-          )}
-          {step === 8 && (
             <Choices
               label="Упаковка"
               options={PACKAGING}
