@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { site, waLink } from "@/config/site";
 import { stores } from "@/data/stores";
-import { CAKE_TYPES, SIZES, CANDLES, PACKAGING } from "@/data/cake-options";
+import { CAKE_TYPES, SIZES, PACKAGING } from "@/data/cake-options";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -27,8 +27,6 @@ const STEPS = [
   "Дата",
   "Точка",
   "Время",
-  "Надпись",
-  "Свечи",
   "Упаковка",
   "Имя",
   "Телефон",
@@ -53,15 +51,13 @@ function PreorderPage() {
       "date",
       "store",
       "time",
-      "inscription",
-      "candles",
       "packaging",
       "name",
       "phone",
       "comment",
       "review",
     ][step];
-    if (["inscription", "comment", "time"].includes(k)) return true;
+    if (["comment", "time"].includes(k)) return true;
     if (k === "review") return true;
     return !!data[k];
   }, [step, data]);
@@ -76,8 +72,6 @@ function PreorderPage() {
 Дата: ${data.date ?? "-"}
 Время: ${data.time ?? "-"}
 Точка самовывоза: ${data.store ?? "-"}
-Надпись: ${data.inscription || "-"}
-Свечи: ${data.candles ?? "-"}
 Упаковка: ${data.packaging ?? "-"}
 Имя: ${data.name ?? "-"}
 Телефон: ${data.phone ?? "-"}
@@ -183,22 +177,6 @@ function PreorderPage() {
             />
           )}
           {step === 6 && (
-            <Field
-              label="Надпись на торте (по желанию)"
-              placeholder="Например: С днём рождения, София!"
-              value={data.inscription}
-              onChange={(v) => set("inscription", v)}
-            />
-          )}
-          {step === 7 && (
-            <Choices
-              label="Свечи"
-              options={CANDLES}
-              value={data.candles}
-              onChange={(v) => set("candles", v)}
-            />
-          )}
-          {step === 8 && (
             <Choices
               label="Упаковка"
               options={PACKAGING}
@@ -206,7 +184,7 @@ function PreorderPage() {
               onChange={(v) => set("packaging", v)}
             />
           )}
-          {step === 9 && (
+          {step === 7 && (
             <Field
               label="Ваше имя"
               value={data.name}
@@ -214,7 +192,7 @@ function PreorderPage() {
               placeholder="Как к вам обращаться"
             />
           )}
-          {step === 10 && (
+          {step === 8 && (
             <Field
               label="Телефон"
               type="tel"
@@ -223,14 +201,14 @@ function PreorderPage() {
               placeholder="+7 ___ ___ __ __"
             />
           )}
-          {step === 11 && (
+          {step === 9 && (
             <TextArea
               label="Комментарий (по желанию)"
               value={data.comment}
               onChange={(v) => set("comment", v)}
             />
           )}
-          {step === 12 && (
+          {step === 10 && (
             <div>
               <h3 className="text-lg font-semibold mb-4">Проверьте заказ</h3>
               <dl className="space-y-2 text-sm">
@@ -241,8 +219,6 @@ function PreorderPage() {
                   Дата: data.date,
                   Время: data.time,
                   Точка: data.store,
-                  Надпись: data.inscription,
-                  Свечи: data.candles,
                   Упаковка: data.packaging,
                   Имя: data.name,
                   Телефон: data.phone,
