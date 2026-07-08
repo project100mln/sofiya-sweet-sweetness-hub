@@ -1,5 +1,4 @@
 import { Apple, Coffee, Gift, QrCode, Sparkles, SquarePlay } from "lucide-react";
-import { SofiyaWordmark } from "./SofiyaWordmark";
 import mockupAsset from "@/assets/sofiya-club-mockup.png.asset.json";
 
 export function AppPromo() {
