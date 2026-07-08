@@ -9,7 +9,7 @@ export const Route = createFileRoute("/stores")({
   head: () => ({
     meta: [
       { title: `Магазины и кофейни SOFIYA — ${stores.length} точек` },
-      { name: "description", content: "Адреса пекарен и кофеен SOFIYA в Шымкенте, Ленгере, Аксукенте, Сайраме и Манкенте." },
+      { name: "description", content: "Адреса пекарен и кофеен SOFIYA в Шымкенте, Ленгере, Аксукенте и Манкенте." },
     ],
   }),
   component: StoresPage,
