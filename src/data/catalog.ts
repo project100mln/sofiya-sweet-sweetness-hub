@@ -118,7 +118,7 @@ export const products: Product[] = [
   {
     id: "p-snickers",
     slug: "shokoladnyy-tort-snickers",
-    name: "Шоколадный торт со Snickers",
+    name: "Торт Сникерс",
     categoryId: "cakes",
     shortDescription: "Насыщенный шоколад, карамель и арахис",
     fullDescription:
