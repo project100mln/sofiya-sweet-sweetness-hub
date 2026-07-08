@@ -143,9 +143,6 @@ function LatteCup({ className = "" }: { className?: string }) {
   );
 }
 
-/* --- scalloped ticket card --- */
-const scallopMask =
-  "radial-gradient(circle 6px at 6px 6px, transparent 6px, black 6.5px) top left / 12px 12px repeat, radial-gradient(circle 6px at 6px 6px, transparent 6px, black 6.5px) top left / 12px 100% no-repeat";
 
 export function AppPromo() {
   const stamps = [1, 2, 3, 4, 5];
