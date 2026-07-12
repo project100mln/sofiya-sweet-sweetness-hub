@@ -16,8 +16,8 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    eyebrow: "Кондитерская SOFIYA",
-    title: "Фирменные торты SOFIYA",
+    eyebrow: <>Кондитерская <SofiyaWordmark /></>,
+    title: <>Фирменные торты <SofiyaWordmark /></>,
     desc: "Ягоды, шоколад, крем и настроение праздника — в каждом торте.",
     cta: "Смотреть каталог",
     href: "/catalog",
@@ -34,8 +34,8 @@ const slides: Slide[] = [
     search: { cat: "pastry" },
   },
   {
-    eyebrow: "Утро в SOFIYA",
-    title: "Завтраки в SOFIYA",
+    eyebrow: <>Утро в <SofiyaWordmark /></>,
+    title: <>Завтраки в <SofiyaWordmark /></>,
     desc: "Кофе, тёплая выпечка и лёгкие блюда — начните день правильно.",
     cta: "Посмотреть завтраки",
     href: "/catalog",
