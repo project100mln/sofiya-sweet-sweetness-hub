@@ -113,9 +113,9 @@ export function HeroCarousel() {
             key={s.image}
             className="animate-fade-up relative aspect-[4/5] md:aspect-[5/6] rounded-[2rem] overflow-hidden shadow-lift"
           >
-            <img src={s.image} alt={s.title} className="h-full w-full object-cover" />
-            <div className="absolute top-4 left-4 rounded-full bg-background/90 backdrop-blur px-3 py-1 text-xs font-semibold text-primary">
-              SOFIYA · Fresh
+            <img src={s.image} alt="" className="h-full w-full object-cover" />
+            <div className="absolute top-4 left-4 rounded-full bg-background/90 backdrop-blur px-3 py-1 text-xs font-semibold text-primary inline-flex items-center gap-1">
+              <SofiyaWordmark /> · Fresh
             </div>
           </div>
         </div>
