@@ -78,7 +78,7 @@ function AboutPage() {
               Найти магазин
             </Link>
             <Link to="/career" className="btn-outline btn-outline-hover">
-              Работать в SOFIYA
+              Работать в <SofiyaWordmark />
             </Link>
           </div>
         </div>
