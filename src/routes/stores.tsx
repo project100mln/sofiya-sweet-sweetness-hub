@@ -100,7 +100,7 @@ function StoresPage() {
               <MapPin className="h-8 w-8 text-primary" />
               <p className="mt-3 font-semibold">Интерактивная карта</p>
               <p className="mt-1 text-sm text-muted-foreground max-w-xs">
-                Мы готовим карту всех магазинов SOFIYA. Пока используйте фильтр по городам.
+                Мы готовим карту всех магазинов <SofiyaWordmark />. Пока используйте фильтр по городам.
               </p>
               <Link to="/contacts" className="mt-4 btn-outline btn-outline-hover">
                 Связаться с нами
