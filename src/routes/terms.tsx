@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
+
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
@@ -11,7 +13,7 @@ export const Route = createFileRoute("/terms")({
     <article className="container-page py-14 max-w-3xl prose prose-neutral">
       <h1 className="text-4xl font-bold">Пользовательское соглашение</h1>
       <p className="mt-6 text-muted-foreground">
-        Используя сайт SOFIYA, вы соглашаетесь с условиями, изложенными ниже.
+        Используя сайт <SofiyaWordmark />, вы соглашаетесь с условиями, изложенными ниже.
       </p>
       <h2 className="mt-8 text-2xl font-semibold">Использование сайта</h2>
       <p className="mt-2 text-muted-foreground">
@@ -25,7 +27,7 @@ export const Route = createFileRoute("/terms")({
       </p>
       <h2 className="mt-6 text-2xl font-semibold">Материалы сайта</h2>
       <p className="mt-2 text-muted-foreground">
-        Все материалы (фотографии, тексты, логотип) принадлежат SOFIYA и защищены законом об
+        Все материалы (фотографии, тексты, логотип) принадлежат <SofiyaWordmark /> и защищены законом об
         авторском праве.
       </p>
     </article>

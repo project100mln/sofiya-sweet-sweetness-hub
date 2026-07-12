@@ -51,7 +51,7 @@ function AboutPage() {
         {[
           { i: Leaf, t: "Свежесть", d: "Готовим ежедневно небольшими партиями." },
           { i: Sparkles, t: "Качество", d: "Отбираем ингредиенты и следим за процессом." },
-          { i: Heart, t: "Забота", d: "Тёплые встречи в каждой кофейне SOFIYA." },
+          { i: Heart, t: "Забота", d: <>Тёплые встречи в каждой кофейне <SofiyaWordmark />.</> },
           { i: Award, t: "Растём", d: "Открываем новые точки по региону." },
         ].map(({ i: Icon, t, d }) => (
           <div key={t} className="rounded-3xl bg-card border border-border/60 p-6">
@@ -78,7 +78,7 @@ function AboutPage() {
               Найти магазин
             </Link>
             <Link to="/career" className="btn-outline btn-outline-hover">
-              Работать в SOFIYA
+              Работать в <SofiyaWordmark />
             </Link>
           </div>
         </div>

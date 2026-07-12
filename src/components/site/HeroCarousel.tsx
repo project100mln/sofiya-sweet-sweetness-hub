@@ -1,11 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { IMG } from "@/data/catalog";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 
 interface Slide {
-  eyebrow: string;
-  title: string;
+  eyebrow: ReactNode;
+  title: ReactNode;
   desc: string;
   cta: string;
   href: string;
@@ -15,8 +16,8 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    eyebrow: "Кондитерская SOFIYA",
-    title: "Фирменные торты SOFIYA",
+    eyebrow: <>Кондитерская <SofiyaWordmark /></>,
+    title: <>Фирменные торты <SofiyaWordmark /></>,
     desc: "Ягоды, шоколад, крем и настроение праздника — в каждом торте.",
     cta: "Смотреть каталог",
     href: "/catalog",
@@ -33,8 +34,8 @@ const slides: Slide[] = [
     search: { cat: "pastry" },
   },
   {
-    eyebrow: "Утро в SOFIYA",
-    title: "Завтраки в SOFIYA",
+    eyebrow: <>Утро в <SofiyaWordmark /></>,
+    title: <>Завтраки в <SofiyaWordmark /></>,
     desc: "Кофе, тёплая выпечка и лёгкие блюда — начните день правильно.",
     cta: "Посмотреть завтраки",
     href: "/catalog",
@@ -79,7 +80,7 @@ export function HeroCarousel() {
       onMouseLeave={() => setPaused(false)}
     >
       <div className="container-page grid gap-8 lg:grid-cols-2 items-center py-10 md:py-16 lg:py-20">
-        <div key={s.title} className="animate-fade-up order-2 lg:order-1">
+        <div key={i} className="animate-fade-up order-2 lg:order-1">
           <span className="inline-flex items-center rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold uppercase tracking-widest">
             {s.eyebrow}
           </span>
@@ -112,9 +113,9 @@ export function HeroCarousel() {
             key={s.image}
             className="animate-fade-up relative aspect-[4/5] md:aspect-[5/6] rounded-[2rem] overflow-hidden shadow-lift"
           >
-            <img src={s.image} alt={s.title} className="h-full w-full object-cover" />
-            <div className="absolute top-4 left-4 rounded-full bg-background/90 backdrop-blur px-3 py-1 text-xs font-semibold text-primary">
-              SOFIYA · Fresh
+            <img src={s.image} alt="" className="h-full w-full object-cover" />
+            <div className="absolute top-4 left-4 rounded-full bg-background/90 backdrop-blur px-3 py-1 text-xs font-semibold text-primary inline-flex items-center gap-1">
+              <SofiyaWordmark /> · Fresh
             </div>
           </div>
         </div>
