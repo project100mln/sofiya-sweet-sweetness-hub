@@ -27,7 +27,7 @@ export const Route = createFileRoute("/terms")({
       </p>
       <h2 className="mt-6 text-2xl font-semibold">Материалы сайта</h2>
       <p className="mt-2 text-muted-foreground">
-        Все материалы (фотографии, тексты, логотип) принадлежат SOFIYA и защищены законом об
+        Все материалы (фотографии, тексты, логотип) принадлежат <SofiyaWordmark /> и защищены законом об
         авторском праве.
       </p>
     </article>
