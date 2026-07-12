@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
+
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
