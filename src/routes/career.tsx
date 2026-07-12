@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { site, waLink } from "@/config/site";
 import { Check, Coffee, Cake, Users, GraduationCap, Sprout, Sparkles } from "lucide-react";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 
 export const Route = createFileRoute("/career")({
   head: () => ({
