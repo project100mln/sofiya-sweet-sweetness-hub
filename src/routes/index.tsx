@@ -3,6 +3,7 @@ import { HeroCarousel } from "@/components/site/HeroCarousel";
 import { CategoryGrid } from "@/components/site/CategoryGrid";
 import { ProductCarousel } from "@/components/site/ProductCarousel";
 import { AppPromo } from "@/components/site/AppPromo";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { StoreCard } from "@/components/site/StoreCard";
 import { products, IMG } from "@/data/catalog";
 import { stores } from "@/data/stores";
