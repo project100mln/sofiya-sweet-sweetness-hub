@@ -13,7 +13,7 @@ export const Route = createFileRoute("/terms")({
     <article className="container-page py-14 max-w-3xl prose prose-neutral">
       <h1 className="text-4xl font-bold">Пользовательское соглашение</h1>
       <p className="mt-6 text-muted-foreground">
-        Используя сайт SOFIYA, вы соглашаетесь с условиями, изложенными ниже.
+        Используя сайт <SofiyaWordmark />, вы соглашаетесь с условиями, изложенными ниже.
       </p>
       <h2 className="mt-8 text-2xl font-semibold">Использование сайта</h2>
       <p className="mt-2 text-muted-foreground">
