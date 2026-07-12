@@ -80,7 +80,7 @@ export function HeroCarousel() {
       onMouseLeave={() => setPaused(false)}
     >
       <div className="container-page grid gap-8 lg:grid-cols-2 items-center py-10 md:py-16 lg:py-20">
-        <div key={s.title} className="animate-fade-up order-2 lg:order-1">
+        <div key={i} className="animate-fade-up order-2 lg:order-1">
           <span className="inline-flex items-center rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold uppercase tracking-widest">
             {s.eyebrow}
           </span>
