@@ -38,7 +38,7 @@ function CareerPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-primary to-[color:var(--secondary)] text-primary-foreground">
         <div className="container-page py-14 md:py-20">
           <p className="text-xs font-semibold uppercase tracking-widest opacity-80">Карьера</p>
-          <h1 className="mt-2 text-4xl md:text-6xl font-bold">Станьте частью команды SOFIYA</h1>
+          <h1 className="mt-2 text-4xl md:text-6xl font-bold">Станьте частью команды <SofiyaWordmark className="brightness-0 invert" /></h1>
           <p className="mt-4 text-lg text-white/85 max-w-2xl">
             Мы — растущая сеть кофеен и пекарен. Ищем людей, которые любят своё дело и хотят расти
             вместе с нами.
