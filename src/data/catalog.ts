@@ -47,6 +47,7 @@ import imgBulochkaSMakom from "@/assets/products/sofiya-products/bulochka-s-mako
 import imgBulochkaSoSguschenkoy from "@/assets/products/sofiya-products/bulochka-so-sguschenkoy.jpg";
 import imgBulochkaSTvorogom from "@/assets/products/sofiya-products/bulochka-s-tvorogom.jpg";
 import imgPirozhnoeKartoshka from "@/assets/products/sofiya-products/pirozhnoe-kartoshka.jpg";
+import imgSytnyyZavtrak from "@/assets/products/sofiya-products/сытный завтрак.jpg";
 import imgZavtrakSLososem from "@/assets/products/sofiya-products/Завтрак с лососем.jpg";
 import imgShakshuka from "@/assets/products/sofiya-products/Шак-шука.jpg";
 import imgSaladGrechesky from "@/assets/products/sofiya-products/Салат Греческий.jpg";
@@ -1109,8 +1110,7 @@ export const products: Product[] = [
     allergens: null,
     shelfLife: null,
     storage: null,
-    // TODO: заменить на imgSytnyyZavtrak, когда файл появится в src/assets/products/sofiya-products/sytnyy-zavtrak.jpg
-    images: [IMG.pastryMix],
+    images: [imgSytnyyZavtrak],
     isHero: false,
     isBestseller: false,
     isNew: false,
