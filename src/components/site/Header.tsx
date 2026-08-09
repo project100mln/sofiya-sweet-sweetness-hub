@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import logo from "@/assets/sofiya-logo.png.asset.json";
+import { branding, logoUrl } from "@/config/branding";
 import { site, instagramLink, waLink } from "@/config/site";
 import { nav } from "@/config/navigation";
 import { Instagram, Menu, MessageCircle, Phone, X } from "lucide-react";
@@ -31,7 +31,7 @@ export function Header() {
     >
       <div className="container-page flex items-center gap-4 py-3 md:py-4">
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <img src={logo.url} alt="SOFIYA" className="h-10 md:h-12 w-auto" />
+          <img src={logoUrl(branding.headerLogo)} alt={branding.alt} className={branding.classes.header} />
         </Link>
 
         <nav className="ml-6 hidden xl:flex items-center gap-1">
@@ -88,7 +88,7 @@ export function Header() {
       {open && (
         <div className="fixed inset-0 z-[60] bg-background flex flex-col">
           <div className="container-page flex items-center py-3 border-b border-border">
-            <img src={logo.url} alt="SOFIYA" className="h-10" />
+            <img src={logoUrl(branding.headerLogo)} alt={branding.alt} className={branding.classes.headerMobile} />
             <button
               className="ml-auto grid h-11 w-11 place-items-center rounded-full border border-border"
               onClick={() => setOpen(false)}
