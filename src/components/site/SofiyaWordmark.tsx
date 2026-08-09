@@ -1,11 +1,11 @@
-import wordmark from "@/assets/sofiya-wordmark.png.asset.json";
+import { branding, logoUrl } from "@/config/branding";
 
 export function SofiyaWordmark({ className }: { className?: string }) {
   return (
     <img
-      src={wordmark.url}
-      alt="SOFIYA"
-      className={`inline-block h-[1.4em] w-auto align-[-0.3em] ${className ?? ""}`}
+      src={logoUrl(branding.inlineWordmark)}
+      alt={branding.alt}
+      className={`${branding.classes.inline} ${className ?? ""}`}
     />
   );
 }

@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/sofiya-logo.png.asset.json";
+import { branding, logoUrl } from "@/config/branding";
 import { site, instagramLink, waLink } from "@/config/site";
 import { categories } from "@/data/catalog";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
@@ -10,7 +10,7 @@ export function Footer() {
     <footer className="mt-24 bg-[color:var(--foreground)] text-[color:var(--primary-foreground)]">
       <div className="container-page py-14 grid gap-10 md:grid-cols-4">
         <div>
-          <img src={logo.url} alt="SOFIYA" className="h-14 w-auto brightness-0 invert" />
+          <img src={logoUrl(branding.footerLogo)} alt={branding.alt} className={branding.classes.footer} />
           <p className="mt-4 text-sm text-white/70 leading-relaxed">
             {site.brand} Sweet — сеть кофеен и пекарен Казахстана. Свежая выпечка, авторские торты и
             кофе каждый день.
