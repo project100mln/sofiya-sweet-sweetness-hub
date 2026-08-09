@@ -32,7 +32,8 @@ export const branding = {
     /** Футер на тёмном фоне: invert делает логотип белым */
     footer: "h-14 w-auto brightness-0 invert",
     /** Инлайн-логотип внутри строки текста */
-    inline: "inline-block h-[1.4em] w-auto align-[-0.3em]",
+    inline: "inline-block h-[1.4em] w-auto align-middle",
+
   },
 } as const;
 
