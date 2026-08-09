@@ -1,4 +1,4 @@
-import logo from "@/assets/sofiya-logo.png.asset.json";
+import wordmark from "@/assets/sofiya-wordmark.png.asset.json";
 
 export function SofiyaWordmark({ className }: { className?: string }) {
   return (
