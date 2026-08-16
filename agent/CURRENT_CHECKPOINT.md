@@ -10,9 +10,14 @@
   production build and secret scan). Full dependency audit reports 0 vulnerabilities.
 - SSR route matrix: public routes return 200/redirect as expected; designed unknown
   routes return 404; product pages render one canonical and three JSON-LD blocks.
+- Pull Request: GitHub Draft PR #1, branch is five commits ahead of `main`.
+- CI status: `quality` and `browser-smoke` are green. Desktop and iPhone-size Chromium
+  smoke tests cover public routes, catalogue filtering/sorting, mobile navigation,
+  WhatsApp hand-off, confirmed social links and the designed 404.
 - Browser status: the published `main` visual baseline was inspected at 1363 × 936.
-  Branch desktop/mobile E2E and Preview UAT remain pending CI/deployment because the
-  sandbox could not download the Playwright Chromium binary.
+  Branch Preview UAT remains pending a preview host. Lovable only tracks `main`; the
+  connected Vercel account requires explicit authorization to create a new public
+  project for this repository.
 
 ## Owner gates
 
@@ -22,6 +27,8 @@
    (`+7 707 558 06 05` and `+7 778 558 06 05`).
 4. Apply and verify `20260816090000_harden_public_promotions.sql` in the connected
    Supabase project; no production database credentials are present locally.
+5. Authorize a new Vercel Preview project for this repository, or choose merging the
+   Draft PR into Lovable-connected `main` as the preview route.
 
 ## Files to read next
 
