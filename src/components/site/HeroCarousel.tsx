@@ -40,16 +40,12 @@ const slides: Slide[] = [
   {
     eyebrow: (
       <>
-        Утро в <SofiyaWordmark />
-      </>
-    ),
-    title: (
-      <>
         Завтраки в <SofiyaWordmark />
       </>
     ),
-    desc: "Кофе, тёплая выпечка и лёгкие блюда — начните день правильно.",
-    cta: "Посмотреть завтраки",
+    title: "Утро начинается вкусно",
+    desc: "Свежий кофе, тёплая выпечка и лёгкие завтраки — каждый день.",
+    cta: "Посмотреть меню",
     href: "/catalog",
     image: IMG.beignets,
     search: { cat: "breakfast" },
@@ -105,7 +101,7 @@ export function HeroCarousel() {
               {s.cta} <ArrowRight className="h-4 w-4" />
             </Link>
             <Link to="/stores" className="btn-outline btn-outline-hover">
-              Найти магазин
+              Найти кондитерскую SOFIYA
             </Link>
           </div>
           <div className="mt-8 flex items-center gap-3">
