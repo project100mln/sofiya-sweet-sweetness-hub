@@ -15,6 +15,8 @@ export function ProductCarousel({
   action?: React.ReactNode;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  if (items.length === 0) return null;
+
   const scroll = (dir: 1 | -1) => {
     const el = ref.current;
     if (!el) return;
@@ -29,20 +31,24 @@ export function ProductCarousel({
         </div>
         <div className="flex items-center gap-2">
           {action}
-          <button
-            onClick={() => scroll(-1)}
-            aria-label="Назад"
-            className="hidden md:grid h-11 w-11 place-items-center rounded-full border border-border hover:border-primary hover:text-primary"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button
-            onClick={() => scroll(1)}
-            aria-label="Далее"
-            className="hidden md:grid h-11 w-11 place-items-center rounded-full border border-border hover:border-primary hover:text-primary"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
+          {items.length > 4 && (
+            <>
+              <button
+                onClick={() => scroll(-1)}
+                aria-label="Назад"
+                className="hidden md:grid h-11 w-11 place-items-center rounded-full border border-border hover:border-primary hover:text-primary"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                onClick={() => scroll(1)}
+                aria-label="Далее"
+                className="hidden md:grid h-11 w-11 place-items-center rounded-full border border-border hover:border-primary hover:text-primary"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </>
+          )}
         </div>
       </div>
       <div

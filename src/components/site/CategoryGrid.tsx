@@ -29,8 +29,8 @@ export function CategoryGrid() {
               <img
                 src={c.image}
                 alt={c.name}
-                className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                loading="lazy"
+                className={`h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ${i === 0 ? "object-bottom" : ""}`}
+                loading={i < 3 ? "eager" : "lazy"}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-5">

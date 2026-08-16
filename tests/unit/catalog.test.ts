@@ -23,6 +23,14 @@ describe("public catalogue data", () => {
     }
   });
 
+  it("does not advertise empty catalogue categories", () => {
+    for (const category of categories) {
+      expect(
+        products.some((product) => product.categoryId === category.id && product.isPublished),
+      ).toBe(true);
+    }
+  });
+
   it("keeps every public location actionable", () => {
     for (const store of stores) {
       expect(store.address.trim()).not.toBe("");

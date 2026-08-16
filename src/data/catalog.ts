@@ -100,15 +100,27 @@ export const categories: Category[] = [
     short: "Слоёное тесто, ароматная начинка",
     image: IMG.samsa,
   },
-  { id: "pies", slug: "pies", name: "Пироги", short: "Домашние и праздничные", image: IMG.medovik },
+  {
+    id: "pies",
+    slug: "pies",
+    name: "Пироги",
+    short: "Домашние и праздничные",
+    image: imgPirogMedoviy,
+  },
   {
     id: "breakfast",
     slug: "breakfast",
     name: "Завтраки",
     short: "Утро в SOFIYA",
-    image: IMG.pastryMix,
+    image: imgSytnyyZavtrak,
   },
-  { id: "pizza", slug: "pizza", name: "Пицца", short: "Для семьи и компании", image: IMG.eclairs },
+  {
+    id: "pizza",
+    slug: "pizza",
+    name: "Пицца",
+    short: "Для семьи и компании",
+    image: imgPizzaMargarita,
+  },
   {
     id: "salads",
     slug: "salads",
@@ -122,20 +134,6 @@ export const categories: Category[] = [
     name: "Снеки",
     short: "К чаю и на компанию",
     image: imgKartoshkaFri,
-  },
-  {
-    id: "drinks",
-    slug: "drinks",
-    name: "Напитки",
-    short: "Кофе, чай, лимонады",
-    image: IMG.cakeBerry,
-  },
-  {
-    id: "gifts",
-    slug: "gifts",
-    name: "Подарочные наборы",
-    short: "Сладкие сюрпризы",
-    image: IMG.tartAssorti,
   },
 ];
 
