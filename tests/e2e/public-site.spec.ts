@@ -106,20 +106,23 @@ test("breakfast hero uses the approved brand hierarchy", async ({ page }) => {
   const hero = page.locator("main section").first();
   await hero.getByRole("button", { name: "Слайд 3" }).click();
 
-  await expect(
-    hero.getByText("Завтраки в", { exact: false }).first(),
-  ).toBeVisible();
-  await expect(
-    hero.getByRole("heading", { level: 1, name: "Утро начинается вкусно" }),
-  ).toBeVisible();
-  await expect(
-    hero.getByText("Свежий кофе, тёплая выпечка и лёгкие завтраки — каждый день."),
-  ).toBeVisible();
-  await expect(
-    hero.getByRole("link", { name: /Посмотреть меню/ }),
-  ).toHaveAttribute("href", /cat=breakfast/);
-  await expect(
-    hero.getByRole("link", { name: "Найти кондитерскую SOFIYA" }),
-  ).toHaveAttribute("href", "/stores");
+  const eyebrow = hero.getByText("Завтраки в", { exact: false }).first();
+  const heading = hero.getByRole("heading", {
+    level: 1,
+    name: "Утро начинается вкусно",
+  });
+  const description = hero.getByText(
+    "Свежий кофе, тёплая выпечка и лёгкие завтраки — каждый день.",
+  );
+  const menuLink = hero.getByRole("link", { name: /Посмотреть меню/ });
+  const storeLink = hero.getByRole("link", {
+    name: "Найти кондитерскую SOFIYA",
+  });
+
+  await expect(eyebrow).toBeVisible();
+  await expect(heading).toBeVisible();
+  await expect(description).toBeVisible();
+  await expect(menuLink).toHaveAttribute("href", /cat=breakfast/);
+  await expect(storeLink).toHaveAttribute("href", "/stores");
   expect(errors).toEqual([]);
 });
