@@ -10,7 +10,7 @@
   production build and secret scan). Full dependency audit reports 0 vulnerabilities.
 - SSR route matrix: public routes return 200/redirect as expected; designed unknown
   routes return 404; product pages render one canonical and three JSON-LD blocks.
-- Pull Request: GitHub Draft PR #1, branch is five commits ahead of `main`.
+- Pull Request: GitHub Draft PR #1 with sequential commits on top of `main`.
 - CI status: `quality` and `browser-smoke` are green. Desktop and iPhone-size Chromium
   smoke tests cover public routes, catalogue filtering/sorting, mobile navigation,
   WhatsApp hand-off, confirmed social links and the designed 404.
