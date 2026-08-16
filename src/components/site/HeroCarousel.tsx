@@ -21,12 +21,8 @@ const slides: Slide[] = [
         Кондитерская <SofiyaWordmark />
       </>
     ),
-    title: (
-      <>
-        Фирменные торты <SofiyaWordmark />
-      </>
-    ),
-    desc: "Ягоды, шоколад, крем и настроение праздника — в каждом торте.",
+    title: "Торты для ваших праздников",
+    desc: "Свежие ягоды, нежные кремы и авторский декор — создаём с любовью для каждого повода.",
     cta: "Смотреть каталог",
     href: "/catalog",
     image: IMG.cakeBerry,
@@ -130,9 +126,6 @@ export function HeroCarousel() {
             className="animate-fade-up relative aspect-[4/5] md:aspect-[5/6] rounded-[2rem] overflow-hidden shadow-lift"
           >
             <img src={s.image} alt="" className="h-full w-full object-cover" />
-            <div className="absolute top-4 left-4 rounded-full bg-background/90 backdrop-blur px-3 py-1 text-xs font-semibold text-primary inline-flex items-center gap-1">
-              <SofiyaWordmark /> · Fresh
-            </div>
           </div>
         </div>
       </div>
