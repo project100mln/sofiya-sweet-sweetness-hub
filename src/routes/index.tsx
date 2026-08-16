@@ -255,12 +255,13 @@ function Home() {
       <section className="container-page py-14 md:py-20">
         <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-              Сеть <SofiyaWordmark />
+            <span className="inline-flex items-center gap-3 text-xs font-semibold uppercase leading-none tracking-widest text-primary">
+              <span>Сеть</span>
+              <SofiyaWordmark className="h-[1.15em] translate-y-px" />
             </span>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold">Магазины и кофейни</h2>
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold">Наши магазины</h2>
             <p className="mt-2 text-muted-foreground max-w-xl">
-              {stores.length} точек в Шымкенте, Ленгере, Аксукенте, Сайраме и Манкенте.
+              16 магазинов в Шымкенте и Туркестанской области.
             </p>
           </div>
           <Link to="/stores" className="btn-outline btn-outline-hover">
