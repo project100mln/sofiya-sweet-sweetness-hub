@@ -1,14 +1,14 @@
 // Centralized branding / logo configuration.
 // Меняйте логотипы и их поведение здесь — компоненты трогать не нужно.
-import markHeart from "@/assets/sofiya-wordmark.png.asset.json";
-import markRound from "@/assets/sofiya-logo.png.asset.json";
+import markHeart from "@/assets/sofiya-wordmark.png";
+import markRound from "@/assets/sofiya-logo.png";
 
 /** Все доступные варианты логотипа. Добавьте новый ассет и запись здесь. */
 export const logoSources = {
   /** Надпись «SOFIYA» с сердечком (прозрачный фон) */
-  wordmark: markHeart.url,
+  wordmark: markHeart,
   /** Круглый логотип-эмблема */
-  round: markRound.url,
+  round: markRound,
 } as const;
 
 export type LogoVariant = keyof typeof logoSources;
@@ -33,7 +33,6 @@ export const branding = {
     footer: "h-14 w-auto brightness-0 invert",
     /** Инлайн-логотип внутри строки текста */
     inline: "inline-block h-[1.4em] w-auto align-middle",
-
   },
 } as const;
 

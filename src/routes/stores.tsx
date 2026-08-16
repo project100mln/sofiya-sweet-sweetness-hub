@@ -4,9 +4,11 @@ import { stores, cities } from "@/data/stores";
 import { StoreCard } from "@/components/site/StoreCard";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Search, MapPin } from "lucide-react";
+import { canonicalLink } from "@/config/site";
 
 export const Route = createFileRoute("/stores")({
   head: () => ({
+    links: canonicalLink("/stores"),
     meta: [
       { title: `Магазины и кофейни SOFIYA — ${stores.length} точек` },
       {
@@ -100,7 +102,8 @@ function StoresPage() {
               <MapPin className="h-8 w-8 text-primary" />
               <p className="mt-3 font-semibold">Интерактивная карта</p>
               <p className="mt-1 text-sm text-muted-foreground max-w-xs">
-                Мы готовим карту всех магазинов <SofiyaWordmark />. Пока используйте фильтр по городам.
+                Мы готовим карту всех магазинов <SofiyaWordmark />. Пока используйте фильтр по
+                городам.
               </p>
               <Link to="/contacts" className="mt-4 btn-outline btn-outline-hover">
                 Связаться с нами

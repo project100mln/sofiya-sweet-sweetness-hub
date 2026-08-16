@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
-
+import { canonicalLink } from "@/config/site";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
+    links: canonicalLink("/privacy"),
     meta: [
       { title: "Политика конфиденциальности | SOFIYA" },
       { name: "description", content: "Политика обработки персональных данных SOFIYA." },
@@ -13,8 +14,9 @@ export const Route = createFileRoute("/privacy")({
     <article className="container-page py-14 max-w-3xl prose prose-neutral">
       <h1 className="text-4xl font-bold">Политика конфиденциальности</h1>
       <p className="mt-6 text-muted-foreground">
-        Настоящая политика описывает, как <SofiyaWordmark /> обрабатывает персональные данные, оставленные вами
-        при оформлении предзаказов, заявок на кейтеринг, откликов на вакансии и обратной связи.
+        Настоящая политика описывает, как <SofiyaWordmark /> обрабатывает персональные данные,
+        оставленные вами при оформлении предзаказов, заявок на кейтеринг, откликов на вакансии и
+        обратной связи.
       </p>
       <h2 className="mt-8 text-2xl font-semibold">Какие данные мы обрабатываем</h2>
       <p className="mt-2 text-muted-foreground">

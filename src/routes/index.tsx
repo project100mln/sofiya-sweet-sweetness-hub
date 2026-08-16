@@ -9,6 +9,7 @@ import { products, IMG } from "@/data/catalog";
 import { stores } from "@/data/stores";
 import { news } from "@/data/news";
 import { site, instagramLink } from "@/config/site";
+import { canonicalLink } from "@/config/site";
 import {
   ArrowRight,
   Cake,
@@ -22,6 +23,7 @@ import {
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
+  head: () => ({ links: canonicalLink("/") }),
   component: Home,
 });
 
@@ -318,7 +320,9 @@ function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/40" />
           <div className="relative container-page p-8 md:p-14 text-primary-foreground max-w-2xl">
             <Users className="h-8 w-8" />
-            <h2 className="mt-4 text-3xl md:text-5xl font-bold">Станьте частью команды <SofiyaWordmark className="brightness-0 invert" /></h2>
+            <h2 className="mt-4 text-3xl md:text-5xl font-bold">
+              Станьте частью команды <SofiyaWordmark className="brightness-0 invert" />
+            </h2>
             <p className="mt-3 text-white/85">
               Растущая сеть, обучение, разные направления работы: пекари, кондитеры, бариста,
               менеджеры.

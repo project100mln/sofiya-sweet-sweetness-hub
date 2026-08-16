@@ -4,6 +4,7 @@ import { categories, products } from "@/data/catalog";
 import { ProductCard } from "@/components/site/ProductCard";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Search, SlidersHorizontal, X } from "lucide-react";
+import { canonicalLink } from "@/config/site";
 
 interface CatalogSearch {
   cat?: string;
@@ -20,6 +21,7 @@ export const Route = createFileRoute("/catalog")({
       : "recommended",
   }),
   head: () => ({
+    links: canonicalLink("/catalog"),
     meta: [
       { title: "Каталог — торты, десерты, выпечка | SOFIYA" },
       {
@@ -64,7 +66,8 @@ function CatalogPage() {
   const activeCat = categories.find((c) => c.slug === search.cat);
   const toggle = (t: string) => {
     const n = new Set(tags);
-    return n.has(t) ? n.delete(t) : n.add(t);
+    if (n.has(t)) n.delete(t);
+    else n.add(t);
     setTags(n);
   };
 
@@ -179,7 +182,13 @@ function CatalogPage() {
 
       {/* Mobile filter drawer */}
       {filterOpen && (
-        <div className="fixed inset-0 z-[60] bg-black/40" onClick={() => setFilterOpen(false)}>
+        <div
+          className="fixed inset-0 z-[60] bg-black/40"
+          onClick={() => setFilterOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Фильтры каталога"
+        >
           <div
             className="absolute bottom-0 inset-x-0 bg-background rounded-t-3xl p-6 max-h-[80vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
@@ -189,6 +198,7 @@ function CatalogPage() {
               <button
                 onClick={() => setFilterOpen(false)}
                 className="grid h-10 w-10 place-items-center rounded-full border border-border"
+                aria-label="Закрыть фильтры"
               >
                 <X className="h-4 w-4" />
               </button>

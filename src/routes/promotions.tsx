@@ -3,9 +3,12 @@ import { stores } from "@/data/stores";
 import { usePromotions } from "@/hooks/use-promotions";
 import { useSelectedStore, storeNumericIds } from "@/hooks/use-selected-store";
 import { PromotionCard } from "@/components/site/PromotionCard";
+import { supabaseConfigured } from "@/lib/supabase";
+import { canonicalLink } from "@/config/site";
 
 export const Route = createFileRoute("/promotions")({
   head: () => ({
+    links: canonicalLink("/promotions"),
     meta: [
       { title: "Акции SOFIYA" },
       { name: "description", content: "Актуальные акции и специальные предложения SOFIYA." },
@@ -47,15 +50,28 @@ function PromotionsPage() {
       </section>
 
       <section className="container-page py-12">
-        {isLoading && <p className="text-muted-foreground">Загружаем акции…</p>}
+        {!supabaseConfigured && (
+          <div className="mx-auto max-w-2xl rounded-3xl border border-dashed border-border p-10 text-center">
+            <p className="text-lg font-semibold">Акции скоро появятся</p>
+            <p className="mt-2 text-muted-foreground">
+              Следите за обновлениями в Instagram и уточняйте предложения в выбранном филиале.
+            </p>
+          </div>
+        )}
 
-        {isError && (
+        {supabaseConfigured && isLoading && (
+          <p className="text-muted-foreground" role="status">
+            Загружаем акции…
+          </p>
+        )}
+
+        {supabaseConfigured && isError && (
           <p className="text-destructive">
             Не удалось загрузить акции. Попробуйте обновить страницу.
           </p>
         )}
 
-        {!isLoading && !isError && promotions?.length === 0 && (
+        {supabaseConfigured && !isLoading && !isError && promotions?.length === 0 && (
           <div className="rounded-3xl border border-dashed border-border p-10 text-center max-w-2xl mx-auto">
             <p className="text-lg font-semibold">В этом филиале сейчас нет активных акций</p>
             <p className="mt-2 text-muted-foreground">
@@ -64,7 +80,7 @@ function PromotionsPage() {
           </div>
         )}
 
-        {promotions && promotions.length > 0 && (
+        {supabaseConfigured && promotions && promotions.length > 0 && (
           <div className="grid gap-5 md:grid-cols-3">
             {promotions.map((promotion) => (
               <PromotionCard key={promotion.id} promotion={promotion} />

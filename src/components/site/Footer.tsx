@@ -4,13 +4,18 @@ import { site, instagramLink, waLink } from "@/config/site";
 import { categories } from "@/data/catalog";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Instagram, MessageCircle, Phone, MapPin } from "lucide-react";
+import { SiTiktok } from "react-icons/si";
 
 export function Footer() {
   return (
     <footer className="mt-24 bg-[color:var(--foreground)] text-[color:var(--primary-foreground)]">
       <div className="container-page py-14 grid gap-10 md:grid-cols-4">
         <div>
-          <img src={logoUrl(branding.footerLogo)} alt={branding.alt} className={branding.classes.footer} />
+          <img
+            src={logoUrl(branding.footerLogo)}
+            alt={branding.alt}
+            className={branding.classes.footer}
+          />
           <p className="mt-4 text-sm text-white/70 leading-relaxed">
             {site.brand} Sweet — сеть кофеен и пекарен Казахстана. Свежая выпечка, авторские торты и
             кофе каждый день.
@@ -32,6 +37,16 @@ export function Footer() {
             >
               <MessageCircle className="h-4 w-4" /> WhatsApp
             </a>
+            {site.tiktokUrl && (
+              <a
+                href={site.tiktokUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/25 px-3 py-2 text-xs font-medium transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              >
+                <SiTiktok className="h-4 w-4" aria-hidden="true" /> {site.tiktokHandle}
+              </a>
+            )}
           </div>
         </div>
 

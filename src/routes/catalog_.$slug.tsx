@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getProduct, products, getCategory } from "@/data/catalog";
-import { site, waLink } from "@/config/site";
+import { absoluteUrl, canonicalLink, site, waLink } from "@/config/site";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Instagram, MessageCircle, ChevronRight } from "lucide-react";
 
@@ -17,13 +17,53 @@ export const Route = createFileRoute("/catalog_/$slug")({
       };
     const p = loaderData.product;
     return {
+      links: canonicalLink(`/catalog/${p.slug}`),
       meta: [
         { title: `${p.name} | SOFIYA` },
         { name: "description", content: p.shortDescription },
         { property: "og:title", content: `${p.name} — SOFIYA` },
         { property: "og:description", content: p.shortDescription },
-        { property: "og:image", content: p.images[0] },
+        { property: "og:image", content: absoluteUrl(p.images[0]) },
         { property: "og:type", content: "product" },
+      ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: p.name,
+            description: p.shortDescription,
+            image: p.images.map(absoluteUrl),
+            brand: { "@type": "Brand", name: site.brand },
+            offers:
+              p.price != null
+                ? {
+                    "@type": "Offer",
+                    priceCurrency: "KZT",
+                    price: p.price,
+                    availability: "https://schema.org/InStoreOnly",
+                  }
+                : undefined,
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Главная", item: absoluteUrl("/") },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Каталог",
+                item: absoluteUrl("/catalog"),
+              },
+              { "@type": "ListItem", position: 3, name: p.name },
+            ],
+          }),
+        },
       ],
     };
   },

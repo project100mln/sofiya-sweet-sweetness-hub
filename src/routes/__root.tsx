@@ -13,6 +13,40 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { stores } from "@/data/stores";
+import { absoluteUrl, site } from "@/config/site";
+import brandLogo from "@/assets/sofiya-logo.png";
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.legalName,
+  url: site.domain || undefined,
+  logo: absoluteUrl(brandLogo),
+  telephone: site.phone,
+  areaServed: site.region,
+  sameAs: [site.instagramUrl, site.tiktokUrl].filter(Boolean),
+  department: stores.map((store) => ({
+    "@type": "Bakery",
+    name: `${site.brand} — ${store.address}`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: store.city,
+      streetAddress: store.address,
+      addressCountry: "KZ",
+    },
+    telephone: store.phone,
+    url: store.mapUrl || undefined,
+    geo:
+      store.latitude != null && store.longitude != null
+        ? {
+            "@type": "GeoCoordinates",
+            latitude: store.latitude,
+            longitude: store.longitude,
+          }
+        : undefined,
+  })),
+};
 
 function NotFoundComponent() {
   return (
@@ -68,15 +102,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "SOFIYA Sweet — сеть кофеен и пекарен в Шымкенте" },
       {
         name: "description",
-        content:
-          "SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки, пицца и кофе. 16 пекарен и кофеен в Шымкенте, Ленгере, Аксукенте, Сайраме и Манкенте.",
+        content: `SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки, пицца и кофе. ${stores.length} пекарен и кофеен в Шымкенте и Туркестанской области.`,
       },
       { name: "author", content: "SOFIYA Sweet" },
       { property: "og:title", content: "SOFIYA Sweet — сеть кофеен и пекарен в Шымкенте" },
       {
         property: "og:description",
-        content:
-          "SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки, пицца и кофе. 16 пекарен и кофеен в Шымкенте, Ленгере, Аксукенте, Сайраме и Манкенте.",
+        content: `SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки, пицца и кофе. ${stores.length} пекарен и кофеен в Шымкенте и Туркестанской области.`,
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "SOFIYA Sweet" },
@@ -85,18 +117,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:title", content: "SOFIYA Sweet — сеть кофеен и пекарен в Шымкенте" },
       {
         name: "twitter:description",
-        content:
-          "SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки, пицца и кофе. 16 пекарен и кофеен в Шымкенте, Ленгере, Аксукенте, Сайраме и Манкенте.",
+        content: `SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки, пицца и кофе. ${stores.length} пекарен и кофеен в Шымкенте и Туркестанской области.`,
       },
       {
         property: "og:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/39fb9dd9-d402-4b39-aacb-e7c75e52e223/id-preview-0d3c6c41--a2dc33b6-dee8-414d-bb74-5140bccf959f.lovable.app-1783422170040.png",
+        content: absoluteUrl("/og-sofiya.jpg"),
       },
       {
         name: "twitter:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/39fb9dd9-d402-4b39-aacb-e7c75e52e223/id-preview-0d3c6c41--a2dc33b6-dee8-414d-bb74-5140bccf959f.lovable.app-1783422170040.png",
+        content: absoluteUrl("/og-sofiya.jpg"),
       },
     ],
     links: [
@@ -107,6 +136,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(organizationSchema),
       },
     ],
   }),

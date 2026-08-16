@@ -18,8 +18,13 @@ export function Header() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    if (open) window.addEventListener("keydown", closeOnEscape);
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("keydown", closeOnEscape);
     };
   }, [open]);
 
@@ -30,8 +35,12 @@ export function Header() {
       } border-b border-border/60`}
     >
       <div className="container-page flex items-center gap-4 py-3 md:py-4">
-        <Link to="/" className="flex items-center gap-2 shrink-0">
-          <img src={logoUrl(branding.headerLogo)} alt={branding.alt} className={branding.classes.header} />
+        <Link to="/" className="flex shrink-0 items-center gap-2" aria-label="SOFIYA — на главную">
+          <img
+            src={logoUrl(branding.headerLogo)}
+            alt={branding.alt}
+            className={branding.classes.header}
+          />
         </Link>
 
         <nav className="ml-6 hidden xl:flex items-center gap-1">
@@ -78,6 +87,8 @@ export function Header() {
           <button
             className="xl:hidden grid h-11 w-11 place-items-center rounded-full border border-border"
             aria-label="Меню"
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
             onClick={() => setOpen(true)}
           >
             <Menu className="h-5 w-5" />
@@ -86,9 +97,19 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-[60] bg-background flex flex-col">
+        <div
+          id="mobile-navigation"
+          className="fixed inset-0 z-[60] flex flex-col bg-background"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Навигация"
+        >
           <div className="container-page flex items-center py-3 border-b border-border">
-            <img src={logoUrl(branding.headerLogo)} alt={branding.alt} className={branding.classes.headerMobile} />
+            <img
+              src={logoUrl(branding.headerLogo)}
+              alt={branding.alt}
+              className={branding.classes.headerMobile}
+            />
             <button
               className="ml-auto grid h-11 w-11 place-items-center rounded-full border border-border"
               onClick={() => setOpen(false)}

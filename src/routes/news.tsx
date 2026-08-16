@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { news } from "@/data/news";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
+import { canonicalLink } from "@/config/site";
 
 export const Route = createFileRoute("/news")({
   head: () => ({
+    links: canonicalLink("/news"),
     meta: [
       { title: "Новости и акции SOFIYA" },
       { name: "description", content: "Свежие новости, анонсы и акции сети SOFIYA." },

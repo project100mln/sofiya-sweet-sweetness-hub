@@ -2,9 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { stores } from "@/data/stores";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Leaf, Sparkles, Heart, Award } from "lucide-react";
+import { canonicalLink } from "@/config/site";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
+    links: canonicalLink("/about"),
     meta: [
       { title: "О компании SOFIYA" },
       {
@@ -51,7 +53,15 @@ function AboutPage() {
         {[
           { i: Leaf, t: "Свежесть", d: "Готовим ежедневно небольшими партиями." },
           { i: Sparkles, t: "Качество", d: "Отбираем ингредиенты и следим за процессом." },
-          { i: Heart, t: "Забота", d: <>Тёплые встречи в каждой кофейне <SofiyaWordmark />.</> },
+          {
+            i: Heart,
+            t: "Забота",
+            d: (
+              <>
+                Тёплые встречи в каждой кофейне <SofiyaWordmark />.
+              </>
+            ),
+          },
           { i: Award, t: "Растём", d: "Открываем новые точки по региону." },
         ].map(({ i: Icon, t, d }) => (
           <div key={t} className="rounded-3xl bg-card border border-border/60 p-6">

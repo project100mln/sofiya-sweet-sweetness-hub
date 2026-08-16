@@ -3,9 +3,11 @@ import { useState } from "react";
 import { site, waLink } from "@/config/site";
 import { Check, Coffee, Cake, Users, GraduationCap, Sprout, Sparkles } from "lucide-react";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
+import { canonicalLink } from "@/config/site";
 
 export const Route = createFileRoute("/career")({
   head: () => ({
+    links: canonicalLink("/career"),
     meta: [
       { title: "Карьера в SOFIYA" },
       {
@@ -22,15 +24,15 @@ function CareerPage() {
   const [f, setF] = useState({ position: "", name: "", phone: "", city: "", comment: "" });
   const [sent, setSent] = useState(false);
   const set = (k: keyof typeof f, v: string) => setF((s) => ({ ...s, [k]: v }));
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const msg = `Здравствуйте, SOFIYA! Отклик на вакансию:
+  const whatsappMessage = `Здравствуйте, SOFIYA! Отклик на вакансию:
 Направление: ${f.position}
 Имя: ${f.name}
 Телефон: ${f.phone}
 Город: ${f.city}
 О себе: ${f.comment || "—"}`;
-    if (site.whatsappDigits) window.open(waLink(msg), "_blank");
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (site.whatsappDigits) window.open(waLink(whatsappMessage), "_blank", "noopener,noreferrer");
     setSent(true);
   };
 
@@ -39,7 +41,9 @@ function CareerPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-primary to-[color:var(--secondary)] text-primary-foreground">
         <div className="container-page py-14 md:py-20">
           <p className="text-xs font-semibold uppercase tracking-widest opacity-80">Карьера</p>
-          <h1 className="mt-2 text-4xl md:text-6xl font-bold">Станьте частью команды <SofiyaWordmark className="brightness-0 invert" /></h1>
+          <h1 className="mt-2 text-4xl md:text-6xl font-bold">
+            Станьте частью команды <SofiyaWordmark className="brightness-0 invert" />
+          </h1>
           <p className="mt-4 text-lg text-white/85 max-w-2xl">
             Мы — растущая сеть кофеен и пекарен. Ищем людей, которые любят своё дело и хотят расти
             вместе с нами.
@@ -99,8 +103,19 @@ function CareerPage() {
               <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-primary/10 text-primary">
                 <Check className="h-7 w-7" />
               </div>
-              <p className="mt-4 text-lg font-semibold">Заявка отправлена!</p>
-              <p className="mt-2 text-muted-foreground text-sm">Мы свяжемся с вами.</p>
+              <p className="mt-4 text-lg font-semibold">Сообщение подготовлено</p>
+              <p className="mt-2 text-muted-foreground text-sm">
+                Проверьте готовый текст и отправьте его в WhatsApp — только после этого отклик
+                поступит менеджеру.
+              </p>
+              <a
+                href={waLink(whatsappMessage)}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 btn-primary btn-primary-hover"
+              >
+                Открыть WhatsApp
+              </a>
             </div>
           ) : (
             <form onSubmit={submit} className="mt-6 grid gap-4">
@@ -132,6 +147,9 @@ function CareerPage() {
                   <span className="text-sm font-semibold block mb-1.5">Телефон *</span>
                   <input
                     type="tel"
+                    inputMode="tel"
+                    autoComplete="tel"
+                    pattern="[+0-9 ()-]{7,20}"
                     required
                     value={f.phone}
                     onChange={(e) => set("phone", e.target.value)}
@@ -160,7 +178,7 @@ function CareerPage() {
                 />
               </label>
               <button type="submit" className="btn-primary btn-primary-hover mt-2">
-                Отправить
+                Перейти в WhatsApp
               </button>
             </form>
           )}

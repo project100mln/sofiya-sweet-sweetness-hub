@@ -5,9 +5,11 @@ import { stores } from "@/data/stores";
 import { CAKE_TYPES, SIZES, PACKAGING } from "@/data/cake-options";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Check, ChevronLeft, ChevronRight } from "lucide-react";
+import { canonicalLink } from "@/config/site";
 
 export const Route = createFileRoute("/cake-preorder")({
   head: () => ({
+    links: canonicalLink("/cake-preorder"),
     meta: [
       { title: "Торты на заказ | SOFIYA" },
       {
@@ -63,9 +65,7 @@ function PreorderPage() {
   }, [step, data]);
 
   const today = new Date().toISOString().split("T")[0];
-
-  const submit = () => {
-    const msg = `Здравствуйте, SOFIYA! Хочу оформить торт на заказ:
+  const whatsappMessage = `Здравствуйте, SOFIYA! Хочу оформить торт на заказ:
 Тип: ${data.type ?? "-"}
 Размер: ${data.size ?? "-"}
 Порций: ${data.servings ?? "-"}
@@ -76,7 +76,9 @@ function PreorderPage() {
 Имя: ${data.name ?? "-"}
 Телефон: ${data.phone ?? "-"}
 Комментарий: ${data.comment || "-"}`;
-    if (site.whatsappDigits) window.open(waLink(msg), "_blank");
+
+  const submit = () => {
+    if (site.whatsappDigits) window.open(waLink(whatsappMessage), "_blank", "noopener,noreferrer");
     setSent(true);
   };
 
@@ -87,18 +89,26 @@ function PreorderPage() {
           <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-primary/10 text-primary">
             <Check className="h-8 w-8" />
           </div>
-          <h1 className="mt-5 text-3xl font-bold">Заявка принята!</h1>
+          <h1 className="mt-5 text-3xl font-bold">Сообщение подготовлено</h1>
           <p className="mt-3 text-muted-foreground">
-            Мы открыли ваш чат в WhatsApp с готовым сообщением. Наш менеджер свяжется с вами в
-            ближайшее время.
+            Проверьте готовый текст и нажмите «Отправить» в WhatsApp. Только после этого заявка
+            будет передана менеджеру.
           </p>
+          <a
+            href={waLink(whatsappMessage)}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 btn-primary btn-primary-hover"
+          >
+            Открыть WhatsApp
+          </a>
           <button
             onClick={() => {
               setSent(false);
               setStep(0);
               setData({});
             }}
-            className="mt-6 btn-outline btn-outline-hover"
+            className="mt-3 btn-outline btn-outline-hover"
           >
             Оформить ещё торт
           </button>
@@ -196,6 +206,9 @@ function PreorderPage() {
             <Field
               label="Телефон"
               type="tel"
+              inputMode="tel"
+              autoComplete="tel"
+              pattern="[+0-9 ()-]{7,20}"
               value={data.phone}
               onChange={(v) => set("phone", v)}
               placeholder="+7 ___ ___ __ __"
@@ -259,7 +272,7 @@ function PreorderPage() {
               disabled={!data.name || !data.phone || !data.date || !data.store}
               className="btn-primary btn-primary-hover disabled:opacity-40"
             >
-              Отправить заявку
+              Перейти в WhatsApp
             </button>
           )}
         </div>
@@ -285,8 +298,10 @@ function Choices({
       <div className="grid sm:grid-cols-2 gap-2">
         {options.map((o) => (
           <button
+            type="button"
             key={o}
             onClick={() => onChange(o)}
+            aria-pressed={value === o}
             className={`text-left rounded-2xl border px-4 py-3 text-sm ${value === o ? "border-primary bg-primary/5 font-semibold" : "border-border hover:border-primary/60"}`}
           >
             {o}
@@ -304,6 +319,9 @@ function Field({
   type = "text",
   placeholder,
   min,
+  inputMode,
+  autoComplete,
+  pattern,
 }: {
   label: string;
   value?: string;
@@ -311,6 +329,9 @@ function Field({
   type?: string;
   placeholder?: string;
   min?: string;
+  inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"];
+  autoComplete?: string;
+  pattern?: string;
 }) {
   return (
     <div>
@@ -319,6 +340,9 @@ function Field({
         type={type}
         value={value ?? ""}
         min={min}
+        inputMode={inputMode}
+        autoComplete={autoComplete}
+        pattern={pattern}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         className="w-full h-14 rounded-2xl border border-border bg-background px-4 focus:border-primary focus:outline-none text-base"
@@ -335,7 +359,9 @@ function NumberField({
   value?: string;
   onChange: (v: string) => void;
 }) {
-  return <Field label={label} type="number" value={value} onChange={onChange} placeholder="8" />;
+  return (
+    <Field label={label} type="number" min="1" value={value} onChange={onChange} placeholder="8" />
+  );
 }
 function TextArea({
   label,

@@ -1,9 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
-
+import { canonicalLink } from "@/config/site";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
+    links: canonicalLink("/terms"),
     meta: [
       { title: "Пользовательское соглашение | SOFIYA" },
       { name: "description", content: "Условия использования сайта SOFIYA." },
@@ -27,8 +28,8 @@ export const Route = createFileRoute("/terms")({
       </p>
       <h2 className="mt-6 text-2xl font-semibold">Материалы сайта</h2>
       <p className="mt-2 text-muted-foreground">
-        Все материалы (фотографии, тексты, логотип) принадлежат <SofiyaWordmark /> и защищены законом об
-        авторском праве.
+        Все материалы (фотографии, тексты, логотип) принадлежат <SofiyaWordmark /> и защищены
+        законом об авторском праве.
       </p>
     </article>
   ),

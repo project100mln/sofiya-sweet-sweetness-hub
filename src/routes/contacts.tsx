@@ -4,9 +4,12 @@ import { site, instagramLink, waLink } from "@/config/site";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { stores } from "@/data/stores";
 import { Instagram, MessageCircle, Phone, MapPin, Check } from "lucide-react";
+import { SiTiktok } from "react-icons/si";
+import { canonicalLink } from "@/config/site";
 
 export const Route = createFileRoute("/contacts")({
   head: () => ({
+    links: canonicalLink("/contacts"),
     meta: [
       { title: "Контакты SOFIYA" },
       { name: "description", content: "Свяжитесь с SOFIYA: WhatsApp, Instagram, магазины сети." },
@@ -19,13 +22,13 @@ function ContactsPage() {
   const [f, setF] = useState({ name: "", phone: "", message: "" });
   const [sent, setSent] = useState(false);
   const set = (k: keyof typeof f, v: string) => setF((s) => ({ ...s, [k]: v }));
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const msg = `Здравствуйте, SOFIYA!
+  const whatsappMessage = `Здравствуйте, SOFIYA!
 Имя: ${f.name}
 Телефон: ${f.phone}
 Сообщение: ${f.message}`;
-    if (site.whatsappDigits) window.open(waLink(msg), "_blank");
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (site.whatsappDigits) window.open(waLink(whatsappMessage), "_blank", "noopener,noreferrer");
     setSent(true);
   };
   return (
@@ -58,6 +61,22 @@ function ContactsPage() {
               <p className="text-sm text-muted-foreground mt-1">{site.phone}</p>
             </div>
           </a>
+          {site.tiktokUrl && (
+            <a
+              href={site.tiktokUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-start gap-4 rounded-3xl bg-card border border-border p-6 transition-all hover:border-primary/40 hover:shadow-soft"
+            >
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
+                <SiTiktok className="h-6 w-6" aria-hidden="true" />
+              </span>
+              <div>
+                <p className="font-semibold">TikTok</p>
+                <p className="mt-1 text-sm text-muted-foreground">{site.tiktokHandle}</p>
+              </div>
+            </a>
+          )}
           <a
             href={instagramLink}
             target="_blank"
@@ -104,7 +123,19 @@ function ContactsPage() {
               <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-primary/10 text-primary">
                 <Check className="h-7 w-7" />
               </div>
-              <p className="mt-4 text-lg font-semibold">Сообщение отправлено!</p>
+              <p className="mt-4 text-lg font-semibold">Сообщение подготовлено</p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Проверьте готовый текст и нажмите «Отправить» в WhatsApp. Только после этого
+                сообщение будет передано менеджеру.
+              </p>
+              <a
+                href={waLink(whatsappMessage)}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 btn-primary btn-primary-hover"
+              >
+                Открыть WhatsApp
+              </a>
             </div>
           ) : (
             <form onSubmit={submit} className="mt-6 grid gap-4">
@@ -121,6 +152,9 @@ function ContactsPage() {
                 <span className="text-sm font-semibold block mb-1.5">Телефон *</span>
                 <input
                   type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  pattern="[+0-9 ()-]{7,20}"
                   required
                   value={f.phone}
                   onChange={(e) => set("phone", e.target.value)}
@@ -139,7 +173,7 @@ function ContactsPage() {
                 />
               </label>
               <button type="submit" className="btn-primary btn-primary-hover mt-2">
-                Отправить
+                Перейти в WhatsApp
               </button>
             </form>
           )}

@@ -1,11 +1,11 @@
-import cakeBerry from "@/assets/cake-berry.jpg.asset.json";
-import samsa from "@/assets/samsa.jpg.asset.json";
-import eclairs from "@/assets/eclairs.jpg.asset.json";
-import tartAssorti from "@/assets/tart-assorti.jpg.asset.json";
-import beignets from "@/assets/beignets.jpg.asset.json";
-import snickersCake from "@/assets/snickers-cake.jpg.asset.json";
-import pastryMix from "@/assets/pastry-mix.jpg.asset.json";
-import medovik from "@/assets/medovik.jpg.asset.json";
+import cakeBerry from "@/assets/cake-berry.jpg";
+import samsa from "@/assets/samsa.jpg";
+import eclairs from "@/assets/eclairs.jpg";
+import tartAssorti from "@/assets/tart-assorti.jpg";
+import beignets from "@/assets/beignets.jpg";
+import snickersCake from "@/assets/snickers-cake.jpg";
+import pastryMix from "@/assets/pastry-mix.jpg";
+import medovik from "@/assets/medovik.jpg";
 import imgTortNaslazhdenie from "@/assets/products/sofiya-products/tort-naslazhdenie.jpg";
 import imgTortPrincessa from "@/assets/products/sofiya-products/tort-princessa.jpg";
 import imgTortSmetannik from "@/assets/products/sofiya-products/tort-smetannik.jpg";
@@ -61,14 +61,14 @@ import imgNaggetsy from "@/assets/products/sofiya-products/Наггетсы.jpg"
 import type { Category, Product } from "./types";
 
 export const IMG = {
-  cakeBerry: cakeBerry.url,
-  samsa: samsa.url,
-  eclairs: eclairs.url,
-  tartAssorti: tartAssorti.url,
-  beignets: beignets.url,
-  snickersCake: snickersCake.url,
-  pastryMix: pastryMix.url,
-  medovik: medovik.url,
+  cakeBerry,
+  samsa,
+  eclairs,
+  tartAssorti,
+  beignets,
+  snickersCake,
+  pastryMix,
+  medovik,
 };
 
 export const categories: Category[] = [

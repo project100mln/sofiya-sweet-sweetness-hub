@@ -4,9 +4,11 @@ import { site, waLink } from "@/config/site";
 import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { SERVICES } from "@/data/catering-services";
 import { Check } from "lucide-react";
+import { canonicalLink } from "@/config/site";
 
 export const Route = createFileRoute("/catering")({
   head: () => ({
+    links: canonicalLink("/catering"),
     meta: [
       { title: "Кейтеринг SOFIYA — кофе-брейки и события" },
       {
@@ -31,10 +33,7 @@ function CateringPage() {
   });
   const [sent, setSent] = useState(false);
   const set = (k: keyof typeof f, v: string) => setF((s) => ({ ...s, [k]: v }));
-
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const msg = `Здравствуйте, SOFIYA! Заявка на кейтеринг:
+  const whatsappMessage = `Здравствуйте, SOFIYA! Заявка на кейтеринг:
 Тип: ${f.type}
 Дата: ${f.date}
 Гостей: ${f.guests}
@@ -42,7 +41,10 @@ function CateringPage() {
 Имя: ${f.name}
 Телефон: ${f.phone}
 Комментарий: ${f.comment || "—"}`;
-    if (site.whatsappDigits) window.open(waLink(msg), "_blank");
+
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (site.whatsappDigits) window.open(waLink(whatsappMessage), "_blank", "noopener,noreferrer");
     setSent(true);
   };
 
@@ -86,10 +88,19 @@ function CateringPage() {
               <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-primary/10 text-primary">
                 <Check className="h-7 w-7" />
               </div>
-              <p className="mt-4 text-lg font-semibold">Заявка отправлена!</p>
+              <p className="mt-4 text-lg font-semibold">Сообщение подготовлено</p>
               <p className="mt-2 text-muted-foreground text-sm">
-                Мы открыли ваш WhatsApp с готовым сообщением.
+                Проверьте готовый текст и отправьте его в WhatsApp — только после этого заявка
+                поступит менеджеру.
               </p>
+              <a
+                href={waLink(whatsappMessage)}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 btn-primary btn-primary-hover"
+              >
+                Открыть WhatsApp
+              </a>
             </div>
           ) : (
             <form onSubmit={submit} className="mt-6 grid gap-4">
@@ -151,6 +162,9 @@ function CateringPage() {
                 <Row label="Телефон" required>
                   <input
                     type="tel"
+                    inputMode="tel"
+                    autoComplete="tel"
+                    pattern="[+0-9 ()-]{7,20}"
                     required
                     value={f.phone}
                     onChange={(e) => set("phone", e.target.value)}
@@ -168,7 +182,7 @@ function CateringPage() {
                 />
               </Row>
               <button type="submit" className="btn-primary btn-primary-hover mt-2">
-                Отправить заявку
+                Перейти в WhatsApp
               </button>
             </form>
           )}

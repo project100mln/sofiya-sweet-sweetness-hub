@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getNews, news } from "@/data/news";
+import { absoluteUrl, canonicalLink } from "@/config/site";
 
 export const Route = createFileRoute("/news/$slug")({
   loader: ({ params }) => {
@@ -12,11 +13,12 @@ export const Route = createFileRoute("/news/$slug")({
       return { meta: [{ title: "Новость не найдена" }, { name: "robots", content: "noindex" }] };
     const n = loaderData.item;
     return {
+      links: canonicalLink(`/news/${n.slug}`),
       meta: [
         { title: `${n.title} | SOFIYA` },
         { name: "description", content: n.summary },
         { property: "og:title", content: n.title },
-        { property: "og:image", content: n.cover },
+        { property: "og:image", content: absoluteUrl(n.cover) },
         { property: "og:type", content: "article" },
       ],
     };
