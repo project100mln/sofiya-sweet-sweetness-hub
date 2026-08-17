@@ -53,13 +53,18 @@ test("catalog applies filters and price sorting", async ({ page }, testInfo) => 
   expect(prices).toEqual([...prices].sort((a, b) => a - b));
 });
 
-test("mobile navigation opens and closes", async ({ page }, testInfo) => {
+test("mobile navigation opens, shows links, and closes", async ({ page }, testInfo) => {
   test.skip(!testInfo.project.name.includes("mobile"), "mobile project only");
   await page.goto("/");
   await page.getByRole("button", { name: "Меню" }).click();
-  await expect(page.getByRole("dialog", { name: "Навигация" })).toBeVisible();
+
+  const navigation = page.getByRole("dialog", { name: "Навигация" });
+  await expect(navigation).toBeVisible();
+  await expect(navigation.getByRole("link", { name: "Каталог" })).toBeVisible();
+  await expect(navigation.getByRole("link", { name: /Instagram/ })).toBeVisible();
+
   await page.keyboard.press("Escape");
-  await expect(page.getByRole("dialog", { name: "Навигация" })).toBeHidden();
+  await expect(navigation).toBeHidden();
 });
 
 test("contact form prepares an honest WhatsApp hand-off", async ({ page }) => {
