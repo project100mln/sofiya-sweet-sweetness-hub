@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { branding, logoUrl } from "@/config/branding";
 import { site, instagramLink, waLink } from "@/config/site";
 import { nav } from "@/config/navigation";
@@ -96,70 +97,76 @@ export function Header() {
         </div>
       </div>
 
-      {open && (
-        <div
-          id="mobile-navigation"
-          className="fixed inset-0 z-[60] flex flex-col bg-background"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Навигация"
-        >
-          <div className="container-page flex items-center py-3 border-b border-border">
-            <img
-              src={logoUrl(branding.headerLogo)}
-              alt={branding.alt}
-              className={branding.classes.headerMobile}
-            />
-            <button
-              className="ml-auto grid h-11 w-11 place-items-center rounded-full border border-border"
-              onClick={() => setOpen(false)}
-              aria-label="Закрыть"
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-          <nav className="container-page flex-1 overflow-y-auto py-6 flex flex-col gap-1">
-            {nav.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
-                onClick={() => setOpen(false)}
-                className="px-4 py-3 rounded-2xl text-lg font-semibold hover:bg-accent"
-                activeProps={{
-                  className: "px-4 py-3 rounded-2xl text-lg font-semibold text-primary bg-accent",
-                }}
-                activeOptions={{ exact: n.to === "/" }}
-              >
-                {n.label}
-              </Link>
-            ))}
-            <div className="mt-6 flex flex-col gap-3">
-              <a
-                href={waLink("Здравствуйте, SOFIYA!")}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-primary btn-primary-hover"
-              >
-                <MessageCircle className="h-4 w-4" /> Написать в WhatsApp
-              </a>
-              <a
-                href={instagramLink}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-outline btn-outline-hover"
-              >
-                <Instagram className="h-4 w-4" /> Instagram {site.instagramHandle}
-              </a>
-              <a
-                href={`tel:${site.whatsappDigits}`}
-                className="text-center text-foreground/80 py-2"
-              >
-                {site.phone}
-              </a>
+      {open &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <div
+            id="mobile-navigation"
+            className="fixed inset-0 z-[100] flex min-h-[100dvh] flex-col bg-background"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Навигация"
+          >
+            <div className="border-b border-border">
+              <div className="mx-auto flex w-full max-w-[1440px] items-center px-5 py-3 sm:px-8">
+                <img
+                  src={logoUrl(branding.headerLogo)}
+                  alt={branding.alt}
+                  className={branding.classes.headerMobile}
+                />
+                <button
+                  className="ml-auto grid h-11 w-11 place-items-center rounded-full border border-border"
+                  onClick={() => setOpen(false)}
+                  aria-label="Закрыть"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
             </div>
-          </nav>
-        </div>
-      )}
+            <nav className="mx-auto flex w-full max-w-[1440px] flex-1 flex-col gap-1 overflow-y-auto px-5 py-6 sm:px-8">
+              {nav.map((n) => (
+                <Link
+                  key={n.to}
+                  to={n.to}
+                  onClick={() => setOpen(false)}
+                  className="rounded-2xl px-4 py-3 text-lg font-semibold hover:bg-accent"
+                  activeProps={{
+                    className:
+                      "rounded-2xl px-4 py-3 text-lg font-semibold text-primary bg-accent",
+                  }}
+                  activeOptions={{ exact: n.to === "/" }}
+                >
+                  {n.label}
+                </Link>
+              ))}
+              <div className="mt-6 flex flex-col gap-3">
+                <a
+                  href={waLink("Здравствуйте, SOFIYA!")}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-primary btn-primary-hover"
+                >
+                  <MessageCircle className="h-4 w-4" /> Написать в WhatsApp
+                </a>
+                <a
+                  href={instagramLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-outline btn-outline-hover"
+                >
+                  <Instagram className="h-4 w-4" /> Instagram {site.instagramHandle}
+                </a>
+                <a
+                  href={`tel:${site.whatsappDigits}`}
+                  className="py-2 text-center text-foreground/80"
+                >
+                  {site.phone}
+                </a>
+              </div>
+            </nav>
+          </div>,
+          document.body,
+        )}
     </header>
   );
 }
