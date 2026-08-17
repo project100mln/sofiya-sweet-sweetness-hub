@@ -111,7 +111,7 @@ test("breakfast hero uses the approved brand hierarchy", async ({ page }) => {
   const hero = page.locator("main section").first();
   await hero.getByRole("button", { name: "Слайд 3" }).click();
 
-  const eyebrow = hero.getByText("Завтраки в", { exact: false }).first();
+  const eyebrow = hero.getByText("Завтраки", { exact: true }).first();
   const heading = hero.getByRole("heading", {
     level: 1,
     name: "Утро начинается вкусно",
@@ -120,9 +120,7 @@ test("breakfast hero uses the approved brand hierarchy", async ({ page }) => {
     "Свежий кофе, тёплая выпечка и лёгкие завтраки — каждый день.",
   );
   const menuLink = hero.getByRole("link", { name: /Посмотреть меню/ });
-  const storeLink = hero.getByRole("link", {
-    name: "Найти кондитерскую SOFIYA",
-  });
+  const storeLink = hero.getByRole("link", { name: "Найти магазин" });
 
   await expect(eyebrow).toBeVisible();
   await expect(heading).toBeVisible();
