@@ -33,6 +33,7 @@ function Home() {
   const fresh = products.filter((p) => p.isNew);
   const preorderPreview = products.filter((p) => p.isPreorder);
   const featuredStores = stores.slice(0, 6);
+  const pizzaImage = products.find((product) => product.categoryId === "pizza")?.images[0];
 
   return (
     <>
@@ -183,7 +184,7 @@ function Home() {
             className="group relative overflow-hidden rounded-[2rem] aspect-[4/3] shadow-soft"
           >
             <img
-              src={IMG.tartAssorti}
+              src={pizzaImage ?? IMG.tartAssorti}
               alt="Пицца SOFIYA"
               className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
@@ -349,8 +350,11 @@ function Home() {
             <span className="text-xs font-semibold uppercase tracking-widest text-primary">
               Instagram
             </span>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold">
-              <SofiyaWordmark /> в кадре
+            <h2 className="mt-2 text-3xl font-bold md:text-4xl">
+              <span className="inline-flex items-center gap-[0.3em]">
+                <SofiyaWordmark placement="center" />
+                <span>в кадре</span>
+              </span>
             </h2>
             <p className="mt-2 text-muted-foreground">Подписывайтесь на {site.instagramHandle}</p>
           </div>
