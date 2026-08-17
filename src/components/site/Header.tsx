@@ -32,11 +32,17 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-50 transition-all ${
-        sticky ? "bg-background/95 backdrop-blur-md shadow-soft" : "bg-background"
+        sticky
+          ? "bg-background/95 backdrop-blur-md shadow-soft"
+          : "bg-background"
       } border-b border-border/60`}
     >
       <div className="container-page flex items-center gap-4 py-3 md:py-4">
-        <Link to="/" className="flex shrink-0 items-center gap-2" aria-label="SOFIYA — на главную">
+        <Link
+          to="/"
+          className="flex shrink-0 items-center gap-2"
+          aria-label="SOFIYA — на главную"
+        >
           <img
             src={logoUrl(branding.headerLogo)}
             alt={branding.alt}
@@ -51,7 +57,8 @@ export function Header() {
               to={n.to}
               className="px-3 py-2 rounded-full text-sm font-medium text-foreground/80 hover:text-primary hover:bg-accent transition-colors"
               activeProps={{
-                className: "px-3 py-2 rounded-full text-sm font-semibold text-primary bg-accent",
+                className:
+                  "px-3 py-2 rounded-full text-sm font-semibold text-primary bg-accent",
               }}
               activeOptions={{ exact: n.to === "/" }}
             >
@@ -154,7 +161,8 @@ export function Header() {
                   rel="noreferrer"
                   className="btn-outline btn-outline-hover"
                 >
-                  <Instagram className="h-4 w-4" /> Instagram {site.instagramHandle}
+                  <Instagram className="h-4 w-4" /> Instagram{" "}
+                  {site.instagramHandle}
                 </a>
                 <a
                   href={`tel:${site.whatsappDigits}`}
