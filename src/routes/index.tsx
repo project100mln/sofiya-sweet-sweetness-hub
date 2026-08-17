@@ -280,7 +280,7 @@ function Home() {
             {[
               ["50+", "гостей"],
               ["24 ч", "на подготовку"],
-              [String(stores.length), "точек сети"],
+              ["Шымкент", "и область"],
               ["100%", "свежая выпечка"],
             ].map(([n, l]) => (
               <div key={l} className="rounded-2xl bg-background p-5 border border-border/60">
