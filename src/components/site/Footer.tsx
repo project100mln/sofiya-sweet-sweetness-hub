@@ -73,8 +73,12 @@ export function Footer() {
           </h4>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <Link to="/about" className="text-white/85 hover:text-[color:var(--gold)]">
-                О <SofiyaWordmark />
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 text-white/85 hover:text-[color:var(--gold)]"
+              >
+                <span>О</span>
+                <SofiyaWordmark placement="center" />
               </Link>
             </li>
             <li>
@@ -130,8 +134,9 @@ export function Footer() {
             </li>
           </ul>
           <div className="mt-5">
-            <p className="text-xs uppercase tracking-widest text-white/50">
-              <SofiyaWordmark /> Club — скоро
+            <p className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-white/50">
+              <SofiyaWordmark placement="center" />
+              <span>Club — скоро</span>
             </p>
             <div className="mt-2 flex gap-2">
               <span className="inline-flex items-center rounded-lg border border-white/25 px-3 py-2 text-xs">
@@ -147,8 +152,10 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-page py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/55">
-          <p>
-            © {new Date().getFullYear()} <SofiyaWordmark /> Sweet. Все права защищены.
+          <p className="flex flex-wrap items-center justify-center gap-x-1.5">
+            <span>© {new Date().getFullYear()}</span>
+            <SofiyaWordmark placement="center" />
+            <span>Sweet. Все права защищены.</span>
           </p>
           <div className="flex gap-5">
             <Link to="/privacy" className="hover:text-white">
