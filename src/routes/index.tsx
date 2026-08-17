@@ -41,9 +41,10 @@ function Home() {
 
       <ProductCarousel
         title={
-          <>
-            Хиты <SofiyaWordmark />
-          </>
+          <span className="inline-flex items-center gap-[0.3em]">
+            <span>Хиты</span>
+            <SofiyaWordmark placement="center" />
+          </span>
         }
         subtitle="Самые любимые торты и десерты наших гостей."
         items={hero.length ? hero : bestsellers}
@@ -257,7 +258,7 @@ function Home() {
           <div>
             <span className="inline-flex items-center gap-3 text-xs font-semibold uppercase leading-none tracking-widest text-primary">
               <span>Сеть</span>
-              <SofiyaWordmark className="h-[1.15em] translate-y-px" />
+              <SofiyaWordmark placement="center" className="h-[1.15em]" />
             </span>
             <h2 className="mt-3 text-3xl md:text-4xl font-bold">Наши магазины</h2>
             <p className="mt-2 text-muted-foreground max-w-xl">
@@ -283,7 +284,10 @@ function Home() {
               <Coffee className="h-3.5 w-3.5" /> Кейтеринг
             </span>
             <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground">
-              <SofiyaWordmark /> для ваших событий
+              <span className="flex flex-wrap items-center gap-x-[0.28em] gap-y-1">
+                <SofiyaWordmark placement="center" />
+                <span>для ваших событий</span>
+              </span>
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl">
               Кофе-брейки, десертные столы, корпоративные праздники и большие заказы. Соберём меню
