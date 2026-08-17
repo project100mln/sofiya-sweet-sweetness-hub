@@ -18,7 +18,7 @@ const slides: Slide[] = [
   {
     eyebrow: (
       <>
-        Кондитерская <SofiyaWordmark />
+        Кондитерская <SofiyaWordmark placement="center" />
       </>
     ),
     title: "Торты для ваших праздников",
@@ -40,7 +40,7 @@ const slides: Slide[] = [
   {
     eyebrow: (
       <>
-        Завтраки в <SofiyaWordmark />
+        Завтраки в <SofiyaWordmark placement="center" />
       </>
     ),
     title: "Утро начинается вкусно",
