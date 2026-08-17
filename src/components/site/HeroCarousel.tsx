@@ -1,8 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
-import { IMG } from "@/data/catalog";
-import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
+import { IMG, products } from "@/data/catalog";
 
 interface Slide {
   eyebrow: ReactNode;
@@ -16,11 +15,7 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    eyebrow: (
-      <>
-        Кондитерская <SofiyaWordmark placement="center" />
-      </>
-    ),
+    eyebrow: "Торты на заказ",
     title: "Торты для ваших праздников",
     desc: "Свежие ягоды, нежные кремы и авторский декор — создаём с любовью для каждого повода.",
     cta: "Смотреть каталог",
@@ -31,18 +26,14 @@ const slides: Slide[] = [
   {
     eyebrow: "Каждое утро",
     title: "Свежая выпечка каждый день",
-    desc: "Слойки, самса и десерты из наших пекарен — только что из печи.",
+    desc: "Слойки, самса и десерты — только что из печи.",
     cta: "Выбрать выпечку",
     href: "/catalog",
     image: IMG.samsa,
     search: { cat: "pastry" },
   },
   {
-    eyebrow: (
-      <>
-        Завтраки в <SofiyaWordmark placement="center" />
-      </>
-    ),
+    eyebrow: "Завтраки",
     title: "Утро начинается вкусно",
     desc: "Свежий кофе, тёплая выпечка и лёгкие завтраки — каждый день.",
     cta: "Посмотреть меню",
@@ -56,7 +47,7 @@ const slides: Slide[] = [
     desc: "Тонкое тесто, много начинки и настроение большого стола.",
     cta: "Посмотреть пиццу",
     href: "/catalog",
-    image: IMG.pastryMix,
+    image: products.find((product) => product.categoryId === "pizza")?.images[0] ?? IMG.pastryMix,
     search: { cat: "pizza" },
   },
   {
@@ -101,7 +92,7 @@ export function HeroCarousel() {
               {s.cta} <ArrowRight className="h-4 w-4" />
             </Link>
             <Link to="/stores" className="btn-outline btn-outline-hover">
-              Найти кондитерскую SOFIYA
+              Найти магазин
             </Link>
           </div>
           <div className="mt-8 flex items-center gap-3">

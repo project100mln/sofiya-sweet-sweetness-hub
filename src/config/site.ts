@@ -6,7 +6,7 @@ const publishedPreviewUrl = "https://sofiya-sweet-sweetness-hub.lovable.app";
 
 export const site = {
   brand: "SOFIYA",
-  tagline: "Sweet • Cafe & Bakery",
+  tagline: "Sweet • Фирменные магазины",
   legalName: "SOFIYA Sweet",
   domain: normalizeBaseUrl(import.meta.env.VITE_SITE_URL) || publishedPreviewUrl,
   instagramUrl: "https://www.instagram.com/sofiya_sweet.kz",

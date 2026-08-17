@@ -1,6 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { stores } from "@/data/stores";
-import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Leaf, Sparkles, Heart, Award } from "lucide-react";
 import { canonicalLink } from "@/config/site";
 
@@ -12,7 +10,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "SOFIYA — растущая казахстанская сеть кофеен и пекарен. Свежая выпечка, фирменные торты и кофе каждый день.",
+          "SOFIYA — казахстанская сеть фирменных магазинов. Свежая выпечка, фирменные торты и десерты каждый день.",
       },
     ],
   }),
@@ -25,20 +23,18 @@ function AboutPage() {
       <section className="bg-gradient-to-b from-[color:var(--accent)] to-background">
         <div className="container-page py-10 md:py-14">
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">О компании</p>
-          <h1 className="mt-2 text-4xl md:text-5xl font-bold">
-            <SofiyaWordmark /> — вкусные моменты, доступные каждому
-          </h1>
+          <h1 className="page-title">Вкусные моменты, доступные каждому</h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
-            Казахстанская сеть кофеен и пекарен. Мы работаем в Шымкенте и Туркестанской области —
-            свежая выпечка, фирменные торты и кофе каждый день.
+            Казахстанская сеть фирменных магазинов. Мы работаем в Шымкенте и Туркестанской области —
+            предлагаем свежую выпечку, фирменные торты и десерты каждый день.
           </p>
         </div>
       </section>
 
       <section className="container-page py-12 grid gap-4 md:grid-cols-4">
         {[
-          { n: `${stores.length}`, l: "магазинов и кофеен" },
-          { n: "5", l: "городов сети" },
+          { n: "Сеть", l: "магазинов в регионе" },
+          { n: "4", l: "города и района сети" },
           { n: "9", l: "категорий продуктов" },
           { n: "365", l: "дней свежей выпечки" },
         ].map((s) => (
@@ -56,11 +52,7 @@ function AboutPage() {
           {
             i: Heart,
             t: "Забота",
-            d: (
-              <>
-                Тёплые встречи в каждой кофейне <SofiyaWordmark />.
-              </>
-            ),
+            d: <>Тёплые встречи в каждом магазине сети.</>,
           },
           { i: Award, t: "Растём", d: "Открываем новые точки по региону." },
         ].map(({ i: Icon, t, d }) => (
@@ -76,11 +68,9 @@ function AboutPage() {
 
       <section className="container-page py-14">
         <div className="rounded-3xl bg-[color:var(--cream)] p-8 md:p-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Присоединяйтесь к семье <SofiyaWordmark />
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold">Присоединяйтесь к семье SOFIYA</h2>
           <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-            Загляните в ближайшую кофейню или подпишитесь на наш Instagram, чтобы первыми узнавать о
+            Загляните в ближайший магазин или подпишитесь на наш Instagram, чтобы первыми узнавать о
             новинках.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -88,7 +78,7 @@ function AboutPage() {
               Найти магазин
             </Link>
             <Link to="/career" className="btn-outline btn-outline-hover">
-              Работать в <SofiyaWordmark />
+              Работать в SOFIYA
             </Link>
           </div>
         </div>

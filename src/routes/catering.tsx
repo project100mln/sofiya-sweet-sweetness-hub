@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { site, waLink } from "@/config/site";
-import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { SERVICES } from "@/data/catering-services";
 import { Check } from "lucide-react";
 import { canonicalLink } from "@/config/site";
@@ -52,14 +51,9 @@ function CateringPage() {
     <>
       <section className="bg-gradient-to-b from-[color:var(--accent)] to-background">
         <div className="container-page py-10 md:py-14">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">Кейтеринг</p>
-          <h1 className="mt-2 text-4xl md:text-5xl font-bold">
-            <span className="flex flex-wrap items-center gap-x-[0.28em] gap-y-1">
-              <SofiyaWordmark placement="center" />
-              <span>для ваших событий</span>
-            </span>
-          </h1>
-          <p className="mt-3 text-muted-foreground max-w-2xl">
+          <p className="page-kicker">Кейтеринг</p>
+          <h1 className="page-title">Для ваших событий</h1>
+          <p className="page-lead max-w-2xl">
             Соберём меню под ваш формат: кофе-брейки, десертные столы, корпоративные события и
             большие заказы.
           </p>

@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { stores, cities } from "@/data/stores";
 import { StoreCard } from "@/components/site/StoreCard";
-import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { Search, MapPin } from "lucide-react";
 import { canonicalLink } from "@/config/site";
 
@@ -10,10 +9,10 @@ export const Route = createFileRoute("/stores")({
   head: () => ({
     links: canonicalLink("/stores"),
     meta: [
-      { title: `Магазины и кофейни SOFIYA — ${stores.length} точек` },
+      { title: "Магазины SOFIYA" },
       {
         name: "description",
-        content: "Адреса пекарен и кофеен SOFIYA в Шымкенте, Ленгере, Аксукенте и Манкенте.",
+        content: "Адреса магазинов SOFIYA в Шымкенте, Ленгере, Аксукенте и Манкенте.",
       },
     ],
   }),
@@ -42,13 +41,9 @@ function StoresPage() {
     <>
       <section className="bg-gradient-to-b from-[color:var(--accent)] to-background">
         <div className="container-page py-10 md:py-14">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">
-            Сеть <SofiyaWordmark />
-          </p>
-          <h1 className="mt-2 text-4xl md:text-5xl font-bold">Магазины и кофейни</h1>
-          <p className="mt-3 text-muted-foreground max-w-xl">
-            {stores.length} точек в Шымкенте и Туркестанской области.
-          </p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-primary">Сеть</p>
+          <h1 className="page-title">Наши магазины</h1>
+          <p className="page-lead">Шымкент и Туркестанская область.</p>
         </div>
       </section>
 
@@ -102,8 +97,7 @@ function StoresPage() {
               <MapPin className="h-8 w-8 text-primary" />
               <p className="mt-3 font-semibold">Интерактивная карта</p>
               <p className="mt-1 text-sm text-muted-foreground max-w-xs">
-                Мы готовим карту всех магазинов <SofiyaWordmark />. Пока используйте фильтр по
-                городам.
+                Мы готовим карту всех магазинов. Пока используйте фильтр по городам.
               </p>
               <Link to="/contacts" className="mt-4 btn-outline btn-outline-hover">
                 Связаться с нами

@@ -17,8 +17,8 @@ export function Footer() {
             className={branding.classes.footer}
           />
           <p className="mt-4 text-sm text-white/70 leading-relaxed">
-            {site.brand} Sweet — сеть кофеен и пекарен Казахстана. Свежая выпечка, авторские торты и
-            кофе каждый день.
+            {site.brand} Sweet — сеть фирменных магазинов в Шымкенте и Туркестанской области. Свежая
+            выпечка, авторские торты и десерты каждый день.
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
             <a

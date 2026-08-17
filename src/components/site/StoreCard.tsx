@@ -17,18 +17,6 @@ export function StoreCard({ s }: { s: StoreRecord }) {
           <Clock className="h-4 w-4 text-primary" /> {s.workingHours}
         </p>
       )}
-      {s.services.length > 0 && (
-        <div className="mt-4 flex flex-wrap gap-1.5">
-          {s.services.map((sv) => (
-            <span
-              key={sv}
-              className="rounded-full bg-accent text-accent-foreground px-2.5 py-1 text-xs"
-            >
-              {sv}
-            </span>
-          ))}
-        </div>
-      )}
       <div className="mt-4 flex flex-wrap items-center gap-4">
         {s.mapUrl && (
           <a

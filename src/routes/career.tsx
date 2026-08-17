@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { site, waLink } from "@/config/site";
 import { Check, Coffee, Cake, Users, GraduationCap, Sprout, Sparkles } from "lucide-react";
-import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { canonicalLink } from "@/config/site";
 
 export const Route = createFileRoute("/career")({
@@ -41,12 +40,10 @@ function CareerPage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-primary to-[color:var(--secondary)] text-primary-foreground">
         <div className="container-page py-14 md:py-20">
           <p className="text-xs font-semibold uppercase tracking-widest opacity-80">Карьера</p>
-          <h1 className="mt-2 text-4xl md:text-6xl font-bold">
-            Станьте частью команды <SofiyaWordmark className="brightness-0 invert" />
-          </h1>
+          <h1 className="mt-2 text-4xl md:text-6xl font-bold">Станьте частью команды</h1>
           <p className="mt-4 text-lg text-white/85 max-w-2xl">
-            Мы — растущая сеть кофеен и пекарен. Ищем людей, которые любят своё дело и хотят расти
-            вместе с нами.
+            Мы — растущая сеть фирменных магазинов. Ищем людей, которые любят своё дело и хотят
+            расти вместе с нами.
           </p>
         </div>
       </section>
@@ -184,7 +181,6 @@ function CareerPage() {
           )}
         </div>
       </section>
-      <style>{`.input{width:100%;height:3rem;border-radius:1rem;border:1px solid var(--border);background:var(--background);padding:0 1rem;font-size:0.95rem}.input:focus{outline:none;border-color:var(--primary)}textarea.input{padding:0.75rem 1rem;height:auto}`}</style>
     </>
   );
 }

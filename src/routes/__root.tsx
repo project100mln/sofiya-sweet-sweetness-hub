@@ -99,25 +99,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SOFIYA Sweet — сеть кофеен и пекарен в Шымкенте" },
+      { title: "SOFIYA Sweet — фирменные магазины в Шымкенте" },
       {
         name: "description",
-        content: `SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки, пицца и кофе. ${stores.length} пекарен и кофеен в Шымкенте и Туркестанской области.`,
+        content:
+          "SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
       },
       { name: "author", content: "SOFIYA Sweet" },
-      { property: "og:title", content: "SOFIYA Sweet — сеть кофеен и пекарен в Шымкенте" },
+      { property: "og:title", content: "SOFIYA Sweet — фирменные магазины в Шымкенте" },
       {
         property: "og:description",
-        content: `SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки, пицца и кофе. ${stores.length} пекарен и кофеен в Шымкенте и Туркестанской области.`,
+        content:
+          "SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "SOFIYA Sweet" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#9B26B6" },
-      { name: "twitter:title", content: "SOFIYA Sweet — сеть кофеен и пекарен в Шымкенте" },
+      { name: "twitter:title", content: "SOFIYA Sweet — фирменные магазины в Шымкенте" },
       {
         name: "twitter:description",
-        content: `SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки, пицца и кофе. ${stores.length} пекарен и кофеен в Шымкенте и Туркестанской области.`,
+        content:
+          "SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
       },
       {
         property: "og:image",
