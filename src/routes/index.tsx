@@ -280,10 +280,12 @@ function Home() {
             {[
               ["50+", "гостей"],
               ["24 ч", "на подготовку"],
-              ["Шымкент", "и область"],
               ["100%", "свежая выпечка"],
             ].map(([n, l]) => (
-              <div key={l} className="rounded-2xl bg-background p-5 border border-border/60">
+              <div
+                key={l}
+                className="rounded-2xl bg-background p-5 border border-border/60 last:col-span-2"
+              >
                 <p className="text-3xl font-bold text-primary">{n}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{l}</p>
               </div>

@@ -31,18 +31,11 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="container-page py-12 grid gap-4 md:grid-cols-4">
-        {[
-          { n: "Сеть", l: "магазинов в регионе" },
-          { n: "4", l: "города и района сети" },
-          { n: "9", l: "категорий продуктов" },
-          { n: "365", l: "дней свежей выпечки" },
-        ].map((s) => (
-          <div key={s.l} className="rounded-3xl bg-card border border-border/60 p-6 text-center">
-            <p className="text-4xl font-bold text-primary">{s.n}</p>
-            <p className="mt-2 text-sm text-muted-foreground">{s.l}</p>
-          </div>
-        ))}
+      <section className="container-page py-12">
+        <div className="mx-auto max-w-md rounded-3xl bg-card border border-border/60 p-6 text-center">
+          <p className="text-4xl font-bold text-primary">365</p>
+          <p className="mt-2 text-sm text-muted-foreground">дней свежей выпечки</p>
+        </div>
       </section>
 
       <section className="container-page py-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
