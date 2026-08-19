@@ -11,6 +11,7 @@ export const news: NewsItem[] = [
     cover: IMG.eclairs,
     summary: "Готовим цифровую карту клиента, персональный QR и подарки за покупки.",
     body: "Мы работаем над мобильным приложением SOFIYA Club. В нём появится цифровая карта, история покупок, бонусы и подарок «6-й кофе бесплатно». Следите за анонсами.",
+    destination: "article",
     isPublished: true,
   },
   {
@@ -22,6 +23,7 @@ export const news: NewsItem[] = [
     cover: IMG.cakeBerry,
     summary: "Пошаговая форма предзаказа — соберите торт по своему сценарию.",
     body: "Теперь оформить фирменный торт SOFIYA можно прямо на сайте: выбирайте размер, дату, точку самовывоза и надпись — заявка отправится нам в WhatsApp.",
+    destination: "cake-preorder",
     isPublished: true,
   },
   {
@@ -33,6 +35,7 @@ export const news: NewsItem[] = [
     cover: IMG.pastryMix,
     summary: "Новые магазины SOFIYA в Ленгере, Сайраме, Аксукенте и Манкенте.",
     body: "SOFIYA продолжает расширять сеть фирменных магазинов. Мы открылись в Ленгере, Сайраме, Аксукенте и Манкенте — заходите за свежей выпечкой и десертами.",
+    destination: "stores",
     isPublished: true,
   },
 ];

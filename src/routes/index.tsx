@@ -3,6 +3,7 @@ import { HeroCarousel } from "@/components/site/HeroCarousel";
 import { CategoryGrid } from "@/components/site/CategoryGrid";
 import { ProductCarousel } from "@/components/site/ProductCarousel";
 import { AppPromo } from "@/components/site/AppPromo";
+import { NewsCard } from "@/components/site/NewsCard";
 import { StoreCard } from "@/components/site/StoreCard";
 import { products, IMG } from "@/data/catalog";
 import { stores } from "@/data/stores";
@@ -199,40 +200,18 @@ function Home() {
             </span>
             <h2 className="mt-2 text-3xl md:text-4xl font-bold">Что нового</h2>
           </div>
-          <Link to="/news" className="btn-outline btn-outline-hover">
-            Все новости
-          </Link>
+          <div className="flex flex-wrap gap-3">
+            <Link to="/promotions" className="btn-primary btn-primary-hover">
+              Все акции
+            </Link>
+            <Link to="/news" className="btn-outline btn-outline-hover">
+              Все новости
+            </Link>
+          </div>
         </div>
         <div className="grid gap-5 md:grid-cols-3">
           {news.map((n) => (
-            <Link
-              key={n.id}
-              to="/news/$slug"
-              params={{ slug: n.slug }}
-              className="group rounded-3xl bg-card border border-border/60 overflow-hidden hover:border-primary/40 hover:shadow-lift transition-all"
-            >
-              <div className="aspect-[16/10] overflow-hidden">
-                <img
-                  src={n.cover}
-                  alt={n.title}
-                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-5">
-                <p className="text-xs uppercase tracking-widest text-primary font-semibold">
-                  {new Date(n.date).toLocaleDateString("ru-RU", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </p>
-                <h3 className="mt-2 text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                  {n.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{n.summary}</p>
-              </div>
-            </Link>
+            <NewsCard key={n.id} item={n} compact />
           ))}
         </div>
       </section>

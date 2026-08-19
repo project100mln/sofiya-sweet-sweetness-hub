@@ -1,6 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { news } from "@/data/news";
 import { canonicalLink } from "@/config/site";
+import { NewsCard } from "@/components/site/NewsCard";
 
 export const Route = createFileRoute("/news")({
   head: () => ({
@@ -25,34 +26,7 @@ function NewsPage() {
       <section className="container-page py-12">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {news.map((n) => (
-            <Link
-              key={n.id}
-              to="/news/$slug"
-              params={{ slug: n.slug }}
-              className="group rounded-3xl bg-card border border-border/60 overflow-hidden hover:border-primary/40 hover:shadow-lift transition-all"
-            >
-              <div className="aspect-[16/10] overflow-hidden">
-                <img
-                  src={n.cover}
-                  alt={n.title}
-                  loading="lazy"
-                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <p className="text-xs uppercase tracking-widest text-primary font-semibold">
-                  {new Date(n.date).toLocaleDateString("ru-RU", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </p>
-                <h3 className="mt-2 text-xl font-semibold group-hover:text-primary transition-colors">
-                  {n.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground">{n.summary}</p>
-              </div>
-            </Link>
+            <NewsCard key={n.id} item={n} />
           ))}
         </div>
       </section>

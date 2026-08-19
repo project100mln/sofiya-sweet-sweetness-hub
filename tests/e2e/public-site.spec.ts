@@ -114,6 +114,41 @@ test("promotions page shows the approved happy-hours offers", async ({ page }) =
   await expect(page.getByText("Самса пармуда", { exact: true })).toBeVisible();
 });
 
+test("home news cards open their intended destinations", async ({ page }) => {
+  await page.goto("/", { waitUntil: "networkidle" });
+
+  await expect(page.getByRole("link", { name: "Все акции" })).toHaveAttribute(
+    "href",
+    "/promotions",
+  );
+  await expect(page.getByTestId("news-card-n-club")).toHaveAttribute(
+    "href",
+    "/news/sofiya-club-skoro",
+  );
+  await expect(page.getByTestId("news-card-n-cake-preorder")).toHaveAttribute(
+    "href",
+    "/cake-preorder",
+  );
+  await expect(page.getByTestId("news-card-n-network")).toHaveAttribute("href", "/stores");
+
+  await page.getByTestId("news-card-n-club").click();
+  await expect(page).toHaveURL(/\/news\/sofiya-club-skoro$/);
+  await expect(
+    page.getByRole("heading", {
+      level: 1,
+      name: "SOFIYA Club — программа лояльности скоро в приложении",
+    }),
+  ).toBeVisible();
+
+  await page.goto("/");
+  await page.getByTestId("news-card-n-cake-preorder").click();
+  await expect(page).toHaveURL(/\/cake-preorder$/);
+
+  await page.goto("/");
+  await page.getByTestId("news-card-n-network").click();
+  await expect(page).toHaveURL(/\/stores$/);
+});
+
 test("unknown route returns the designed 404", async ({ page }) => {
   const response = await page.goto("/never-existed");
   expect(response?.status()).toBe(404);

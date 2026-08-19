@@ -17,6 +17,10 @@
 - Promotions interaction follow-up: the two featured cards now link to dedicated detail
   pages, show the participating product names in their visible descriptions, and expose
   the full product lists, offer hours and WhatsApp clarification action after navigation.
+- Homepage news-and-promotions navigation follow-up: the section now links directly to
+  `/promotions`; the loyalty card opens its dedicated event article, the cake card opens
+  `/cake-preorder`, and the network-growth card opens `/stores`. The same destination
+  behavior is reused on the full news page.
 - Green local gate: `npm --offline run check` (format, lint, typecheck, 8 unit tests,
   production build and secret scan). Full dependency audit reports 0 vulnerabilities.
 - SSR route matrix: public routes return 200/redirect as expected; designed unknown
