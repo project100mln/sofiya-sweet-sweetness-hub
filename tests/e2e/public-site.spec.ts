@@ -114,7 +114,11 @@ test("promotions page shows the approved happy-hours offers", async ({ page }) =
   await expect(page.getByText("Самса пармуда", { exact: true })).toBeVisible();
 });
 
-test("home news cards open their intended destinations", async ({ page }) => {
+test("home news cards open their intended destinations", async ({ page }, testInfo) => {
+  if (testInfo.project.name.includes("mobile")) {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+  }
+
   await page.goto("/", { waitUntil: "networkidle" });
 
   await expect(page.getByRole("link", { name: "Все акции" })).toHaveAttribute(
@@ -139,6 +143,18 @@ test("home news cards open their intended destinations", async ({ page }) => {
     "href",
     /^https:\/\/wa\.me\/77075580605/,
   );
+
+  if (testInfo.project.name.includes("mobile")) {
+    const cardBox = await page.getByTestId("loyalty-story-card").boundingBox();
+    const phoneBox = await page.getByTestId("loyalty-phone-scene").boundingBox();
+    expect(cardBox).not.toBeNull();
+    expect(phoneBox).not.toBeNull();
+    expect(
+      Math.abs(cardBox!.x + cardBox!.width / 2 - (phoneBox!.x + phoneBox!.width / 2)),
+    ).toBeLessThan(2);
+    expect(phoneBox!.x).toBeGreaterThanOrEqual(cardBox!.x);
+    expect(phoneBox!.x + phoneBox!.width).toBeLessThanOrEqual(cardBox!.x + cardBox!.width);
+  }
 
   const phone = page.getByTestId("loyalty-phone-scene");
   const beforeReplay = await phone.evaluate((element) => getComputedStyle(element).transform);
