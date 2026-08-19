@@ -114,7 +114,7 @@ test("promotions page shows the approved happy-hours offers", async ({ page }) =
   await expect(page.getByText("Самса пармуда", { exact: true })).toBeVisible();
 });
 
-test("home news cards open their intended destinations", async ({ page }) => {
+test("home news cards open their intended destinations", async ({ page }, testInfo) => {
   await page.goto("/", { waitUntil: "networkidle" });
 
   await expect(page.getByRole("link", { name: "Все акции" })).toHaveAttribute(
@@ -131,7 +131,19 @@ test("home news cards open their intended destinations", async ({ page }) => {
   await page.getByTestId("news-card-n-club").click();
   await expect(page).toHaveURL(/\/#loyalty$/);
   await expect(page.getByTestId("loyalty-section")).toBeInViewport();
-  await expect(page.getByTestId("loyalty-image")).toBeVisible();
+  await expect(
+    page.locator(
+      '[data-testid="loyalty-desktop-image"]:visible, [data-testid="loyalty-mobile-scene"]:visible',
+    ),
+  ).toBeVisible();
+
+  if (testInfo.project.name.includes("mobile")) {
+    await expect(page.getByTestId("loyalty-sixth-stamp")).toBeVisible();
+    await expect(page.getByTestId("loyalty-reminder-link")).toHaveAttribute(
+      "href",
+      /^https:\/\/wa\.me\/77075580605/,
+    );
+  }
 
   await page.goto("/");
   await page.getByTestId("news-card-n-cake-preorder").click();

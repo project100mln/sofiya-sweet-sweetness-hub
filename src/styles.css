@@ -260,6 +260,167 @@
   animation: loyalty-banner-breathe 7s ease-in-out 0.9s infinite;
 }
 
+@keyframes loyalty-mobile-card-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes loyalty-phone-arrive {
+  from {
+    opacity: 0;
+    transform: translate3d(-50%, 2.5rem, 0) scale(1.14) rotate(2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(-50%, 0, 0) scale(1.04) rotate(0deg);
+  }
+}
+
+@keyframes loyalty-phone-float {
+  0%,
+  100% {
+    transform: translate3d(-50%, 0, 0) scale(1.04);
+  }
+  50% {
+    transform: translate3d(-50%, -0.55rem, 0) scale(1.065);
+  }
+}
+
+@keyframes loyalty-copy-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes loyalty-stamp-fill {
+  from {
+    opacity: 0.24;
+    transform: scale(0.62);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.14);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes loyalty-final-glow {
+  0%,
+  72%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(244 204 116 / 0);
+    filter: brightness(1);
+  }
+  82% {
+    box-shadow: 0 0 0 0.55rem rgb(244 204 116 / 0.2);
+    filter: brightness(1.14);
+  }
+}
+
+.loyalty-mobile-card {
+  background: #4f146f;
+  opacity: 0;
+  transform: translateY(1.5rem) scale(0.97);
+  will-change: opacity, transform;
+}
+
+.loyalty-mobile-card[data-visible="true"] {
+  animation: loyalty-mobile-card-arrive 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.loyalty-mobile-visual {
+  background: #67208c;
+}
+
+.loyalty-mobile-phone-scene {
+  opacity: 0;
+  transform: translate3d(-50%, 2.5rem, 0) scale(1.14) rotate(2deg);
+  transform-origin: 52% 54%;
+  will-change: opacity, transform;
+}
+
+.loyalty-mobile-card[data-visible="true"] .loyalty-mobile-phone-scene {
+  animation:
+    loyalty-phone-arrive 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both,
+    loyalty-phone-float 4.8s ease-in-out 1.05s infinite;
+}
+
+.loyalty-mobile-copy {
+  background: #3d0d5a;
+}
+
+.loyalty-mobile-kicker,
+.loyalty-mobile-title,
+.loyalty-mobile-description,
+.loyalty-mobile-benefits,
+.loyalty-mobile-cta {
+  opacity: 0;
+  transform: translateY(1rem);
+}
+
+.loyalty-mobile-card[data-visible="true"] .loyalty-mobile-kicker {
+  animation: loyalty-copy-arrive 0.5s ease-out 0.35s both;
+}
+
+.loyalty-mobile-card[data-visible="true"] .loyalty-mobile-title {
+  animation: loyalty-copy-arrive 0.58s cubic-bezier(0.22, 1, 0.36, 1) 0.47s both;
+}
+
+.loyalty-mobile-card[data-visible="true"] .loyalty-mobile-description {
+  animation: loyalty-copy-arrive 0.5s ease-out 0.62s both;
+}
+
+.loyalty-mobile-stamp {
+  display: flex;
+  aspect-ratio: 1;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(255 255 255 / 0.28);
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 0.1);
+  color: rgb(255 255 255 / 0.78);
+  opacity: 0.24;
+  transform: scale(0.62);
+}
+
+.loyalty-mobile-card[data-visible="true"] .loyalty-mobile-stamp {
+  animation: loyalty-stamp-fill 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.loyalty-mobile-stamp-final {
+  border-color: rgb(244 204 116 / 0.85);
+  background: #f4cc74;
+  color: #4f146f;
+}
+
+.loyalty-mobile-card[data-visible="true"] .loyalty-mobile-stamp-final {
+  animation:
+    loyalty-stamp-fill 0.52s cubic-bezier(0.22, 1, 0.36, 1) 1.43s both,
+    loyalty-final-glow 3.4s ease-in-out 1.95s infinite;
+}
+
+.loyalty-mobile-card[data-visible="true"] .loyalty-mobile-benefits {
+  animation: loyalty-copy-arrive 0.5s ease-out 1.58s both;
+}
+
+.loyalty-mobile-card[data-visible="true"] .loyalty-mobile-cta {
+  animation: loyalty-copy-arrive 0.55s cubic-bezier(0.22, 1, 0.36, 1) 1.72s both;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -304,7 +465,16 @@ textarea.input {
 
   .loyalty-promo-card,
   .loyalty-promo-card[data-visible="true"],
-  .loyalty-promo-image {
+  .loyalty-promo-image,
+  .loyalty-mobile-card,
+  .loyalty-mobile-card[data-visible="true"],
+  .loyalty-mobile-phone-scene,
+  .loyalty-mobile-kicker,
+  .loyalty-mobile-title,
+  .loyalty-mobile-description,
+  .loyalty-mobile-stamp,
+  .loyalty-mobile-benefits,
+  .loyalty-mobile-cta {
     opacity: 1;
     transform: none;
     will-change: auto;
