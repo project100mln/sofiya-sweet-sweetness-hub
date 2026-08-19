@@ -114,7 +114,7 @@ test("promotions page shows the approved happy-hours offers", async ({ page }) =
   await expect(page.getByText("Самса пармуда", { exact: true })).toBeVisible();
 });
 
-test("home news cards open their intended destinations", async ({ page }, testInfo) => {
+test("home news cards open their intended destinations", async ({ page }) => {
   await page.goto("/", { waitUntil: "networkidle" });
 
   await expect(page.getByRole("link", { name: "Все акции" })).toHaveAttribute(
@@ -131,19 +131,21 @@ test("home news cards open their intended destinations", async ({ page }, testIn
   await page.getByTestId("news-card-n-club").click();
   await expect(page).toHaveURL(/\/#loyalty$/);
   await expect(page.getByTestId("loyalty-section")).toBeInViewport();
-  await expect(
-    page.locator(
-      '[data-testid="loyalty-desktop-image"]:visible, [data-testid="loyalty-mobile-scene"]:visible',
-    ),
-  ).toBeVisible();
+  await expect(page.getByTestId("loyalty-story-card")).toBeVisible();
+  await expect(page.getByTestId("loyalty-phone-scene")).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Ваш 6-й кофе/ })).toBeVisible();
+  await expect(page.getByTestId("loyalty-sixth-stamp")).toBeVisible();
+  await expect(page.getByTestId("loyalty-reminder-link")).toHaveAttribute(
+    "href",
+    /^https:\/\/wa\.me\/77075580605/,
+  );
 
-  if (testInfo.project.name.includes("mobile")) {
-    await expect(page.getByTestId("loyalty-sixth-stamp")).toBeVisible();
-    await expect(page.getByTestId("loyalty-reminder-link")).toHaveAttribute(
-      "href",
-      /^https:\/\/wa\.me\/77075580605/,
-    );
-  }
+  const phone = page.getByTestId("loyalty-phone-scene");
+  const beforeReplay = await phone.evaluate((element) => getComputedStyle(element).transform);
+  await page.getByTestId("loyalty-play-button").click();
+  await page.waitForTimeout(320);
+  const duringReplay = await phone.evaluate((element) => getComputedStyle(element).transform);
+  expect(duringReplay).not.toBe(beforeReplay);
 
   await page.goto("/");
   await page.getByTestId("news-card-n-cake-preorder").click();
