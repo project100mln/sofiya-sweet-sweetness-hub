@@ -1,7 +1,7 @@
 import { Clock, Percent, Tag, Ticket } from "lucide-react";
-import type { Promotion } from "@/types/promotions";
+import type { PromotionCardContent } from "@/types/promotions";
 
-const discountLabel = (promotion: Promotion): string => {
+const discountLabel = (promotion: PromotionCardContent): string => {
   const { discount_value: value } = promotion;
   if (value.percent != null) return `-${value.percent}%`;
   if (value.amount != null) return `-${value.amount.toLocaleString("ru-RU")} ₸`;
@@ -14,7 +14,7 @@ const discountIcon = {
   promo_code: Ticket,
 } as const;
 
-export function PromotionCard({ promotion }: { promotion: Promotion }) {
+export function PromotionCard({ promotion }: { promotion: PromotionCardContent }) {
   const Icon = discountIcon[promotion.discount_type];
   const window = promotion.discount_value.happy_hours;
 
@@ -31,9 +31,11 @@ export function PromotionCard({ promotion }: { promotion: Promotion }) {
         ) : (
           <div className="h-full w-full bg-gradient-to-br from-[color:var(--accent)] to-background" />
         )}
-        <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-primary text-primary-foreground px-3 py-1 text-xs font-bold">
-          <Icon className="h-3.5 w-3.5" /> {discountLabel(promotion)}
-        </span>
+        {!promotion.image_has_discount_badge && (
+          <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-primary text-primary-foreground px-3 py-1 text-xs font-bold">
+            <Icon className="h-3.5 w-3.5" /> {discountLabel(promotion)}
+          </span>
+        )}
       </div>
 
       <div className="p-5 flex flex-col flex-1">
@@ -52,7 +54,7 @@ export function PromotionCard({ promotion }: { promotion: Promotion }) {
               Промокод: {promotion.promo_code_word}
             </span>
           )}
-          {window && (
+          {window && !promotion.image_has_discount_badge && (
             <span className="inline-flex items-center gap-1.5 rounded-full bg-accent text-accent-foreground px-2.5 py-1 text-xs">
               <Clock className="h-3.5 w-3.5" /> {window.from}–{window.to}
             </span>

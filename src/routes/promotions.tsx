@@ -5,6 +5,7 @@ import { useSelectedStore, storeNumericIds } from "@/hooks/use-selected-store";
 import { PromotionCard } from "@/components/site/PromotionCard";
 import { supabaseConfigured } from "@/lib/supabase";
 import { canonicalLink } from "@/config/site";
+import { featuredPromotions } from "@/data/featured-promotions";
 
 export const Route = createFileRoute("/promotions")({
   head: () => ({
@@ -20,6 +21,7 @@ export const Route = createFileRoute("/promotions")({
 function PromotionsPage() {
   const { storeId, selectStore } = useSelectedStore();
   const { data: promotions, isLoading, isError } = usePromotions(storeId);
+  const allPromotions = [...featuredPromotions, ...(promotions ?? [])];
 
   return (
     <>
@@ -28,8 +30,7 @@ function PromotionsPage() {
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">Акции</p>
           <h1 className="mt-2 text-4xl md:text-5xl font-bold">Специальные предложения</h1>
           <p className="mt-3 text-muted-foreground max-w-xl">
-            Акции применяются автоматически или по промокоду — в зависимости от филиала и времени
-            суток.
+            Выбирайте любимую выпечку со скидкой 20% каждый вечер с 20:00 до 22:00.
           </p>
 
           <label className="mt-6 flex max-w-sm flex-col gap-1.5 text-sm">
@@ -50,15 +51,6 @@ function PromotionsPage() {
       </section>
 
       <section className="container-page py-12">
-        {!supabaseConfigured && (
-          <div className="mx-auto max-w-2xl rounded-3xl border border-dashed border-border p-10 text-center">
-            <p className="text-lg font-semibold">Акции скоро появятся</p>
-            <p className="mt-2 text-muted-foreground">
-              Следите за обновлениями в Instagram и уточняйте предложения в выбранном филиале.
-            </p>
-          </div>
-        )}
-
         {supabaseConfigured && isLoading && (
           <p className="text-muted-foreground" role="status">
             Загружаем акции…
@@ -71,22 +63,11 @@ function PromotionsPage() {
           </p>
         )}
 
-        {supabaseConfigured && !isLoading && !isError && promotions?.length === 0 && (
-          <div className="rounded-3xl border border-dashed border-border p-10 text-center max-w-2xl mx-auto">
-            <p className="text-lg font-semibold">В этом филиале сейчас нет активных акций</p>
-            <p className="mt-2 text-muted-foreground">
-              Загляните позже — мы часто обновляем предложения.
-            </p>
-          </div>
-        )}
-
-        {supabaseConfigured && promotions && promotions.length > 0 && (
-          <div className="grid gap-5 md:grid-cols-3">
-            {promotions.map((promotion) => (
-              <PromotionCard key={promotion.id} promotion={promotion} />
-            ))}
-          </div>
-        )}
+        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+          {allPromotions.map((promotion) => (
+            <PromotionCard key={promotion.id} promotion={promotion} />
+          ))}
+        </div>
       </section>
     </>
   );

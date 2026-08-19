@@ -6,6 +6,14 @@
 - Completed slice: portable first-party assets, graceful Supabase fallback, RLS
   hardening migration, honest WhatsApp hand-offs, configurable TikTok, SEO files and
   structured data, accessibility polish, regression tests and CI.
+- Completed promotions slice: two approved happy-hours offers are now first-party
+  content on `/promotions`; poster copy was moved into accessible card titles and
+  descriptions, while the cleaned 16:10 food imagery retains only the `-20%` and
+  `20:00–22:00` discount medallion. The samsa scene now uses the approved warm tabletop
+  styling, and both assets were optimized to WebP.
+- Promotions slice verification: formatting, whitespace validation and isolated TSX
+  parsing pass; the full dependency-backed gate and browser UAT remain pending in this
+  fresh workspace.
 - Green local gate: `npm --offline run check` (format, lint, typecheck, 8 unit tests,
   production build and secret scan). Full dependency audit reports 0 vulnerabilities.
 - SSR route matrix: public routes return 200/redirect as expected; designed unknown

@@ -95,6 +95,17 @@ test("public contact links use confirmed external channels", async ({ page }) =>
   );
 });
 
+test("promotions page shows the approved happy-hours offers", async ({ page }) => {
+  await page.goto("/promotions", { waitUntil: "networkidle" });
+
+  await expect(page.getByRole("heading", { name: "Самсы с фаршем" })).toBeVisible();
+  await expect(page.getByText(/Сочная мясная начинка в хрустящем тесте/)).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Три вида выпечки" })).toBeVisible();
+  await expect(page.getByText(/Нежное, воздушное тесто/)).toBeVisible();
+  await expect(page.getByAltText("Самсы с фаршем")).toBeVisible();
+  await expect(page.getByAltText("Три вида выпечки")).toBeVisible();
+});
+
 test("unknown route returns the designed 404", async ({ page }) => {
   const response = await page.goto("/never-existed");
   expect(response?.status()).toBe(404);
