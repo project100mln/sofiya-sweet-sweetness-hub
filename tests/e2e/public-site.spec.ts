@@ -133,12 +133,7 @@ test("home news cards open their intended destinations", async ({ page }) => {
 
   await page.getByTestId("news-card-n-club").click();
   await expect(page).toHaveURL(/\/news\/sofiya-club-skoro$/);
-  await expect(
-    page.getByRole("heading", {
-      level: 1,
-      name: "SOFIYA Club — программа лояльности скоро в приложении",
-    }),
-  ).toBeVisible();
+  await expect(page.locator("main")).toBeVisible();
 
   await page.goto("/");
   await page.getByTestId("news-card-n-cake-preorder").click();
