@@ -343,6 +343,12 @@
   animation: loyalty-story-arrive 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+.loyalty-mobile-compact-card {
+  height: min(33.5rem, calc(100svh - 5.75rem));
+  min-height: 28rem;
+  grid-template-rows: 34% 66%;
+}
+
 .loyalty-story-visual {
   background: #67208c;
 }

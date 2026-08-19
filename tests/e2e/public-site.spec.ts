@@ -135,20 +135,32 @@ test("home news cards open their intended destinations", async ({ page }, testIn
   await page.getByTestId("news-card-n-club").click();
   await expect(page).toHaveURL(/\/#loyalty$/);
   await expect(page.getByTestId("loyalty-section")).toBeInViewport();
-  await expect(page.getByTestId("loyalty-story-card")).toBeVisible();
-  await expect(page.getByTestId("loyalty-phone-scene")).toBeVisible();
-  await expect(page.getByRole("heading", { name: /Ваш 6-й кофе/ })).toBeVisible();
-  await expect(page.getByTestId("loyalty-sixth-stamp")).toBeVisible();
-  await expect(page.getByTestId("loyalty-reminder-link")).toHaveAttribute(
-    "href",
-    /^https:\/\/wa\.me\/77075580605/,
+  const isMobile = testInfo.project.name.includes("mobile");
+  const card = page.getByTestId(isMobile ? "loyalty-mobile-card" : "loyalty-desktop-card");
+  const phone = page.getByTestId(isMobile ? "loyalty-mobile-phone" : "loyalty-desktop-phone");
+  const playButton = page.getByTestId(isMobile ? "loyalty-mobile-play" : "loyalty-desktop-play");
+  const sixthStamp = page.getByTestId(
+    isMobile ? "loyalty-mobile-sixth-stamp" : "loyalty-desktop-sixth-stamp",
+  );
+  const reminder = page.getByTestId(
+    isMobile ? "loyalty-mobile-reminder" : "loyalty-desktop-reminder",
   );
 
-  if (testInfo.project.name.includes("mobile")) {
-    const cardBox = await page.getByTestId("loyalty-story-card").boundingBox();
-    const phoneBox = await page.getByTestId("loyalty-phone-scene").boundingBox();
+  await expect(card).toBeVisible();
+  await expect(phone).toBeVisible();
+  await expect(card.getByRole("heading", { name: /Ваш 6-й кофе/ })).toBeVisible();
+  await expect(sixthStamp).toBeVisible();
+  await expect(reminder).toHaveAttribute("href", /^https:\/\/wa\.me\/77075580605/);
+
+  if (isMobile) {
+    const cardBox = await card.boundingBox();
+    const phoneBox = await phone.boundingBox();
+    const viewport = page.viewportSize();
     expect(cardBox).not.toBeNull();
     expect(phoneBox).not.toBeNull();
+    expect(viewport).not.toBeNull();
+    expect(cardBox!.y).toBeGreaterThanOrEqual(0);
+    expect(cardBox!.y + cardBox!.height).toBeLessThanOrEqual(viewport!.height + 1);
     expect(
       Math.abs(cardBox!.x + cardBox!.width / 2 - (phoneBox!.x + phoneBox!.width / 2)),
     ).toBeLessThan(2);
@@ -156,9 +168,8 @@ test("home news cards open their intended destinations", async ({ page }, testIn
     expect(phoneBox!.x + phoneBox!.width).toBeLessThanOrEqual(cardBox!.x + cardBox!.width);
   }
 
-  const phone = page.getByTestId("loyalty-phone-scene");
   const beforeReplay = await phone.evaluate((element) => getComputedStyle(element).transform);
-  await page.getByTestId("loyalty-play-button").click();
+  await playButton.click();
   await page.waitForTimeout(320);
   const duringReplay = await phone.evaluate((element) => getComputedStyle(element).transform);
   expect(duringReplay).not.toBe(beforeReplay);
