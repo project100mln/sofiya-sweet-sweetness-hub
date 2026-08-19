@@ -475,6 +475,7 @@ textarea.input {
   .loyalty-mobile-stamp,
   .loyalty-mobile-benefits,
   .loyalty-mobile-cta {
+    animation: none !important;
     opacity: 1;
     transform: none;
     will-change: auto;
