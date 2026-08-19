@@ -187,7 +187,7 @@ export function AppPromo() {
               href={reminderHref}
               target="_blank"
               rel="noreferrer"
-              className="loyalty-reminder-cta mt-auto flex min-h-10 w-full items-center justify-center gap-2 rounded-full bg-white px-4 text-xs font-semibold text-[#501072] shadow-lg active:scale-[0.98]"
+              className="loyalty-reminder-cta mt-3 flex min-h-10 w-full items-center justify-center gap-2 rounded-full bg-white px-4 text-xs font-semibold text-[#501072] shadow-lg active:scale-[0.98]"
               data-testid="loyalty-mobile-reminder"
             >
               <MessageCircle className="h-3.5 w-3.5" aria-hidden /> Напомнить в WhatsApp
