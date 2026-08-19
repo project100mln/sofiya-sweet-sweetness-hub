@@ -50,7 +50,7 @@ export function AppPromo() {
     const timer = window.setInterval(() => {
       sequenceIndex = (sequenceIndex + 1) % sequence.length;
       setActiveStamp(sequence[sequenceIndex]);
-    }, 1450);
+    }, 1250);
 
     return () => window.clearInterval(timer);
   }, [isVisible, storyRun]);
