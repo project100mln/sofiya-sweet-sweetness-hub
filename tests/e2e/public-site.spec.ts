@@ -151,6 +151,7 @@ test("home news cards open their intended destinations", async ({ page }, testIn
   await expect(card.getByRole("heading", { name: /Ваш 6-й кофе/ })).toBeVisible();
   await expect(sixthStamp).toBeVisible();
   await expect(reminder).toHaveAttribute("href", /^https:\/\/wa\.me\/77075580605/);
+  await expect(card.locator(".loyalty-stamp-current")).toHaveCount(1, { timeout: 4_000 });
 
   const loyaltyVersion = isMobile ? "mobile" : "desktop";
   for (let number = 1; number <= 6; number += 1) {
@@ -161,8 +162,11 @@ test("home news cards open their intended destinations", async ({ page }, testIn
   }
 
   if (isMobile) {
+    const scrim = page.getByTestId("loyalty-mobile-scrim");
     await expect(card.getByText("5 покупок → 6-й кофе в подарок", { exact: true })).toBeVisible();
     await expect(reminder).toContainText("Напомнить в WhatsApp");
+    await expect(scrim).toBeVisible();
+    await expect(scrim).toHaveCSS("background-image", /linear-gradient/);
     const cardBox = await card.boundingBox();
     const phoneBox = await phone.boundingBox();
     const viewport = page.viewportSize();

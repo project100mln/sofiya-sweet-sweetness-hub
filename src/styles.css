@@ -265,44 +265,21 @@
   }
 }
 
-@keyframes loyalty-stamp-story {
-  0%,
-  4% {
-    opacity: 0.4;
-    transform: scale(0.82);
-  }
-  8% {
-    opacity: 1;
-    transform: scale(1.16);
-  }
-  13%,
-  84% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  92%,
-  100% {
-    opacity: 0.4;
-    transform: scale(0.82);
-  }
-}
-
 @keyframes loyalty-reward-burst {
   0%,
-  62%,
   100% {
     transform: scale(1);
     box-shadow:
       0 0 0 0 rgb(244 204 116 / 0),
       0 0.6rem 1.4rem rgb(29 4 47 / 0.16);
   }
-  72% {
+  48% {
     transform: scale(1.18);
     box-shadow:
       0 0 0 0.65rem rgb(244 204 116 / 0.22),
       0 0.9rem 1.7rem rgb(29 4 47 / 0.28);
   }
-  80% {
+  78% {
     transform: scale(1.04);
     box-shadow:
       0 0 0 0.95rem rgb(244 204 116 / 0),
@@ -338,7 +315,29 @@
 .loyalty-mobile-compact-card {
   height: min(33.5rem, calc(100svh - 5.75rem));
   min-height: 28rem;
-  grid-template-rows: 34% 66%;
+}
+
+.loyalty-mobile-backdrop {
+  object-position: 50% 44%;
+}
+
+.loyalty-mobile-scrim {
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgb(42 4 61 / 0.02) 0%,
+    rgb(42 4 61 / 0.08) 26%,
+    rgb(56 8 78 / 0.76) 43%,
+    rgb(74 17 105 / 0.97) 62%,
+    #4a1169 100%
+  );
+}
+
+.loyalty-mobile-overlay-copy {
+  justify-content: flex-end;
+  padding-top: 10.25rem;
+  background: transparent;
+  text-shadow: 0 0.1rem 0.6rem rgb(35 2 49 / 0.28);
 }
 
 .loyalty-story-visual {
@@ -352,10 +351,10 @@
 }
 
 .loyalty-story-card[data-visible="true"] .loyalty-phone-scene {
-  animation: loyalty-phone-story 5.4s cubic-bezier(0.45, 0, 0.25, 1) 0.35s infinite;
+  animation: loyalty-phone-story 7.8s cubic-bezier(0.45, 0, 0.25, 1) 0.35s infinite;
 }
 
-.loyalty-story-copy {
+.loyalty-desktop-copy {
   background: #4a1169;
 }
 
@@ -393,8 +392,21 @@
   justify-content: center;
   gap: 0.1rem;
   color: rgb(255 255 255 / 0.78);
-  opacity: 0.4;
-  transform: scale(0.82);
+  opacity: 0.34;
+  transform: scale(0.94);
+  transition:
+    opacity 0.48s ease,
+    transform 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.loyalty-stamp-complete {
+  opacity: 0.76;
+  transform: scale(1);
+}
+
+.loyalty-stamp-current {
+  opacity: 1;
+  transform: scale(1.12);
 }
 
 .loyalty-cup-shell {
@@ -435,11 +447,6 @@
   font-size: 0.75rem;
 }
 
-.loyalty-story-card[data-visible="true"] .loyalty-stamp {
-  animation: loyalty-stamp-story 7s cubic-bezier(0.22, 1, 0.36, 1)
-    calc(0.7s + var(--stamp-index) * 0.42s) infinite both;
-}
-
 .loyalty-stamp-final {
   color: #4f146f;
   opacity: 1;
@@ -460,8 +467,8 @@
   color: #f4cc74;
 }
 
-.loyalty-story-card[data-visible="true"] .loyalty-stamp-final .loyalty-cup-shell {
-  animation: loyalty-reward-burst 4.2s ease-in-out 2s infinite;
+.loyalty-stamp-final.loyalty-stamp-current .loyalty-cup-shell {
+  animation: loyalty-reward-burst 1.15s ease-in-out both;
 }
 
 .loyalty-story-card[data-visible="true"] .loyalty-story-benefits {
@@ -523,8 +530,6 @@ textarea.input {
   .loyalty-story-title,
   .loyalty-story-description,
   .loyalty-progress-label,
-  .loyalty-stamp,
-  .loyalty-cup-shell,
   .loyalty-story-benefits,
   .loyalty-reminder-cta {
     animation: none !important;

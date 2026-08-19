@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties, type MouseEvent } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { Bell, Coffee, Gift, MessageCircle, Play, QrCode, Sparkles } from "lucide-react";
 import loyaltyCoffeeCup from "@/assets/loyalty-coffee-cup.webp";
 import phoneSceneAsset from "@/assets/sofiya-club-mobile-scene.webp";
@@ -18,6 +18,8 @@ const reminderHref = waLink(
 export function AppPromo() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [activeStamp, setActiveStamp] = useState(-1);
+  const [storyRun, setStoryRun] = useState(0);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -34,9 +36,29 @@ export function AppPromo() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!isVisible) {
+      setActiveStamp(-1);
+      return;
+    }
+
+    const sequence = [-1, 0, 1, 2, 3, 4, 5, 5, 5];
+    let sequenceIndex = 0;
+    setActiveStamp(sequence[sequenceIndex]);
+
+    const timer = window.setInterval(() => {
+      sequenceIndex = (sequenceIndex + 1) % sequence.length;
+      setActiveStamp(sequence[sequenceIndex]);
+    }, 1450);
+
+    return () => window.clearInterval(timer);
+  }, [isVisible, storyRun]);
+
   const playRewardStory = (event: MouseEvent<HTMLButtonElement>) => {
     const story = event.currentTarget.closest<HTMLElement>("[data-loyalty-story]");
     if (!story) return;
+
+    setStoryRun((run) => run + 1);
 
     story
       .querySelector<HTMLElement>("[data-loyalty-phone]")
@@ -48,22 +70,17 @@ export function AppPromo() {
         ],
         { duration: 1500, easing: "cubic-bezier(0.22, 1, 0.36, 1)" },
       );
+  };
 
-    story.querySelectorAll<HTMLElement>("[data-loyalty-stamp]").forEach((stamp, index) => {
-      stamp.animate(
-        [
-          { transform: "scale(0.82)", opacity: 0.42 },
-          { transform: "scale(1.16)", opacity: 1, offset: 0.72 },
-          { transform: "scale(1)", opacity: 1 },
-        ],
-        {
-          duration: index === 5 ? 760 : 560,
-          delay: index * 170,
-          easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-          fill: "both",
-        },
-      );
-    });
+  const getStampClassName = (index: number) => {
+    const stateClass =
+      index === activeStamp
+        ? "loyalty-stamp-current"
+        : index < activeStamp
+          ? "loyalty-stamp-complete"
+          : "";
+
+    return `loyalty-stamp ${index === 5 ? "loyalty-stamp-final" : ""} ${stateClass}`;
   };
 
   return (
@@ -76,32 +93,35 @@ export function AppPromo() {
     >
       <div className="container-page py-3 md:py-24">
         <div
-          className="loyalty-story-card loyalty-mobile-compact-card relative grid overflow-hidden rounded-[1.75rem] shadow-lift md:hidden"
+          className="loyalty-story-card loyalty-mobile-compact-card relative isolate flex overflow-hidden rounded-[1.75rem] shadow-lift md:hidden"
           data-visible={isVisible}
           data-loyalty-story
           data-testid="loyalty-mobile-card"
         >
-          <div className="loyalty-story-visual relative flex min-h-0 items-center justify-center overflow-hidden">
-            <img
-              src={phoneSceneAsset}
-              alt="Экран приложения SOFIYA Club с прогрессом: пять из шести кофе"
-              className="loyalty-phone-scene h-[158%] w-auto max-w-none select-none"
-              data-loyalty-phone
-              data-testid="loyalty-mobile-phone"
-              draggable={false}
-            />
+          <img
+            src={phoneSceneAsset}
+            alt="Экран приложения SOFIYA Club с прогрессом: пять из шести кофе"
+            className="loyalty-phone-scene loyalty-mobile-backdrop absolute inset-0 h-full w-full select-none object-cover"
+            data-loyalty-phone
+            data-testid="loyalty-mobile-phone"
+            draggable={false}
+          />
+          <div
+            className="loyalty-mobile-scrim absolute inset-0"
+            data-testid="loyalty-mobile-scrim"
+            aria-hidden
+          />
 
-            <button
-              type="button"
-              onClick={playRewardStory}
-              className="absolute right-3 top-3 z-10 inline-flex min-h-9 items-center gap-1.5 rounded-full border border-white/25 bg-[#3d0d5a]/85 px-3 text-[0.68rem] font-semibold text-white shadow-lg backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4cc74]"
-              data-testid="loyalty-mobile-play"
-            >
-              <Play className="h-3.5 w-3.5 fill-current" aria-hidden /> Показать бонус
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={playRewardStory}
+            className="absolute right-3 top-3 z-20 inline-flex min-h-9 items-center gap-1.5 rounded-full border border-white/25 bg-[#3d0d5a]/85 px-3 text-[0.68rem] font-semibold text-white shadow-lg backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4cc74]"
+            data-testid="loyalty-mobile-play"
+          >
+            <Play className="h-3.5 w-3.5 fill-current" aria-hidden /> Показать бонус
+          </button>
 
-          <div className="loyalty-story-copy relative z-10 flex min-h-0 flex-col px-5 pb-4 pt-3 text-white">
+          <div className="loyalty-story-copy loyalty-mobile-overlay-copy relative z-10 flex h-full min-h-0 w-full flex-col px-5 pb-4 text-white">
             <p className="loyalty-story-kicker inline-flex items-center gap-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.15em] text-white/75">
               <Gift className="h-3.5 w-3.5" aria-hidden /> SOFIYA Club — скоро
             </p>
@@ -125,8 +145,7 @@ export function AppPromo() {
               {Array.from({ length: 6 }, (_, index) => (
                 <li
                   key={index}
-                  className={`loyalty-stamp ${index === 5 ? "loyalty-stamp-final" : ""}`}
-                  style={{ "--stamp-index": index } as CSSProperties}
+                  className={getStampClassName(index)}
                   data-loyalty-stamp
                   data-testid={index === 5 ? "loyalty-mobile-sixth-stamp" : undefined}
                 >
@@ -202,7 +221,7 @@ export function AppPromo() {
             </button>
           </div>
 
-          <div className="loyalty-story-copy relative z-10 order-1 flex flex-col justify-center px-10 py-12 text-white lg:px-14">
+          <div className="loyalty-story-copy loyalty-desktop-copy relative z-10 order-1 flex flex-col justify-center px-10 py-12 text-white lg:px-14">
             <p className="loyalty-story-kicker inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-white/75">
               <Gift className="h-4 w-4" aria-hidden /> SOFIYA Club — скоро
             </p>
@@ -223,8 +242,7 @@ export function AppPromo() {
               {Array.from({ length: 6 }, (_, index) => (
                 <li
                   key={index}
-                  className={`loyalty-stamp ${index === 5 ? "loyalty-stamp-final" : ""}`}
-                  style={{ "--stamp-index": index } as CSSProperties}
+                  className={getStampClassName(index)}
                   data-loyalty-stamp
                   data-testid={index === 5 ? "loyalty-desktop-sixth-stamp" : undefined}
                 >
