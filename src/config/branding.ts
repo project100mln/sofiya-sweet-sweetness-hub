@@ -2,7 +2,7 @@
 // Меняйте логотипы и их поведение здесь — компоненты трогать не нужно.
 import markHeart from "@/assets/sofiya-wordmark.png";
 import markRound from "@/assets/sofiya-logo.png";
-import markRoundTransparent from "@/assets/sofiya-logo-transparent.png";
+import markRoundTransparent from "@/assets/sofiya-logo-footer.png";
 
 /** Все доступные варианты логотипа. Добавьте новый ассет и запись здесь. */
 export const logoSources = {
