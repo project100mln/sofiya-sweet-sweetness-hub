@@ -43,14 +43,14 @@ export function AppPromo() {
       return;
     }
 
-    const sequence = [-1, 0, 1, 2, 3, 4, 5, 5, 5];
+    const sequence = [-1, 0, 1, 2, 3, 4, 5, 5];
     let sequenceIndex = 0;
     setActiveStamp(sequence[sequenceIndex]);
 
     const timer = window.setInterval(() => {
       sequenceIndex = (sequenceIndex + 1) % sequence.length;
       setActiveStamp(sequence[sequenceIndex]);
-    }, 1250);
+    }, 500);
 
     return () => window.clearInterval(timer);
   }, [isVisible, storyRun]);
