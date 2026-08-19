@@ -270,28 +270,20 @@
   4% {
     opacity: 0.4;
     transform: scale(0.82);
-    background: rgb(255 255 255 / 0.06);
-    color: rgb(255 255 255 / 0.55);
   }
   8% {
     opacity: 1;
     transform: scale(1.16);
-    background: rgb(255 255 255 / 0.2);
-    color: rgb(255 255 255 / 0.96);
   }
   13%,
   84% {
     opacity: 1;
     transform: scale(1);
-    background: rgb(255 255 255 / 0.14);
-    color: rgb(255 255 255 / 0.86);
   }
   92%,
   100% {
     opacity: 0.4;
     transform: scale(0.82);
-    background: rgb(255 255 255 / 0.06);
-    color: rgb(255 255 255 / 0.55);
   }
 }
 
@@ -370,6 +362,7 @@
 .loyalty-story-kicker,
 .loyalty-story-title,
 .loyalty-story-description,
+.loyalty-progress-label,
 .loyalty-story-benefits,
 .loyalty-reminder-cta {
   opacity: 0;
@@ -388,17 +381,58 @@
   animation: loyalty-story-copy-arrive 0.5s ease-out 0.5s both;
 }
 
+.loyalty-story-card[data-visible="true"] .loyalty-progress-label {
+  animation: loyalty-story-copy-arrive 0.5s ease-out 0.62s both;
+}
+
 .loyalty-stamp {
   display: flex;
-  aspect-ratio: 1;
+  min-width: 0;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgb(255 255 255 / 0.28);
-  border-radius: 9999px;
-  background: rgb(255 255 255 / 0.1);
+  gap: 0.1rem;
   color: rgb(255 255 255 / 0.78);
   opacity: 0.4;
   transform: scale(0.82);
+}
+
+.loyalty-cup-shell {
+  display: flex;
+  aspect-ratio: 1;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(255 255 255 / 0.22);
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 0.08);
+}
+
+.loyalty-cup-image {
+  width: 88%;
+  height: 88%;
+  object-fit: contain;
+  filter: drop-shadow(0 0.28rem 0.32rem rgb(26 2 42 / 0.22));
+}
+
+.loyalty-stamp-number {
+  color: rgb(255 255 255 / 0.86);
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.loyalty-stamps-mobile .loyalty-cup-shell {
+  max-width: 2.5rem;
+}
+
+.loyalty-stamps-desktop .loyalty-cup-shell {
+  max-width: 3.75rem;
+}
+
+.loyalty-stamps-desktop .loyalty-stamp-number {
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
 }
 
 .loyalty-story-card[data-visible="true"] .loyalty-stamp {
@@ -407,14 +441,26 @@
 }
 
 .loyalty-stamp-final {
-  border-color: rgb(244 204 116 / 0.85);
-  background: #f4cc74;
   color: #4f146f;
   opacity: 1;
   transform: scale(1);
 }
 
-.loyalty-story-card[data-visible="true"] .loyalty-stamp-final {
+.loyalty-stamp-final .loyalty-cup-shell {
+  border-color: rgb(244 204 116 / 0.95);
+  background: #f4cc74;
+  box-shadow: 0 0.6rem 1.4rem rgb(29 4 47 / 0.16);
+}
+
+.loyalty-stamp-final .loyalty-cup-image {
+  filter: saturate(0.82) sepia(0.12) drop-shadow(0 0.28rem 0.32rem rgb(26 2 42 / 0.2));
+}
+
+.loyalty-stamp-final .loyalty-stamp-number {
+  color: #f4cc74;
+}
+
+.loyalty-story-card[data-visible="true"] .loyalty-stamp-final .loyalty-cup-shell {
   animation: loyalty-reward-burst 4.2s ease-in-out 2s infinite;
 }
 
@@ -476,7 +522,9 @@ textarea.input {
   .loyalty-story-kicker,
   .loyalty-story-title,
   .loyalty-story-description,
+  .loyalty-progress-label,
   .loyalty-stamp,
+  .loyalty-cup-shell,
   .loyalty-story-benefits,
   .loyalty-reminder-cta {
     animation: none !important;

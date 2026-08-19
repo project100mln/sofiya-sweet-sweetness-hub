@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type CSSProperties, type MouseEvent } from "react";
-import { Bell, Coffee, Gift, Play, QrCode, Sparkles } from "lucide-react";
+import { Bell, Coffee, Gift, MessageCircle, Play, QrCode, Sparkles } from "lucide-react";
+import loyaltyCoffeeCup from "@/assets/loyalty-coffee-cup.webp";
 import phoneSceneAsset from "@/assets/sofiya-club-mobile-scene.webp";
 import { waLink } from "@/config/site";
 
@@ -84,7 +85,7 @@ export function AppPromo() {
             <img
               src={phoneSceneAsset}
               alt="Экран приложения SOFIYA Club с прогрессом: пять из шести кофе"
-              className="loyalty-phone-scene h-[124%] w-auto max-w-none select-none"
+              className="loyalty-phone-scene h-[158%] w-auto max-w-none select-none"
               data-loyalty-phone
               data-testid="loyalty-mobile-phone"
               draggable={false}
@@ -96,7 +97,7 @@ export function AppPromo() {
               className="absolute right-3 top-3 z-10 inline-flex min-h-9 items-center gap-1.5 rounded-full border border-white/25 bg-[#3d0d5a]/85 px-3 text-[0.68rem] font-semibold text-white shadow-lg backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4cc74]"
               data-testid="loyalty-mobile-play"
             >
-              <Play className="h-3.5 w-3.5 fill-current" aria-hidden /> Показать
+              <Play className="h-3.5 w-3.5 fill-current" aria-hidden /> Показать бонус
             </button>
           </div>
 
@@ -110,11 +111,15 @@ export function AppPromo() {
             </h2>
 
             <p className="loyalty-story-description mt-2 text-[0.7rem] leading-[1.05rem] text-white/80">
-              Купите пять кофе — шестой получите в подарок. QR-код и бонусы всегда в телефоне.
+              Купите пять кофе — шестой получите в подарок. QR‑код и бонусы всегда в телефоне.
+            </p>
+
+            <p className="loyalty-progress-label mt-2 text-center text-[0.62rem] font-medium text-[#f4cc74]">
+              5 покупок → 6-й кофе в подарок
             </p>
 
             <ol
-              className="loyalty-stamps mt-3 grid grid-cols-6 gap-1.5"
+              className="loyalty-stamps loyalty-stamps-mobile mt-1.5 grid grid-cols-6 gap-1"
               aria-label="Пять покупок — шестой кофе бесплатно"
             >
               {Array.from({ length: 6 }, (_, index) => (
@@ -125,7 +130,22 @@ export function AppPromo() {
                   data-loyalty-stamp
                   data-testid={index === 5 ? "loyalty-mobile-sixth-stamp" : undefined}
                 >
-                  <Coffee className="h-3.5 w-3.5" aria-hidden />
+                  <span className="loyalty-cup-shell">
+                    <img
+                      src={loyaltyCoffeeCup}
+                      alt=""
+                      className="loyalty-cup-image"
+                      data-testid={`loyalty-mobile-cup-${index + 1}`}
+                      aria-hidden
+                    />
+                  </span>
+                  <span
+                    className="loyalty-stamp-number"
+                    data-testid={`loyalty-mobile-stamp-number-${index + 1}`}
+                    aria-hidden
+                  >
+                    {index + 1}
+                  </span>
                   <span className="sr-only">
                     {index === 5 ? "Шестой кофе бесплатно" : `Покупка ${index + 1}`}
                   </span>
@@ -151,7 +171,7 @@ export function AppPromo() {
               className="loyalty-reminder-cta mt-auto flex min-h-10 w-full items-center justify-center gap-2 rounded-full bg-white px-4 text-xs font-semibold text-[#501072] shadow-lg active:scale-[0.98]"
               data-testid="loyalty-mobile-reminder"
             >
-              <Bell className="h-3.5 w-3.5" aria-hidden /> Напомнить о запуске
+              <MessageCircle className="h-3.5 w-3.5" aria-hidden /> Напомнить в WhatsApp
             </a>
           </div>
         </div>
@@ -197,7 +217,7 @@ export function AppPromo() {
             </p>
 
             <ol
-              className="loyalty-stamps mt-6 grid max-w-[29rem] grid-cols-6 gap-3"
+              className="loyalty-stamps loyalty-stamps-desktop mt-6 grid max-w-[29rem] grid-cols-6 gap-3"
               aria-label="Пять покупок — шестой кофе бесплатно"
             >
               {Array.from({ length: 6 }, (_, index) => (
@@ -208,7 +228,22 @@ export function AppPromo() {
                   data-loyalty-stamp
                   data-testid={index === 5 ? "loyalty-desktop-sixth-stamp" : undefined}
                 >
-                  <Coffee className="h-5 w-5" aria-hidden />
+                  <span className="loyalty-cup-shell">
+                    <img
+                      src={loyaltyCoffeeCup}
+                      alt=""
+                      className="loyalty-cup-image"
+                      data-testid={`loyalty-desktop-cup-${index + 1}`}
+                      aria-hidden
+                    />
+                  </span>
+                  <span
+                    className="loyalty-stamp-number"
+                    data-testid={`loyalty-desktop-stamp-number-${index + 1}`}
+                    aria-hidden
+                  >
+                    {index + 1}
+                  </span>
                   <span className="sr-only">
                     {index === 5 ? "Шестой кофе бесплатно" : `Покупка ${index + 1}`}
                   </span>

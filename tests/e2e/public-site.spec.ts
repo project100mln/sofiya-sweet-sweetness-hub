@@ -152,7 +152,17 @@ test("home news cards open their intended destinations", async ({ page }, testIn
   await expect(sixthStamp).toBeVisible();
   await expect(reminder).toHaveAttribute("href", /^https:\/\/wa\.me\/77075580605/);
 
+  const loyaltyVersion = isMobile ? "mobile" : "desktop";
+  for (let number = 1; number <= 6; number += 1) {
+    await expect(page.getByTestId(`loyalty-${loyaltyVersion}-cup-${number}`)).toBeVisible();
+    await expect(page.getByTestId(`loyalty-${loyaltyVersion}-stamp-number-${number}`)).toHaveText(
+      String(number),
+    );
+  }
+
   if (isMobile) {
+    await expect(card.getByText("5 покупок → 6-й кофе в подарок", { exact: true })).toBeVisible();
+    await expect(reminder).toContainText("Напомнить в WhatsApp");
     const cardBox = await card.boundingBox();
     const phoneBox = await phone.boundingBox();
     const viewport = page.viewportSize();
