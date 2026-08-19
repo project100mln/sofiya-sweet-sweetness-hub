@@ -1,14 +1,46 @@
+import { useEffect, useRef, useState } from "react";
 import mockupAsset from "@/assets/sofiya-club-full.webp";
 
 export function AppPromo() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.22 },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="loyalty"
+      data-testid="loyalty-section"
+      className="relative scroll-mt-24 overflow-hidden"
+      aria-label="Программа лояльности SOFIYA Club"
+    >
       <div className="container-page py-16 md:py-24">
-        <div className="relative rounded-[2.5rem] overflow-hidden shadow-lift">
+        <div
+          className="loyalty-promo-card relative overflow-hidden rounded-[2.5rem] shadow-lift"
+          data-visible={isVisible}
+        >
           <img
             src={mockupAsset}
             alt="SOFIYA Club — купите 5 кофе, получите 6-й бесплатно"
-            className="block w-full h-auto select-none"
+            className="loyalty-promo-image block h-auto w-full select-none"
+            data-testid="loyalty-image"
             draggable={false}
           />
 

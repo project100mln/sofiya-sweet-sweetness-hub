@@ -11,7 +11,7 @@ export const news: NewsItem[] = [
     cover: IMG.eclairs,
     summary: "Готовим цифровую карту клиента, персональный QR и подарки за покупки.",
     body: "Мы работаем над мобильным приложением SOFIYA Club. В нём появится цифровая карта, история покупок, бонусы и подарок «6-й кофе бесплатно». Следите за анонсами.",
-    destination: "article",
+    destination: "loyalty",
     isPublished: true,
   },
   {

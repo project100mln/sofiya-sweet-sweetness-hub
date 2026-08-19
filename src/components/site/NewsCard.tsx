@@ -8,6 +8,7 @@ interface NewsCardProps {
 
 const destinationLabel: Record<NewsItem["destination"], string> = {
   article: "Открыть событие",
+  loyalty: "Перейти к программе лояльности",
   "cake-preorder": "Перейти к заказу торта",
   stores: "Посмотреть магазины",
 };
@@ -59,6 +60,19 @@ export function NewsCard({ item, compact = false }: NewsCardProps) {
       >
         {content}
       </Link>
+    );
+  }
+
+  if (item.destination === "loyalty") {
+    return (
+      <a
+        href="/#loyalty"
+        className={className}
+        aria-label={ariaLabel}
+        data-testid={`news-card-${item.id}`}
+      >
+        {content}
+      </a>
     );
   }
 

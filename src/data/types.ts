@@ -57,6 +57,6 @@ export interface NewsItem {
   cover: string;
   summary: string;
   body: string;
-  destination: "article" | "cake-preorder" | "stores";
+  destination: "article" | "loyalty" | "cake-preorder" | "stores";
   isPublished: boolean;
 }

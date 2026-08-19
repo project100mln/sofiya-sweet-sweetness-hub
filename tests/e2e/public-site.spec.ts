@@ -121,10 +121,7 @@ test("home news cards open their intended destinations", async ({ page }) => {
     "href",
     "/promotions",
   );
-  await expect(page.getByTestId("news-card-n-club")).toHaveAttribute(
-    "href",
-    "/news/sofiya-club-skoro",
-  );
+  await expect(page.getByTestId("news-card-n-club")).toHaveAttribute("href", "/#loyalty");
   await expect(page.getByTestId("news-card-n-cake-preorder")).toHaveAttribute(
     "href",
     "/cake-preorder",
@@ -132,8 +129,9 @@ test("home news cards open their intended destinations", async ({ page }) => {
   await expect(page.getByTestId("news-card-n-network")).toHaveAttribute("href", "/stores");
 
   await page.getByTestId("news-card-n-club").click();
-  await expect(page).toHaveURL(/\/news\/sofiya-club-skoro$/);
-  await expect(page.locator("main")).toBeVisible();
+  await expect(page).toHaveURL(/\/#loyalty$/);
+  await expect(page.getByTestId("loyalty-section")).toBeInViewport();
+  await expect(page.getByTestId("loyalty-image")).toBeVisible();
 
   await page.goto("/");
   await page.getByTestId("news-card-n-cake-preorder").click();

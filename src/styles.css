@@ -225,6 +225,41 @@
   animation: fade-up 0.6s ease-out both;
 }
 
+@keyframes loyalty-banner-breathe {
+  0%,
+  100% {
+    transform: scale(1.004) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.018) translate3d(-0.18%, -0.35%, 0);
+  }
+}
+
+.loyalty-promo-card {
+  opacity: 0;
+  transform: translateY(1.5rem) scale(0.985);
+  transition:
+    opacity 0.8s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.loyalty-promo-card[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  box-shadow: 0 28px 72px -28px rgb(73 22 112 / 0.58);
+}
+
+.loyalty-promo-image {
+  transform-origin: 64% 50%;
+  will-change: transform;
+}
+
+.loyalty-promo-card[data-visible="true"] .loyalty-promo-image {
+  animation: loyalty-banner-breathe 7s ease-in-out 0.9s infinite;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -265,5 +300,13 @@ textarea.input {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .loyalty-promo-card,
+  .loyalty-promo-card[data-visible="true"],
+  .loyalty-promo-image {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
   }
 }
