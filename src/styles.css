@@ -315,21 +315,22 @@
 .loyalty-mobile-compact-card {
   height: min(33.5rem, calc(100svh - 5.75rem));
   min-height: 28rem;
+  background: #eadcc7;
 }
 
 .loyalty-mobile-backdrop {
-  object-position: 50% 44%;
+  object-position: 50% 50%;
 }
 
 .loyalty-mobile-scrim {
   z-index: 1;
   background: linear-gradient(
     to bottom,
-    rgb(42 4 61 / 0.02) 0%,
-    rgb(42 4 61 / 0.08) 26%,
-    rgb(56 8 78 / 0.76) 43%,
-    rgb(74 17 105 / 0.97) 62%,
-    #4a1169 100%
+    rgb(24 17 21 / 0.02) 0%,
+    rgb(24 17 21 / 0.08) 26%,
+    rgb(28 20 27 / 0.58) 43%,
+    rgb(27 18 27 / 0.86) 62%,
+    rgb(24 15 24 / 0.94) 100%
   );
 }
 

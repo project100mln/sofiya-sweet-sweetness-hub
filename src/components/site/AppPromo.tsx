@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { Bell, Coffee, Gift, MessageCircle, Play, QrCode, Sparkles } from "lucide-react";
 import loyaltyCoffeeCup from "@/assets/loyalty-coffee-cup.webp";
+import lightPhoneSceneAsset from "@/assets/sofiya-club-mobile-scene-light.webp";
 import phoneSceneAsset from "@/assets/sofiya-club-mobile-scene.webp";
 import { waLink } from "@/config/site";
 
@@ -99,7 +100,7 @@ export function AppPromo() {
           data-testid="loyalty-mobile-card"
         >
           <img
-            src={phoneSceneAsset}
+            src={lightPhoneSceneAsset}
             alt="Экран приложения SOFIYA Club с прогрессом: пять из шести кофе"
             className="loyalty-phone-scene loyalty-mobile-backdrop absolute inset-0 h-full w-full select-none object-cover"
             data-loyalty-phone

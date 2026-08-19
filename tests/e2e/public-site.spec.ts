@@ -163,6 +163,7 @@ test("home news cards open their intended destinations", async ({ page }, testIn
 
   if (isMobile) {
     const scrim = page.getByTestId("loyalty-mobile-scrim");
+    await expect(phone).toHaveAttribute("src", /sofiya-club-mobile-scene-light/);
     await expect(card.getByText("5 покупок → 6-й кофе в подарок", { exact: true })).toBeVisible();
     await expect(reminder).toContainText("Напомнить в WhatsApp");
     await expect(scrim).toBeVisible();
