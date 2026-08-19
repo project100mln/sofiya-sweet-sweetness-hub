@@ -24,6 +24,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as StoresRouteImport } from './routes/stores'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as CatalogSlugRouteImport } from './routes/catalog_.$slug'
+import { Route as PromotionsSlugRouteImport } from './routes/promotions_.$slug'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -101,6 +102,11 @@ const CatalogSlugRoute = CatalogSlugRouteImport.update({
   path: '/catalog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PromotionsSlugRoute = PromotionsSlugRouteImport.update({
+  id: '/promotions_/$slug',
+  path: '/promotions/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewsSlugRoute = NewsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -123,6 +129,7 @@ export interface FileRoutesByFullPath {
   '/stores': typeof StoresRoute
   '/terms': typeof TermsRoute
   '/catalog/$slug': typeof CatalogSlugRoute
+  '/promotions/$slug': typeof PromotionsSlugRoute
   '/news/$slug': typeof NewsSlugRoute
 }
 export interface FileRoutesByTo {
@@ -141,6 +148,7 @@ export interface FileRoutesByTo {
   '/stores': typeof StoresRoute
   '/terms': typeof TermsRoute
   '/catalog/$slug': typeof CatalogSlugRoute
+  '/promotions/$slug': typeof PromotionsSlugRoute
   '/news/$slug': typeof NewsSlugRoute
 }
 export interface FileRoutesById {
@@ -160,6 +168,7 @@ export interface FileRoutesById {
   '/stores': typeof StoresRoute
   '/terms': typeof TermsRoute
   '/catalog_/$slug': typeof CatalogSlugRoute
+  '/promotions_/$slug': typeof PromotionsSlugRoute
   '/news/$slug': typeof NewsSlugRoute
 }
 export interface FileRouteTypes {
@@ -180,6 +189,7 @@ export interface FileRouteTypes {
     | '/stores'
     | '/terms'
     | '/catalog/$slug'
+    | '/promotions/$slug'
     | '/news/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -198,6 +208,7 @@ export interface FileRouteTypes {
     | '/stores'
     | '/terms'
     | '/catalog/$slug'
+    | '/promotions/$slug'
     | '/news/$slug'
   id:
     | '__root__'
@@ -216,6 +227,7 @@ export interface FileRouteTypes {
     | '/stores'
     | '/terms'
     | '/catalog_/$slug'
+    | '/promotions_/$slug'
     | '/news/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -235,6 +247,7 @@ export interface RootRouteChildren {
   StoresRoute: typeof StoresRoute
   TermsRoute: typeof TermsRoute
   CatalogSlugRoute: typeof CatalogSlugRoute
+  PromotionsSlugRoute: typeof PromotionsSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -344,6 +357,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CatalogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/promotions_/$slug': {
+      id: '/promotions_/$slug'
+      path: '/promotions/$slug'
+      fullPath: '/promotions/$slug'
+      preLoaderRoute: typeof PromotionsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/news/$slug': {
       id: '/news/$slug'
       path: '/$slug'
@@ -380,6 +400,7 @@ const rootRouteChildren: RootRouteChildren = {
   StoresRoute: StoresRoute,
   TermsRoute: TermsRoute,
   CatalogSlugRoute: CatalogSlugRoute,
+  PromotionsSlugRoute: PromotionsSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

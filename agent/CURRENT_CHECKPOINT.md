@@ -11,9 +11,12 @@
   descriptions, while the cleaned 16:10 food imagery retains only the `-20%` and
   `20:00–22:00` discount medallion. The samsa scene now uses the approved warm tabletop
   styling, and both assets were optimized to WebP.
-- Promotions slice verification: formatting, whitespace validation and isolated TSX
-  parsing pass; the full dependency-backed gate and browser UAT remain pending in this
-  fresh workspace.
+- Promotions slice verification: GitHub Quality and Vercel passed for commit
+  `6cd17b3d137d1ba43515c6dae02da3bb58992994`; desktop browser UAT confirmed both
+  images and card copy render without site console errors.
+- Promotions interaction follow-up: the two featured cards now link to dedicated detail
+  pages, show the participating product names in their visible descriptions, and expose
+  the full product lists, offer hours and WhatsApp clarification action after navigation.
 - Green local gate: `npm --offline run check` (format, lint, typecheck, 8 unit tests,
   production build and secret scan). Full dependency audit reports 0 vulnerabilities.
 - SSR route matrix: public routes return 200/redirect as expected; designed unknown

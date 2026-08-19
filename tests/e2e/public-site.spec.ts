@@ -104,6 +104,14 @@ test("promotions page shows the approved happy-hours offers", async ({ page }) =
   await expect(page.getByText(/Нежное, воздушное тесто/)).toBeVisible();
   await expect(page.getByAltText("Самсы с фаршем")).toBeVisible();
   await expect(page.getByAltText("Три вида выпечки")).toBeVisible();
+  await expect(page.getByText(/Самса мини, Самса №1 и Самса пармуда/)).toBeVisible();
+
+  await page.getByRole("link", { name: /Подробнее об акции «Самсы с фаршем»/ }).click();
+  await expect(page).toHaveURL(/\/promotions\/samsa-happy-hours$/);
+  await expect(page.getByRole("heading", { level: 1, name: "Самсы с фаршем" })).toBeVisible();
+  await expect(page.getByText("Самса мини", { exact: true })).toBeVisible();
+  await expect(page.getByText("Самса №1", { exact: true })).toBeVisible();
+  await expect(page.getByText("Самса пармуда", { exact: true })).toBeVisible();
 });
 
 test("unknown route returns the designed 404", async ({ page }) => {

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { products } from "@/data/catalog";
 import { news } from "@/data/news";
+import { featuredPromotions } from "@/data/featured-promotions";
 
 const staticPaths = [
   "/",
@@ -40,6 +41,9 @@ export const Route = createFileRoute("/sitemap.xml")({
             .filter((product) => product.isPublished)
             .map((product) => `/catalog/${product.slug}`),
           ...news.map((item) => `/news/${item.slug}`),
+          ...featuredPromotions
+            .filter((promotion) => promotion.slug)
+            .map((promotion) => `/promotions/${promotion.slug}`),
         ];
         const urls = paths
           .map((path) => `  <url><loc>${escapeXml(`${origin}${path}`)}</loc></url>`)

@@ -40,6 +40,8 @@ export type PromotionCardContent = Pick<
   | "promo_code_word"
 > & {
   image_has_discount_badge?: boolean;
+  slug?: string;
+  product_names?: string[];
 };
 
 export interface CartItem {
