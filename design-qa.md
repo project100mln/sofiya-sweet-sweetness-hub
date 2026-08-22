@@ -29,7 +29,7 @@ comparison rather than a claim of pixel-for-pixel identity.
 | Controls          | Brand-purple CTA with white text, arrows, slide tabs and progress line are visible and operable          | Passed |
 | Product crop      | Cake, fruit and edible logo are retained in the right-focused composition                                | Passed |
 | Photo quality     | Exact source photo is preserved; desktop selects the responsive HD asset and keeps sharp product detail  | Passed |
-| Brand history     | Founder, 2014/2016 timeline, name meaning, mission, 17 branches and team size match supplied facts        | Passed |
+| Brand history     | Founder, 2014/2016 timeline, name meaning, mission, 17 branches and team size match supplied facts       | Passed |
 | Responsive safety | Automated coverage passes at phone and desktop sizes; desktop has no horizontal overflow                 | Passed |
 | Browser health    | No application-origin console errors were observed during the final journey                              | Passed |
 
