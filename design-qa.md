@@ -24,19 +24,19 @@ comparison rather than a claim of pixel-for-pixel identity.
 
 ## Required surface review
 
-| Surface           | Evidence                                                                                                   | Result |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- | ------ |
-| Header            | Original S-emblem SOFIYA lockup, compact navigation, phone and WhatsApp remain visible without overlap     | Passed |
-| Hero composition  | Rounded full-bleed stage, controlled left overlay and product-dominant right side follow the reference     | Passed |
-| Brand assets      | The interim cake emblem is replaced by the original S lockup; the edible SOFIYA mark stays unobstructed    | Passed |
-| Typography        | Eyebrow, two-line editorial title, two-line supporting copy and CTA rhythm match the reference hierarchy   | Passed |
+| Surface           | Evidence                                                                                                     | Result |
+| ----------------- | ------------------------------------------------------------------------------------------------------------ | ------ |
+| Header            | Original S-emblem SOFIYA lockup, compact navigation, phone and WhatsApp remain visible without overlap       | Passed |
+| Hero composition  | Rounded full-bleed stage, controlled left overlay and product-dominant right side follow the reference       | Passed |
+| Brand assets      | The interim cake emblem is replaced by the original S lockup; the edible SOFIYA mark stays unobstructed      | Passed |
+| Typography        | Eyebrow, two-line editorial title, two-line supporting copy and CTA rhythm match the reference hierarchy     | Passed |
 | Colors and tokens | Hero overlay is reduced again on desktop/mobile; more photography is visible while white copy stays readable | Passed |
-| Controls          | Purple CTA and light-lilac eyebrow, active slide indicator and progress line use the approved brand family | Passed |
-| Product crop      | Cake, fruit and edible logo are retained in the right-focused composition                                  | Passed |
-| Photo quality     | Exact source photo is preserved; desktop selects the responsive HD asset and keeps sharp product detail    | Passed |
-| Brand history     | Founder, 2014/2016 timeline, name meaning, mission, 17 branches and team size match supplied facts         | Passed |
-| Responsive safety | Mobile title uses a viewport-aware size; its fixed second line keeps at least 16 px inside the hero frame  | Passed |
-| Browser health    | No application-origin console errors were observed during the final journey                                | Passed |
+| Controls          | Purple CTA and light-lilac eyebrow, active slide indicator and progress line use the approved brand family   | Passed |
+| Product crop      | Cake, fruit and edible logo are retained in the right-focused composition                                    | Passed |
+| Photo quality     | Exact source photo is preserved; desktop selects the responsive HD asset and keeps sharp product detail      | Passed |
+| Brand history     | Founder, 2014/2016 timeline, name meaning, mission, 17 branches and team size match supplied facts           | Passed |
+| Responsive safety | Mobile title uses a viewport-aware size; its fixed second line keeps at least 16 px inside the hero frame    | Passed |
+| Browser health    | No application-origin console errors were observed during the final journey                                  | Passed |
 
 The header now uses the original letter-S emblem from the supplied brand asset, paired
 with the real SOFIYA wordmark. The lockup is a transparent 890 × 300 raster source and
