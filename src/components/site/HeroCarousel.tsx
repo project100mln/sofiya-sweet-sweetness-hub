@@ -6,7 +6,7 @@ import { IMG, products } from "@/data/catalog";
 interface Slide {
   eyebrow: ReactNode;
   title: ReactNode;
-  desc: string;
+  desc: ReactNode;
   cta: string;
   href: string;
   image: string;
@@ -26,7 +26,13 @@ const slides: Slide[] = [
         <span className="whitespace-nowrap">вкус каждый день</span>
       </>
     ),
-    desc: "Экономим людям время и деньги, чтобы дарить незабываемый вкус!",
+    desc: (
+      <>
+        Экономим людям время и деньги,
+        <br />
+        чтобы дарить незабываемый вкус!
+      </>
+    ),
     cta: "Выбрать десерт",
     href: "/catalog",
     image: IMG.cakeBerry,
@@ -156,7 +162,7 @@ export function HeroCarousel() {
             <Link
               to={s.href}
               search={s.search as never}
-              className="hero-cta inline-flex min-h-12 items-center justify-center rounded-xl bg-[#efc66d] px-7 text-sm font-bold text-primary shadow-[0_14px_34px_-20px_rgba(239,198,109,0.85)] transition-transform hover:-translate-y-0.5 hover:bg-[#f5d283] md:min-h-16 md:px-10 md:text-lg"
+              className="hero-cta inline-flex min-h-12 items-center justify-center rounded-xl bg-[#efc66d] px-7 text-sm font-bold text-primary shadow-[0_14px_34px_-20px_rgba(239,198,109,0.85)] transition-transform hover:-translate-y-0.5 hover:bg-[#f5d283] md:min-h-18 md:px-14 md:text-xl"
             >
               {s.cta}
             </Link>
