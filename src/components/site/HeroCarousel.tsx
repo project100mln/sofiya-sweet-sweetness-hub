@@ -18,7 +18,13 @@ interface Slide {
 const slides: Slide[] = [
   {
     eyebrow: "SOFIYA — с 2014 года",
-    title: "Незабываемый вкус каждый день",
+    title: (
+      <>
+        Незабываемый
+        <br />
+        <span className="whitespace-nowrap">вкус каждый день</span>
+      </>
+    ),
     desc: "Экономим людям время и деньги, чтобы дарить незабываемый вкус!",
     cta: "Выбрать десерт",
     href: "/catalog",
