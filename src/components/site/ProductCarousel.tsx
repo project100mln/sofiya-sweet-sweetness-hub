@@ -24,9 +24,9 @@ export function ProductCarousel({
   };
   return (
     <section className="container-page py-14 md:py-20">
-      <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
+      <div className="section-heading">
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">{title}</h2>
+          <h2>{title}</h2>
           {subtitle && <p className="mt-2 text-muted-foreground max-w-xl">{subtitle}</p>}
         </div>
         <div className="flex items-center gap-2">
@@ -36,14 +36,14 @@ export function ProductCarousel({
               <button
                 onClick={() => scroll(-1)}
                 aria-label="Назад"
-                className="hidden md:grid h-11 w-11 place-items-center rounded-full border border-border hover:border-primary hover:text-primary"
+                className="hidden md:grid h-11 w-11 place-items-center rounded-full border border-border bg-card transition-colors hover:border-primary hover:text-primary"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
               <button
                 onClick={() => scroll(1)}
                 aria-label="Далее"
-                className="hidden md:grid h-11 w-11 place-items-center rounded-full border border-border hover:border-primary hover:text-primary"
+                className="hidden md:grid h-11 w-11 place-items-center rounded-full border border-border bg-card transition-colors hover:border-primary hover:text-primary"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>

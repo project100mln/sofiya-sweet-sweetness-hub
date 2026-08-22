@@ -46,7 +46,7 @@ export function NewsCard({ item, compact = false }: NewsCardProps) {
   );
 
   const className =
-    "group block overflow-hidden rounded-3xl border border-border/60 bg-card transition-all hover:border-primary/40 hover:shadow-lift focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2";
+    "premium-card group block overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4";
   const ariaLabel = `${destinationLabel[item.destination]}: ${item.title}`;
 
   if (item.destination === "article") {

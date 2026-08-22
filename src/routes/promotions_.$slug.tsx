@@ -49,7 +49,7 @@ function PromotionDetailPage() {
       </div>
 
       <section className="container-page grid gap-10 py-8 md:py-12 lg:grid-cols-2 lg:items-center">
-        <div className="aspect-[16/10] overflow-hidden rounded-3xl bg-muted shadow-soft">
+        <div className="premium-card aspect-[16/10] overflow-hidden bg-muted">
           {promotion.image_url && (
             <img
               src={promotion.image_url}
@@ -61,7 +61,7 @@ function PromotionDetailPage() {
 
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">Акция</p>
-          <h1 className="mt-3 text-3xl font-bold md:text-5xl">{promotion.title}</h1>
+          <h1 className="mt-3 text-4xl font-semibold md:text-6xl">{promotion.title}</h1>
           {promotion.description && (
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               {promotion.description}
@@ -77,7 +77,7 @@ function PromotionDetailPage() {
                 {promotion.product_names.map((name) => (
                   <li
                     key={name}
-                    className="flex items-center gap-2 rounded-2xl border border-border/60 bg-card px-4 py-3 text-sm font-semibold"
+                    className="premium-card flex items-center gap-2 rounded-2xl px-4 py-3 text-sm font-semibold"
                   >
                     <Check className="h-4 w-4 shrink-0 text-primary" /> {name}
                   </li>

@@ -85,7 +85,7 @@ function PreorderPage() {
   if (sent) {
     return (
       <section className="container-page py-20 max-w-2xl">
-        <div className="rounded-3xl bg-card border border-border p-10 text-center">
+        <div className="premium-card p-10 text-center">
           <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-primary/10 text-primary">
             <Check className="h-8 w-8" />
           </div>
@@ -133,7 +133,7 @@ function PreorderPage() {
           />
         </div>
 
-        <div className="mt-8 rounded-3xl surface-card p-5 md:p-8">
+        <div className="premium-card mt-8 p-5 md:p-8">
           {step === 0 && (
             <>
               <Choices

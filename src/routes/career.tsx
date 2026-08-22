@@ -3,6 +3,7 @@ import { useState } from "react";
 import { site, waLink } from "@/config/site";
 import { Check, Coffee, Cake, Users, GraduationCap, Sprout, Sparkles } from "lucide-react";
 import { canonicalLink } from "@/config/site";
+import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/career")({
   head: () => ({
@@ -37,16 +38,11 @@ function CareerPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary to-[color:var(--secondary)] text-primary-foreground">
-        <div className="container-page py-14 md:py-20">
-          <p className="text-xs font-semibold uppercase tracking-widest opacity-80">Карьера</p>
-          <h1 className="mt-2 text-4xl md:text-6xl font-bold">Станьте частью команды</h1>
-          <p className="mt-4 text-lg text-white/85 max-w-2xl">
-            Мы — растущая сеть фирменных магазинов. Ищем людей, которые любят своё дело и хотят
-            расти вместе с нами.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Карьера"
+        title="Станьте частью команды"
+        lead="Мы — растущая сеть фирменных магазинов. Ищем людей, которые любят своё дело и хотят расти вместе с нами."
+      />
 
       <section className="container-page py-12 grid gap-5 md:grid-cols-4">
         {[
@@ -55,7 +51,7 @@ function CareerPage() {
           { i: Users, t: "Команда", d: "Тёплая атмосфера и поддержка." },
           { i: Sparkles, t: "Разные направления", d: "Пекари, кондитеры, бариста, менеджеры." },
         ].map(({ i: Icon, t, d }) => (
-          <div key={t} className="rounded-3xl bg-card border border-border/60 p-6">
+          <div key={t} className="premium-card p-6">
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
               <Icon className="h-6 w-6" />
             </div>
@@ -67,10 +63,10 @@ function CareerPage() {
 
       <section className="container-page py-6">
         <div className="rounded-3xl bg-[color:var(--accent)] p-8 md:p-12">
-          <h2 className="text-2xl md:text-3xl font-bold">Актуальные вакансии</h2>
+          <h2 className="text-2xl md:text-3xl font-bold">Направления работы</h2>
           <p className="mt-3 text-muted-foreground max-w-xl">
-            Список вакансий скоро появится. Пока оставьте заявку — мы свяжемся с вами, как только
-            откроем позицию в вашем городе.
+            Оставьте короткую заявку по подходящему направлению. Команда рассмотрит её и свяжется,
+            если появится подходящая позиция в вашем городе.
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
             {[
@@ -93,7 +89,7 @@ function CareerPage() {
       </section>
 
       <section className="container-page py-12">
-        <div className="mx-auto max-w-2xl rounded-3xl bg-card border border-border p-6 md:p-10">
+        <div className="premium-card mx-auto max-w-2xl p-6 md:p-10">
           <h2 className="text-2xl md:text-3xl font-bold">Оставить отклик</h2>
           {sent ? (
             <div className="mt-8 text-center">

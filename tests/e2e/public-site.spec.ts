@@ -67,6 +67,41 @@ test("mobile navigation opens, shows links, and closes", async ({ page }, testIn
   await expect(navigation).toBeHidden();
 });
 
+test("approved header and first hero keep both SOFIYA logos", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/", { waitUntil: "networkidle" });
+
+  await expect(page.getByTestId("header-logo")).toBeVisible();
+  await expect(page.getByTestId("header-whatsapp")).toHaveAttribute(
+    "href",
+    /^https:\/\/wa\.me\/77075580605/,
+  );
+
+  const hero = page.getByTestId("hero-carousel");
+  await expect(hero.getByText("SOFIYA — с 2014 года", { exact: true })).toBeVisible();
+  await expect(
+    hero.getByRole("heading", { level: 1, name: "Незабываемый вкус каждый день" }),
+  ).toBeVisible();
+  await expect(hero.getByRole("link", { name: "Выбрать десерт" })).toHaveAttribute(
+    "href",
+    /cat=cakes/,
+  );
+  await expect(hero.getByAltText(/торт SOFIYA с ягодами и логотипом/i)).toBeVisible();
+});
+
+test("stores filter and interactive map use approved coordinates", async ({ page }) => {
+  await page.goto("/stores", { waitUntil: "networkidle" });
+
+  const mapPanel = page.getByTestId("store-map-panel");
+  await expect(mapPanel.locator("iframe")).toHaveAttribute("src", /openstreetmap\.org/);
+  await expect(mapPanel.getByRole("heading", { name: "проспект Тауке хана, 214" })).toBeVisible();
+
+  const kapalStore = page.getByTestId("store-card-shy-kapal-2b");
+  await kapalStore.getByRole("button", { name: "Показать на карте" }).click();
+  await expect(mapPanel.getByRole("heading", { name: "улица Капал батыра, 2Б" })).toBeVisible();
+  await expect(mapPanel.locator("iframe")).toHaveAttribute("title", /Капал батыра, 2Б/);
+});
+
 test("contact form prepares an honest WhatsApp hand-off", async ({ page }) => {
   await page.goto("/contacts");
   const popupPromise = page.waitForEvent("popup");

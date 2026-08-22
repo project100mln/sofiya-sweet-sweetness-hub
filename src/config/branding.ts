@@ -1,6 +1,7 @@
 // Centralized branding / logo configuration.
 // Меняйте логотипы и их поведение здесь — компоненты трогать не нужно.
-import approvedHeaderLogo from "@/assets/sofiya-logo-approved.png";
+import approvedHeaderLogo from "@/assets/sofiya-logo-approved.webp";
+import approvedMark from "@/assets/sofiya-mark-approved.webp";
 import approvedWordmark from "@/assets/sofiya-wordmark-approved.png";
 import markRound from "@/assets/sofiya-logo.png";
 import markRoundTransparent from "@/assets/sofiya-logo-footer.png";
@@ -9,6 +10,8 @@ import markRoundTransparent from "@/assets/sofiya-logo-footer.png";
 export const logoSources = {
   /** Утверждённый горизонтальный логотип для светлой шапки */
   approvedHeader: approvedHeaderLogo,
+  /** Утверждённая эмблема без надписи */
+  approvedMark,
   /** Надпись «SOFIYA» с сердечком (прозрачный фон) */
   wordmark: approvedWordmark,
   /** Круглый логотип-эмблема */

@@ -163,7 +163,7 @@ export function HeroCarousel() {
                 key={slide.cta}
                 type="button"
                 onClick={() => setI(idx)}
-                aria-label={`Показать слайд ${idx + 1}`}
+                aria-label={`Слайд ${idx + 1}`}
                 aria-selected={idx === i}
                 role="tab"
                 className={`h-1.5 rounded-full transition-all ${

@@ -193,12 +193,11 @@ function Home() {
 
       {/* News & promotions */}
       <section className="container-page py-14 md:py-20">
-        <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
+        <div className="section-heading">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-              Новости и акции
-            </span>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold">Что нового</h2>
+            <p className="page-kicker">Новости и акции</p>
+            <h2>Что нового</h2>
+            <p>Коллекции, события и предложения SOFIYA.</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Link to="/promotions" className="btn-primary btn-primary-hover">
@@ -218,13 +217,11 @@ function Home() {
 
       {/* Stores preview */}
       <section className="container-page py-14 md:py-20">
-        <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
+        <div className="section-heading">
           <div>
-            <span className="text-xs font-semibold uppercase leading-none tracking-widest text-primary">
-              Сеть
-            </span>
-            <h2 className="mt-3 text-3xl md:text-4xl font-bold">Наши магазины</h2>
-            <p className="mt-2 text-muted-foreground max-w-xl">Шымкент и Туркестанская область.</p>
+            <p className="page-kicker">Сеть</p>
+            <h2>{stores.length} магазинов рядом</h2>
+            <p>Шымкент и Туркестанская область.</p>
           </div>
           <Link to="/stores" className="btn-outline btn-outline-hover">
             Все магазины
@@ -257,15 +254,15 @@ function Home() {
           </div>
           <div className="grid grid-cols-2 gap-3">
             {[
-              ["50+", "гостей"],
-              ["24 ч", "на подготовку"],
-              ["100%", "свежая выпечка"],
+              ["Кофе-брейки", "для встреч и конференций"],
+              ["Десертные столы", "для праздников и событий"],
+              ["Большие заказы", "для компаний и команд"],
             ].map(([n, l]) => (
               <div
                 key={l}
                 className="rounded-2xl bg-background p-5 border border-border/60 last:col-span-2"
               >
-                <p className="text-3xl font-bold text-primary">{n}</p>
+                <p className="text-lg font-semibold text-primary">{n}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{l}</p>
               </div>
             ))}
@@ -302,13 +299,11 @@ function Home() {
 
       {/* Instagram */}
       <section className="container-page py-14 md:py-20">
-        <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
+        <div className="section-heading">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-              Instagram
-            </span>
-            <h2 className="mt-2 text-3xl font-bold md:text-4xl">Десерты в кадре</h2>
-            <p className="mt-2 text-muted-foreground">Подписывайтесь на {site.instagramHandle}</p>
+            <p className="page-kicker">Instagram</p>
+            <h2>Десерты в кадре</h2>
+            <p>Подписывайтесь на {site.instagramHandle}</p>
           </div>
           <a
             href={instagramLink}

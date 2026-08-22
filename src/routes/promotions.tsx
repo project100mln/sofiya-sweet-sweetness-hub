@@ -6,6 +6,7 @@ import { PromotionCard } from "@/components/site/PromotionCard";
 import { supabaseConfigured } from "@/lib/supabase";
 import { canonicalLink } from "@/config/site";
 import { featuredPromotions } from "@/data/featured-promotions";
+import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/promotions")({
   head: () => ({
@@ -25,30 +26,26 @@ function PromotionsPage() {
 
   return (
     <>
-      <section className="bg-gradient-to-b from-[color:var(--accent)] to-background">
-        <div className="container-page py-10 md:py-14">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">Акции</p>
-          <h1 className="mt-2 text-4xl md:text-5xl font-bold">Специальные предложения</h1>
-          <p className="mt-3 text-muted-foreground max-w-xl">
-            Выбирайте любимую выпечку со скидкой 20% каждый вечер с 20:00 до 22:00.
-          </p>
-
-          <label className="mt-6 flex max-w-sm flex-col gap-1.5 text-sm">
-            <span className="font-semibold text-foreground">Ваш филиал</span>
-            <select
-              className="rounded-xl border border-border/60 bg-card px-3 py-2 text-foreground"
-              value={storeId ?? ""}
-              onChange={(e) => selectStore(Number(e.target.value))}
-            >
-              {stores.map((s) => (
-                <option key={s.id} value={storeNumericIds[s.id]}>
-                  {s.city}, {s.address}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Акции"
+        title="Специальные предложения"
+        lead="Выбирайте любимую выпечку со скидкой 20% каждый вечер с 20:00 до 22:00."
+      >
+        <label className="mt-6 flex max-w-sm flex-col gap-1.5 text-sm">
+          <span className="font-semibold text-foreground">Ваш филиал</span>
+          <select
+            className="rounded-xl border border-border/60 bg-card px-3 py-2 text-foreground"
+            value={storeId ?? ""}
+            onChange={(e) => selectStore(Number(e.target.value))}
+          >
+            {stores.map((s) => (
+              <option key={s.id} value={storeNumericIds[s.id]}>
+                {s.city}, {s.address}
+              </option>
+            ))}
+          </select>
+        </label>
+      </PageHero>
 
       <section className="container-page py-12">
         {supabaseConfigured && isLoading && (

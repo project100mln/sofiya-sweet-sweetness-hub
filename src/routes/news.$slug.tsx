@@ -32,7 +32,7 @@ function NewsArticle() {
   const related = news.filter((n) => n.id !== item.id).slice(0, 3);
   return (
     <>
-      <article className="container-page py-10 md:py-14 max-w-3xl">
+      <article className="container-page max-w-3xl py-10 md:py-14">
         <Link to="/news" className="text-sm text-primary font-semibold">
           ← Все новости
         </Link>
@@ -43,8 +43,8 @@ function NewsArticle() {
             year: "numeric",
           })}
         </p>
-        <h1 className="mt-3 text-4xl md:text-5xl font-bold">{item.title}</h1>
-        <div className="mt-6 aspect-[16/9] rounded-3xl overflow-hidden">
+        <h1 className="mt-3 text-4xl font-semibold md:text-6xl">{item.title}</h1>
+        <div className="premium-card mt-6 aspect-[16/9] overflow-hidden">
           <img src={item.cover} alt={item.title} className="h-full w-full object-cover" />
         </div>
         <p className="mt-8 text-lg text-muted-foreground">{item.summary}</p>
@@ -54,8 +54,13 @@ function NewsArticle() {
       </article>
       {related.length > 0 && (
         <section className="container-page py-12">
-          <h2 className="text-2xl font-bold">Читайте также</h2>
-          <div className="mt-6 grid gap-5 md:grid-cols-3">
+          <div className="section-heading">
+            <div>
+              <p className="page-kicker">Ещё в SOFIYA</p>
+              <h2>Читайте также</h2>
+            </div>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
             {related.map((n) => (
               <NewsCard key={n.id} item={n} compact />
             ))}
