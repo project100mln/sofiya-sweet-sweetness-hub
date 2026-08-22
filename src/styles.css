@@ -175,12 +175,12 @@
   background:
     linear-gradient(
       90deg,
-      rgb(32 19 34 / 0.94) 0%,
-      rgb(45 27 48 / 0.76) 29%,
-      rgb(43 26 45 / 0.22) 58%,
-      transparent 78%
+      rgb(32 19 34 / 0.84) 0%,
+      rgb(45 27 48 / 0.6) 29%,
+      rgb(43 26 45 / 0.14) 58%,
+      transparent 76%
     ),
-    linear-gradient(0deg, rgb(25 15 28 / 0.25), transparent 42%);
+    linear-gradient(0deg, rgb(25 15 28 / 0.12), transparent 42%);
 }
 
 .hero-copy {
@@ -248,12 +248,12 @@
     background:
       linear-gradient(
         0deg,
-        rgb(26 15 29 / 0.98) 0%,
-        rgb(31 18 34 / 0.88) 35%,
-        rgb(35 21 38 / 0.18) 72%,
-        rgb(30 18 33 / 0.08) 100%
+        rgb(26 15 29 / 0.88) 0%,
+        rgb(31 18 34 / 0.7) 35%,
+        rgb(35 21 38 / 0.12) 72%,
+        rgb(30 18 33 / 0.04) 100%
       ),
-      linear-gradient(90deg, rgb(28 16 31 / 0.35), transparent 72%);
+      linear-gradient(90deg, rgb(28 16 31 / 0.18), transparent 72%);
   }
 
   .hero-copy {
