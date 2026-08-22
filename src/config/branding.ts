@@ -36,7 +36,7 @@ export const branding = {
 
   /** Размеры / классы — тоже настраиваются без правки компонентов */
   classes: {
-    header: "h-12 w-auto md:h-20",
+    header: "h-12 w-auto md:h-[4.5rem]",
     headerMobile: "h-12 w-auto",
     /** Футер на тёмном фоне: прозрачная версия сохраняет фирменный фиолетовый */
     footer: "h-14 w-auto",
