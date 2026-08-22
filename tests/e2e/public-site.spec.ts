@@ -87,6 +87,15 @@ test("approved header and first hero keep both SOFIYA logos", async ({ page }) =
   await expect(heroCta).toHaveAttribute("href", /cat=cakes/);
   await expect(heroCta).toHaveCSS("background-color", "rgb(90, 4, 189)");
   await expect(heroCta).toHaveCSS("color", "rgb(255, 255, 255)");
+  await expect(hero.getByTestId("hero-eyebrow")).toHaveCSS("color", "rgb(216, 189, 255)");
+  await expect(hero.getByRole("tab", { name: "Слайд 1" })).toHaveCSS(
+    "background-color",
+    "rgb(216, 189, 255)",
+  );
+  await expect(hero.getByTestId("hero-progress")).toHaveCSS(
+    "background-color",
+    "rgb(216, 189, 255)",
+  );
   await expect(hero.getByAltText(/торт SOFIYA с ягодами и логотипом/i)).toBeVisible();
   await expect(hero.getByAltText(/торт SOFIYA с ягодами и логотипом/i)).toHaveAttribute(
     "srcset",

@@ -155,7 +155,10 @@ export function HeroCarousel() {
           key={i}
           className="hero-copy animate-fade-up relative z-10 flex h-full flex-col justify-center text-white"
         >
-          <span className="hero-eyebrow text-xs font-semibold uppercase tracking-[0.08em] text-[#f3cb72] md:text-sm">
+          <span
+            className="hero-eyebrow text-xs font-semibold uppercase tracking-[0.08em] text-[color:var(--hero-accent)] md:text-sm"
+            data-testid="hero-eyebrow"
+          >
             {s.eyebrow}
           </span>
           <h1 className="hero-title mt-5 max-w-none text-[2.6rem] font-medium leading-[0.98] tracking-[-0.035em] text-white sm:text-5xl md:text-6xl lg:text-[4.8rem]">
@@ -196,7 +199,7 @@ export function HeroCarousel() {
                 aria-selected={idx === i}
                 role="tab"
                 className={`h-1.5 rounded-full transition-all ${
-                  idx === i ? "w-8 bg-[#efc66d]" : "w-5 bg-white/34"
+                  idx === i ? "w-8 bg-[color:var(--hero-accent)]" : "w-5 bg-white/34"
                 }`}
               />
             ))}
@@ -218,7 +221,8 @@ export function HeroCarousel() {
           aria-hidden
         >
           <span
-            className="block h-full bg-[#efc66d] transition-[width] duration-500"
+            className="block h-full bg-[color:var(--hero-accent)] transition-[width] duration-500"
+            data-testid="hero-progress"
             style={{ width: `${((i + 1) / slides.length) * 100}%` }}
           />
         </div>
