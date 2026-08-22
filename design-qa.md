@@ -9,9 +9,10 @@
 - Latest hero-color correction: `../upload/3452F4E7-5835-4A89-B167-E0A37E8F1DCC.jpeg`; the remaining gold eyebrow, active slide indicator and progress line are not approved
 - Latest mobile-title correction: `../upload/E9DCC120-B3AA-4591-B5C1-A0F309D3BF6C.jpeg`; the second title line must remain inside the rounded hero frame
 - Latest logo correction: the user explicitly requested the original letter-S emblem shown in the approved composition instead of the interim cake emblem
+- Latest brightness correction: the user requested a brighter first screen without changing the professional cake photograph
 - Browser render: `docs/qa/implementation-desktop-1363x936.jpg`
 - Combined comparison: `docs/qa/comparison-desktop.jpg` (approved source above, implementation below)
-- Verified preview: `https://sofiya-sweet-preview-git-agent-p-b444c3-project100mlns-projects.vercel.app/?qa=f23b87c`
+- Verified preview: `https://sofiya-sweet-preview-git-agent-p-b444c3-project100mlns-projects.vercel.app/?qa=2234d95`
 - Route/state: home page, first carousel slide, light theme, desktop
 - Source frame: 1536 × 963 pixels
 - Browser viewport: 1363 × 936 CSS pixels at device pixel ratio 1
@@ -26,9 +27,10 @@ comparison rather than a claim of pixel-for-pixel identity.
 | Surface           | Evidence                                                                                                   | Result |
 | ----------------- | ---------------------------------------------------------------------------------------------------------- | ------ |
 | Header            | Original S-emblem SOFIYA lockup, compact navigation, phone and WhatsApp remain visible without overlap     | Passed |
-| Hero composition  | Rounded full-bleed stage, dark left overlay and product-dominant right side follow the reference           | Passed |
+| Hero composition  | Rounded full-bleed stage, controlled left overlay and product-dominant right side follow the reference     | Passed |
 | Brand assets      | The interim cake emblem is replaced by the original S lockup; the edible SOFIYA mark stays unobstructed    | Passed |
 | Typography        | Eyebrow, two-line editorial title, two-line supporting copy and CTA rhythm match the reference hierarchy   | Passed |
+| Colors and tokens | Hero overlay opacity is reduced on desktop and mobile; imagery is brighter while white copy stays readable | Passed |
 | Controls          | Purple CTA and light-lilac eyebrow, active slide indicator and progress line use the approved brand family | Passed |
 | Product crop      | Cake, fruit and edible logo are retained in the right-focused composition                                  | Passed |
 | Photo quality     | Exact source photo is preserved; desktop selects the responsive HD asset and keeps sharp product detail    | Passed |
@@ -67,6 +69,7 @@ logo's intrinsic and rendered dimensions directly.
 12. The interim cake-emblem header was classified as a P1 brand-asset mismatch after the user's correction and replaced with the source-derived original S emblem plus the real SOFIYA wordmark.
 13. The first S lockup was visually wider than the approved reference; the wordmark scale was reduced and the desktop lockup rebalanced from 266 × 80 to 213.6 × 72 CSS pixels.
 14. The post-fix combined comparison confirms the original S lockup, hero image and content remain aligned with the approved composition; no actionable P0, P1 or P2 differences remain.
+15. The overly dark hero treatment was classified as a P2 color-balance issue. Desktop overlay opacity was reduced from `0.94/0.76/0.22` to `0.84/0.60/0.14`; the mobile overlay was reduced in parallel. The post-fix browser capture shows clearer cake and background detail while preserving white-copy contrast.
 
 ## Interaction evidence
 
@@ -76,8 +79,9 @@ logo's intrinsic and rendered dimensions directly.
 - Selecting the Kapal store updated the embedded OpenStreetMap location surface and directions context.
 - At the desktop preview, the primary hero image selected the HD resource; the CTA remained `#5A04BD` with white text.
 - The eyebrow, selected slide indicator and progress fill each computed to `rgb(216, 189, 255)`; no gold hero accent remains.
-- Quality run 65 passed the complete code-quality and browser-smoke suites after the original S-logo replacement.
+- Quality run 67 passed the complete code-quality and browser-smoke suites after the hero-brightness correction.
 - The header loaded `sofiya-logo-s-original` at its full 890 × 300 intrinsic resolution and rendered at 213.6 × 72 CSS pixels without distortion.
+- The final desktop browser computed the brighter overlay values exactly and reported no positive horizontal overflow.
 - The About page rendered every approved history fact and had no positive horizontal overflow.
 - The final browser frame reported zero positive horizontal overflow.
 
