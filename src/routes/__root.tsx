@@ -99,28 +99,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SOFIYA Sweet — фирменные магазины в Шымкенте" },
+      { title: "SOFIYA — фирменные магазины в Шымкенте" },
       {
         name: "description",
         content:
-          "SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
+          "SOFIYA — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
       },
-      { name: "author", content: "SOFIYA Sweet" },
-      { property: "og:title", content: "SOFIYA Sweet — фирменные магазины в Шымкенте" },
+      { name: "author", content: "SOFIYA" },
+      { property: "og:title", content: "SOFIYA — фирменные магазины в Шымкенте" },
       {
         property: "og:description",
         content:
-          "SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
+          "SOFIYA — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "SOFIYA Sweet" },
+      { property: "og:site_name", content: "SOFIYA" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#5A04BD" },
-      { name: "twitter:title", content: "SOFIYA Sweet — фирменные магазины в Шымкенте" },
+      { name: "twitter:title", content: "SOFIYA — фирменные магазины в Шымкенте" },
       {
         name: "twitter:description",
         content:
-          "SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
+          "SOFIYA — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
       },
       {
         property: "og:image",

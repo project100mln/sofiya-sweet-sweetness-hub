@@ -1,4 +1,4 @@
-# SOFIYA Sweet — release-readiness gate
+# SOFIYA — release-readiness gate
 
 ## Verdict: CONDITIONAL
 

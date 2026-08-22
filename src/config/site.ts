@@ -1,4 +1,4 @@
-// Centralized business configuration for SOFIYA Sweet.
+// Centralized business configuration for SOFIYA.
 // Keep unverified public URLs empty: the UI hides unavailable channels instead
 // of publishing guessed business data.
 const normalizeBaseUrl = (value: string | undefined) => value?.trim().replace(/\/$/, "") ?? "";
@@ -6,8 +6,8 @@ const publishedPreviewUrl = "https://sofiya-sweet-sweetness-hub.lovable.app";
 
 export const site = {
   brand: "SOFIYA",
-  tagline: "Sweet • Фирменные магазины",
-  legalName: "SOFIYA Sweet",
+  tagline: "Фирменные магазины",
+  legalName: "SOFIYA",
   domain: normalizeBaseUrl(import.meta.env.VITE_SITE_URL) || publishedPreviewUrl,
   instagramUrl: "https://www.instagram.com/sofiya_sweet.kz",
   instagramHandle: "@sofiya_sweet.kz",

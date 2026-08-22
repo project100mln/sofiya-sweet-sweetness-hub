@@ -1,8 +1,8 @@
-# SOFIYA Sweet — Public Site v1
+# SOFIYA — Public Site v1
 
 ## Product goal
 
-Public, mobile-first brand website for SOFIYA Sweet. It presents the catalogue,
+Public, mobile-first brand website for SOFIYA. It presents the catalogue,
 locations, promotions and brand content, then hands qualified enquiries to the
 existing WhatsApp, telephone, Instagram and map channels.
 

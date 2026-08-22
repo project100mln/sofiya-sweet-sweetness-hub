@@ -1,4 +1,4 @@
-# SOFIYA Sweet — premium public-site improvement plan
+# SOFIYA — premium public-site improvement plan
 
 ## Current milestone
 

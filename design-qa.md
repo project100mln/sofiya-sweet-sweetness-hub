@@ -1,4 +1,4 @@
-# SOFIYA Sweet — design QA
+# SOFIYA — design QA
 
 ## Verification state
 

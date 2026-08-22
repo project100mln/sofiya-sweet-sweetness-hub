@@ -1,4 +1,4 @@
-# SOFIYA Sweet — acceptance tests
+# SOFIYA — acceptance tests
 
 ## Header and hero
 
