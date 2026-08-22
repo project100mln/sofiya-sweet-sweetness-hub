@@ -162,7 +162,10 @@ export function Footer() {
             <Link to="/privacy" className="max-w-[9rem] hover:text-white md:max-w-none">
               Политика конфиденциальности
             </Link>
-            <Link to="/terms" className="max-w-[10rem] text-right hover:text-white md:max-w-none md:text-left">
+            <Link
+              to="/terms"
+              className="max-w-[10rem] text-right hover:text-white md:max-w-none md:text-left"
+            >
               Пользовательское соглашение
             </Link>
           </div>
