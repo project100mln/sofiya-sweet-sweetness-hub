@@ -33,10 +33,10 @@ export function PromotionCard({ promotion }: { promotion: PromotionCardContent }
         ) : (
           <div className="grid h-full w-full place-items-center bg-[color:var(--accent)] p-10">
             <img
-              src={logoSources.approvedMark}
+              src={logoSources.originalSMark}
               alt="SOFIYA"
-              width={346}
-              height={512}
+              width={320}
+              height={480}
               className="h-full max-h-28 w-auto object-contain opacity-70"
               loading="lazy"
             />

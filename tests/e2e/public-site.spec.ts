@@ -68,11 +68,15 @@ test("mobile navigation opens, shows links, and closes", async ({ page }, testIn
   await expect(navigation).toBeHidden();
 });
 
-test("approved header and first hero keep both SOFIYA logos", async ({ page }) => {
+test("original S logo and branded hero stay visible", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/", { waitUntil: "networkidle" });
 
   await expect(page.getByTestId("header-logo")).toBeVisible();
+  await expect(page.getByTestId("header-logo").locator("img")).toHaveAttribute(
+    "src",
+    /sofiya-logo-s-original/,
+  );
   await expect(page.getByTestId("header-whatsapp")).toHaveAttribute(
     "href",
     /^https:\/\/wa\.me\/77075580605/,

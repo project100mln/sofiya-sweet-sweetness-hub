@@ -1,17 +1,17 @@
 // Centralized branding / logo configuration.
 // Меняйте логотипы и их поведение здесь — компоненты трогать не нужно.
-import approvedHeaderLogo from "@/assets/sofiya-logo-approved.webp";
-import approvedMark from "@/assets/sofiya-mark-approved.webp";
+import originalSHeaderLogo from "@/assets/sofiya-logo-s-original.png";
+import originalSMark from "@/assets/sofiya-mark-s-original.png";
 import approvedWordmark from "@/assets/sofiya-wordmark-approved.png";
 import markRound from "@/assets/sofiya-logo.png";
 import markRoundTransparent from "@/assets/sofiya-logo-footer.png";
 
 /** Все доступные варианты логотипа. Добавьте новый ассет и запись здесь. */
 export const logoSources = {
-  /** Утверждённый горизонтальный логотип для светлой шапки */
-  approvedHeader: approvedHeaderLogo,
-  /** Утверждённая эмблема без надписи */
-  approvedMark,
+  /** Оригинальный горизонтальный логотип с эмблемой-буквой S для светлой шапки */
+  originalSHeader: originalSHeaderLogo,
+  /** Оригинальная эмблема-буква S без надписи */
+  originalSMark,
   /** Надпись «SOFIYA» с сердечком (прозрачный фон) */
   wordmark: approvedWordmark,
   /** Круглый логотип-эмблема */
@@ -25,7 +25,7 @@ export type LogoVariant = keyof typeof logoSources;
 /** Переключатели: какой вариант где используется. */
 export const branding = {
   /** Логотип в шапке (десктоп + мобильное меню) */
-  headerLogo: "approvedHeader" as LogoVariant,
+  headerLogo: "originalSHeader" as LogoVariant,
   /** Логотип в футере */
   footerLogo: "roundTransparent" as LogoVariant,
   /** Логотип, который подставляется вместо слова «SOFIYA» в текстах */

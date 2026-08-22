@@ -51,8 +51,8 @@ export function Header() {
           <img
             src={logoUrl(branding.headerLogo)}
             alt={branding.alt}
-            width={226}
-            height={120}
+            width={998}
+            height={300}
             className={branding.classes.header}
           />
         </Link>
@@ -123,8 +123,8 @@ export function Header() {
                 <img
                   src={logoUrl(branding.headerLogo)}
                   alt={branding.alt}
-                  width={226}
-                  height={120}
+                  width={998}
+                  height={300}
                   className={branding.classes.headerMobile}
                 />
                 <button
