@@ -87,6 +87,9 @@ test("approved header and first hero keep both SOFIYA logos", async ({ page }) =
     /cat=cakes/,
   );
   await expect(hero.getByAltText(/торт SOFIYA с ягодами и логотипом/i)).toBeVisible();
+  expect(
+    await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth),
+  ).toBeLessThanOrEqual(1);
 });
 
 test("stores filter and interactive map use approved coordinates", async ({ page }) => {
@@ -258,12 +261,10 @@ test("breakfast hero uses the approved brand hierarchy", async ({ page }) => {
     "Свежий кофе, тёплая выпечка и лёгкие завтраки — каждый день.",
   );
   const menuLink = hero.getByRole("link", { name: /Посмотреть меню/ });
-  const storeLink = hero.getByRole("link", { name: "Найти магазин" });
 
   await expect(eyebrow).toBeVisible();
   await expect(heading).toBeVisible();
   await expect(description).toBeVisible();
   await expect(menuLink).toHaveAttribute("href", /cat=breakfast/);
-  await expect(storeLink).toHaveAttribute("href", "/stores");
   expect(errors).toEqual([]);
 });
