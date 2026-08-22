@@ -152,17 +152,20 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-page py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/55">
-          <p className="flex flex-wrap items-center justify-center gap-x-1.5">
+        <div className="container-page py-5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/55">
+          <p className="flex items-center justify-center gap-2 whitespace-nowrap leading-none">
             <span>© {new Date().getFullYear()}</span>
             <SofiyaWordmark placement="center" />
-            <span>Sweet. Все права защищены.</span>
+            <span>Все права защищены.</span>
           </p>
-          <div className="flex gap-5">
-            <Link to="/privacy" className="hover:text-white">
+          <div className="flex w-full items-start justify-between gap-6 md:w-auto md:items-center md:justify-start md:gap-5">
+            <Link to="/privacy" className="max-w-[9rem] hover:text-white md:max-w-none">
               Политика конфиденциальности
             </Link>
-            <Link to="/terms" className="hover:text-white">
+            <Link
+              to="/terms"
+              className="max-w-[10rem] text-right hover:text-white md:max-w-none md:text-left"
+            >
               Пользовательское соглашение
             </Link>
           </div>
