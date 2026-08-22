@@ -24,7 +24,7 @@ const slides: Slide[] = [
       <>
         Незабываемый
         <br />
-        <span className="whitespace-nowrap">вкус каждый день</span>
+        <span className="hero-title-line whitespace-nowrap">вкус каждый день</span>
       </>
     ),
     desc: (

@@ -85,9 +85,14 @@ test("approved header and first hero keep both SOFIYA logos", async ({ page }) =
     name: "Незабываемый вкус каждый день",
   });
   await expect(heroTitle).toBeVisible();
-  expect(
-    await heroTitle.evaluate((element) => element.scrollWidth - element.clientWidth),
-  ).toBeLessThanOrEqual(1);
+  const titleLineInsets = await hero.locator(".hero-title-line").evaluate((element) => {
+    const line = element.getBoundingClientRect();
+    const frame = element.closest(".hero-shell")?.getBoundingClientRect();
+    return frame ? { left: line.left - frame.left, right: frame.right - line.right } : null;
+  });
+  expect(titleLineInsets).not.toBeNull();
+  expect(titleLineInsets!.left).toBeGreaterThanOrEqual(16);
+  expect(titleLineInsets!.right).toBeGreaterThanOrEqual(16);
   const heroCta = hero.getByRole("link", { name: "Выбрать десерт" });
   await expect(heroCta).toHaveAttribute("href", /cat=cakes/);
   await expect(heroCta).toHaveCSS("background-color", "rgb(90, 4, 189)");
