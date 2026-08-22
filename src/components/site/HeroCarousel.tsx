@@ -162,7 +162,7 @@ export function HeroCarousel() {
             <Link
               to={s.href}
               search={s.search as never}
-              className="hero-cta inline-flex min-h-12 items-center justify-center rounded-xl bg-[#efc66d] px-7 text-sm font-bold text-primary shadow-[0_14px_34px_-20px_rgba(239,198,109,0.85)] transition-transform hover:-translate-y-0.5 hover:bg-[#f5d283] md:min-h-18 md:px-14 md:text-xl"
+              className="hero-cta inline-flex min-h-12 items-center justify-center rounded-xl border border-white/15 bg-primary px-7 text-sm font-bold text-primary-foreground shadow-[0_16px_36px_-20px_rgba(90,4,189,0.95)] transition-[transform,background-color,box-shadow] hover:-translate-y-0.5 hover:bg-[#6f19d2] hover:shadow-[0_18px_40px_-20px_rgba(90,4,189,1)] md:min-h-18 md:px-14 md:text-xl"
             >
               {s.cta}
             </Link>
