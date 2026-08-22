@@ -7,9 +7,10 @@
 - Latest photo-quality request: `../upload/bc4cd53b-b8f5-4904-8f28-dc538744d65d.png`
 - Latest brand-story request: `../upload/aab1f3ff-e4f3-4fef-9804-b69c3d8ba7c3.png`
 - Latest hero-color correction: `../upload/3452F4E7-5835-4A89-B167-E0A37E8F1DCC.jpeg`; the remaining gold eyebrow, active slide indicator and progress line are not approved
+- Latest mobile-title correction: `../upload/E9DCC120-B3AA-4591-B5C1-A0F309D3BF6C.jpeg`; the second title line must remain inside the rounded hero frame
 - Browser render: `docs/qa/implementation-desktop-1363x936.jpg`
 - Side-by-side comparison: `docs/qa/comparison-desktop.jpg` (approved source on the left, implementation on the right)
-- Verified preview: `https://sofiya-sweet-preview-git-agent-p-b444c3-project100mlns-projects.vercel.app/?qa=560473e-final`
+- Verified preview: `https://sofiya-sweet-preview-git-agent-p-b444c3-project100mlns-projects.vercel.app/?qa=5a5ae12-new`
 - Route/state: home page, first carousel slide, light theme, desktop
 - Source frame: 1536 × 963 pixels
 - Browser viewport: 1363 × 936 CSS pixels at device pixel ratio 1
@@ -31,7 +32,7 @@ comparison rather than a claim of pixel-for-pixel identity.
 | Product crop      | Cake, fruit and edible logo are retained in the right-focused composition                                  | Passed |
 | Photo quality     | Exact source photo is preserved; desktop selects the responsive HD asset and keeps sharp product detail    | Passed |
 | Brand history     | Founder, 2014/2016 timeline, name meaning, mission, 17 branches and team size match supplied facts         | Passed |
-| Responsive safety | Automated coverage passes at phone and desktop sizes; desktop has no horizontal overflow                   | Passed |
+| Responsive safety | Mobile title uses a viewport-aware size; its fixed second line keeps at least 16 px inside the hero frame  | Passed |
 | Browser health    | No application-origin console errors were observed during the final journey                                | Passed |
 
 The implementation intentionally uses the current approved cake-emblem SOFIYA
@@ -51,7 +52,9 @@ line use the high-contrast light-lilac brand accent `#D8BDFF`.
 7. The original 1280 × 1920 hero photo was professionally resampled to a 2560 × 3840 responsive source with restrained sharpening; no object, crop or logo was regenerated.
 8. The short brand summary was expanded into a four-part factual story covering the founder, 2014 production start, 2016 first store, name meaning, mission and current scale.
 9. The remaining gold eyebrow, active slide indicator and progress line were replaced with the light-lilac brand accent; browser-computed colors and a visual comparison confirm the correction.
-10. The final combined comparison contains no remaining P0, P1 or P2 visual differences under the updated user correction.
+10. The oversized mobile title was changed to a viewport-aware `clamp()` size and its content width was released from the earlier `11ch` limit.
+11. Browser smoke at the 390 px mobile project verified both title-line edges remain at least 16 px inside the rounded hero frame; no horizontal page overflow remains.
+12. The final combined comparison contains no remaining P0, P1 or P2 visual differences under the updated user correction.
 
 ## Interaction evidence
 
@@ -61,6 +64,7 @@ line use the high-contrast light-lilac brand accent `#D8BDFF`.
 - Selecting the Kapal store updated the embedded OpenStreetMap location surface and directions context.
 - At the desktop preview, the primary hero image selected the HD resource; the CTA remained `#5A04BD` with white text.
 - The eyebrow, selected slide indicator and progress fill each computed to `rgb(216, 189, 255)`; no gold hero accent remains.
+- Quality run 61 exercised the mobile hero boundary assertion and passed the complete browser-smoke suite.
 - The About page rendered every approved history fact and had no positive horizontal overflow.
 - The final browser frame reported zero positive horizontal overflow.
 
