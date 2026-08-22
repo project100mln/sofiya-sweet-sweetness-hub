@@ -41,7 +41,7 @@ export function Header() {
           : "border-transparent bg-background"
       }`}
     >
-      <div className="site-header-shell flex min-h-[5.25rem] items-center gap-4 md:min-h-[6.75rem]">
+      <div className="site-header-shell flex min-h-[5.25rem] items-center gap-4 md:min-h-[7.5rem]">
         <Link
           to="/"
           className="flex shrink-0 items-center"
