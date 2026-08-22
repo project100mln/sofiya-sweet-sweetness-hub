@@ -161,7 +161,7 @@ export function HeroCarousel() {
           >
             {s.eyebrow}
           </span>
-          <h1 className="hero-title mt-5 max-w-none text-[2.6rem] font-medium leading-[0.98] tracking-[-0.035em] text-white sm:text-5xl md:text-6xl lg:text-[4.8rem]">
+          <h1 className="hero-title mt-5 max-w-none text-[clamp(1.9rem,9vw,2.6rem)] font-medium leading-[0.98] tracking-[-0.035em] text-white sm:text-5xl md:text-6xl lg:text-[4.8rem]">
             {s.title}
           </h1>
           <p className="mt-5 max-w-[27rem] text-sm leading-6 text-white/82 sm:text-base md:text-lg md:leading-8">

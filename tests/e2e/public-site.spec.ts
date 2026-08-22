@@ -80,9 +80,14 @@ test("approved header and first hero keep both SOFIYA logos", async ({ page }) =
 
   const hero = page.getByTestId("hero-carousel");
   await expect(hero.getByText("SOFIYA — с 2014 года", { exact: true })).toBeVisible();
-  await expect(
-    hero.getByRole("heading", { level: 1, name: "Незабываемый вкус каждый день" }),
-  ).toBeVisible();
+  const heroTitle = hero.getByRole("heading", {
+    level: 1,
+    name: "Незабываемый вкус каждый день",
+  });
+  await expect(heroTitle).toBeVisible();
+  expect(
+    await heroTitle.evaluate((element) => element.scrollWidth - element.clientWidth),
+  ).toBeLessThanOrEqual(1);
   const heroCta = hero.getByRole("link", { name: "Выбрать десерт" });
   await expect(heroCta).toHaveAttribute("href", /cat=cakes/);
   await expect(heroCta).toHaveCSS("background-color", "rgb(90, 4, 189)");
