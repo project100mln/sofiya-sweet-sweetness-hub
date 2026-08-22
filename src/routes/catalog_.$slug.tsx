@@ -106,7 +106,7 @@ function ProductPage() {
 
       <section className="container-page py-8 md:py-12 grid gap-10 lg:grid-cols-2">
         <div>
-          <div className="relative aspect-square rounded-3xl overflow-hidden bg-muted shadow-soft">
+          <div className="premium-card relative aspect-square overflow-hidden bg-muted">
             <img src={p.images[0]} alt={p.name} className="h-full w-full object-cover" />
           </div>
         </div>
@@ -128,7 +128,7 @@ function ProductPage() {
               </span>
             )}
           </div>
-          <h1 className="mt-4 text-3xl md:text-5xl font-bold">{p.name}</h1>
+          <h1 className="mt-4 text-4xl font-semibold md:text-6xl">{p.name}</h1>
           <p className="mt-3 text-lg text-muted-foreground">{p.shortDescription}</p>
 
           {p.price != null && (
@@ -184,8 +184,13 @@ function ProductPage() {
 
       {related.length > 0 && (
         <section className="container-page py-14">
-          <h2 className="text-2xl md:text-3xl font-bold">Похожие продукты</h2>
-          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="section-heading">
+            <div>
+              <p className="page-kicker">Вам может понравиться</p>
+              <h2>Похожие продукты</h2>
+            </div>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {related.map((r) => (
               <ProductCard key={r.id} p={r} />
             ))}

@@ -59,6 +59,7 @@
   --accent: #f7f0fb;
   --accent-foreground: #5a04bd;
   --gold: #d4a24c;
+  --hero-accent: #d8bdff;
   --cream: #fff8ef;
   --surface: #fdfafd;
   --destructive: #ba2948;
@@ -125,11 +126,180 @@
   }
 }
 
+.site-header-shell {
+  width: min(100%, 94rem);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.site-header-link::after {
+  position: absolute;
+  right: 1.75rem;
+  bottom: 1.15rem;
+  left: 1.75rem;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--primary);
+  content: "";
+  opacity: 0;
+  transform: scaleX(0.4);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.site-header-link:hover::after,
+.site-header-link-active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.hero-section {
+  padding: 0 0.75rem 1rem;
+  background: var(--background);
+}
+
+.hero-shell {
+  width: min(100%, 94.5rem);
+  min-height: min(50rem, calc(100svh - 7.75rem));
+  margin-inline: auto;
+  background: #2d1d30;
+  box-shadow: 0 34px 80px -54px rgb(48 21 53 / 0.8);
+}
+
+.hero-image {
+  animation: hero-image-arrive 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      rgb(32 19 34 / 0.76) 0%,
+      rgb(45 27 48 / 0.45) 29%,
+      rgb(43 26 45 / 0.08) 58%,
+      transparent 72%
+    ),
+    linear-gradient(0deg, rgb(25 15 28 / 0.06), transparent 42%);
+}
+
+.hero-copy {
+  min-height: min(50rem, calc(100svh - 7.75rem));
+  padding: 3.5rem 2rem 10rem;
+}
+
+.hero-title {
+  text-wrap: wrap;
+}
+
+@keyframes hero-image-arrive {
+  from {
+    opacity: 0.55;
+    transform: scale(1.025);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 640px) {
+  .hero-section {
+    padding-inline: 1rem;
+  }
+
+  .hero-copy {
+    padding-inline: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .site-header-shell {
+    padding-inline: 2rem;
+  }
+
+  .hero-section {
+    padding-inline: 1.25rem;
+  }
+
+  .hero-copy {
+    width: 58%;
+    padding: 5rem 4rem 6rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-copy {
+    width: 53%;
+    padding-left: 4.75rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-shell {
+    min-height: min(42rem, calc(100svh - 6.25rem));
+  }
+
+  .hero-image {
+    object-position: 58% 50% !important;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        0deg,
+        rgb(26 15 29 / 0.82) 0%,
+        rgb(31 18 34 / 0.58) 35%,
+        rgb(35 21 38 / 0.07) 72%,
+        rgb(30 18 33 / 0.02) 100%
+      ),
+      linear-gradient(90deg, rgb(28 16 31 / 0.1), transparent 72%);
+  }
+
+  .hero-copy {
+    min-height: min(42rem, calc(100svh - 6.25rem));
+    justify-content: flex-end;
+    padding-bottom: 9.5rem;
+  }
+
+  .hero-title {
+    max-width: 100%;
+  }
+}
+
 @utility section-space {
   padding-block: 3.5rem;
   @media (min-width: 768px) {
     padding-block: 5rem;
   }
+}
+
+.page-hero {
+  background:
+    radial-gradient(circle at 88% 36%, rgb(90 4 189 / 0.08), transparent 23rem), var(--surface);
+}
+
+.section-heading {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.section-heading h2 {
+  margin-top: 0.5rem;
+  color: var(--foreground);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+}
+
+.section-heading p:not(.page-kicker) {
+  margin-top: 0.65rem;
+  max-width: 40rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
 }
 
 @utility page-kicker {
@@ -146,6 +316,7 @@
   color: var(--foreground);
   font-size: clamp(2.25rem, 7vw, 4rem);
   font-weight: 600;
+  max-width: 18ch;
 }
 
 @utility page-lead {
@@ -160,6 +331,23 @@
   border: 1px solid color-mix(in oklab, var(--border) 85%, white);
   background: var(--card);
   box-shadow: 0 14px 40px -34px rgb(36 16 58 / 0.55);
+}
+
+.premium-card {
+  border: 1px solid color-mix(in oklab, var(--border) 88%, white);
+  border-radius: 1.75rem;
+  background: var(--card);
+  box-shadow: 0 18px 55px -44px rgb(44 13 65 / 0.65);
+  transition:
+    border-color 200ms ease,
+    box-shadow 240ms ease,
+    transform 240ms ease;
+}
+
+.premium-card:hover {
+  border-color: color-mix(in oklab, var(--primary) 30%, var(--border));
+  box-shadow: 0 24px 64px -38px rgb(44 13 65 / 0.46);
+  transform: translateY(-2px);
 }
 
 @utility btn-primary {

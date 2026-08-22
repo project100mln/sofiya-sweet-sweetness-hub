@@ -99,28 +99,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SOFIYA Sweet — фирменные магазины в Шымкенте" },
+      { title: "SOFIYA — фирменные магазины в Шымкенте" },
       {
         name: "description",
         content:
-          "SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
+          "SOFIYA — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
       },
-      { name: "author", content: "SOFIYA Sweet" },
-      { property: "og:title", content: "SOFIYA Sweet — фирменные магазины в Шымкенте" },
+      { name: "author", content: "SOFIYA" },
+      { property: "og:title", content: "SOFIYA — фирменные магазины в Шымкенте" },
       {
         property: "og:description",
         content:
-          "SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
+          "SOFIYA — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "SOFIYA Sweet" },
+      { property: "og:site_name", content: "SOFIYA" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "theme-color", content: "#9B26B6" },
-      { name: "twitter:title", content: "SOFIYA Sweet — фирменные магазины в Шымкенте" },
+      { name: "theme-color", content: "#5A04BD" },
+      { name: "twitter:title", content: "SOFIYA — фирменные магазины в Шымкенте" },
       {
         name: "twitter:description",
         content:
-          "SOFIYA Sweet — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
+          "SOFIYA — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
       },
       {
         property: "og:image",
@@ -161,6 +161,12 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <a
+          href="#main-content"
+          className="fixed left-4 top-4 z-[200] -translate-y-24 rounded-full bg-primary px-4 py-3 font-semibold text-primary-foreground transition-transform focus:translate-y-0"
+        >
+          Перейти к содержимому
+        </a>
         {children}
         <Scripts />
       </body>
@@ -174,7 +180,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <div className="flex min-h-screen flex-col">
         <Header />
-        <main className="flex-1">
+        <main id="main-content" className="flex-1">
           <Outlet />
         </main>
         <Footer />

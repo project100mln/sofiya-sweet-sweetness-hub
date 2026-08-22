@@ -15,6 +15,7 @@ export function Footer() {
             src={logoUrl(branding.footerLogo)}
             alt={branding.alt}
             className={branding.classes.footer}
+            data-testid="footer-logo"
           />
           <p className="mt-4 text-sm text-white/70 leading-relaxed">
             {site.brand} Sweet — сеть фирменных магазинов в Шымкенте и Туркестанской области. Свежая

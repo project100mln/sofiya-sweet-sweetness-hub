@@ -1,4 +1,5 @@
 import cakeBerry from "@/assets/cake-berry.jpg";
+import cakeBerryHd from "@/assets/cake-berry-hd.jpg";
 import samsa from "@/assets/samsa.jpg";
 import eclairs from "@/assets/eclairs.jpg";
 import tartAssorti from "@/assets/tart-assorti.jpg";
@@ -62,6 +63,7 @@ import type { Category, Product } from "./types";
 
 export const IMG = {
   cakeBerry,
+  cakeBerryHd,
   samsa,
   eclairs,
   tartAssorti,

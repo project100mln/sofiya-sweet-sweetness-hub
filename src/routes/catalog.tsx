@@ -1,9 +1,10 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { categories, products } from "@/data/catalog";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { canonicalLink } from "@/config/site";
+import { PageHero } from "@/components/site/PageHero";
 
 interface CatalogSearch {
   cat?: string;
@@ -63,6 +64,19 @@ function CatalogPage() {
   }, [search.cat, search.sort, q, tags]);
 
   const activeCat = categories.find((c) => c.slug === search.cat);
+
+  useEffect(() => {
+    if (!filterOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setFilterOpen(false);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [filterOpen]);
   const toggle = (t: string) => {
     const n = new Set(tags);
     if (n.has(t)) n.delete(t);
@@ -72,17 +86,13 @@ function CatalogPage() {
 
   return (
     <>
-      <section className="bg-gradient-to-b from-[color:var(--accent)] to-background">
-        <div className="container-page py-10 md:py-14">
-          <p className="page-kicker">Каталог</p>
-          <h1 className="page-title">{activeCat ? activeCat.name : "Всё меню"}</h1>
-          <p className="page-lead">
-            {activeCat
-              ? activeCat.short
-              : "Торты, десерты, выпечка, самса, завтраки, пицца и напитки."}
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Каталог"
+        title={activeCat ? activeCat.name : "Всё меню"}
+        lead={
+          activeCat ? activeCat.short : "Торты, десерты, выпечка, самса, завтраки, пицца и напитки."
+        }
+      />
 
       <section className="container-page py-8">
         {/* Category chips */}
@@ -106,29 +116,41 @@ function CatalogPage() {
         </div>
 
         {/* Search & sort */}
-        <div className="mt-6 flex flex-wrap items-center gap-3">
+        <div className="premium-card mt-6 flex flex-wrap items-center gap-3 p-3 md:p-4">
           <div className="flex-1 min-w-[220px] relative">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Поиск по каталогу…"
-              className="w-full h-12 rounded-full border border-border bg-card pl-10 pr-4 text-sm focus:border-primary focus:outline-none"
+              aria-label="Поиск по каталогу"
+              className="w-full h-12 rounded-full border border-border bg-background pl-10 pr-11 text-sm focus:border-primary focus:outline-none"
             />
+            {q && (
+              <button
+                type="button"
+                onClick={() => setQ("")}
+                aria-label="Очистить поиск"
+                className="absolute right-1.5 top-1/2 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full text-muted-foreground hover:bg-muted hover:text-foreground"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </div>
           <button
             onClick={() => setFilterOpen(true)}
-            className="md:hidden inline-flex items-center gap-2 h-12 px-4 rounded-full border border-border bg-card text-sm font-semibold"
+            className="md:hidden inline-flex items-center gap-2 h-12 px-4 rounded-full border border-border bg-background text-sm font-semibold"
           >
             <SlidersHorizontal className="h-4 w-4" /> Фильтры {tags.size ? `· ${tags.size}` : ""}
           </button>
           <select
+            aria-label="Сортировка товаров"
             value={search.sort}
             onChange={(e) => {
               const v = e.target.value as NonNullable<CatalogSearch["sort"]>;
               navigate({ search: (prev: CatalogSearch) => ({ ...prev, sort: v }) });
             }}
-            className="h-12 rounded-full border border-border bg-card px-4 text-sm font-semibold"
+            className="h-12 rounded-full border border-border bg-background px-4 text-sm font-semibold"
           >
             <option value="recommended">Рекомендуем</option>
             <option value="new">Сначала новинки</option>
@@ -143,9 +165,11 @@ function CatalogPage() {
             <FiltersPanel tags={tags} toggle={toggle} />
           </aside>
           <div>
-            <p className="mb-4 text-sm text-muted-foreground">Найдено: {filtered.length}</p>
+            <p className="mb-4 text-sm text-muted-foreground" aria-live="polite">
+              Найдено: {filtered.length}
+            </p>
             {filtered.length === 0 ? (
-              <div className="rounded-3xl border border-dashed border-border p-12 text-center">
+              <div className="premium-card p-12 text-center">
                 <p className="text-lg font-semibold">Ничего не найдено</p>
                 <p className="mt-2 text-muted-foreground text-sm">
                   Попробуйте изменить фильтры или поисковый запрос.

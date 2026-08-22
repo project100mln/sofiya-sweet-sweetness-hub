@@ -4,6 +4,8 @@ import { site, instagramLink, waLink } from "@/config/site";
 import { Instagram, MessageCircle, Phone, MapPin, Check } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 import { canonicalLink } from "@/config/site";
+import { PageHero } from "@/components/site/PageHero";
+import { cities } from "@/data/stores";
 
 export const Route = createFileRoute("/contacts")({
   head: () => ({
@@ -31,13 +33,11 @@ function ContactsPage() {
   };
   return (
     <>
-      <section className="bg-gradient-to-b from-[color:var(--accent)] to-background">
-        <div className="container-page py-10 md:py-14">
-          <p className="page-kicker">Контакты</p>
-          <h1 className="page-title">Связаться с нами</h1>
-          <p className="page-lead">Мы всегда на связи в WhatsApp и Instagram.</p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Контакты"
+        title="Связаться с нами"
+        lead="Мы всегда на связи в WhatsApp и Instagram."
+      />
 
       <section className="container-page py-12 grid gap-8 lg:grid-cols-2">
         <div className="grid gap-4 h-fit">
@@ -45,7 +45,7 @@ function ContactsPage() {
             href={waLink("Здравствуйте, SOFIYA!")}
             target="_blank"
             rel="noreferrer"
-            className="flex items-start gap-4 rounded-3xl bg-card border border-border p-6 hover:border-primary/40 hover:shadow-soft transition-all"
+            className="premium-card flex items-start gap-4 p-6"
           >
             <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
               <MessageCircle className="h-6 w-6" />
@@ -60,7 +60,7 @@ function ContactsPage() {
               href={site.tiktokUrl}
               target="_blank"
               rel="noreferrer"
-              className="flex items-start gap-4 rounded-3xl bg-card border border-border p-6 transition-all hover:border-primary/40 hover:shadow-soft"
+              className="premium-card flex items-start gap-4 p-6"
             >
               <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
                 <SiTiktok className="h-6 w-6" aria-hidden="true" />
@@ -75,7 +75,7 @@ function ContactsPage() {
             href={instagramLink}
             target="_blank"
             rel="noreferrer"
-            className="flex items-start gap-4 rounded-3xl bg-card border border-border p-6 hover:border-primary/40 hover:shadow-soft transition-all"
+            className="premium-card flex items-start gap-4 p-6"
           >
             <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
               <Instagram className="h-6 w-6" />
@@ -87,7 +87,7 @@ function ContactsPage() {
           </a>
           <a
             href={`tel:${site.whatsappDigits}`}
-            className="flex items-start gap-4 rounded-3xl bg-card border border-border p-6 hover:border-primary/40 hover:shadow-soft transition-all"
+            className="premium-card flex items-start gap-4 p-6"
           >
             <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
               <Phone className="h-6 w-6" />
@@ -97,20 +97,18 @@ function ContactsPage() {
               <p className="text-sm text-muted-foreground mt-1">{site.phone}</p>
             </div>
           </a>
-          <div className="flex items-start gap-4 rounded-3xl bg-card border border-border p-6">
+          <div className="premium-card flex items-start gap-4 p-6">
             <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
               <MapPin className="h-6 w-6" />
             </span>
             <div>
               <p className="font-semibold">География сети</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                Шымкент, Ленгер, Аксукент и Манкент
-              </p>
+              <p className="text-sm text-muted-foreground mt-1">{cities.join(", ")}</p>
             </div>
           </div>
         </div>
 
-        <div className="rounded-3xl bg-card border border-border p-6 md:p-10">
+        <div className="premium-card p-6 md:p-10">
           <h2 className="text-2xl font-bold">Форма обратной связи</h2>
           {sent ? (
             <div className="mt-8 text-center">
@@ -173,7 +171,6 @@ function ContactsPage() {
           )}
         </div>
       </section>
-      <style>{`.input{width:100%;height:3rem;border-radius:1rem;border:1px solid var(--border);background:var(--background);padding:0 1rem;font-size:0.95rem}.input:focus{outline:none;border-color:var(--primary)}textarea.input{padding:0.75rem 1rem;height:auto}`}</style>
     </>
   );
 }

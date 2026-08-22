@@ -4,6 +4,7 @@ import { site, waLink } from "@/config/site";
 import { SERVICES } from "@/data/catering-services";
 import { Check } from "lucide-react";
 import { canonicalLink } from "@/config/site";
+import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/catering")({
   head: () => ({
@@ -49,24 +50,16 @@ function CateringPage() {
 
   return (
     <>
-      <section className="bg-gradient-to-b from-[color:var(--accent)] to-background">
-        <div className="container-page py-10 md:py-14">
-          <p className="page-kicker">Кейтеринг</p>
-          <h1 className="page-title">Для ваших событий</h1>
-          <p className="page-lead max-w-2xl">
-            Соберём меню под ваш формат: кофе-брейки, десертные столы, корпоративные события и
-            большие заказы.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Кейтеринг"
+        title="Для ваших событий"
+        lead="Соберём меню под ваш формат: кофе-брейки, десертные столы, корпоративные события и большие заказы."
+      />
 
       <section className="container-page py-12">
         <div className="grid gap-4 md:grid-cols-3">
           {SERVICES.map(({ i: Icon, t, d }) => (
-            <div
-              key={t}
-              className="rounded-3xl bg-card border border-border/60 p-6 hover:border-primary/40 hover:shadow-soft transition-all"
-            >
+            <div key={t} className="premium-card p-6">
               <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
                 <Icon className="h-6 w-6" />
               </div>
@@ -78,7 +71,7 @@ function CateringPage() {
       </section>
 
       <section className="container-page py-12">
-        <div className="mx-auto max-w-2xl rounded-3xl bg-card border border-border p-6 md:p-10">
+        <div className="premium-card mx-auto max-w-2xl p-6 md:p-10">
           <h2 className="text-2xl md:text-3xl font-bold">Оставить заявку</h2>
           {sent ? (
             <div className="mt-8 text-center">
@@ -185,7 +178,6 @@ function CateringPage() {
           )}
         </div>
       </section>
-      <style>{`.input{width:100%;height:3rem;border-radius:1rem;border:1px solid var(--border);background:var(--background);padding:0 1rem;font-size:0.95rem}.input:focus{outline:none;border-color:var(--primary)}textarea.input{padding:0.75rem 1rem;height:auto}`}</style>
     </>
   );
 }

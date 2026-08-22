@@ -4,6 +4,7 @@ const routes = [
   "/",
   "/catalog",
   "/stores",
+  "/about",
   "/promotions",
   "/cake-preorder",
   "/catering",
@@ -65,6 +66,82 @@ test("mobile navigation opens, shows links, and closes", async ({ page }, testIn
 
   await page.keyboard.press("Escape");
   await expect(navigation).toBeHidden();
+});
+
+test("original S logo and branded hero stay visible", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/", { waitUntil: "networkidle" });
+
+  await expect(page.getByTestId("header-logo")).toBeVisible();
+  await expect(page.getByTestId("header-logo").locator("img")).toHaveAttribute(
+    "src",
+    /sofiya-logo-s-original/,
+  );
+  await expect(page.getByTestId("header-whatsapp")).toHaveAttribute(
+    "href",
+    /^https:\/\/wa\.me\/77075580605/,
+  );
+
+  const hero = page.getByTestId("hero-carousel");
+  await expect(hero.getByText("SOFIYA — с 2014 года", { exact: true })).toBeVisible();
+  const heroTitle = hero.getByRole("heading", {
+    level: 1,
+    name: "Незабываемый вкус каждый день",
+  });
+  await expect(heroTitle).toBeVisible();
+  const titleLineInsets = await hero.locator(".hero-title-line").evaluate((element) => {
+    const line = element.getBoundingClientRect();
+    const frame = element.closest(".hero-shell")?.getBoundingClientRect();
+    return frame ? { left: line.left - frame.left, right: frame.right - line.right } : null;
+  });
+  expect(titleLineInsets).not.toBeNull();
+  expect(titleLineInsets!.left).toBeGreaterThanOrEqual(16);
+  expect(titleLineInsets!.right).toBeGreaterThanOrEqual(16);
+  const heroCta = hero.getByRole("link", { name: "Выбрать десерт" });
+  await expect(heroCta).toHaveAttribute("href", /cat=cakes/);
+  await expect(heroCta).toHaveCSS("background-color", "rgb(90, 4, 189)");
+  await expect(heroCta).toHaveCSS("color", "rgb(255, 255, 255)");
+  await expect(hero.getByTestId("hero-eyebrow")).toHaveCSS("color", "rgb(216, 189, 255)");
+  await expect(hero.getByRole("tab", { name: "Слайд 1" })).toHaveCSS(
+    "background-color",
+    "rgb(216, 189, 255)",
+  );
+  await expect(hero.getByTestId("hero-progress")).toHaveCSS(
+    "background-color",
+    "rgb(216, 189, 255)",
+  );
+  await expect(hero.getByAltText(/торт SOFIYA с ягодами и логотипом/i)).toBeVisible();
+  await expect(hero.getByAltText(/торт SOFIYA с ягодами и логотипом/i)).toHaveAttribute(
+    "srcset",
+    /cake-berry-hd/,
+  );
+  expect(
+    await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth),
+  ).toBeLessThanOrEqual(1);
+});
+
+test("about page tells the approved factual brand story", async ({ page }) => {
+  await page.goto("/about", { waitUntil: "networkidle" });
+
+  await expect(page.getByText(/Ниязходжаев Бахадир Тураббаевич/)).toBeVisible();
+  await expect(page.getByText(/в 2014 году не с витрины, а с производства/)).toBeVisible();
+  await expect(page.getByText(/в 2016 году появился первый фирменный магазин/)).toBeVisible();
+  await expect(page.getByText(/«тазалық» и «пәктік»/)).toBeVisible();
+  await expect(page.getByText(/17 филиалов/)).toBeVisible();
+  await expect(page.getByText(/до 150 сотрудников/)).toBeVisible();
+});
+
+test("stores filter and interactive map use approved coordinates", async ({ page }) => {
+  await page.goto("/stores", { waitUntil: "networkidle" });
+
+  const mapPanel = page.getByTestId("store-map-panel");
+  await expect(mapPanel.locator("iframe")).toHaveAttribute("src", /openstreetmap\.org/);
+  await expect(mapPanel.getByRole("heading", { name: "проспект Тауке хана, 214" })).toBeVisible();
+
+  const kapalStore = page.getByTestId("store-card-shy-kapal-2b");
+  await kapalStore.getByRole("button", { name: "Показать на карте" }).click();
+  await expect(mapPanel.getByRole("heading", { name: "улица Капал батыра, 2Б" })).toBeVisible();
+  await expect(mapPanel.locator("iframe")).toHaveAttribute("title", /Капал батыра, 2Б/);
 });
 
 test("contact form prepares an honest WhatsApp hand-off", async ({ page }) => {
@@ -212,7 +289,7 @@ test("breakfast hero uses the approved brand hierarchy", async ({ page }) => {
 
   await page.goto("/", { waitUntil: "networkidle" });
   const hero = page.locator("main section").first();
-  await hero.getByRole("button", { name: "Слайд 3" }).click();
+  await hero.getByRole("tab", { name: "Слайд 3" }).click();
 
   const eyebrow = hero.getByText("Завтраки", { exact: true }).first();
   const heading = hero.getByRole("heading", {
@@ -223,12 +300,10 @@ test("breakfast hero uses the approved brand hierarchy", async ({ page }) => {
     "Свежий кофе, тёплая выпечка и лёгкие завтраки — каждый день.",
   );
   const menuLink = hero.getByRole("link", { name: /Посмотреть меню/ });
-  const storeLink = hero.getByRole("link", { name: "Найти магазин" });
 
   await expect(eyebrow).toBeVisible();
   await expect(heading).toBeVisible();
   await expect(description).toBeVisible();
   await expect(menuLink).toHaveAttribute("href", /cat=breakfast/);
-  await expect(storeLink).toHaveAttribute("href", "/stores");
   expect(errors).toEqual([]);
 });

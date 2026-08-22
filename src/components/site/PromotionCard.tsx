@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Clock, Percent, Tag, Ticket } from "lucide-react";
 import type { PromotionCardContent } from "@/types/promotions";
+import { logoSources } from "@/config/branding";
 
 const discountLabel = (promotion: PromotionCardContent): string => {
   const { discount_value: value } = promotion;
@@ -20,7 +21,7 @@ export function PromotionCard({ promotion }: { promotion: PromotionCardContent }
   const window = promotion.discount_value.happy_hours;
 
   const card = (
-    <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-border/60 bg-card transition-all group-hover:border-primary/40 group-hover:shadow-lift hover:border-primary/40 hover:shadow-lift">
+    <article className="premium-card flex h-full flex-col overflow-hidden">
       <div className="relative aspect-[16/10] overflow-hidden bg-muted">
         {promotion.image_url ? (
           <img
@@ -30,7 +31,16 @@ export function PromotionCard({ promotion }: { promotion: PromotionCardContent }
             className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         ) : (
-          <div className="h-full w-full bg-gradient-to-br from-[color:var(--accent)] to-background" />
+          <div className="grid h-full w-full place-items-center bg-[color:var(--accent)] p-10">
+            <img
+              src={logoSources.originalSMark}
+              alt="SOFIYA"
+              width={320}
+              height={480}
+              className="h-full max-h-28 w-auto object-contain opacity-70"
+              loading="lazy"
+            />
+          </div>
         )}
         {!promotion.image_has_discount_badge && (
           <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-primary text-primary-foreground px-3 py-1 text-xs font-bold">
