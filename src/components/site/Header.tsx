@@ -6,6 +6,10 @@ import { site, instagramLink, waLink } from "@/config/site";
 import { nav } from "@/config/navigation";
 import { Instagram, Menu, MessageCircle, Phone, X } from "lucide-react";
 
+const desktopNav = nav.filter(({ to }) =>
+  ["/", "/catalog", "/promotions", "/stores", "/cake-preorder", "/about"].includes(to),
+);
+
 export function Header() {
   const [sticky, setSticky] = useState(false);
   const [open, setOpen] = useState(false);
@@ -31,12 +35,19 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all ${
-        sticky ? "bg-background/95 backdrop-blur-md shadow-soft" : "bg-background"
-      } border-b border-border/60`}
+      className={`site-header sticky top-0 z-50 border-b transition-all ${
+        sticky
+          ? "border-border/70 bg-background/95 shadow-[0_10px_35px_-28px_rgba(44,13,65,0.58)] backdrop-blur-xl"
+          : "border-transparent bg-background"
+      }`}
     >
-      <div className="container-page flex items-center gap-4 py-3 md:py-4">
-        <Link to="/" className="flex shrink-0 items-center gap-2" aria-label="SOFIYA — на главную">
+      <div className="site-header-shell flex min-h-[5.25rem] items-center gap-4 md:min-h-[6.75rem]">
+        <Link
+          to="/"
+          className="flex shrink-0 items-center"
+          aria-label="SOFIYA — на главную"
+          data-testid="header-logo"
+        >
           <img
             src={logoUrl(branding.headerLogo)}
             alt={branding.alt}
@@ -44,14 +55,18 @@ export function Header() {
           />
         </Link>
 
-        <nav className="ml-6 hidden xl:flex items-center gap-1">
-          {nav.map((n) => (
+        <nav
+          className="ml-auto hidden items-stretch self-stretch xl:flex"
+          aria-label="Основная навигация"
+        >
+          {desktopNav.map((n) => (
             <Link
               key={n.to}
               to={n.to}
-              className="px-3 py-2 rounded-full text-sm font-medium text-foreground/80 hover:text-primary hover:bg-accent transition-colors"
+              className="site-header-link relative flex items-center px-5 text-[0.94rem] font-medium text-foreground/78 transition-colors hover:text-primary"
               activeProps={{
-                className: "px-3 py-2 rounded-full text-sm font-semibold text-primary bg-accent",
+                className:
+                  "site-header-link site-header-link-active relative flex items-center px-5 text-[0.94rem] font-semibold text-primary",
               }}
               activeOptions={{ exact: n.to === "/" }}
             >
@@ -60,33 +75,27 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="ml-auto flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-2 xl:ml-6 xl:gap-4">
           <a
             href={`tel:${site.whatsappDigits}`}
-            className="hidden md:inline-flex items-center gap-2 text-sm font-semibold text-foreground/85 hover:text-primary transition-colors"
+            className="hidden items-center gap-2.5 whitespace-nowrap text-[0.94rem] font-semibold text-foreground/85 transition-colors hover:text-primary md:inline-flex"
+            aria-label={`Позвонить: ${site.phone}`}
           >
-            <Phone className="h-4 w-4" />
+            <Phone className="h-4 w-4 text-gold" aria-hidden />
             {site.phone}
-          </a>
-          <a
-            href={instagramLink}
-            target="_blank"
-            rel="noreferrer"
-            className="hidden md:grid h-10 w-10 place-items-center rounded-full border border-border hover:border-primary hover:text-primary transition-colors"
-            aria-label="Instagram"
-          >
-            <Instagram className="h-4 w-4" />
           </a>
           <a
             href={waLink("Здравствуйте, SOFIYA! У меня вопрос.")}
             target="_blank"
             rel="noreferrer"
-            className="hidden md:inline-flex btn-primary btn-primary-hover"
+            className="hidden h-12 w-12 place-items-center rounded-2xl bg-primary text-primary-foreground shadow-[0_12px_28px_-16px_rgba(90,4,189,0.9)] transition-transform hover:-translate-y-0.5 hover:bg-primary-hover md:grid"
+            aria-label="Написать SOFIYA в WhatsApp"
+            data-testid="header-whatsapp"
           >
-            <MessageCircle className="h-4 w-4" /> WhatsApp
+            <MessageCircle className="h-5 w-5" aria-hidden />
           </a>
           <button
-            className="xl:hidden grid h-11 w-11 place-items-center rounded-full border border-border"
+            className="grid h-11 w-11 place-items-center rounded-2xl border border-border bg-card xl:hidden"
             aria-label="Меню"
             aria-expanded={open}
             aria-controls="mobile-navigation"
@@ -107,7 +116,7 @@ export function Header() {
             aria-modal="true"
             aria-label="Навигация"
           >
-            <div className="border-b border-border">
+            <div className="border-b border-border/70">
               <div className="mx-auto flex w-full max-w-[1440px] items-center px-5 py-3 sm:px-8">
                 <img
                   src={logoUrl(branding.headerLogo)}
@@ -115,7 +124,7 @@ export function Header() {
                   className={branding.classes.headerMobile}
                 />
                 <button
-                  className="ml-auto grid h-11 w-11 place-items-center rounded-full border border-border"
+                  className="ml-auto grid h-11 w-11 place-items-center rounded-2xl border border-border"
                   onClick={() => setOpen(false)}
                   aria-label="Закрыть"
                 >

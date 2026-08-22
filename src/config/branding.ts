@@ -1,13 +1,16 @@
 // Centralized branding / logo configuration.
 // Меняйте логотипы и их поведение здесь — компоненты трогать не нужно.
-import markHeart from "@/assets/sofiya-wordmark.png";
+import approvedHeaderLogo from "@/assets/sofiya-logo-approved.png";
+import approvedWordmark from "@/assets/sofiya-wordmark-approved.png";
 import markRound from "@/assets/sofiya-logo.png";
 import markRoundTransparent from "@/assets/sofiya-logo-footer.png";
 
 /** Все доступные варианты логотипа. Добавьте новый ассет и запись здесь. */
 export const logoSources = {
+  /** Утверждённый горизонтальный логотип для светлой шапки */
+  approvedHeader: approvedHeaderLogo,
   /** Надпись «SOFIYA» с сердечком (прозрачный фон) */
-  wordmark: markHeart,
+  wordmark: approvedWordmark,
   /** Круглый логотип-эмблема */
   round: markRound,
   /** Круглый логотип-эмблема на прозрачном фоне для тёмных поверхностей */
@@ -19,7 +22,7 @@ export type LogoVariant = keyof typeof logoSources;
 /** Переключатели: какой вариант где используется. */
 export const branding = {
   /** Логотип в шапке (десктоп + мобильное меню) */
-  headerLogo: "round" as LogoVariant,
+  headerLogo: "approvedHeader" as LogoVariant,
   /** Логотип в футере */
   footerLogo: "roundTransparent" as LogoVariant,
   /** Логотип, который подставляется вместо слова «SOFIYA» в текстах */
@@ -30,8 +33,8 @@ export const branding = {
 
   /** Размеры / классы — тоже настраиваются без правки компонентов */
   classes: {
-    header: "h-10 md:h-12 w-auto",
-    headerMobile: "h-10 w-auto",
+    header: "h-12 w-auto md:h-[4.5rem]",
+    headerMobile: "h-12 w-auto",
     /** Футер на тёмном фоне: прозрачная версия сохраняет фирменный фиолетовый */
     footer: "h-14 w-auto",
     /** Инлайн-логотип внутри строки текста */
