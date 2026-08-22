@@ -12,6 +12,7 @@ interface Slide {
   image: string;
   imageAlt: string;
   imagePosition?: string;
+  productFocus?: boolean;
   search?: Record<string, string>;
 }
 
@@ -31,6 +32,7 @@ const slides: Slide[] = [
     image: IMG.cakeBerry,
     imageAlt: "Фирменный торт SOFIYA с ягодами и логотипом",
     imagePosition: "56% 48%",
+    productFocus: true,
     search: { cat: "cakes" },
   },
   {
@@ -126,6 +128,15 @@ export function HeroCarousel() {
           style={{ objectPosition: s.imagePosition }}
           fetchPriority={i === 0 ? "high" : "auto"}
         />
+        {s.productFocus && (
+          <img
+            src={s.image}
+            alt=""
+            className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[76%] select-none object-cover md:block"
+            style={{ objectPosition: "50% 48%" }}
+            aria-hidden
+          />
+        )}
         <div className="hero-overlay absolute inset-0" aria-hidden />
 
         <div
