@@ -51,7 +51,7 @@ export function Header() {
           <img
             src={logoUrl(branding.headerLogo)}
             alt={branding.alt}
-            width={998}
+            width={890}
             height={300}
             className={branding.classes.header}
           />
@@ -123,7 +123,7 @@ export function Header() {
                 <img
                   src={logoUrl(branding.headerLogo)}
                   alt={branding.alt}
-                  width={998}
+                  width={890}
                   height={300}
                   className={branding.classes.headerMobile}
                 />
