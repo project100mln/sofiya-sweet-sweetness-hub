@@ -132,14 +132,14 @@ export function HeroCarousel() {
           <h1 className="hero-title mt-5 max-w-[14ch] text-[2.6rem] font-medium leading-[0.98] tracking-[-0.035em] text-white sm:text-5xl md:text-6xl lg:text-[4.8rem]">
             {s.title}
           </h1>
-          <p className="mt-5 max-w-[31rem] text-sm leading-6 text-white/82 sm:text-base md:text-lg md:leading-8">
+          <p className="mt-5 max-w-[27rem] text-sm leading-6 text-white/82 sm:text-base md:text-lg md:leading-8">
             {s.desc}
           </p>
           <div className="mt-7 flex flex-wrap gap-3 md:mt-8">
             <Link
               to={s.href}
               search={s.search as never}
-              className="hero-cta inline-flex min-h-12 items-center justify-center rounded-xl bg-[#efc66d] px-7 text-sm font-bold text-primary shadow-[0_14px_34px_-20px_rgba(239,198,109,0.85)] transition-transform hover:-translate-y-0.5 hover:bg-[#f5d283] md:min-h-14 md:px-9 md:text-base"
+              className="hero-cta inline-flex min-h-12 items-center justify-center rounded-xl bg-[#efc66d] px-7 text-sm font-bold text-primary shadow-[0_14px_34px_-20px_rgba(239,198,109,0.85)] transition-transform hover:-translate-y-0.5 hover:bg-[#f5d283] md:min-h-16 md:px-10 md:text-lg"
             >
               {s.cta}
             </Link>
