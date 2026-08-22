@@ -101,7 +101,7 @@ test("original S logo and branded hero stay visible", async ({ page }) => {
   await expect(heroCta).toHaveAttribute("href", /cat=cakes/);
   await expect(heroCta).toHaveCSS("background-color", "rgb(90, 4, 189)");
   await expect(heroCta).toHaveCSS("color", "rgb(255, 255, 255)");
-  await expect(hero.getByTestId("hero-eyebrow")).toHaveCSS("color", "rgb(216, 189, 255)");
+  await expect(hero.getByTestId("hero-eyebrow")).toHaveCSS("color", "rgb(90, 4, 189)");
   await expect(hero.getByRole("tab", { name: "Слайд 1" })).toHaveCSS(
     "background-color",
     "rgb(216, 189, 255)",
@@ -302,6 +302,7 @@ test("breakfast hero uses the approved brand hierarchy", async ({ page }) => {
   const menuLink = hero.getByRole("link", { name: /Посмотреть меню/ });
 
   await expect(eyebrow).toBeVisible();
+  await expect(eyebrow).toHaveCSS("color", "rgb(90, 4, 189)");
   await expect(heading).toBeVisible();
   await expect(description).toBeVisible();
   await expect(menuLink).toHaveAttribute("href", /cat=breakfast/);

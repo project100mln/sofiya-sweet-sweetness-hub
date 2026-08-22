@@ -156,7 +156,7 @@ export function HeroCarousel() {
           className="hero-copy animate-fade-up relative z-10 flex h-full flex-col justify-center text-white"
         >
           <span
-            className="hero-eyebrow text-xs font-semibold uppercase tracking-[0.08em] text-[color:var(--hero-accent)] md:text-sm"
+            className="hero-eyebrow text-xs font-bold uppercase tracking-[0.08em] text-primary md:text-sm"
             data-testid="hero-eyebrow"
           >
             {s.eyebrow}

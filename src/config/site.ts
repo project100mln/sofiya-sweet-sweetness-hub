@@ -2,13 +2,13 @@
 // Keep unverified public URLs empty: the UI hides unavailable channels instead
 // of publishing guessed business data.
 const normalizeBaseUrl = (value: string | undefined) => value?.trim().replace(/\/$/, "") ?? "";
-const publishedPreviewUrl = "https://sofiya-sweet-sweetness-hub.lovable.app";
+const productionSiteUrl = "https://sofiyabakery.com";
 
 export const site = {
   brand: "SOFIYA",
   tagline: "Фирменные магазины",
   legalName: "SOFIYA",
-  domain: normalizeBaseUrl(import.meta.env.VITE_SITE_URL) || publishedPreviewUrl,
+  domain: normalizeBaseUrl(import.meta.env.VITE_SITE_URL) || productionSiteUrl,
   instagramUrl: "https://www.instagram.com/sofiya_sweet.kz",
   instagramHandle: "@sofiya_sweet.kz",
   tiktokUrl: import.meta.env.VITE_TIKTOK_URL?.trim() ?? "",
