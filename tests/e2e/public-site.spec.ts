@@ -247,7 +247,7 @@ test("breakfast hero uses the approved brand hierarchy", async ({ page }) => {
 
   await page.goto("/", { waitUntil: "networkidle" });
   const hero = page.locator("main section").first();
-  await hero.getByRole("button", { name: "Слайд 3" }).click();
+  await hero.getByRole("tab", { name: "Слайд 3" }).click();
 
   const eyebrow = hero.getByText("Завтраки", { exact: true }).first();
   const heading = hero.getByRole("heading", {
