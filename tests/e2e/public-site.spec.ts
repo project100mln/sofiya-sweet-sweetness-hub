@@ -4,6 +4,7 @@ const routes = [
   "/",
   "/catalog",
   "/stores",
+  "/about",
   "/promotions",
   "/cake-preorder",
   "/catering",
@@ -87,9 +88,24 @@ test("approved header and first hero keep both SOFIYA logos", async ({ page }) =
   await expect(heroCta).toHaveCSS("background-color", "rgb(90, 4, 189)");
   await expect(heroCta).toHaveCSS("color", "rgb(255, 255, 255)");
   await expect(hero.getByAltText(/торт SOFIYA с ягодами и логотипом/i)).toBeVisible();
+  await expect(hero.getByAltText(/торт SOFIYA с ягодами и логотипом/i)).toHaveAttribute(
+    "srcset",
+    /cake-berry-hd/,
+  );
   expect(
     await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth),
   ).toBeLessThanOrEqual(1);
+});
+
+test("about page tells the approved factual brand story", async ({ page }) => {
+  await page.goto("/about", { waitUntil: "networkidle" });
+
+  await expect(page.getByText(/Ниязходжаев Бахадир Тураббаевич/)).toBeVisible();
+  await expect(page.getByText(/в 2014 году не с витрины, а с производства/)).toBeVisible();
+  await expect(page.getByText(/в 2016 году появился первый фирменный магазин/)).toBeVisible();
+  await expect(page.getByText(/«тазалық» и «пәктік»/)).toBeVisible();
+  await expect(page.getByText(/17 филиалов/)).toBeVisible();
+  await expect(page.getByText(/до 150 сотрудников/)).toBeVisible();
 });
 
 test("stores filter and interactive map use approved coordinates", async ({ page }) => {

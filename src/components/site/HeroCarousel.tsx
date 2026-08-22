@@ -10,6 +10,7 @@ interface Slide {
   cta: string;
   href: string;
   image: string;
+  imageHd?: string;
   imageAlt: string;
   imagePosition?: string;
   productFocus?: boolean;
@@ -36,6 +37,7 @@ const slides: Slide[] = [
     cta: "Выбрать десерт",
     href: "/catalog",
     image: IMG.cakeBerry,
+    imageHd: IMG.cakeBerryHd,
     imageAlt: "Фирменный торт SOFIYA с ягодами и логотипом",
     imagePosition: "56% 48%",
     productFocus: true,
@@ -129,6 +131,8 @@ export function HeroCarousel() {
         <img
           key={s.image}
           src={s.image}
+          srcSet={s.imageHd ? `${s.image} 1280w, ${s.imageHd} 2560w` : undefined}
+          sizes="100vw"
           alt={s.imageAlt}
           className="hero-image absolute inset-0 h-full w-full object-cover"
           style={{ objectPosition: s.imagePosition }}
@@ -137,6 +141,8 @@ export function HeroCarousel() {
         {s.productFocus && (
           <img
             src={s.image}
+            srcSet={s.imageHd ? `${s.image} 1280w, ${s.imageHd} 2560w` : undefined}
+            sizes="(min-width: 768px) 76vw, 100vw"
             alt=""
             className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[76%] select-none object-cover md:block"
             style={{ objectPosition: "50% 48%" }}
