@@ -1,16 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { stores } from "@/data/stores";
-import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
-import { Leaf, Sparkles, Heart, Award } from "lucide-react";
+import { Award, Heart, Leaf, Sparkles } from "lucide-react";
+import { canonicalLink } from "@/config/site";
+import { PageHero } from "@/components/site/PageHero";
+import { cities, stores } from "@/data/stores";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
+    links: canonicalLink("/about"),
     meta: [
       { title: "О компании SOFIYA" },
       {
         name: "description",
         content:
-          "SOFIYA — растущая казахстанская сеть кофеен и пекарен. Свежая выпечка, фирменные торты и кофе каждый день.",
+          "История SOFIYA с 2014 года: свежая выпечка, фирменные торты и сеть магазинов в Шымкенте и Туркестанской области.",
       },
     ],
   }),
@@ -18,67 +20,115 @@ export const Route = createFileRoute("/about")({
 });
 
 function AboutPage() {
+  const facts = [
+    ["2014", "начало кондитерского направления"],
+    ["2016", "первый собственный магазин"],
+    [String(stores.length), "действующих адресов на сайте"],
+    ["до 150", "сотрудников в команде"],
+  ];
+
   return (
     <>
-      <section className="bg-gradient-to-b from-[color:var(--accent)] to-background">
-        <div className="container-page py-10 md:py-14">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">О компании</p>
-          <h1 className="mt-2 text-4xl md:text-5xl font-bold">
-            <SofiyaWordmark /> — вкусные моменты, доступные каждому
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
-            Казахстанская сеть кофеен и пекарен. Мы работаем в Шымкенте и Туркестанской области —
-            свежая выпечка, фирменные торты и кофе каждый день.
-          </p>
+      <PageHero
+        eyebrow="О компании"
+        title="Незабываемый вкус каждый день"
+        lead="Экономим людям время и деньги, чтобы дарить незабываемый вкус."
+      />
+
+      <section className="container-page section-space">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {facts.map(([value, label]) => (
+            <div key={label} className="premium-card p-6 md:p-7">
+              <p className="font-display text-4xl font-semibold text-primary">{value}</p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">{label}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="container-page py-12 grid gap-4 md:grid-cols-4">
-        {[
-          { n: `${stores.length}`, l: "магазинов и кофеен" },
-          { n: "5", l: "городов сети" },
-          { n: "9", l: "категорий продуктов" },
-          { n: "365", l: "дней свежей выпечки" },
-        ].map((s) => (
-          <div key={s.l} className="rounded-3xl bg-card border border-border/60 p-6 text-center">
-            <p className="text-4xl font-bold text-primary">{s.n}</p>
-            <p className="mt-2 text-sm text-muted-foreground">{s.l}</p>
+      <section className="container-page pb-14 md:pb-20">
+        <div className="grid gap-8 rounded-[2rem] border border-border/60 bg-[color:var(--cream)] p-7 md:grid-cols-[0.75fr_1.25fr] md:p-12">
+          <div>
+            <p className="page-kicker">История бренда</p>
+            <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
+              От производства к любимой сети
+            </h2>
           </div>
-        ))}
+          <div className="space-y-5 text-base leading-7 text-muted-foreground">
+            <p>
+              История SOFIYA началась в 2014 году не с витрины, а с производства. Основатель бренда
+              Ниязходжаев Бахадир Тураббаевич открыл кондитерское направление, которое работало
+              преимущественно с B2B-клиентами и готовило продукцию для партнёров из разных сфер
+              бизнеса.
+            </p>
+            <p>
+              Со временем продукцию всё чаще хотели покупать напрямую. Покупатели обращались с
+              просьбой открыть собственную точку, и в 2016 году появился первый фирменный магазин
+              SOFIYA. Так кондитерское направление, созданное для бизнеса, сделало следующий шаг —
+              стало ближе к семьям и ежедневным поводам своих гостей.
+            </p>
+            <p>
+              Название SOFIYA выбрано осознанно. В него вложены понятия чистоты и внутренней чистоты
+              — «тазалық» и «пәктік». Эти слова передают смысл, который основатель хотел связать с
+              брендом с самого начала.
+            </p>
+            <p>
+              Миссия SOFIYA — экономить людям время и деньги, чтобы дарить незабываемый вкус.
+              Сегодня сеть объединяет 17 филиалов, представленных в {cities.join(", ")}, а в команде
+              работают до 150 сотрудников. Путь от производственного направления до собственной сети
+              продолжается с той же задачей: делать любимые вкусы доступными каждый день.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section className="container-page py-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {[
-          { i: Leaf, t: "Свежесть", d: "Готовим ежедневно небольшими партиями." },
-          { i: Sparkles, t: "Качество", d: "Отбираем ингредиенты и следим за процессом." },
-          { i: Heart, t: "Забота", d: <>Тёплые встречи в каждой кофейне <SofiyaWordmark />.</> },
-          { i: Award, t: "Растём", d: "Открываем новые точки по региону." },
-        ].map(({ i: Icon, t, d }) => (
-          <div key={t} className="rounded-3xl bg-card border border-border/60 p-6">
-            <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
-              <Icon className="h-6 w-6" />
+      <section className="container-page pb-14 md:pb-20">
+        <div className="section-heading">
+          <div>
+            <p className="page-kicker">Наш подход</p>
+            <h2>То, что остаётся неизменным</h2>
+          </div>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            { i: Leaf, t: "Свежесть", d: "Готовим ежедневно и внимательно следим за качеством." },
+            { i: Sparkles, t: "Чистота", d: "Соблюдаем стандарты на каждом этапе производства." },
+            { i: Heart, t: "Забота", d: "Создаём тёплый сервис в каждом фирменном магазине." },
+            {
+              i: Award,
+              t: "Развитие",
+              d: "Расширяем ассортимент и делаем любимые вкусы доступнее.",
+            },
+          ].map(({ i: Icon, t, d }) => (
+            <div key={t} className="premium-card p-6">
+              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
+                <Icon className="h-6 w-6" aria-hidden />
+              </div>
+              <h3 className="mt-4 text-xl font-semibold">{t}</h3>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">{d}</p>
             </div>
-            <h3 className="mt-4 text-xl font-semibold">{t}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{d}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </section>
 
-      <section className="container-page py-14">
-        <div className="rounded-3xl bg-[color:var(--cream)] p-8 md:p-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Присоединяйтесь к семье <SofiyaWordmark />
-          </h2>
-          <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-            Загляните в ближайшую кофейню или подпишитесь на наш Instagram, чтобы первыми узнавать о
-            новинках.
+      <section className="container-page pb-14 md:pb-20">
+        <div className="rounded-[2rem] bg-primary p-8 text-center text-primary-foreground md:p-12">
+          <h2 className="text-3xl font-semibold md:text-4xl">Загляните в ближайший SOFIYA</h2>
+          <p className="mx-auto mt-3 max-w-xl text-white/80">
+            Выберите удобный адрес, посмотрите часы работы и постройте маршрут.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link to="/stores" className="btn-primary btn-primary-hover">
+            <Link
+              to="/stores"
+              className="inline-flex min-h-11 items-center justify-center rounded-full bg-white px-6 font-semibold text-primary transition-transform hover:-translate-y-0.5"
+            >
               Найти магазин
             </Link>
-            <Link to="/career" className="btn-outline btn-outline-hover">
-              Работать в <SofiyaWordmark />
+            <Link
+              to="/career"
+              className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/35 px-6 font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Работать в SOFIYA
             </Link>
           </div>
         </div>

@@ -7,7 +7,9 @@ export function ProductCard({ p }: { p: Product }) {
     <Link
       to="/catalog/$slug"
       params={{ slug: p.slug }}
-      className="group flex flex-col rounded-3xl bg-card border border-border/60 overflow-hidden hover:border-primary/40 hover:shadow-lift transition-all"
+      data-testid="product-card"
+      aria-label={`${p.name}, ${p.price ? `${p.price.toLocaleString("ru-RU")} тенге` : "цена уточняется"}`}
+      className="premium-card group flex flex-col overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-muted">
         <img
@@ -40,10 +42,10 @@ export function ProductCard({ p }: { p: Product }) {
         </h3>
         <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">{p.shortDescription}</p>
         <div className="mt-4 flex items-center justify-between pt-4 border-t border-border/60">
-          <span className="text-sm text-muted-foreground">
+          <span className="font-semibold text-foreground" data-testid="product-price">
             {p.price ? `${p.price.toLocaleString("ru-RU")} ₸` : "Цена уточняется"}
           </span>
-          <span className="text-sm font-semibold text-primary">Подробнее →</span>
+          <span className="text-sm font-semibold text-primary">Открыть →</span>
         </div>
       </div>
     </Link>

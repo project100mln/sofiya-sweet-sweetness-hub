@@ -29,6 +29,21 @@ export interface Promotion {
   iiko_id: string | null;
 }
 
+export type PromotionCardContent = Pick<
+  Promotion,
+  | "id"
+  | "title"
+  | "description"
+  | "image_url"
+  | "discount_type"
+  | "discount_value"
+  | "promo_code_word"
+> & {
+  image_has_discount_badge?: boolean;
+  slug?: string;
+  product_names?: string[];
+};
+
 export interface CartItem {
   productId: string;
   name: string;

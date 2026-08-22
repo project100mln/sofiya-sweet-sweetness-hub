@@ -1,9 +1,20 @@
 import { MapPin, Clock, Phone, MessageCircle } from "lucide-react";
 import type { StoreRecord } from "@/data/types";
 
-export function StoreCard({ s }: { s: StoreRecord }) {
+export function StoreCard({
+  s,
+  onShowOnMap,
+  isSelected = false,
+}: {
+  s: StoreRecord;
+  onShowOnMap?: () => void;
+  isSelected?: boolean;
+}) {
   return (
-    <article className="flex flex-col rounded-2xl bg-card border border-border/60 p-5 hover:border-primary/40 hover:shadow-soft transition-all">
+    <article
+      className={`premium-card flex flex-col p-5 ${isSelected ? "border-primary/55 ring-2 ring-primary/10" : ""}`}
+      data-testid={`store-card-${s.id}`}
+    >
       <div className="flex items-center gap-2">
         <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 text-primary px-2.5 py-1 text-xs font-semibold">
           <MapPin className="h-3.5 w-3.5" /> {s.city}
@@ -17,19 +28,17 @@ export function StoreCard({ s }: { s: StoreRecord }) {
           <Clock className="h-4 w-4 text-primary" /> {s.workingHours}
         </p>
       )}
-      {s.services.length > 0 && (
-        <div className="mt-4 flex flex-wrap gap-1.5">
-          {s.services.map((sv) => (
-            <span
-              key={sv}
-              className="rounded-full bg-accent text-accent-foreground px-2.5 py-1 text-xs"
-            >
-              {sv}
-            </span>
-          ))}
-        </div>
-      )}
       <div className="mt-4 flex flex-wrap items-center gap-4">
+        {onShowOnMap && s.latitude != null && s.longitude != null && (
+          <button
+            type="button"
+            onClick={onShowOnMap}
+            className="text-sm font-semibold text-primary hover:text-primary-hover"
+            aria-pressed={isSelected}
+          >
+            {isSelected ? "На карте" : "Показать на карте"}
+          </button>
+        )}
         {s.mapUrl && (
           <a
             href={s.mapUrl}
@@ -37,7 +46,7 @@ export function StoreCard({ s }: { s: StoreRecord }) {
             rel="noreferrer"
             className="text-sm font-semibold text-primary hover:text-primary-hover"
           >
-            Построить маршрут →
+            Маршрут в 2GIS →
           </a>
         )}
         {s.phone && (

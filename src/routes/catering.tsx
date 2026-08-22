@@ -1,12 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { site, waLink } from "@/config/site";
-import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 import { SERVICES } from "@/data/catering-services";
 import { Check } from "lucide-react";
+import { canonicalLink } from "@/config/site";
+import { PageHero } from "@/components/site/PageHero";
 
 export const Route = createFileRoute("/catering")({
   head: () => ({
+    links: canonicalLink("/catering"),
     meta: [
       { title: "Кейтеринг SOFIYA — кофе-брейки и события" },
       {
@@ -31,10 +33,7 @@ function CateringPage() {
   });
   const [sent, setSent] = useState(false);
   const set = (k: keyof typeof f, v: string) => setF((s) => ({ ...s, [k]: v }));
-
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const msg = `Здравствуйте, SOFIYA! Заявка на кейтеринг:
+  const whatsappMessage = `Здравствуйте, SOFIYA! Заявка на кейтеринг:
 Тип: ${f.type}
 Дата: ${f.date}
 Гостей: ${f.guests}
@@ -42,32 +41,25 @@ function CateringPage() {
 Имя: ${f.name}
 Телефон: ${f.phone}
 Комментарий: ${f.comment || "—"}`;
-    if (site.whatsappDigits) window.open(waLink(msg), "_blank");
+
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (site.whatsappDigits) window.open(waLink(whatsappMessage), "_blank", "noopener,noreferrer");
     setSent(true);
   };
 
   return (
     <>
-      <section className="bg-gradient-to-b from-[color:var(--accent)] to-background">
-        <div className="container-page py-10 md:py-14">
-          <p className="text-xs font-semibold uppercase tracking-widest text-primary">Кейтеринг</p>
-          <h1 className="mt-2 text-4xl md:text-5xl font-bold">
-            <SofiyaWordmark /> для ваших событий
-          </h1>
-          <p className="mt-3 text-muted-foreground max-w-2xl">
-            Соберём меню под ваш формат: кофе-брейки, десертные столы, корпоративные события и
-            большие заказы.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Кейтеринг"
+        title="Для ваших событий"
+        lead="Соберём меню под ваш формат: кофе-брейки, десертные столы, корпоративные события и большие заказы."
+      />
 
       <section className="container-page py-12">
         <div className="grid gap-4 md:grid-cols-3">
           {SERVICES.map(({ i: Icon, t, d }) => (
-            <div
-              key={t}
-              className="rounded-3xl bg-card border border-border/60 p-6 hover:border-primary/40 hover:shadow-soft transition-all"
-            >
+            <div key={t} className="premium-card p-6">
               <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
                 <Icon className="h-6 w-6" />
               </div>
@@ -79,17 +71,26 @@ function CateringPage() {
       </section>
 
       <section className="container-page py-12">
-        <div className="mx-auto max-w-2xl rounded-3xl bg-card border border-border p-6 md:p-10">
+        <div className="premium-card mx-auto max-w-2xl p-6 md:p-10">
           <h2 className="text-2xl md:text-3xl font-bold">Оставить заявку</h2>
           {sent ? (
             <div className="mt-8 text-center">
               <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-primary/10 text-primary">
                 <Check className="h-7 w-7" />
               </div>
-              <p className="mt-4 text-lg font-semibold">Заявка отправлена!</p>
+              <p className="mt-4 text-lg font-semibold">Сообщение подготовлено</p>
               <p className="mt-2 text-muted-foreground text-sm">
-                Мы открыли ваш WhatsApp с готовым сообщением.
+                Проверьте готовый текст и отправьте его в WhatsApp — только после этого заявка
+                поступит менеджеру.
               </p>
+              <a
+                href={waLink(whatsappMessage)}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 btn-primary btn-primary-hover"
+              >
+                Открыть WhatsApp
+              </a>
             </div>
           ) : (
             <form onSubmit={submit} className="mt-6 grid gap-4">
@@ -151,6 +152,9 @@ function CateringPage() {
                 <Row label="Телефон" required>
                   <input
                     type="tel"
+                    inputMode="tel"
+                    autoComplete="tel"
+                    pattern="[+0-9 ()-]{7,20}"
                     required
                     value={f.phone}
                     onChange={(e) => set("phone", e.target.value)}
@@ -168,13 +172,12 @@ function CateringPage() {
                 />
               </Row>
               <button type="submit" className="btn-primary btn-primary-hover mt-2">
-                Отправить заявку
+                Перейти в WhatsApp
               </button>
             </form>
           )}
         </div>
       </section>
-      <style>{`.input{width:100%;height:3rem;border-radius:1rem;border:1px solid var(--border);background:var(--background);padding:0 1rem;font-size:0.95rem}.input:focus{outline:none;border-color:var(--primary)}textarea.input{padding:0.75rem 1rem;height:auto}`}</style>
     </>
   );
 }

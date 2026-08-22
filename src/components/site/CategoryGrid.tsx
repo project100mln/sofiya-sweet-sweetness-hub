@@ -4,12 +4,11 @@ import { categories } from "@/data/catalog";
 export function CategoryGrid() {
   return (
     <section className="container-page py-14 md:py-20">
-      <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
+      <div className="section-heading">
         <div>
-          <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-            Каталог
-          </span>
-          <h2 className="mt-2 text-3xl md:text-4xl font-bold">Категории продуктов</h2>
+          <p className="page-kicker">Каталог</p>
+          <h2>Выберите любимый вкус</h2>
+          <p>Торты, десерты, выпечка и горячие блюда — всё в одном каталоге.</p>
         </div>
         <Link to="/catalog" className="btn-outline btn-outline-hover">
           Весь каталог
@@ -21,7 +20,7 @@ export function CategoryGrid() {
             key={c.id}
             to="/catalog"
             search={{ cat: c.slug }}
-            className={`group relative overflow-hidden rounded-3xl border border-border/60 hover:border-primary/40 hover:shadow-lift transition-all ${i === 0 ? "sm:col-span-2 sm:row-span-2" : ""}`}
+            className={`premium-card group relative overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 ${i === 0 ? "sm:col-span-2 sm:row-span-2" : ""}`}
           >
             <div
               className={`${i === 0 ? "aspect-[4/3] sm:aspect-auto sm:h-full" : "aspect-[4/3]"} relative`}
@@ -29,8 +28,8 @@ export function CategoryGrid() {
               <img
                 src={c.image}
                 alt={c.name}
-                className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                loading="lazy"
+                className={`h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ${i === 0 ? "object-bottom" : ""}`}
+                loading={i < 3 ? "eager" : "lazy"}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-5">

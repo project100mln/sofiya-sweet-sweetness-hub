@@ -6,10 +6,18 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "build:e2e": "NITRO_PRESET=node-server vite build",
     "build:dev": "vite build --mode development",
-    "preview": "vite preview",
+    "preview": "npm run build:e2e && npm run preview:e2e",
+    "preview:e2e": "HOST=127.0.0.1 PORT=4173 node .output/server/index.mjs",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "secret:scan": "node scripts/secret-scan.mjs",
+    "check": "prettier --check . && eslint . && tsc --noEmit && vitest run && vite build && node scripts/secret-scan.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -56,6 +64,7 @@
     "react-day-picker": "^9.14.0",
     "react-dom": "^19.2.0",
     "react-hook-form": "^7.71.2",
+    "react-icons": "^5.7.0",
     "react-resizable-panels": "^4.6.5",
     "recharts": "^2.15.4",
     "sonner": "^2.0.7",
@@ -69,6 +78,7 @@
   "devDependencies": {
     "@eslint/js": "^9.32.0",
     "@lovable.dev/vite-tanstack-config": "2.9.1",
+    "@playwright/test": "^1.62.1",
     "@types/node": "^22.16.5",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
@@ -83,6 +93,7 @@
     "prettier": "^3.7.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
-    "vite": "^8.0.16"
+    "vite": "^8.0.16",
+    "vitest": "^4.1.10"
   }
 }

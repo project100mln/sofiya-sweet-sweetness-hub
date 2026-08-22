@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/lib/supabase";
+import { supabase, supabaseConfigured } from "@/lib/supabase";
 import type { Promotion } from "@/types/promotions";
 
 /**
@@ -13,6 +13,7 @@ export function usePromotions(storeId: number | null) {
   return useQuery({
     queryKey: ["promotions", storeId],
     queryFn: async (): Promise<Promotion[]> => {
+      if (!supabase) return [];
       const nowIso = new Date().toISOString();
 
       let query = supabase
@@ -31,7 +32,7 @@ export function usePromotions(storeId: number | null) {
       if (error) throw error;
       return data ?? [];
     },
-    enabled: storeId !== null,
+    enabled: storeId !== null && supabaseConfigured,
     staleTime: 60_000,
   });
 }

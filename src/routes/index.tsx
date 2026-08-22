@@ -3,12 +3,13 @@ import { HeroCarousel } from "@/components/site/HeroCarousel";
 import { CategoryGrid } from "@/components/site/CategoryGrid";
 import { ProductCarousel } from "@/components/site/ProductCarousel";
 import { AppPromo } from "@/components/site/AppPromo";
-import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
+import { NewsCard } from "@/components/site/NewsCard";
 import { StoreCard } from "@/components/site/StoreCard";
 import { products, IMG } from "@/data/catalog";
 import { stores } from "@/data/stores";
 import { news } from "@/data/news";
 import { site, instagramLink } from "@/config/site";
+import { canonicalLink } from "@/config/site";
 import {
   ArrowRight,
   Cake,
@@ -22,6 +23,7 @@ import {
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
+  head: () => ({ links: canonicalLink("/") }),
   component: Home,
 });
 
@@ -31,6 +33,7 @@ function Home() {
   const fresh = products.filter((p) => p.isNew);
   const preorderPreview = products.filter((p) => p.isPreorder);
   const featuredStores = stores.slice(0, 6);
+  const pizzaImage = products.find((product) => product.categoryId === "pizza")?.images[0];
 
   return (
     <>
@@ -38,11 +41,7 @@ function Home() {
       <CategoryGrid />
 
       <ProductCarousel
-        title={
-          <>
-            Хиты <SofiyaWordmark />
-          </>
-        }
+        title="Хиты недели"
         subtitle="Самые любимые торты и десерты наших гостей."
         items={hero.length ? hero : bestsellers}
         action={
@@ -75,9 +74,7 @@ function Home() {
               <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-white/15 backdrop-blur px-3 py-1 text-xs font-semibold uppercase tracking-widest">
                 <Sparkles className="h-3.5 w-3.5" /> Сезонная коллекция
               </span>
-              <h2 className="mt-4 text-3xl md:text-5xl font-bold max-w-lg">
-                Ягодная коллекция <SofiyaWordmark />
-              </h2>
+              <h2 className="mt-4 text-3xl md:text-5xl font-bold max-w-lg">Ягодная коллекция</h2>
               <p className="mt-3 max-w-md text-white/85">
                 Свежие ягоды, воздушные кремы и лёгкие цитрусовые ноты — вкус тёплого сезона.
               </p>
@@ -133,11 +130,7 @@ function Home() {
       {/* Preorder cakes carousel */}
       <ProductCarousel
         title="Торты на заказ"
-        subtitle={
-          <>
-            Оформите фирменный торт <SofiyaWordmark /> к вашему празднику.
-          </>
-        }
+        subtitle={<>Оформите торт к вашему празднику.</>}
         items={preorderPreview}
         action={
           <Link to="/cake-preorder" className="hidden md:inline-flex btn-primary btn-primary-hover">
@@ -163,9 +156,7 @@ function Home() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
             <div className="relative h-full p-8 md:p-10 flex flex-col justify-end text-white">
               <Sandwich className="h-6 w-6" />
-              <h3 className="mt-2 text-3xl font-bold">
-                Завтраки в <SofiyaWordmark />
-              </h3>
+              <h3 className="mt-2 text-3xl font-bold">Завтраки</h3>
               <p className="mt-2 text-white/85 max-w-md">
                 Кофе, тёплая выпечка и лёгкие блюда. Загляните с утра — начните день правильно.
               </p>
@@ -180,7 +171,7 @@ function Home() {
             className="group relative overflow-hidden rounded-[2rem] aspect-[4/3] shadow-soft"
           >
             <img
-              src={IMG.tartAssorti}
+              src={pizzaImage ?? IMG.tartAssorti}
               alt="Пицца SOFIYA"
               className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
@@ -202,64 +193,35 @@ function Home() {
 
       {/* News & promotions */}
       <section className="container-page py-14 md:py-20">
-        <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
+        <div className="section-heading">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-              Новости и акции
-            </span>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold">
-              Что нового в <SofiyaWordmark />
-            </h2>
+            <p className="page-kicker">Новости и акции</p>
+            <h2>Что нового</h2>
+            <p>Коллекции, события и предложения SOFIYA.</p>
           </div>
-          <Link to="/news" className="btn-outline btn-outline-hover">
-            Все новости
-          </Link>
+          <div className="flex flex-wrap gap-3">
+            <Link to="/promotions" className="btn-primary btn-primary-hover">
+              Все акции
+            </Link>
+            <Link to="/news" className="btn-outline btn-outline-hover">
+              Все новости
+            </Link>
+          </div>
         </div>
         <div className="grid gap-5 md:grid-cols-3">
           {news.map((n) => (
-            <Link
-              key={n.id}
-              to="/news/$slug"
-              params={{ slug: n.slug }}
-              className="group rounded-3xl bg-card border border-border/60 overflow-hidden hover:border-primary/40 hover:shadow-lift transition-all"
-            >
-              <div className="aspect-[16/10] overflow-hidden">
-                <img
-                  src={n.cover}
-                  alt={n.title}
-                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-5">
-                <p className="text-xs uppercase tracking-widest text-primary font-semibold">
-                  {new Date(n.date).toLocaleDateString("ru-RU", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </p>
-                <h3 className="mt-2 text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                  {n.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{n.summary}</p>
-              </div>
-            </Link>
+            <NewsCard key={n.id} item={n} compact />
           ))}
         </div>
       </section>
 
       {/* Stores preview */}
       <section className="container-page py-14 md:py-20">
-        <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
+        <div className="section-heading">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-              Сеть <SofiyaWordmark />
-            </span>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold">Магазины и кофейни</h2>
-            <p className="mt-2 text-muted-foreground max-w-xl">
-              {stores.length} точек в Шымкенте, Ленгере, Аксукенте, Сайраме и Манкенте.
-            </p>
+            <p className="page-kicker">Сеть</p>
+            <h2>{stores.length} магазинов рядом</h2>
+            <p>Шымкент и Туркестанская область.</p>
           </div>
           <Link to="/stores" className="btn-outline btn-outline-hover">
             Все магазины
@@ -280,7 +242,7 @@ function Home() {
               <Coffee className="h-3.5 w-3.5" /> Кейтеринг
             </span>
             <h2 className="mt-4 text-3xl md:text-5xl font-bold text-foreground">
-              <SofiyaWordmark /> для ваших событий
+              Для ваших событий
             </h2>
             <p className="mt-3 text-muted-foreground max-w-xl">
               Кофе-брейки, десертные столы, корпоративные праздники и большие заказы. Соберём меню
@@ -292,13 +254,15 @@ function Home() {
           </div>
           <div className="grid grid-cols-2 gap-3">
             {[
-              ["50+", "гостей"],
-              ["24 ч", "на подготовку"],
-              ["16", "точек сети"],
-              ["100%", "свежая выпечка"],
+              ["Кофе-брейки", "для встреч и конференций"],
+              ["Десертные столы", "для праздников и событий"],
+              ["Большие заказы", "для компаний и команд"],
             ].map(([n, l]) => (
-              <div key={l} className="rounded-2xl bg-background p-5 border border-border/60">
-                <p className="text-3xl font-bold text-primary">{n}</p>
+              <div
+                key={l}
+                className="rounded-2xl bg-background p-5 border border-border/60 last:col-span-2"
+              >
+                <p className="text-lg font-semibold text-primary">{n}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{l}</p>
               </div>
             ))}
@@ -318,7 +282,7 @@ function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/40" />
           <div className="relative container-page p-8 md:p-14 text-primary-foreground max-w-2xl">
             <Users className="h-8 w-8" />
-            <h2 className="mt-4 text-3xl md:text-5xl font-bold">Станьте частью команды <SofiyaWordmark className="brightness-0 invert" /></h2>
+            <h2 className="mt-4 text-3xl md:text-5xl font-bold">Станьте частью команды</h2>
             <p className="mt-3 text-white/85">
               Растущая сеть, обучение, разные направления работы: пекари, кондитеры, бариста,
               менеджеры.
@@ -335,15 +299,11 @@ function Home() {
 
       {/* Instagram */}
       <section className="container-page py-14 md:py-20">
-        <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
+        <div className="section-heading">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-              Instagram
-            </span>
-            <h2 className="mt-2 text-3xl md:text-4xl font-bold">
-              <SofiyaWordmark /> в кадре
-            </h2>
-            <p className="mt-2 text-muted-foreground">Подписывайтесь на {site.instagramHandle}</p>
+            <p className="page-kicker">Instagram</p>
+            <h2>Десерты в кадре</h2>
+            <p>Подписывайтесь на {site.instagramHandle}</p>
           </div>
           <a
             href={instagramLink}
