@@ -61,10 +61,10 @@ export function Header() {
             <LocaleLink
               key={n.to}
               to={n.to}
-              className="site-header-link relative flex items-center px-7 text-[0.94rem] font-medium text-foreground/78 transition-colors hover:text-primary"
+              className="site-header-link relative flex items-center px-4 text-[0.94rem] font-medium text-foreground/78 transition-colors hover:text-primary min-[1400px]:px-7"
               activeProps={{
                 className:
-                  "site-header-link site-header-link-active relative flex items-center px-7 text-[0.94rem] font-semibold text-primary",
+                  "site-header-link site-header-link-active relative flex items-center px-4 text-[0.94rem] font-semibold text-primary min-[1400px]:px-7",
               }}
               activeOptions={{ exact: n.to === "/" }}
             >

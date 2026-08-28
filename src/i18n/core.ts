@@ -39,7 +39,10 @@ export function localizeHref(href: string, locale: Locale): string {
 }
 
 export function formatPrice(value: number, locale: Locale): string {
-  return new Intl.NumberFormat(localeTag[locale], { maximumFractionDigits: 0 }).format(value);
+  return new Intl.NumberFormat(localeTag[locale], { maximumFractionDigits: 0 })
+    .formatToParts(value)
+    .map((part) => (part.type === "group" ? "\u00A0" : part.value))
+    .join("");
 }
 
 export function formatDate(value: string, locale: Locale): string {
@@ -49,10 +52,20 @@ export function formatDate(value: string, locale: Locale): string {
         Date.UTC(Number(calendarDate[1]), Number(calendarDate[2]) - 1, Number(calendarDate[3])),
       )
     : new Date(value);
-  return new Intl.DateTimeFormat(localeTag[locale], {
+  const formatter = new Intl.DateTimeFormat(localeTag[locale], {
     day: "numeric",
     month: "long",
     year: "numeric",
     timeZone: "UTC",
-  }).format(date);
+  });
+  const fields = Object.fromEntries(
+    formatter
+      .formatToParts(date)
+      .filter((part) => part.type !== "literal")
+      .map((part) => [part.type, part.value]),
+  );
+  if (!fields.day || !fields.month || !fields.year) return formatter.format(date);
+  return locale === "kk"
+    ? `${fields.year} ж. ${fields.day} ${fields.month}`
+    : `${fields.day} ${fields.month} ${fields.year} г.`;
 }

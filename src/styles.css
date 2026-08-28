@@ -78,6 +78,10 @@
   html {
     scroll-behavior: smooth;
   }
+  html[lang="kk-KZ"] {
+    /* Google Fonts' Playfair Cyrillic subset omits Kazakh extended letters. */
+    --font-display: "Inter", system-ui, -apple-system, sans-serif;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);

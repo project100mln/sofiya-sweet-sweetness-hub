@@ -335,7 +335,11 @@ test("Kazakh product, news and promotion details use localized copy and payloads
   await expect(
     page.getByRole("heading", { level: 1, name: "Түркістан облысында кеңейіп келеміз" }),
   ).toBeVisible();
-  await expect(page.getByText(/Леңгір, Сайрам, Ақсукент және Манкент/)).toBeVisible();
+  await expect(
+    page.getByText("Леңгір, Сайрам, Ақсукент және Манкенттегі жаңа SOFIYA дүкендері.", {
+      exact: true,
+    }),
+  ).toBeVisible();
 
   await page.goto("/kk/promotions/samsa-happy-hours");
   await expect(
@@ -662,9 +666,9 @@ test("required Kazakh glyphs render in the configured font stack", async ({ page
     glyphs.style.cssText =
       "position:fixed;left:8px;top:8px;z-index:9999;background:white;color:black;font:20px Inter,sans-serif";
     document.body.append(glyphs);
-    const familyWeights = {
-      Inter: [400, 500, 600, 700],
-      "Playfair Display": [500, 600, 700],
+    const familyEvidence = {
+      Inter: { weights: [400, 500, 600, 700], sample: requiredGlyphs },
+      "Playfair Display": { weights: [500, 600, 700], sample: "SOFIYA АБВГД" },
     };
     const loads: Record<
       string,
@@ -678,10 +682,10 @@ test("required Kazakh glyphs render in the configured font stack", async ({ page
         }>;
       }>
     > = {};
-    for (const [family, weights] of Object.entries(familyWeights)) {
+    for (const [family, { weights, sample }] of Object.entries(familyEvidence)) {
       loads[family] = [];
       for (const weight of weights) {
-        const faces = await document.fonts.load(`${weight} 20px "${family}"`, requiredGlyphs);
+        const faces = await document.fonts.load(`${weight} 20px "${family}"`, sample);
         loads[family].push({
           weight,
           faces: faces.map((face) => ({
@@ -696,16 +700,17 @@ test("required Kazakh glyphs render in the configured font stack", async ({ page
     await document.fonts.ready;
     return {
       configuredFamily: getComputedStyle(glyphs).fontFamily,
+      headingFamily: getComputedStyle(document.querySelector("h1") as HTMLElement).fontFamily,
       requiredCodePoints: [...requiredGlyphs]
         .filter((glyph) => glyph !== " ")
         .map((glyph) => glyph.codePointAt(0) as number),
       families: Object.fromEntries(
-        Object.entries(familyWeights).map(([family, weights]) => [
+        Object.entries(familyEvidence).map(([family, { weights, sample }]) => [
           family,
           {
             loads: loads[family],
             requiredWeightsReady: weights.every((weight) =>
-              document.fonts.check(`${weight} 20px "${family}"`, requiredGlyphs),
+              document.fonts.check(`${weight} 20px "${family}"`, sample),
             ),
             loadedFaces: [...document.fonts].filter(
               (face) => face.family.replaceAll('"', "") === family && face.status === "loaded",
@@ -717,6 +722,7 @@ test("required Kazakh glyphs render in the configured font stack", async ({ page
   });
   await expect(page.locator("#kk-glyph-proof")).toBeVisible();
   expect(fontEvidence.configuredFamily).toContain("Inter");
+  expect(fontEvidence.headingFamily).toContain("Inter");
   const rangeIncludes = (rangeList: string, codePoint: number) =>
     rangeList.split(",").some((rawRange) => {
       const range = rawRange.trim().toUpperCase().replace(/^U\+/, "");
@@ -745,11 +751,13 @@ test("required Kazakh glyphs render in the configured font stack", async ({ page
         ),
         `${family} ${load.weight}: exact loaded face`,
       ).toBe(true);
-      for (const codePoint of fontEvidence.requiredCodePoints) {
-        expect(
-          load.faces.some((face) => rangeIncludes(face.unicodeRange, codePoint)),
-          `${family} ${load.weight}: U+${codePoint.toString(16).toUpperCase()} coverage`,
-        ).toBe(true);
+      if (family === "Inter") {
+        for (const codePoint of fontEvidence.requiredCodePoints) {
+          expect(
+            load.faces.some((face) => rangeIncludes(face.unicodeRange, codePoint)),
+            `${family} ${load.weight}: U+${codePoint.toString(16).toUpperCase()} coverage`,
+          ).toBe(true);
+        }
       }
     }
   }
