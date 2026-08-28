@@ -145,7 +145,7 @@ catalog	src/i18n/catalog.ts	Яйца, сёмга малосольная, мик�
 catalog	src/i18n/catalog.ts	Яйца, томлёные с томатами, луком и болгарским перцем	Яйца, томлёные с томатами, луком и болгарским перцем	Қызанақ, пияз және болгар бұрышымен баяу пісірілген жұмыртқа	DRAFT_REQUIRES_KK_EDITORIAL
 catalog	src/i18n/catalog.ts	Яйцо, говядина, авокадо и крем-чиз на бородинском хлебе	Яйцо, говядина, авокадо и крем-чиз на бородинском хлебе	Бородино нанындағы жұмыртқа, сиыр еті, авокадо және крем-чиз	DRAFT_REQUIRES_KK_EDITORIAL
 catalog	src/i18n/catalog.ts	Яйцо, мясо говядины, молоко, сливочное масло, соус песто, соус барбекю, авокадо, огурцы, хлеб бородинский, крем чиз, микс салатов, помидоры черри	Яйцо, мясо говядины, молоко, сливочное масло, соус песто, соус барбекю, авокадо, огурцы, хлеб бородинский, крем чиз, микс салатов, помидоры черри	Жұмыртқа, сиыр еті, сүт, сары май, песто және барбекю соустары, авокадо, қияр, Бородино наны, крем-чиз, салат миксі, черри қызанағы	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/i18n/core.ts:68	locale-branch	${fields.day} ${fields.month} ${fields.year} г.	${fields.year} ж. ${fields.day} ${fields.month}	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/i18n/core.ts:90	locale-branch	${day} ${month} ${year} г.	${year} ж. ${day} ${month}	DRAFT_REQUIRES_KK_EDITORIAL
 conditional-ui	src/routes/about.tsx:87	locale-branch[0].d	Готовим ежедневно и внимательно следим за качеством.	Күн сайын дайындап, сапаны мұқият қадағалаймыз.	DRAFT_REQUIRES_KK_EDITORIAL
 conditional-ui	src/routes/about.tsx:87	locale-branch[0].t	Свежесть	Балғындық	DRAFT_REQUIRES_KK_EDITORIAL
 conditional-ui	src/routes/about.tsx:87	locale-branch[1].d	Соблюдаем стандарты на каждом этапе производства.	Өндірістің әр кезеңінде стандарттарды сақтаймыз.	DRAFT_REQUIRES_KK_EDITORIAL
@@ -358,6 +358,18 @@ structured-ui	src/data/store-cities.ts#STORE_CITIES	lenger	Ленгер	Леңг
 structured-ui	src/data/store-cities.ts#STORE_CITIES	mankent	Манкент	Манкент	DRAFT_REQUIRES_KK_EDITORIAL
 structured-ui	src/data/store-cities.ts#STORE_CITIES	shymkent	Шымкент	Шымкент	DRAFT_REQUIRES_KK_EDITORIAL
 structured-ui	src/i18n/content.ts#siteRegionCopy	site.region	Шымкент и Туркестанская область	Шымкент және Түркістан облысы	DRAFT_REQUIRES_KK_EDITORIAL
+structured-ui	src/i18n/core.ts#monthNames	date-month[0]	января	қаңтар	DRAFT_REQUIRES_KK_EDITORIAL
+structured-ui	src/i18n/core.ts#monthNames	date-month[1]	февраля	ақпан	DRAFT_REQUIRES_KK_EDITORIAL
+structured-ui	src/i18n/core.ts#monthNames	date-month[10]	ноября	қараша	DRAFT_REQUIRES_KK_EDITORIAL
+structured-ui	src/i18n/core.ts#monthNames	date-month[11]	декабря	желтоқсан	DRAFT_REQUIRES_KK_EDITORIAL
+structured-ui	src/i18n/core.ts#monthNames	date-month[2]	марта	наурыз	DRAFT_REQUIRES_KK_EDITORIAL
+structured-ui	src/i18n/core.ts#monthNames	date-month[3]	апреля	сәуір	DRAFT_REQUIRES_KK_EDITORIAL
+structured-ui	src/i18n/core.ts#monthNames	date-month[4]	мая	мамыр	DRAFT_REQUIRES_KK_EDITORIAL
+structured-ui	src/i18n/core.ts#monthNames	date-month[5]	июня	маусым	DRAFT_REQUIRES_KK_EDITORIAL
+structured-ui	src/i18n/core.ts#monthNames	date-month[6]	июля	шілде	DRAFT_REQUIRES_KK_EDITORIAL
+structured-ui	src/i18n/core.ts#monthNames	date-month[7]	августа	тамыз	DRAFT_REQUIRES_KK_EDITORIAL
+structured-ui	src/i18n/core.ts#monthNames	date-month[8]	сентября	қыркүйек	DRAFT_REQUIRES_KK_EDITORIAL
+structured-ui	src/i18n/core.ts#monthNames	date-month[9]	октября	қазан	DRAFT_REQUIRES_KK_EDITORIAL
 structured-ui	src/routes/career.tsx#positions	barista	Бариста	Бариста	DRAFT_REQUIRES_KK_EDITORIAL
 structured-ui	src/routes/career.tsx#positions	confectioner	Кондитер / Пекарь	Кондитер / Наубайшы	DRAFT_REQUIRES_KK_EDITORIAL
 structured-ui	src/routes/career.tsx#positions	other	Другое	Басқа	DRAFT_REQUIRES_KK_EDITORIAL

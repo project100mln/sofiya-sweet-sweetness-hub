@@ -15,7 +15,7 @@ Status: `LOCAL_GATE_PASS_CANDIDATE_VALIDATION_IN_PROGRESS`.
 | Control                   | Evidence                                                                                                                               |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | Translation parity        | Typed `uiMessages` registry; one literal key per `t()` call enforced by TypeScript and unit source scan                                |
-| Translator surface        | Reproducible `KK_TRANSLATION_REGISTER.tsv` with 633 source/draft/context rows; freshness check in `npm run check`                      |
+| Translator surface        | Reproducible `KK_TRANSLATION_REGISTER.tsv` with 645 source/draft/context rows; freshness check in `npm run check`                      |
 | Catalogue invariants      | 53 products and 9 categories localized; IDs, slugs, category IDs, prices, variant prices, flags and images compared RU↔KK              |
 | Content invariants        | 17 stores, 3 news items and 2 promotions localized; contacts, coordinates, links, dates and promotion rules compared RU↔KK             |
 | Runtime content guard     | Russian Supabase promotions remain visible; `/kk` admits them only after exact ID/title and Kazakh copy are reviewed                   |
@@ -40,7 +40,7 @@ Status: `LOCAL_GATE_PASS_CANDIDATE_VALIDATION_IN_PROGRESS`.
 - Playwright discovery: 136 tests found across desktop/mobile projects
 - Bilingual SSR verifier: PASS — 70 RU + 70 KK pages, 140 unique sitemap URLs,
   420 exact alternates, localized structured data and 404s
-- Translation-register freshness: PASS — 633 rows
+- Translation-register freshness: PASS — 645 rows
 - `npm audit --omit=dev --package-lock-only --ignore-scripts`: PASS — 0 vulnerabilities
 
 The exact candidate SHA, independent recheck, CI run URLs and isolated preview

@@ -45,6 +45,37 @@ export function formatPrice(value: number, locale: Locale): string {
     .join("");
 }
 
+const monthNames: Record<Locale, readonly string[]> = {
+  ru: [
+    "января",
+    "февраля",
+    "марта",
+    "апреля",
+    "мая",
+    "июня",
+    "июля",
+    "августа",
+    "сентября",
+    "октября",
+    "ноября",
+    "декабря",
+  ],
+  kk: [
+    "қаңтар",
+    "ақпан",
+    "наурыз",
+    "сәуір",
+    "мамыр",
+    "маусым",
+    "шілде",
+    "тамыз",
+    "қыркүйек",
+    "қазан",
+    "қараша",
+    "желтоқсан",
+  ],
+};
+
 export function formatDate(value: string, locale: Locale): string {
   const calendarDate = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   const date = calendarDate
@@ -52,20 +83,9 @@ export function formatDate(value: string, locale: Locale): string {
         Date.UTC(Number(calendarDate[1]), Number(calendarDate[2]) - 1, Number(calendarDate[3])),
       )
     : new Date(value);
-  const formatter = new Intl.DateTimeFormat(localeTag[locale], {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    timeZone: "UTC",
-  });
-  const fields = Object.fromEntries(
-    formatter
-      .formatToParts(date)
-      .filter((part) => part.type !== "literal")
-      .map((part) => [part.type, part.value]),
-  );
-  if (!fields.day || !fields.month || !fields.year) return formatter.format(date);
-  return locale === "kk"
-    ? `${fields.year} ж. ${fields.day} ${fields.month}`
-    : `${fields.day} ${fields.month} ${fields.year} г.`;
+  if (Number.isNaN(date.getTime())) throw new RangeError("Invalid time value");
+  const year = date.getUTCFullYear();
+  const day = date.getUTCDate();
+  const month = monthNames[locale][date.getUTCMonth()];
+  return locale === "kk" ? `${year} ж. ${day} ${month}` : `${day} ${month} ${year} г.`;
 }

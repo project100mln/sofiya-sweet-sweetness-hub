@@ -6,7 +6,7 @@ preview URL are supplied in the handoff.
 
 The primary review worksheet is `KK_TRANSLATION_REGISTER.tsv`. It is generated from
 the current source with `npm run review:kk:export`; `npm run review:kk:check` fails if
-the committed 633-row register is stale. Filter by `section`, `context` or
+the committed 645-row register is stale. Filter by `section`, `context` or
 `review_status`, then record corrections by exact row and URL.
 
 ## Review scope
@@ -59,7 +59,7 @@ Dynamic samples and full sets:
    list; do not overwrite business fields.
 3. Mark whether the correction applies to one context or every identical Kazakh
    phrase.
-4. Complete `KK_EDITORIAL_SIGNOFF.md` only after all 633 rows and the mandatory
+4. Complete `KK_EDITORIAL_SIGNOFF.md` only after all 645 rows and the mandatory
    browser journeys have been reviewed. Legal rows remain separately gated by
    `KK_LEGAL_SIGNOFF.md`.
 

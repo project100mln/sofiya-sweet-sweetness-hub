@@ -477,6 +477,9 @@ align(
   siteRegion.kk,
 );
 
+const dateMonths = variable(parsedFiles.get("src/i18n/core.ts"), "monthNames");
+align("structured-ui", "src/i18n/core.ts#monthNames", "date-month", dateMonths.ru, dateMonths.kk);
+
 const utilityClassPattern =
   /(?:^|\s)(?:(?:hover|focus|active|disabled|sm|md|lg|xl):)*(?:bg|text|border|rounded|px|py|mx|my|flex|grid|hidden|block)-[^\s]+/;
 const technicalRow = rows.find(

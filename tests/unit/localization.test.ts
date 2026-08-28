@@ -294,6 +294,9 @@ describe("Kazakh localization", () => {
     expect(register.filter((row) => row.section === "dynamic-seo")).toHaveLength(
       Object.values(dynamicSeoCopy).reduce((count, copy) => count + Object.keys(copy.ru).length, 0),
     );
+    expect(register.filter((row) => row.context === "src/i18n/core.ts#monthNames")).toHaveLength(
+      12,
+    );
     expect(
       register.filter(
         (row) =>
@@ -324,6 +327,43 @@ describe("Kazakh localization", () => {
     expect(formatPrice(4990, "kk")).toBe("4 990");
     expect(formatDate("2026-06-15", "ru")).toBe("15 июня 2026 г.");
     expect(formatDate("2026-06-15", "kk")).toBe("2026 ж. 15 маусым");
+    expect(
+      Array.from({ length: 12 }, (_, month) =>
+        formatDate(`2026-${String(month + 1).padStart(2, "0")}-01`, "ru"),
+      ),
+    ).toEqual([
+      "1 января 2026 г.",
+      "1 февраля 2026 г.",
+      "1 марта 2026 г.",
+      "1 апреля 2026 г.",
+      "1 мая 2026 г.",
+      "1 июня 2026 г.",
+      "1 июля 2026 г.",
+      "1 августа 2026 г.",
+      "1 сентября 2026 г.",
+      "1 октября 2026 г.",
+      "1 ноября 2026 г.",
+      "1 декабря 2026 г.",
+    ]);
+    expect(
+      Array.from({ length: 12 }, (_, month) =>
+        formatDate(`2026-${String(month + 1).padStart(2, "0")}-01`, "kk"),
+      ),
+    ).toEqual([
+      "2026 ж. 1 қаңтар",
+      "2026 ж. 1 ақпан",
+      "2026 ж. 1 наурыз",
+      "2026 ж. 1 сәуір",
+      "2026 ж. 1 мамыр",
+      "2026 ж. 1 маусым",
+      "2026 ж. 1 шілде",
+      "2026 ж. 1 тамыз",
+      "2026 ж. 1 қыркүйек",
+      "2026 ж. 1 қазан",
+      "2026 ж. 1 қараша",
+      "2026 ж. 1 желтоқсан",
+    ]);
+    expect(() => formatDate("not-a-date", "kk")).toThrow(RangeError);
     expect(localizedSiteRegion("ru")).toBe(site.region);
     expect(localizedSiteRegion("kk")).toBe("Шымкент және Түркістан облысы");
     expect(formatPromotionHours({ from: "20:00", to: "22:00" }, "ru")).toBe(
