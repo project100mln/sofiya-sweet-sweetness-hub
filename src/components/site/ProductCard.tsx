@@ -1,14 +1,15 @@
-import { Link } from "@tanstack/react-router";
 import type { Product } from "@/data/types";
 import { Sparkles, Star, Flame } from "lucide-react";
+import { formatPrice, LocaleLink, useI18n } from "@/i18n";
 
 export function ProductCard({ p }: { p: Product }) {
+  const { locale, t } = useI18n();
   return (
-    <Link
+    <LocaleLink
       to="/catalog/$slug"
       params={{ slug: p.slug }}
       data-testid="product-card"
-      aria-label={`${p.name}, ${p.price ? `${p.price.toLocaleString("ru-RU")} тенге` : "цена уточняется"}`}
+      aria-label={`${p.name}, ${p.price ? `${formatPrice(p.price, locale)} ${t("тенге")}` : t("цена уточняется")}`}
       className="premium-card group flex flex-col overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-muted">
@@ -21,17 +22,17 @@ export function ProductCard({ p }: { p: Product }) {
         <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
           {p.isHero && (
             <span className="inline-flex items-center gap-1 rounded-full bg-primary text-primary-foreground px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider">
-              <Star className="h-3 w-3" /> Хит
+              <Star className="h-3 w-3" /> {t("Хит")}
             </span>
           )}
           {p.isNew && (
             <span className="inline-flex items-center gap-1 rounded-full bg-[color:var(--gold)] text-foreground px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider">
-              <Sparkles className="h-3 w-3" /> Новинка
+              <Sparkles className="h-3 w-3" /> {t("Новинка")}
             </span>
           )}
           {p.isBestseller && !p.isHero && (
             <span className="inline-flex items-center gap-1 rounded-full bg-background/90 text-primary px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider">
-              <Flame className="h-3 w-3" /> Бестселлер
+              <Flame className="h-3 w-3" /> {t("Бестселлер")}
             </span>
           )}
         </div>
@@ -43,11 +44,11 @@ export function ProductCard({ p }: { p: Product }) {
         <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">{p.shortDescription}</p>
         <div className="mt-4 flex items-center justify-between pt-4 border-t border-border/60">
           <span className="font-semibold text-foreground" data-testid="product-price">
-            {p.price ? `${p.price.toLocaleString("ru-RU")} ₸` : "Цена уточняется"}
+            {p.price ? `${formatPrice(p.price, locale)} ₸` : t("Цена уточняется")}
           </span>
-          <span className="text-sm font-semibold text-primary">Открыть →</span>
+          <span className="text-sm font-semibold text-primary">{t("Открыть →")}</span>
         </div>
       </div>
-    </Link>
+    </LocaleLink>
   );
 }

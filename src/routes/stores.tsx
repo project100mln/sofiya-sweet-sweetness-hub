@@ -1,43 +1,48 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { stores, cities } from "@/data/stores";
+import { stores as baseStores } from "@/data/stores";
+import { STORE_CITIES, storeCityId, type StoreCityId } from "@/data/store-cities";
 import { StoreCard } from "@/components/site/StoreCard";
 import { Search, MapPin } from "lucide-react";
-import { canonicalLink } from "@/config/site";
+import { staticHead } from "@/i18n/seo";
 import { PageHero } from "@/components/site/PageHero";
+import { LocaleLink, useI18n } from "@/i18n";
+import { getLocalizedContent } from "@/i18n/content";
 
 export const Route = createFileRoute("/stores")({
-  head: () => ({
-    links: canonicalLink("/stores"),
-    meta: [
-      { title: "Магазины SOFIYA" },
-      {
-        name: "description",
-        content: "Адреса магазинов SOFIYA в Шымкенте, Ленгере, Аксукенте и Манкенте.",
-      },
-    ],
-  }),
+  head: () => staticHead("/stores", "ru"),
   component: StoresPage,
 });
 
-function StoresPage() {
-  const [city, setCity] = useState<string>("Шымкент");
+export function StoresPage() {
+  const { locale, t, pick } = useI18n();
+  const { stores } = getLocalizedContent(locale);
+  const [cityId, setCityId] = useState<StoreCityId>("shymkent");
   const [q, setQ] = useState("");
   const [selectedStoreId, setSelectedStoreId] = useState(stores[0]?.id ?? "");
   const filtered = useMemo(() => {
     return stores.filter((s) => {
-      if (s.city !== city) return false;
-      if (q.trim()) {
-        const t = q.toLowerCase();
-        return (
-          s.address.toLowerCase().includes(t) ||
-          s.city.toLowerCase().includes(t) ||
-          (s.landmark ?? "").toLowerCase().includes(t)
-        );
-      }
-      return true;
+      const source = baseStores.find((store) => store.id === s.id);
+      if (!source) throw new Error(`Missing source store: ${s.id}`);
+      const query = q.trim().toLocaleLowerCase(locale === "kk" ? "kk-KZ" : "ru-KZ");
+      if (!query) return storeCityId(source.city) === cityId;
+
+      const searchIndex = [
+        source.city,
+        source.district,
+        source.address,
+        source.landmark,
+        s.city,
+        s.district,
+        s.address,
+        s.landmark,
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLocaleLowerCase(locale === "kk" ? "kk-KZ" : "ru-KZ");
+      return searchIndex.includes(query);
     });
-  }, [city, q]);
+  }, [cityId, locale, q, stores]);
 
   useEffect(() => {
     if (!filtered.some((store) => store.id === selectedStoreId)) {
@@ -63,9 +68,12 @@ function StoresPage() {
   return (
     <>
       <PageHero
-        eyebrow="Сеть"
-        title="Наши магазины"
-        lead={`${stores.length} адресов в Шымкенте и Туркестанской области.`}
+        eyebrow={t("Сеть")}
+        title={t("Наши магазины")}
+        lead={pick(
+          `${stores.length} адресов в Шымкенте и Туркестанской области.`,
+          `Шымкент пен Түркістан облысында ${stores.length} мекенжай.`,
+        )}
       />
 
       <section className="container-page py-8">
@@ -75,24 +83,26 @@ function StoresPage() {
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder="Поиск по городу или адресу…"
+              placeholder={t("Поиск по городу или адресу…")}
+              aria-label={t("Поиск магазина")}
               className="w-full h-12 rounded-full border border-border bg-background pl-10 pr-4 text-sm focus:border-primary focus:outline-none"
             />
           </div>
         </div>
         <div className="mt-4 no-scrollbar -mx-4 px-4 md:mx-0 md:px-0 flex gap-2 overflow-x-auto pb-2">
-          {cities.map((c) => (
+          {STORE_CITIES.map((city) => (
             <button
-              key={c}
+              key={city.id}
               onClick={() => {
-                setCity(c);
+                setCityId(city.id);
                 setQ("");
               }}
-              className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold border ${city === c ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary"}`}
+              aria-pressed={cityId === city.id}
+              className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold border ${cityId === city.id ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary"}`}
             >
-              {c}{" "}
+              {city[locale]}{" "}
               <span className="text-xs opacity-70">
-                · {stores.filter((s) => s.city === c).length}
+                · {baseStores.filter((store) => storeCityId(store.city) === city.id).length}
               </span>
             </button>
           ))}
@@ -100,12 +110,14 @@ function StoresPage() {
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_360px]">
           <div>
-            <p className="mb-4 text-sm text-muted-foreground">Найдено: {filtered.length}</p>
+            <p className="mb-4 text-sm text-muted-foreground">
+              {t("Найдено")}: {filtered.length}
+            </p>
             {filtered.length === 0 ? (
               <div className="premium-card p-12 text-center">
-                <p className="text-lg font-semibold">Магазины не найдены</p>
+                <p className="text-lg font-semibold">{t("Магазины не найдены")}</p>
                 <button onClick={() => setQ("")} className="mt-4 btn-outline btn-outline-hover">
-                  Сбросить
+                  {t("Сбросить")}
                 </button>
               </div>
             ) : (
@@ -127,7 +139,7 @@ function StoresPage() {
                 <iframe
                   key={selectedStore?.id}
                   src={mapSrc}
-                  title={`Карта: ${selectedStore?.address}`}
+                  title={`${t("Карта")}: ${selectedStore?.address}`}
                   className="h-[320px] w-full border-0"
                   loading="lazy"
                 />
@@ -135,16 +147,16 @@ function StoresPage() {
                 <div className="grid min-h-[260px] place-items-center bg-[color:var(--accent)] p-8 text-center">
                   <div>
                     <MapPin className="mx-auto h-8 w-8 text-primary" />
-                    <p className="mt-3 font-semibold">Координаты уточняются</p>
+                    <p className="mt-3 font-semibold">{t("Координаты уточняются")}</p>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      Напишите нам — подскажем ближайший ориентир.
+                      {t("Напишите нам — подскажем ближайший ориентир.")}
                     </p>
                   </div>
                 </div>
               )}
               {selectedStore && (
                 <div className="p-5">
-                  <p className="page-kicker">Выбрано на карте</p>
+                  <p className="page-kicker">{t("Выбрано на карте")}</p>
                   <h2 className="mt-2 text-xl font-semibold">{selectedStore.address}</h2>
                   <p className="mt-1 text-sm text-muted-foreground">
                     {selectedStore.city} · {selectedStore.workingHours}
@@ -157,12 +169,12 @@ function StoresPage() {
                         rel="noreferrer"
                         className="btn-primary btn-primary-hover"
                       >
-                        Маршрут в 2GIS
+                        {t("Маршрут в 2GIS")}
                       </a>
                     )}
-                    <Link to="/contacts" className="btn-outline btn-outline-hover">
-                      Связаться
-                    </Link>
+                    <LocaleLink to="/contacts" className="btn-outline btn-outline-hover">
+                      {t("Связаться")}
+                    </LocaleLink>
                   </div>
                 </div>
               )}

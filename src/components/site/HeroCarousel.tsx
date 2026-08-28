@@ -1,7 +1,7 @@
-import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { IMG, products } from "@/data/catalog";
+import { LocaleLink, useI18n } from "@/i18n";
 
 interface Slide {
   eyebrow: ReactNode;
@@ -15,6 +15,7 @@ interface Slide {
   imagePosition?: string;
   productFocus?: boolean;
   search?: Record<string, string>;
+  kk: Pick<Slide, "eyebrow" | "title" | "desc" | "cta" | "imageAlt">;
 }
 
 const slides: Slide[] = [
@@ -42,6 +43,25 @@ const slides: Slide[] = [
     imagePosition: "56% 48%",
     productFocus: true,
     search: { cat: "cakes" },
+    kk: {
+      eyebrow: "SOFIYA — 2014 жылдан бері",
+      title: (
+        <>
+          <span className="hero-title-line whitespace-nowrap">Күн сайын</span>
+          <br />
+          ұмытылмас дәм
+        </>
+      ),
+      desc: (
+        <>
+          Адамдардың уақыты мен ақшасын үнемдеп,
+          <br />
+          ұмытылмас дәм сыйлаймыз!
+        </>
+      ),
+      cta: "Десерт таңдау",
+      imageAlt: "Жидектермен және логотиппен безендірілген SOFIYA фирмалық торты",
+    },
   },
   {
     eyebrow: "Каждое утро",
@@ -53,6 +73,13 @@ const slides: Slide[] = [
     imageAlt: "Свежая выпечка SOFIYA",
     imagePosition: "62% 56%",
     search: { cat: "pastry" },
+    kk: {
+      eyebrow: "Күн сайын таңертең",
+      title: "Күн сайын балғын пісірмелер",
+      desc: "Қатпарлы қамыр өнімдері, самса мен десерттер — пештен жаңа шыққан.",
+      cta: "Пісірме таңдау",
+      imageAlt: "SOFIYA балғын пісірмелері",
+    },
   },
   {
     eyebrow: "Завтраки",
@@ -64,6 +91,13 @@ const slides: Slide[] = [
     imageAlt: "Завтрак и свежая выпечка SOFIYA",
     imagePosition: "65% 58%",
     search: { cat: "breakfast" },
+    kk: {
+      eyebrow: "Таңғы ас",
+      title: "Таң дәмді басталады",
+      desc: "Күн сайын балғын кофе, жылы пісірмелер және жеңіл таңғы ас.",
+      cta: "Мәзірді көру",
+      imageAlt: "SOFIYA таңғы асы мен балғын пісірмелері",
+    },
   },
   {
     eyebrow: "Для семьи",
@@ -75,6 +109,13 @@ const slides: Slide[] = [
     imageAlt: "Пицца SOFIYA для семьи",
     imagePosition: "62% 52%",
     search: { cat: "pizza" },
+    kk: {
+      eyebrow: "Отбасыға",
+      title: "Отбасы мен достарға арналған пицца",
+      desc: "Жұқа қамыр, мол салма және үлкен дастарқанның көңіл күйі.",
+      cta: "Пиццаны көру",
+      imageAlt: "Отбасыға арналған SOFIYA пиццасы",
+    },
   },
   {
     eyebrow: "Событие ждёт торта",
@@ -85,10 +126,18 @@ const slides: Slide[] = [
     image: IMG.snickersCake,
     imageAlt: "Торт SOFIYA на заказ",
     imagePosition: "66% 54%",
+    kk: {
+      eyebrow: "Іс-шараға торт керек",
+      title: "Іс-шараңызға арналған торт",
+      desc: "Тортты өз қалауыңыз бойынша тікелей сайтта 3 минутта құрастырыңыз.",
+      cta: "Алдын ала тапсырыс беру",
+      imageAlt: "Тапсырыспен дайындалатын SOFIYA торты",
+    },
   },
 ];
 
 export function HeroCarousel() {
+  const { locale, t } = useI18n();
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -111,7 +160,8 @@ export function HeroCarousel() {
   const showPrevious = () => setI((value) => (value - 1 + slides.length) % slides.length);
   const showNext = () => setI((value) => (value + 1) % slides.length);
 
-  const s = slides[i];
+  const source = slides[i];
+  const s = locale === "kk" ? { ...source, ...source.kk } : source;
 
   return (
     <section
@@ -123,8 +173,8 @@ export function HeroCarousel() {
       onBlurCapture={(event) => {
         if (!sectionRef.current?.contains(event.relatedTarget)) setPaused(false);
       }}
-      aria-roledescription="карусель"
-      aria-label="Предложения SOFIYA"
+      aria-roledescription={t("карусель")}
+      aria-label={t("Предложения SOFIYA")}
       data-testid="hero-carousel"
     >
       <div className="hero-shell relative isolate overflow-hidden rounded-[1.75rem] md:rounded-[2.25rem]">
@@ -168,13 +218,13 @@ export function HeroCarousel() {
             {s.desc}
           </p>
           <div className="mt-7 flex flex-wrap gap-3 md:mt-8">
-            <Link
+            <LocaleLink
               to={s.href}
               search={s.search as never}
               className="hero-cta inline-flex min-h-12 items-center justify-center rounded-xl border border-white/15 bg-primary px-7 text-sm font-bold text-primary-foreground shadow-[0_16px_36px_-20px_rgba(90,4,189,0.95)] transition-[transform,background-color,box-shadow] hover:-translate-y-0.5 hover:bg-[#6f19d2] hover:shadow-[0_18px_40px_-20px_rgba(90,4,189,1)] md:min-h-18 md:px-14 md:text-xl"
             >
               {s.cta}
-            </Link>
+            </LocaleLink>
           </div>
         </div>
 
@@ -183,19 +233,19 @@ export function HeroCarousel() {
             type="button"
             onClick={showPrevious}
             className="hero-arrow grid h-11 w-11 place-items-center rounded-full bg-white/12 text-white backdrop-blur-sm transition-colors hover:bg-white/22 md:h-14 md:w-14"
-            aria-label="Предыдущий слайд"
+            aria-label={t("Предыдущий слайд")}
             data-testid="hero-previous"
           >
             <ArrowLeft className="h-5 w-5 md:h-6 md:w-6" aria-hidden />
           </button>
 
-          <div className="flex items-center gap-2" role="tablist" aria-label="Слайды">
+          <div className="flex items-center gap-2" role="tablist" aria-label={t("Слайды")}>
             {slides.map((slide, idx) => (
               <button
                 key={slide.cta}
                 type="button"
                 onClick={() => setI(idx)}
-                aria-label={`Слайд ${idx + 1}`}
+                aria-label={`${t("Слайд")} ${idx + 1}`}
                 aria-selected={idx === i}
                 role="tab"
                 className={`h-1.5 rounded-full transition-all ${
@@ -209,7 +259,7 @@ export function HeroCarousel() {
             type="button"
             onClick={showNext}
             className="hero-arrow ml-3 grid h-11 w-11 place-items-center rounded-full bg-white/12 text-white backdrop-blur-sm transition-colors hover:bg-white/22 md:ml-5 md:h-14 md:w-14"
-            aria-label="Следующий слайд"
+            aria-label={t("Следующий слайд")}
             data-testid="hero-next"
           >
             <ArrowRight className="h-5 w-5 md:h-6 md:w-6" aria-hidden />

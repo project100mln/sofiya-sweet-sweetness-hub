@@ -24,8 +24,23 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as StoresRouteImport } from './routes/stores'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as CatalogSlugRouteImport } from './routes/catalog_.$slug'
+import { Route as KkIndexRouteImport } from './routes/kk.index'
+import { Route as KkAboutRouteImport } from './routes/kk.about'
+import { Route as KkCakePreorderRouteImport } from './routes/kk.cake-preorder'
+import { Route as KkCareerRouteImport } from './routes/kk.career'
+import { Route as KkCatalogRouteImport } from './routes/kk.catalog'
+import { Route as KkCateringRouteImport } from './routes/kk.catering'
+import { Route as KkContactsRouteImport } from './routes/kk.contacts'
+import { Route as KkNewsRouteImport } from './routes/kk.news'
+import { Route as KkPrivacyRouteImport } from './routes/kk.privacy'
+import { Route as KkPromotionsRouteImport } from './routes/kk.promotions'
+import { Route as KkStoresRouteImport } from './routes/kk.stores'
+import { Route as KkTermsRouteImport } from './routes/kk.terms'
+import { Route as NewsSlugRouteImport } from './routes/news_.$slug'
 import { Route as PromotionsSlugRouteImport } from './routes/promotions_.$slug'
-import { Route as NewsSlugRouteImport } from './routes/news.$slug'
+import { Route as KkCatalogSlugRouteImport } from './routes/kk.catalog_.$slug'
+import { Route as KkNewsSlugRouteImport } from './routes/kk.news_.$slug'
+import { Route as KkPromotionsSlugRouteImport } from './routes/kk.promotions_.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -102,15 +117,90 @@ const CatalogSlugRoute = CatalogSlugRouteImport.update({
   path: '/catalog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KkIndexRoute = KkIndexRouteImport.update({
+  id: '/kk/',
+  path: '/kk/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KkAboutRoute = KkAboutRouteImport.update({
+  id: '/kk/about',
+  path: '/kk/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KkCakePreorderRoute = KkCakePreorderRouteImport.update({
+  id: '/kk/cake-preorder',
+  path: '/kk/cake-preorder',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KkCareerRoute = KkCareerRouteImport.update({
+  id: '/kk/career',
+  path: '/kk/career',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KkCatalogRoute = KkCatalogRouteImport.update({
+  id: '/kk/catalog',
+  path: '/kk/catalog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KkCateringRoute = KkCateringRouteImport.update({
+  id: '/kk/catering',
+  path: '/kk/catering',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KkContactsRoute = KkContactsRouteImport.update({
+  id: '/kk/contacts',
+  path: '/kk/contacts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KkNewsRoute = KkNewsRouteImport.update({
+  id: '/kk/news',
+  path: '/kk/news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KkPrivacyRoute = KkPrivacyRouteImport.update({
+  id: '/kk/privacy',
+  path: '/kk/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KkPromotionsRoute = KkPromotionsRouteImport.update({
+  id: '/kk/promotions',
+  path: '/kk/promotions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KkStoresRoute = KkStoresRouteImport.update({
+  id: '/kk/stores',
+  path: '/kk/stores',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KkTermsRoute = KkTermsRouteImport.update({
+  id: '/kk/terms',
+  path: '/kk/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsSlugRoute = NewsSlugRouteImport.update({
+  id: '/news_/$slug',
+  path: '/news/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PromotionsSlugRoute = PromotionsSlugRouteImport.update({
   id: '/promotions_/$slug',
   path: '/promotions/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const NewsSlugRoute = NewsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => NewsRoute,
+const KkCatalogSlugRoute = KkCatalogSlugRouteImport.update({
+  id: '/kk/catalog_/$slug',
+  path: '/kk/catalog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KkNewsSlugRoute = KkNewsSlugRouteImport.update({
+  id: '/kk/news_/$slug',
+  path: '/kk/news/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KkPromotionsSlugRoute = KkPromotionsSlugRouteImport.update({
+  id: '/kk/promotions_/$slug',
+  path: '/kk/promotions/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -121,7 +211,7 @@ export interface FileRoutesByFullPath {
   '/catalog': typeof CatalogRoute
   '/catering': typeof CateringRoute
   '/contacts': typeof ContactsRoute
-  '/news': typeof NewsRouteWithChildren
+  '/news': typeof NewsRoute
   '/privacy': typeof PrivacyRoute
   '/promotions': typeof PromotionsRoute
   '/robots.txt': typeof RobotsDottxtRoute
@@ -129,8 +219,23 @@ export interface FileRoutesByFullPath {
   '/stores': typeof StoresRoute
   '/terms': typeof TermsRoute
   '/catalog/$slug': typeof CatalogSlugRoute
-  '/promotions/$slug': typeof PromotionsSlugRoute
+  '/kk/about': typeof KkAboutRoute
+  '/kk/cake-preorder': typeof KkCakePreorderRoute
+  '/kk/career': typeof KkCareerRoute
+  '/kk/catalog': typeof KkCatalogRoute
+  '/kk/catering': typeof KkCateringRoute
+  '/kk/contacts': typeof KkContactsRoute
+  '/kk/news': typeof KkNewsRoute
+  '/kk/privacy': typeof KkPrivacyRoute
+  '/kk/promotions': typeof KkPromotionsRoute
+  '/kk/stores': typeof KkStoresRoute
+  '/kk/terms': typeof KkTermsRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/promotions/$slug': typeof PromotionsSlugRoute
+  '/kk/': typeof KkIndexRoute
+  '/kk/catalog/$slug': typeof KkCatalogSlugRoute
+  '/kk/news/$slug': typeof KkNewsSlugRoute
+  '/kk/promotions/$slug': typeof KkPromotionsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -140,7 +245,7 @@ export interface FileRoutesByTo {
   '/catalog': typeof CatalogRoute
   '/catering': typeof CateringRoute
   '/contacts': typeof ContactsRoute
-  '/news': typeof NewsRouteWithChildren
+  '/news': typeof NewsRoute
   '/privacy': typeof PrivacyRoute
   '/promotions': typeof PromotionsRoute
   '/robots.txt': typeof RobotsDottxtRoute
@@ -148,8 +253,23 @@ export interface FileRoutesByTo {
   '/stores': typeof StoresRoute
   '/terms': typeof TermsRoute
   '/catalog/$slug': typeof CatalogSlugRoute
-  '/promotions/$slug': typeof PromotionsSlugRoute
+  '/kk/about': typeof KkAboutRoute
+  '/kk/cake-preorder': typeof KkCakePreorderRoute
+  '/kk/career': typeof KkCareerRoute
+  '/kk/catalog': typeof KkCatalogRoute
+  '/kk/catering': typeof KkCateringRoute
+  '/kk/contacts': typeof KkContactsRoute
+  '/kk/news': typeof KkNewsRoute
+  '/kk/privacy': typeof KkPrivacyRoute
+  '/kk/promotions': typeof KkPromotionsRoute
+  '/kk/stores': typeof KkStoresRoute
+  '/kk/terms': typeof KkTermsRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/promotions/$slug': typeof PromotionsSlugRoute
+  '/kk': typeof KkIndexRoute
+  '/kk/catalog/$slug': typeof KkCatalogSlugRoute
+  '/kk/news/$slug': typeof KkNewsSlugRoute
+  '/kk/promotions/$slug': typeof KkPromotionsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -160,7 +280,7 @@ export interface FileRoutesById {
   '/catalog': typeof CatalogRoute
   '/catering': typeof CateringRoute
   '/contacts': typeof ContactsRoute
-  '/news': typeof NewsRouteWithChildren
+  '/news': typeof NewsRoute
   '/privacy': typeof PrivacyRoute
   '/promotions': typeof PromotionsRoute
   '/robots.txt': typeof RobotsDottxtRoute
@@ -168,8 +288,23 @@ export interface FileRoutesById {
   '/stores': typeof StoresRoute
   '/terms': typeof TermsRoute
   '/catalog_/$slug': typeof CatalogSlugRoute
+  '/kk/about': typeof KkAboutRoute
+  '/kk/cake-preorder': typeof KkCakePreorderRoute
+  '/kk/career': typeof KkCareerRoute
+  '/kk/catalog': typeof KkCatalogRoute
+  '/kk/catering': typeof KkCateringRoute
+  '/kk/contacts': typeof KkContactsRoute
+  '/kk/news': typeof KkNewsRoute
+  '/kk/privacy': typeof KkPrivacyRoute
+  '/kk/promotions': typeof KkPromotionsRoute
+  '/kk/stores': typeof KkStoresRoute
+  '/kk/terms': typeof KkTermsRoute
+  '/news_/$slug': typeof NewsSlugRoute
   '/promotions_/$slug': typeof PromotionsSlugRoute
-  '/news/$slug': typeof NewsSlugRoute
+  '/kk/': typeof KkIndexRoute
+  '/kk/catalog_/$slug': typeof KkCatalogSlugRoute
+  '/kk/news_/$slug': typeof KkNewsSlugRoute
+  '/kk/promotions_/$slug': typeof KkPromotionsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -189,8 +324,23 @@ export interface FileRouteTypes {
     | '/stores'
     | '/terms'
     | '/catalog/$slug'
-    | '/promotions/$slug'
+    | '/kk/about'
+    | '/kk/cake-preorder'
+    | '/kk/career'
+    | '/kk/catalog'
+    | '/kk/catering'
+    | '/kk/contacts'
+    | '/kk/news'
+    | '/kk/privacy'
+    | '/kk/promotions'
+    | '/kk/stores'
+    | '/kk/terms'
     | '/news/$slug'
+    | '/promotions/$slug'
+    | '/kk/'
+    | '/kk/catalog/$slug'
+    | '/kk/news/$slug'
+    | '/kk/promotions/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -208,8 +358,23 @@ export interface FileRouteTypes {
     | '/stores'
     | '/terms'
     | '/catalog/$slug'
-    | '/promotions/$slug'
+    | '/kk/about'
+    | '/kk/cake-preorder'
+    | '/kk/career'
+    | '/kk/catalog'
+    | '/kk/catering'
+    | '/kk/contacts'
+    | '/kk/news'
+    | '/kk/privacy'
+    | '/kk/promotions'
+    | '/kk/stores'
+    | '/kk/terms'
     | '/news/$slug'
+    | '/promotions/$slug'
+    | '/kk'
+    | '/kk/catalog/$slug'
+    | '/kk/news/$slug'
+    | '/kk/promotions/$slug'
   id:
     | '__root__'
     | '/'
@@ -227,8 +392,23 @@ export interface FileRouteTypes {
     | '/stores'
     | '/terms'
     | '/catalog_/$slug'
+    | '/kk/about'
+    | '/kk/cake-preorder'
+    | '/kk/career'
+    | '/kk/catalog'
+    | '/kk/catering'
+    | '/kk/contacts'
+    | '/kk/news'
+    | '/kk/privacy'
+    | '/kk/promotions'
+    | '/kk/stores'
+    | '/kk/terms'
+    | '/news_/$slug'
     | '/promotions_/$slug'
-    | '/news/$slug'
+    | '/kk/'
+    | '/kk/catalog_/$slug'
+    | '/kk/news_/$slug'
+    | '/kk/promotions_/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -239,7 +419,7 @@ export interface RootRouteChildren {
   CatalogRoute: typeof CatalogRoute
   CateringRoute: typeof CateringRoute
   ContactsRoute: typeof ContactsRoute
-  NewsRoute: typeof NewsRouteWithChildren
+  NewsRoute: typeof NewsRoute
   PrivacyRoute: typeof PrivacyRoute
   PromotionsRoute: typeof PromotionsRoute
   RobotsDottxtRoute: typeof RobotsDottxtRoute
@@ -247,7 +427,23 @@ export interface RootRouteChildren {
   StoresRoute: typeof StoresRoute
   TermsRoute: typeof TermsRoute
   CatalogSlugRoute: typeof CatalogSlugRoute
+  KkAboutRoute: typeof KkAboutRoute
+  KkCakePreorderRoute: typeof KkCakePreorderRoute
+  KkCareerRoute: typeof KkCareerRoute
+  KkCatalogRoute: typeof KkCatalogRoute
+  KkCateringRoute: typeof KkCateringRoute
+  KkContactsRoute: typeof KkContactsRoute
+  KkNewsRoute: typeof KkNewsRoute
+  KkPrivacyRoute: typeof KkPrivacyRoute
+  KkPromotionsRoute: typeof KkPromotionsRoute
+  KkStoresRoute: typeof KkStoresRoute
+  KkTermsRoute: typeof KkTermsRoute
+  NewsSlugRoute: typeof NewsSlugRoute
   PromotionsSlugRoute: typeof PromotionsSlugRoute
+  KkIndexRoute: typeof KkIndexRoute
+  KkCatalogSlugRoute: typeof KkCatalogSlugRoute
+  KkNewsSlugRoute: typeof KkNewsSlugRoute
+  KkPromotionsSlugRoute: typeof KkPromotionsSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -357,6 +553,97 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CatalogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kk/': {
+      id: '/kk/'
+      path: '/kk'
+      fullPath: '/kk/'
+      preLoaderRoute: typeof KkIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kk/about': {
+      id: '/kk/about'
+      path: '/kk/about'
+      fullPath: '/kk/about'
+      preLoaderRoute: typeof KkAboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kk/cake-preorder': {
+      id: '/kk/cake-preorder'
+      path: '/kk/cake-preorder'
+      fullPath: '/kk/cake-preorder'
+      preLoaderRoute: typeof KkCakePreorderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kk/career': {
+      id: '/kk/career'
+      path: '/kk/career'
+      fullPath: '/kk/career'
+      preLoaderRoute: typeof KkCareerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kk/catalog': {
+      id: '/kk/catalog'
+      path: '/kk/catalog'
+      fullPath: '/kk/catalog'
+      preLoaderRoute: typeof KkCatalogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kk/catering': {
+      id: '/kk/catering'
+      path: '/kk/catering'
+      fullPath: '/kk/catering'
+      preLoaderRoute: typeof KkCateringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kk/contacts': {
+      id: '/kk/contacts'
+      path: '/kk/contacts'
+      fullPath: '/kk/contacts'
+      preLoaderRoute: typeof KkContactsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kk/news': {
+      id: '/kk/news'
+      path: '/kk/news'
+      fullPath: '/kk/news'
+      preLoaderRoute: typeof KkNewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kk/privacy': {
+      id: '/kk/privacy'
+      path: '/kk/privacy'
+      fullPath: '/kk/privacy'
+      preLoaderRoute: typeof KkPrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kk/promotions': {
+      id: '/kk/promotions'
+      path: '/kk/promotions'
+      fullPath: '/kk/promotions'
+      preLoaderRoute: typeof KkPromotionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kk/stores': {
+      id: '/kk/stores'
+      path: '/kk/stores'
+      fullPath: '/kk/stores'
+      preLoaderRoute: typeof KkStoresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kk/terms': {
+      id: '/kk/terms'
+      path: '/kk/terms'
+      fullPath: '/kk/terms'
+      preLoaderRoute: typeof KkTermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news_/$slug': {
+      id: '/news_/$slug'
+      path: '/news/$slug'
+      fullPath: '/news/$slug'
+      preLoaderRoute: typeof NewsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/promotions_/$slug': {
       id: '/promotions_/$slug'
       path: '/promotions/$slug'
@@ -364,25 +651,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PromotionsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/news/$slug': {
-      id: '/news/$slug'
-      path: '/$slug'
-      fullPath: '/news/$slug'
-      preLoaderRoute: typeof NewsSlugRouteImport
-      parentRoute: typeof NewsRoute
+    '/kk/catalog_/$slug': {
+      id: '/kk/catalog_/$slug'
+      path: '/kk/catalog/$slug'
+      fullPath: '/kk/catalog/$slug'
+      preLoaderRoute: typeof KkCatalogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kk/news_/$slug': {
+      id: '/kk/news_/$slug'
+      path: '/kk/news/$slug'
+      fullPath: '/kk/news/$slug'
+      preLoaderRoute: typeof KkNewsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kk/promotions_/$slug': {
+      id: '/kk/promotions_/$slug'
+      path: '/kk/promotions/$slug'
+      fullPath: '/kk/promotions/$slug'
+      preLoaderRoute: typeof KkPromotionsSlugRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
 }
-
-interface NewsRouteChildren {
-  NewsSlugRoute: typeof NewsSlugRoute
-}
-
-const NewsRouteChildren: NewsRouteChildren = {
-  NewsSlugRoute: NewsSlugRoute,
-}
-
-const NewsRouteWithChildren = NewsRoute._addFileChildren(NewsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -392,7 +683,7 @@ const rootRouteChildren: RootRouteChildren = {
   CatalogRoute: CatalogRoute,
   CateringRoute: CateringRoute,
   ContactsRoute: ContactsRoute,
-  NewsRoute: NewsRouteWithChildren,
+  NewsRoute: NewsRoute,
   PrivacyRoute: PrivacyRoute,
   PromotionsRoute: PromotionsRoute,
   RobotsDottxtRoute: RobotsDottxtRoute,
@@ -400,7 +691,23 @@ const rootRouteChildren: RootRouteChildren = {
   StoresRoute: StoresRoute,
   TermsRoute: TermsRoute,
   CatalogSlugRoute: CatalogSlugRoute,
+  KkAboutRoute: KkAboutRoute,
+  KkCakePreorderRoute: KkCakePreorderRoute,
+  KkCareerRoute: KkCareerRoute,
+  KkCatalogRoute: KkCatalogRoute,
+  KkCateringRoute: KkCateringRoute,
+  KkContactsRoute: KkContactsRoute,
+  KkNewsRoute: KkNewsRoute,
+  KkPrivacyRoute: KkPrivacyRoute,
+  KkPromotionsRoute: KkPromotionsRoute,
+  KkStoresRoute: KkStoresRoute,
+  KkTermsRoute: KkTermsRoute,
+  NewsSlugRoute: NewsSlugRoute,
   PromotionsSlugRoute: PromotionsSlugRoute,
+  KkIndexRoute: KkIndexRoute,
+  KkCatalogSlugRoute: KkCatalogSlugRoute,
+  KkNewsSlugRoute: KkNewsSlugRoute,
+  KkPromotionsSlugRoute: KkPromotionsSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

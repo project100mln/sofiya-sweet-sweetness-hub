@@ -1,5 +1,6 @@
 import { MapPin, Clock, Phone, MessageCircle } from "lucide-react";
 import type { StoreRecord } from "@/data/types";
+import { useI18n } from "@/i18n";
 
 export function StoreCard({
   s,
@@ -10,6 +11,7 @@ export function StoreCard({
   onShowOnMap?: () => void;
   isSelected?: boolean;
 }) {
+  const { t, pick } = useI18n();
   return (
     <article
       className={`premium-card flex flex-col p-5 ${isSelected ? "border-primary/55 ring-2 ring-primary/10" : ""}`}
@@ -36,7 +38,7 @@ export function StoreCard({
             className="text-sm font-semibold text-primary hover:text-primary-hover"
             aria-pressed={isSelected}
           >
-            {isSelected ? "На карте" : "Показать на карте"}
+            {isSelected ? t("На карте") : t("Показать на карте")}
           </button>
         )}
         {s.mapUrl && (
@@ -46,7 +48,7 @@ export function StoreCard({
             rel="noreferrer"
             className="text-sm font-semibold text-primary hover:text-primary-hover"
           >
-            Маршрут в 2GIS →
+            {t("Маршрут в 2GIS →")}
           </a>
         )}
         {s.phone && (
@@ -54,12 +56,12 @@ export function StoreCard({
             href={`tel:${s.phone.replace(/\s+/g, "")}`}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground/80 hover:text-primary"
           >
-            <Phone className="h-4 w-4" /> Позвонить
+            <Phone className="h-4 w-4" /> {t("Позвонить")}
           </a>
         )}
         {s.whatsapp && (
           <a
-            href={`https://wa.me/${s.whatsapp}?text=${encodeURIComponent(`Здравствуйте, SOFIYA! Интересует магазин: ${s.address}.`)}`}
+            href={`https://wa.me/${s.whatsapp}?text=${encodeURIComponent(pick(`Здравствуйте, SOFIYA! Интересует магазин: ${s.address}.`, `Сәлеметсіз бе, SOFIYA! Мына дүкен туралы білгім келеді: ${s.address}.`))}`}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground/80 hover:text-primary"

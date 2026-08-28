@@ -1,13 +1,17 @@
-import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Clock, Percent, Tag, Ticket } from "lucide-react";
 import type { PromotionCardContent } from "@/types/promotions";
 import { logoSources } from "@/config/branding";
+import { formatPrice, LocaleLink, useI18n } from "@/i18n";
 
-const discountLabel = (promotion: PromotionCardContent): string => {
+const discountLabel = (
+  promotion: PromotionCardContent,
+  locale: "ru" | "kk",
+  special: string,
+): string => {
   const { discount_value: value } = promotion;
   if (value.percent != null) return `-${value.percent}%`;
-  if (value.amount != null) return `-${value.amount.toLocaleString("ru-RU")} ₸`;
-  return "Спецпредложение";
+  if (value.amount != null) return `-${formatPrice(value.amount, locale)} ₸`;
+  return special;
 };
 
 const discountIcon = {
@@ -17,6 +21,7 @@ const discountIcon = {
 } as const;
 
 export function PromotionCard({ promotion }: { promotion: PromotionCardContent }) {
+  const { locale, t } = useI18n();
   const Icon = discountIcon[promotion.discount_type];
   const window = promotion.discount_value.happy_hours;
 
@@ -44,7 +49,8 @@ export function PromotionCard({ promotion }: { promotion: PromotionCardContent }
         )}
         {!promotion.image_has_discount_badge && (
           <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-primary text-primary-foreground px-3 py-1 text-xs font-bold">
-            <Icon className="h-3.5 w-3.5" /> {discountLabel(promotion)}
+            <Icon className="h-3.5 w-3.5" />{" "}
+            {discountLabel(promotion, locale, t("Спецпредложение"))}
           </span>
         )}
       </div>
@@ -62,7 +68,7 @@ export function PromotionCard({ promotion }: { promotion: PromotionCardContent }
         <div className="mt-auto flex flex-wrap items-center gap-2 border-t border-border/60 pt-4">
           {promotion.discount_type === "promo_code" && promotion.promo_code_word && (
             <span className="inline-flex items-center gap-1.5 rounded-full bg-accent text-accent-foreground px-2.5 py-1 text-xs font-semibold uppercase tracking-wider">
-              Промокод: {promotion.promo_code_word}
+              {t("Промокод")}: {promotion.promo_code_word}
             </span>
           )}
           {window && !promotion.image_has_discount_badge && (
@@ -72,7 +78,7 @@ export function PromotionCard({ promotion }: { promotion: PromotionCardContent }
           )}
           {promotion.slug && (
             <span className="ml-auto inline-flex items-center gap-1 text-xs font-semibold text-primary">
-              Подробнее <ArrowUpRight className="h-3.5 w-3.5" />
+              {t("Подробнее")} <ArrowUpRight className="h-3.5 w-3.5" />
             </span>
           )}
         </div>
@@ -83,13 +89,13 @@ export function PromotionCard({ promotion }: { promotion: PromotionCardContent }
   if (!promotion.slug) return <div className="group">{card}</div>;
 
   return (
-    <Link
+    <LocaleLink
       to="/promotions/$slug"
       params={{ slug: promotion.slug }}
-      aria-label={`Подробнее об акции «${promotion.title}»`}
+      aria-label={`${t("Подробнее об акции")} «${promotion.title}»`}
       className="group block rounded-3xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
     >
       {card}
-    </Link>
+    </LocaleLink>
   );
 }

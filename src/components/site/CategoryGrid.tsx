@@ -1,22 +1,24 @@
-import { Link } from "@tanstack/react-router";
-import { categories } from "@/data/catalog";
+import { getCatalog } from "@/i18n/catalog";
+import { LocaleLink, useI18n } from "@/i18n";
 
 export function CategoryGrid() {
+  const { locale, t } = useI18n();
+  const { categories } = getCatalog(locale);
   return (
     <section className="container-page py-14 md:py-20">
       <div className="section-heading">
         <div>
-          <p className="page-kicker">Каталог</p>
-          <h2>Выберите любимый вкус</h2>
-          <p>Торты, десерты, выпечка и горячие блюда — всё в одном каталоге.</p>
+          <p className="page-kicker">{t("Каталог")}</p>
+          <h2>{t("Выберите любимый вкус")}</h2>
+          <p>{t("Торты, десерты, выпечка и горячие блюда — всё в одном каталоге.")}</p>
         </div>
-        <Link to="/catalog" className="btn-outline btn-outline-hover">
-          Весь каталог
-        </Link>
+        <LocaleLink to="/catalog" className="btn-outline btn-outline-hover">
+          {t("Весь каталог")}
+        </LocaleLink>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-5">
         {categories.map((c, i) => (
-          <Link
+          <LocaleLink
             key={c.id}
             to="/catalog"
             search={{ cat: c.slug }}
@@ -37,7 +39,7 @@ export function CategoryGrid() {
                 <p className="mt-1 text-sm text-white/80">{c.short}</p>
               </div>
             </div>
-          </Link>
+          </LocaleLink>
         ))}
       </div>
     </section>

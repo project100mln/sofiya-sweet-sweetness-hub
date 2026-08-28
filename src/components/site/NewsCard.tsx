@@ -1,19 +1,19 @@
-import { Link } from "@tanstack/react-router";
 import type { NewsItem } from "@/data/types";
+import { formatDate, LocaleLink, useI18n } from "@/i18n";
 
 interface NewsCardProps {
   item: NewsItem;
   compact?: boolean;
 }
 
-const destinationLabel: Record<NewsItem["destination"], string> = {
-  article: "Открыть событие",
-  loyalty: "Перейти к программе лояльности",
-  "cake-preorder": "Перейти к заказу торта",
-  stores: "Посмотреть магазины",
-};
-
 export function NewsCard({ item, compact = false }: NewsCardProps) {
+  const { locale, t, path } = useI18n();
+  const destinationLabel: Record<NewsItem["destination"], string> = {
+    article: t("Открыть событие"),
+    loyalty: t("Перейти к программе лояльности"),
+    "cake-preorder": t("Перейти к заказу торта"),
+    stores: t("Посмотреть магазины"),
+  };
   const content = (
     <>
       <div className="aspect-[16/10] overflow-hidden">
@@ -26,11 +26,7 @@ export function NewsCard({ item, compact = false }: NewsCardProps) {
       </div>
       <div className={compact ? "p-5" : "p-6"}>
         <p className="text-xs font-semibold uppercase tracking-widest text-primary">
-          {new Date(item.date).toLocaleDateString("ru-RU", {
-            day: "numeric",
-            month: "long",
-            year: "numeric",
-          })}
+          {formatDate(item.date, locale)}
         </p>
         <h3
           className={`${compact ? "text-lg" : "text-xl"} mt-2 font-semibold text-foreground transition-colors group-hover:text-primary`}
@@ -51,7 +47,7 @@ export function NewsCard({ item, compact = false }: NewsCardProps) {
 
   if (item.destination === "article") {
     return (
-      <Link
+      <LocaleLink
         to="/news/$slug"
         params={{ slug: item.slug }}
         className={className}
@@ -59,14 +55,14 @@ export function NewsCard({ item, compact = false }: NewsCardProps) {
         data-testid={`news-card-${item.id}`}
       >
         {content}
-      </Link>
+      </LocaleLink>
     );
   }
 
   if (item.destination === "loyalty") {
     return (
       <a
-        href="/#loyalty"
+        href={`${path("/")}#loyalty`}
         className={className}
         aria-label={ariaLabel}
         data-testid={`news-card-${item.id}`}
@@ -77,13 +73,13 @@ export function NewsCard({ item, compact = false }: NewsCardProps) {
   }
 
   return (
-    <Link
+    <LocaleLink
       to={item.destination === "cake-preorder" ? "/cake-preorder" : "/stores"}
       className={className}
       aria-label={ariaLabel}
       data-testid={`news-card-${item.id}`}
     >
       {content}
-    </Link>
+    </LocaleLink>
   );
 }
