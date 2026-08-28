@@ -140,7 +140,7 @@ export function ProductView({ product }: { product: Product }) {
             <img src={p.images[0]} alt={p.name} className="h-full w-full object-cover" />
           </div>
         </div>
-        <div>
+        <div className="min-w-0">
           <div className="flex flex-wrap gap-2">
             {p.isHero && (
               <span className="rounded-full bg-primary text-primary-foreground px-3 py-1 text-xs font-semibold uppercase tracking-wider">
@@ -158,7 +158,7 @@ export function ProductView({ product }: { product: Product }) {
               </span>
             )}
           </div>
-          <h1 className="mt-4 text-4xl font-semibold md:text-6xl">{p.name}</h1>
+          <h1 className="mt-4 break-words text-4xl font-semibold md:text-6xl">{p.name}</h1>
           <p className="mt-3 text-lg text-muted-foreground">{p.shortDescription}</p>
 
           {p.price != null && (
