@@ -212,6 +212,12 @@ html[lang="kk-KZ"] .hero-title {
   line-height: 1.03;
 }
 
+@media (max-width: 340px) {
+  html[lang="kk-KZ"] .hero-title {
+    font-size: 1.75rem;
+  }
+}
+
 @keyframes hero-image-arrive {
   from {
     opacity: 0.55;
