@@ -475,6 +475,13 @@ html[lang="kk-KZ"] .loyalty-reminder-cta {
 }
 
 @media (min-width: 1280px) and (max-width: 1399px) {
+  .site-header-link {
+    padding-inline: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1479px) {
   html[lang="kk-KZ"] .site-header-shell {
     gap: 0.5rem;
     padding-inline: 1.25rem;
@@ -502,6 +509,10 @@ html[lang="kk-KZ"] .loyalty-reminder-cta {
   }
 
   html[lang="kk-KZ"] .category-card-copy {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     padding: 1rem;
   }
 

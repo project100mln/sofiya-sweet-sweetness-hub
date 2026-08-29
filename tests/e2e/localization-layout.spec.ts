@@ -39,18 +39,30 @@ async function settle(page: Page) {
 async function expectNoHorizontalOverflow(page: Page, context: string) {
   const overflow = await page.evaluate(() => {
     const root = document.documentElement;
+    const offenders = [...document.querySelectorAll<HTMLElement>("body *")]
+      .map((element) => {
+        const rect = element.getBoundingClientRect();
+        return {
+          tag: element.tagName,
+          text: (element.textContent ?? "").trim().replace(/\s+/g, " ").slice(0, 80),
+          className: element.className?.toString().slice(0, 100),
+          left: Math.round(rect.left),
+          right: Math.round(rect.right),
+          width: Math.round(rect.width),
+        };
+      })
+      .filter(({ left, right, width }) => width > 0 && (left < -1 || right > root.clientWidth + 1))
+      .slice(0, 12);
     return {
       clientWidth: root.clientWidth,
       scrollWidth: root.scrollWidth,
       bodyScrollWidth: document.body.scrollWidth,
+      offenders,
     };
   });
-  expect(overflow.scrollWidth, `${context}: document overflow`).toBeLessThanOrEqual(
-    overflow.clientWidth + 1,
-  );
-  expect(overflow.bodyScrollWidth, `${context}: body overflow`).toBeLessThanOrEqual(
-    overflow.clientWidth + 1,
-  );
+  const details = `${context}: horizontal overflow ${JSON.stringify(overflow.offenders)}`;
+  expect(overflow.scrollWidth, details).toBeLessThanOrEqual(overflow.clientWidth + 1);
+  expect(overflow.bodyScrollWidth, details).toBeLessThanOrEqual(overflow.clientWidth + 1);
 }
 
 async function clippedKazakhCopy(page: Page) {
@@ -59,6 +71,7 @@ async function clippedKazakhCopy(page: Page) {
     return [...document.querySelectorAll<HTMLElement>(selector)]
       .filter((element) => {
         if (element.closest(".sr-only") || element.classList.contains("sr-only")) return false;
+        if (element.querySelector(selector)) return false;
         const rect = element.getBoundingClientRect();
         const style = getComputedStyle(element);
         if (

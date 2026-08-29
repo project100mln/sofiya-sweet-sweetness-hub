@@ -109,12 +109,12 @@ export function ProductView({ product }: { product: Product }) {
   return (
     <>
       <div className="container-page pt-8">
-        <nav className="text-sm text-muted-foreground flex items-center gap-1 flex-wrap">
-          <LocaleLink to="/" className="hover:text-primary">
+        <nav className="flex min-w-0 max-w-full flex-wrap items-center gap-1 text-sm text-muted-foreground">
+          <LocaleLink to="/" className="min-w-0 hover:text-primary">
             {t("Главная")}
           </LocaleLink>
           <ChevronRight className="h-3.5 w-3.5" />
-          <LocaleLink to="/catalog" className="hover:text-primary">
+          <LocaleLink to="/catalog" className="min-w-0 hover:text-primary">
             {t("Каталог")}
           </LocaleLink>
           {category.slug && (
@@ -123,14 +123,14 @@ export function ProductView({ product }: { product: Product }) {
               <LocaleLink
                 to="/catalog"
                 search={{ cat: category.slug }}
-                className="hover:text-primary"
+                className="min-w-0 hover:text-primary"
               >
                 {category.name}
               </LocaleLink>
             </>
           )}
           <ChevronRight className="h-3.5 w-3.5" />
-          <span className="text-foreground">{p.name}</span>
+          <span className="min-w-0 break-words text-foreground">{p.name}</span>
         </nav>
       </div>
 
@@ -190,7 +190,7 @@ export function ProductView({ product }: { product: Product }) {
             </div>
           )}
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex min-w-0 max-w-full flex-wrap gap-3">
             {p.isPreorder && (
               <LocaleLink to="/cake-preorder" className="btn-primary btn-primary-hover">
                 {t("Оформить предзаказ")}
