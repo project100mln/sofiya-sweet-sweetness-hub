@@ -6,10 +6,14 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "build:cloudflare": "vite build",
     "build:e2e": "NITRO_PRESET=node-server vite build",
     "build:dev": "vite build --mode development",
     "preview": "npm run build:e2e && npm run preview:e2e",
     "preview:e2e": "HOST=127.0.0.1 PORT=4173 node .output/server/index.mjs",
+    "preview:cloudflare": "npm run build:cloudflare && wrangler dev --config wrangler.jsonc --env=\"\"",
+    "deploy:cloudflare:preview": "npm run build:cloudflare && wrangler deploy --config wrangler.jsonc --env=\"\"",
+    "deploy:cloudflare:production": "npm run build:cloudflare && wrangler deploy --config wrangler.jsonc --env production",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -20,8 +24,9 @@
     "review:kk:check": "node scripts/export-kazakh-review.mjs --check",
     "verify:i18n:ssr": "node scripts/verify-kazakh-ssr.mjs",
     "verify:kk:ssr": "npm run verify:i18n:ssr",
+    "verify:cloudflare": "node scripts/verify-cloudflare-worker.mjs && wrangler deploy --dry-run --config wrangler.jsonc --env=\"\"",
     "secret:scan": "node scripts/secret-scan.mjs",
-    "check": "prettier --check . && eslint . --max-warnings=0 && tsc --noEmit && vitest run && npm run review:kk:check && vite build && npm run verify:i18n:ssr && node scripts/secret-scan.mjs"
+    "check": "prettier --check . && eslint . --max-warnings=0 && tsc --noEmit && vitest run && npm run review:kk:check && vite build && npm run verify:cloudflare && npm run verify:i18n:ssr && node scripts/secret-scan.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -98,6 +103,7 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "^8.0.16",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.10",
+    "wrangler": "^4.127.1"
   }
 }
