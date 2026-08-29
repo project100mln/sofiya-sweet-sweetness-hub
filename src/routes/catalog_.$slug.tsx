@@ -158,7 +158,7 @@ export function ProductView({ product }: { product: Product }) {
               </span>
             )}
           </div>
-          <h1 className="mt-4 break-words text-4xl font-semibold md:text-6xl">{p.name}</h1>
+          <h1 className="product-detail-title mt-4 text-4xl font-semibold md:text-6xl">{p.name}</h1>
           <p className="mt-3 text-lg text-muted-foreground">{p.shortDescription}</p>
 
           {p.price != null && (

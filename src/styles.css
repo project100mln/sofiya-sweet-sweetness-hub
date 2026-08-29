@@ -464,6 +464,11 @@ html[lang="kk-KZ"] .product-card-description {
   line-height: 1.45;
 }
 
+html[lang="kk-KZ"] .product-detail-title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.02;
+}
+
 html[lang="kk-KZ"] .news-card-description {
   line-height: 1.5;
 }
