@@ -370,7 +370,7 @@ describe("Kazakh localization", () => {
       "Ежедневно с 20:00 до 22:00",
     );
     expect(formatPromotionHours({ from: "20:00", to: "22:00" }, "kk")).toBe(
-      "Күн сайын 20:00–22:00",
+      "Күн сайын 20:00 бастап –22:00 дейін",
     );
   });
 
