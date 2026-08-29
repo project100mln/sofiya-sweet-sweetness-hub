@@ -1,0 +1,38 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sofiya-bakery-preview",
+  "main": ".output/server/index.mjs",
+  "compatibility_date": "2026-08-29",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".output/public",
+  },
+  "observability": {
+    "enabled": true,
+  },
+  "no_bundle": true,
+  "rules": [
+    {
+      "type": "ESModule",
+      "globs": ["**/*.mjs", "**/*.js"],
+    },
+  ],
+  "env": {
+    "production": {
+      "name": "sofiya-bakery-production",
+      "workers_dev": false,
+      "routes": [
+        {
+          "pattern": "sofiyabakery.com",
+          "custom_domain": true,
+        },
+        {
+          "pattern": "www.sofiyabakery.com",
+          "custom_domain": true,
+        },
+      ],
+    },
+  },
+}
