@@ -1,5 +1,6 @@
 import { MapPin, Clock, Phone, MessageCircle } from "lucide-react";
 import type { StoreRecord } from "@/data/types";
+import { useI18n } from "@/i18n";
 
 export function StoreCard({
   s,
@@ -10,9 +11,10 @@ export function StoreCard({
   onShowOnMap?: () => void;
   isSelected?: boolean;
 }) {
+  const { t, pick } = useI18n();
   return (
     <article
-      className={`premium-card flex flex-col p-5 ${isSelected ? "border-primary/55 ring-2 ring-primary/10" : ""}`}
+      className={`store-card premium-card flex h-full min-w-0 flex-col p-5 ${isSelected ? "border-primary/55 ring-2 ring-primary/10" : ""}`}
       data-testid={`store-card-${s.id}`}
     >
       <div className="flex items-center gap-2">
@@ -28,15 +30,15 @@ export function StoreCard({
           <Clock className="h-4 w-4 text-primary" /> {s.workingHours}
         </p>
       )}
-      <div className="mt-4 flex flex-wrap items-center gap-4">
+      <div className="store-card-actions mt-auto flex flex-wrap items-center gap-x-4 gap-y-1 pt-4">
         {onShowOnMap && s.latitude != null && s.longitude != null && (
           <button
             type="button"
             onClick={onShowOnMap}
-            className="text-sm font-semibold text-primary hover:text-primary-hover"
+            className="inline-flex min-h-11 items-center text-sm font-semibold text-primary hover:text-primary-hover"
             aria-pressed={isSelected}
           >
-            {isSelected ? "На карте" : "Показать на карте"}
+            {isSelected ? t("На карте") : t("Показать на карте")}
           </button>
         )}
         {s.mapUrl && (
@@ -44,25 +46,25 @@ export function StoreCard({
             href={s.mapUrl}
             target="_blank"
             rel="noreferrer"
-            className="text-sm font-semibold text-primary hover:text-primary-hover"
+            className="inline-flex min-h-11 items-center text-sm font-semibold text-primary hover:text-primary-hover"
           >
-            Маршрут в 2GIS →
+            {t("Маршрут в 2GIS →")}
           </a>
         )}
         {s.phone && (
           <a
             href={`tel:${s.phone.replace(/\s+/g, "")}`}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground/80 hover:text-primary"
+            className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-foreground/80 hover:text-primary"
           >
-            <Phone className="h-4 w-4" /> Позвонить
+            <Phone className="h-4 w-4" /> {t("Позвонить")}
           </a>
         )}
         {s.whatsapp && (
           <a
-            href={`https://wa.me/${s.whatsapp}?text=${encodeURIComponent(`Здравствуйте, SOFIYA! Интересует магазин: ${s.address}.`)}`}
+            href={`https://wa.me/${s.whatsapp}?text=${encodeURIComponent(pick(`Здравствуйте, SOFIYA! Интересует магазин: ${s.address}.`, `Сәлеметсіз бе, SOFIYA! Мына дүкен туралы білгім келеді: ${s.address}.`))}`}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground/80 hover:text-primary"
+            className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-foreground/80 hover:text-primary"
           >
             <MessageCircle className="h-4 w-4" /> WhatsApp
           </a>

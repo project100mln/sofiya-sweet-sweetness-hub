@@ -16,8 +16,12 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
+    "review:kk:export": "node scripts/export-kazakh-review.mjs",
+    "review:kk:check": "node scripts/export-kazakh-review.mjs --check",
+    "verify:i18n:ssr": "node scripts/verify-kazakh-ssr.mjs",
+    "verify:kk:ssr": "npm run verify:i18n:ssr",
     "secret:scan": "node scripts/secret-scan.mjs",
-    "check": "prettier --check . && eslint . && tsc --noEmit && vitest run && vite build && node scripts/secret-scan.mjs"
+    "check": "prettier --check . && eslint . --max-warnings=0 && tsc --noEmit && vitest run && npm run review:kk:check && vite build && npm run verify:i18n:ssr && node scripts/secret-scan.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

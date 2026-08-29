@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ProductCard } from "./ProductCard";
 import type { Product } from "@/data/types";
+import { useI18n } from "@/i18n";
 
 export function ProductCarousel({
   items,
@@ -14,6 +15,7 @@ export function ProductCarousel({
   subtitle?: React.ReactNode;
   action?: React.ReactNode;
 }) {
+  const { t } = useI18n();
   const ref = useRef<HTMLDivElement>(null);
   if (items.length === 0) return null;
 
@@ -35,14 +37,14 @@ export function ProductCarousel({
             <>
               <button
                 onClick={() => scroll(-1)}
-                aria-label="Назад"
+                aria-label={t("Назад")}
                 className="hidden md:grid h-11 w-11 place-items-center rounded-full border border-border bg-card transition-colors hover:border-primary hover:text-primary"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
               <button
                 onClick={() => scroll(1)}
-                aria-label="Далее"
+                aria-label={t("Далее")}
                 className="hidden md:grid h-11 w-11 place-items-center rounded-full border border-border bg-card transition-colors hover:border-primary hover:text-primary"
               >
                 <ChevronRight className="h-5 w-5" />
@@ -56,7 +58,10 @@ export function ProductCarousel({
         className="no-scrollbar flex gap-5 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 md:mx-0 md:px-0"
       >
         {items.map((p) => (
-          <div key={p.id} className="snap-start shrink-0 w-[78%] sm:w-[46%] md:w-[32%] lg:w-[24%]">
+          <div
+            key={p.id}
+            className="product-carousel-item snap-start h-auto shrink-0 w-[78%] sm:w-[46%] md:w-[32%] lg:w-[24%]"
+          >
             <ProductCard p={p} />
           </div>
         ))}

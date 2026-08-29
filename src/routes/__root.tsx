@@ -1,7 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
-  Link,
   createRootRouteWithContext,
   useRouter,
   HeadContent,
@@ -13,59 +12,45 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { stores } from "@/data/stores";
 import { absoluteUrl, site } from "@/config/site";
 import brandLogo from "@/assets/sofiya-logo.png";
-
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: site.legalName,
-  url: site.domain || undefined,
-  logo: absoluteUrl(brandLogo),
-  telephone: site.phone,
-  areaServed: site.region,
-  sameAs: [site.instagramUrl, site.tiktokUrl].filter(Boolean),
-  department: stores.map((store) => ({
-    "@type": "Bakery",
-    name: `${site.brand} — ${store.address}`,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: store.city,
-      streetAddress: store.address,
-      addressCountry: "KZ",
-    },
-    telephone: store.phone,
-    url: store.mapUrl || undefined,
-    geo:
-      store.latitude != null && store.longitude != null
-        ? {
-            "@type": "GeoCoordinates",
-            latitude: store.latitude,
-            longitude: store.longitude,
-          }
-        : undefined,
-  })),
-};
+import { localeTag, LocaleLink, useI18n, useLocale } from "@/i18n";
+import { getLocalizedContent, localizedSiteRegion } from "@/i18n/content";
+import { CakeDraftProvider } from "@/i18n/CakeDraftProvider";
 
 function NotFoundComponent() {
+  const { locale, t } = useI18n();
+  const title = t("Страница не найдена | SOFIYA");
+  const description = t("Возможно, страница была перемещена или её адрес изменился.");
   return (
-    <div className="min-h-[70vh] grid place-items-center px-4">
-      <div className="text-center max-w-md">
-        <p className="text-sm font-semibold uppercase tracking-widest text-primary">404</p>
-        <h1 className="mt-3 text-4xl font-bold">Страница не найдена</h1>
-        <p className="mt-3 text-muted-foreground">
-          Возможно, страница была перемещена или её адрес изменился.
-        </p>
-        <Link to="/" className="mt-6 inline-flex btn-primary btn-primary-hover">
-          На главную
-        </Link>
+    <>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta name="robots" content="noindex" />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:locale" content={locale === "kk" ? "kk_KZ" : "ru_KZ"} />
+      <meta property="og:locale:alternate" content={locale === "kk" ? "ru_KZ" : "kk_KZ"} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <div className="min-h-[70vh] grid place-items-center px-4">
+        <div className="text-center max-w-md">
+          <p className="text-sm font-semibold uppercase tracking-widest text-primary">404</p>
+          <h1 className="mt-3 text-4xl font-bold">{t("Страница не найдена")}</h1>
+          <p className="mt-3 text-muted-foreground">
+            {t("Возможно, страница была перемещена или её адрес изменился.")}
+          </p>
+          <LocaleLink to="/" className="mt-6 inline-flex btn-primary btn-primary-hover">
+            {t("На главную")}
+          </LocaleLink>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+  const { t, path } = useI18n();
   const router = useRouter();
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
@@ -73,8 +58,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="min-h-[70vh] grid place-items-center px-4">
       <div className="text-center max-w-md">
-        <h1 className="text-2xl font-semibold">Что-то пошло не так</h1>
-        <p className="mt-2 text-muted-foreground">Попробуйте обновить страницу.</p>
+        <h1 className="text-2xl font-semibold">{t("Что-то пошло не так")}</h1>
+        <p className="mt-2 text-muted-foreground">{t("Попробуйте обновить страницу.")}</p>
         <div className="mt-6 flex justify-center gap-3">
           <button
             onClick={() => {
@@ -83,10 +68,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             }}
             className="btn-primary btn-primary-hover"
           >
-            Попробовать снова
+            {t("Попробовать снова")}
           </button>
-          <a href="/" className="btn-outline btn-outline-hover">
-            На главную
+          <a href={path("/")} className="btn-outline btn-outline-hover">
+            {t("На главную")}
           </a>
         </div>
       </div>
@@ -99,29 +84,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SOFIYA — фирменные магазины в Шымкенте" },
-      {
-        name: "description",
-        content:
-          "SOFIYA — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
-      },
       { name: "author", content: "SOFIYA" },
-      { property: "og:title", content: "SOFIYA — фирменные магазины в Шымкенте" },
-      {
-        property: "og:description",
-        content:
-          "SOFIYA — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
-      },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "SOFIYA" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#5A04BD" },
-      { name: "twitter:title", content: "SOFIYA — фирменные магазины в Шымкенте" },
-      {
-        name: "twitter:description",
-        content:
-          "SOFIYA — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
-      },
       {
         property: "og:image",
         content: absoluteUrl("/og-sofiya.jpg"),
@@ -141,12 +108,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap",
       },
     ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify(organizationSchema),
-      },
-    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -155,8 +116,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const locale = useLocale();
+  const { t } = useI18n();
   return (
-    <html lang="ru">
+    <html lang={localeTag[locale]}>
       <head>
         <HeadContent />
       </head>
@@ -165,7 +128,7 @@ function RootShell({ children }: { children: ReactNode }) {
           href="#main-content"
           className="fixed left-4 top-4 z-[200] -translate-y-24 rounded-full bg-primary px-4 py-3 font-semibold text-primary-foreground transition-transform focus:translate-y-0"
         >
-          Перейти к содержимому
+          {t("Перейти к содержимому")}
         </a>
         {children}
         <Scripts />
@@ -178,13 +141,58 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
-        <Header />
-        <main id="main-content" className="flex-1">
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
+      <CakeDraftProvider>
+        <div className="flex min-h-screen flex-col">
+          <OrganizationJsonLd />
+          <Header />
+          <main id="main-content" className="flex-1">
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+      </CakeDraftProvider>
     </QueryClientProvider>
+  );
+}
+
+function OrganizationJsonLd() {
+  const { locale } = useI18n();
+  const { stores } = getLocalizedContent(locale);
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: site.legalName,
+    url: absoluteUrl(locale === "kk" ? "/kk" : "/"),
+    logo: absoluteUrl(brandLogo),
+    telephone: site.phone,
+    areaServed: localizedSiteRegion(locale),
+    inLanguage: localeTag[locale],
+    sameAs: [site.instagramUrl, site.tiktokUrl].filter(Boolean),
+    department: stores.map((store) => ({
+      "@type": "Bakery",
+      name: `${site.brand} — ${store.address}`,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: store.city,
+        streetAddress: store.address,
+        addressCountry: "KZ",
+      },
+      telephone: store.phone,
+      url: store.mapUrl || undefined,
+      geo:
+        store.latitude != null && store.longitude != null
+          ? {
+              "@type": "GeoCoordinates",
+              latitude: store.latitude,
+              longitude: store.longitude,
+            }
+          : undefined,
+    })),
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
   );
 }

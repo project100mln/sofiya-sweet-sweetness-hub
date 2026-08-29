@@ -149,4 +149,22 @@ Release gate: production merge/deployment/DNS requires explicit owner authorizat
 
 ## Next safe action
 
-Owner review of draft PR #2. Production merge and deployment remain a separate approval gate.
+Complete the Kazakh localization technical gate on
+`agent/sofiya-kazakh-language-completion-20260828`, publish only an isolated preview
+for the editor, and keep production merge/deployment as a separate owner gate.
+
+## Kazakh Localization Completion Gate (2026-08-28)
+
+- [x] Baseline recorded at `008ec430b5093571720adda88c934b8f70b6474f`; `npm run check` passed before changes.
+- [x] Existing Russian URLs preserved; Kazakh route family added under `/kk`.
+- [x] Desktop/mobile language switch preserves path, slug, query and hash.
+- [x] Shared interface, 53 products, 9 categories, 17 stores, 3 news items and 2 promotions localized without duplicating business IDs/prices/links.
+- [x] Cake, catering and career selection state uses language-neutral IDs; WhatsApp payload follows the current page language.
+- [x] Locale-aware HTML language, metadata, canonical/hreflang, JSON-LD and 140-entry bilingual sitemap implemented.
+- [x] Unit and browser acceptance coverage added for both languages.
+- [ ] Independent Kazakh editor sign-off on exact candidate SHA.
+- [ ] Independent legal sign-off on exact candidate SHA.
+- [ ] Independent technical QA and both GitHub Actions jobs PASS on exact candidate SHA.
+- [ ] Owner-authorized merge and production deployment.
+
+Production remains excluded until the owner separately authorizes merge and deployment.

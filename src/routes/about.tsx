@@ -1,44 +1,38 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Award, Heart, Leaf, Sparkles } from "lucide-react";
-import { canonicalLink } from "@/config/site";
+import { staticHead } from "@/i18n/seo";
 import { PageHero } from "@/components/site/PageHero";
-import { cities, stores } from "@/data/stores";
+import { LocaleLink, useI18n } from "@/i18n";
+import { getLocalizedContent } from "@/i18n/content";
 
 export const Route = createFileRoute("/about")({
-  head: () => ({
-    links: canonicalLink("/about"),
-    meta: [
-      { title: "О компании SOFIYA" },
-      {
-        name: "description",
-        content:
-          "История SOFIYA с 2014 года: свежая выпечка, фирменные торты и сеть магазинов в Шымкенте и Туркестанской области.",
-      },
-    ],
-  }),
+  head: () => staticHead("/about", "ru"),
   component: AboutPage,
 });
 
-function AboutPage() {
+export function AboutPage() {
+  const { locale, t } = useI18n();
+  const { stores } = getLocalizedContent(locale);
+  const cities = [...new Set(stores.map((store) => store.city))];
   const facts = [
-    ["2014", "начало кондитерского направления"],
-    ["2016", "первый собственный магазин"],
-    [String(stores.length), "действующих адресов на сайте"],
-    ["до 150", "сотрудников в команде"],
+    ["2014", t("начало кондитерского направления")],
+    ["2016", t("первый собственный магазин")],
+    [String(stores.length), t("действующих адресов на сайте")],
+    [t("до 150"), t("сотрудников в команде")],
   ];
 
   return (
     <>
       <PageHero
-        eyebrow="О компании"
-        title="Незабываемый вкус каждый день"
-        lead="Экономим людям время и деньги, чтобы дарить незабываемый вкус."
+        eyebrow={t("О компании")}
+        title={t("Незабываемый вкус каждый день")}
+        lead={t("Экономим людям время и деньги, чтобы дарить незабываемый вкус.")}
       />
 
       <section className="container-page section-space">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {facts.map(([value, label]) => (
-            <div key={label} className="premium-card p-6 md:p-7">
+            <div key={label} className="localization-equal-card premium-card h-full p-6 md:p-7">
               <p className="font-display text-4xl font-semibold text-primary">{value}</p>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">{label}</p>
             </div>
@@ -49,34 +43,34 @@ function AboutPage() {
       <section className="container-page pb-14 md:pb-20">
         <div className="grid gap-8 rounded-[2rem] border border-border/60 bg-[color:var(--cream)] p-7 md:grid-cols-[0.75fr_1.25fr] md:p-12">
           <div>
-            <p className="page-kicker">История бренда</p>
+            <p className="page-kicker">{t("История бренда")}</p>
             <h2 className="mt-3 text-3xl font-semibold md:text-4xl">
-              От производства к любимой сети
+              {t("От производства к любимой сети")}
             </h2>
           </div>
           <div className="space-y-5 text-base leading-7 text-muted-foreground">
             <p>
-              История SOFIYA началась в 2014 году не с витрины, а с производства. Основатель бренда
-              Ниязходжаев Бахадир Тураббаевич открыл кондитерское направление, которое работало
-              преимущественно с B2B-клиентами и готовило продукцию для партнёров из разных сфер
-              бизнеса.
+              {t(
+                "История SOFIYA началась в 2014 году не с витрины, а с производства. Основатель бренда Ниязходжаев Бахадир Тураббаевич открыл кондитерское направление, которое работало преимущественно с B2B-клиентами и готовило продукцию для партнёров из разных сфер бизнеса.",
+              )}
             </p>
             <p>
-              Со временем продукцию всё чаще хотели покупать напрямую. Покупатели обращались с
-              просьбой открыть собственную точку, и в 2016 году появился первый фирменный магазин
-              SOFIYA. Так кондитерское направление, созданное для бизнеса, сделало следующий шаг —
-              стало ближе к семьям и ежедневным поводам своих гостей.
+              {t(
+                "Со временем продукцию всё чаще хотели покупать напрямую. Покупатели обращались с просьбой открыть собственную точку, и в 2016 году появился первый фирменный магазин SOFIYA. Так кондитерское направление, созданное для бизнеса, сделало следующий шаг — стало ближе к семьям и ежедневным поводам своих гостей.",
+              )}
             </p>
             <p>
-              Название SOFIYA выбрано осознанно. В него вложены понятия чистоты и внутренней чистоты
-              — «тазалық» и «пәктік». Эти слова передают смысл, который основатель хотел связать с
-              брендом с самого начала.
+              {t(
+                "Название SOFIYA выбрано осознанно. В него вложены понятия чистоты и внутренней чистоты — «тазалық» и «пәктік». Эти слова передают смысл, который основатель хотел связать с брендом с самого начала.",
+              )}
             </p>
             <p>
-              Миссия SOFIYA — экономить людям время и деньги, чтобы дарить незабываемый вкус.
-              Сегодня сеть объединяет 17 филиалов, представленных в {cities.join(", ")}, а в команде
-              работают до 150 сотрудников. Путь от производственного направления до собственной сети
-              продолжается с той же задачей: делать любимые вкусы доступными каждый день.
+              {t("Миссия SOFIYA — экономить людям время и деньги, чтобы дарить незабываемый вкус.")}{" "}
+              {t("Сегодня сеть объединяет")} {stores.length} {t("филиалов, представленных в")}{" "}
+              {cities.join(", ")}
+              {t(
+                ", а в команде работают до 150 сотрудников. Путь от производственного направления до собственной сети продолжается с той же задачей: делать любимые вкусы доступными каждый день.",
+              )}
             </p>
           </div>
         </div>
@@ -85,22 +79,46 @@ function AboutPage() {
       <section className="container-page pb-14 md:pb-20">
         <div className="section-heading">
           <div>
-            <p className="page-kicker">Наш подход</p>
-            <h2>То, что остаётся неизменным</h2>
+            <p className="page-kicker">{t("Наш подход")}</p>
+            <h2>{t("То, что остаётся неизменным")}</h2>
           </div>
         </div>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {[
-            { i: Leaf, t: "Свежесть", d: "Готовим ежедневно и внимательно следим за качеством." },
-            { i: Sparkles, t: "Чистота", d: "Соблюдаем стандарты на каждом этапе производства." },
-            { i: Heart, t: "Забота", d: "Создаём тёплый сервис в каждом фирменном магазине." },
-            {
-              i: Award,
-              t: "Развитие",
-              d: "Расширяем ассортимент и делаем любимые вкусы доступнее.",
-            },
-          ].map(({ i: Icon, t, d }) => (
-            <div key={t} className="premium-card p-6">
+          {(locale === "kk"
+            ? [
+                { i: Leaf, t: "Балғындық", d: "Күн сайын дайындап, сапаны мұқият қадағалаймыз." },
+                {
+                  i: Sparkles,
+                  t: "Тазалық",
+                  d: "Өндірістің әр кезеңінде стандарттарды сақтаймыз.",
+                },
+                { i: Heart, t: "Қамқорлық", d: "Әр фирмалық дүкенде жылы қызмет көрсетеміз." },
+                {
+                  i: Award,
+                  t: "Даму",
+                  d: "Ассортиментті кеңейтіп, сүйікті дәмдерді қолжетімді етеміз.",
+                },
+              ]
+            : [
+                {
+                  i: Leaf,
+                  t: "Свежесть",
+                  d: "Готовим ежедневно и внимательно следим за качеством.",
+                },
+                {
+                  i: Sparkles,
+                  t: "Чистота",
+                  d: "Соблюдаем стандарты на каждом этапе производства.",
+                },
+                { i: Heart, t: "Забота", d: "Создаём тёплый сервис в каждом фирменном магазине." },
+                {
+                  i: Award,
+                  t: "Развитие",
+                  d: "Расширяем ассортимент и делаем любимые вкусы доступнее.",
+                },
+              ]
+          ).map(({ i: Icon, t, d }) => (
+            <div key={t} className="localization-equal-card premium-card h-full p-6">
               <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
                 <Icon className="h-6 w-6" aria-hidden />
               </div>
@@ -113,23 +131,25 @@ function AboutPage() {
 
       <section className="container-page pb-14 md:pb-20">
         <div className="rounded-[2rem] bg-primary p-8 text-center text-primary-foreground md:p-12">
-          <h2 className="text-3xl font-semibold md:text-4xl">Загляните в ближайший SOFIYA</h2>
+          <h2 className="text-3xl font-semibold md:text-4xl">
+            {t("Загляните в ближайший SOFIYA")}
+          </h2>
           <p className="mx-auto mt-3 max-w-xl text-white/80">
-            Выберите удобный адрес, посмотрите часы работы и постройте маршрут.
+            {t("Выберите удобный адрес, посмотрите часы работы и постройте маршрут.")}
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link
+            <LocaleLink
               to="/stores"
               className="inline-flex min-h-11 items-center justify-center rounded-full bg-white px-6 font-semibold text-primary transition-transform hover:-translate-y-0.5"
             >
-              Найти магазин
-            </Link>
-            <Link
+              {t("Найти магазин")}
+            </LocaleLink>
+            <LocaleLink
               to="/career"
               className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/35 px-6 font-semibold text-white transition-colors hover:bg-white/10"
             >
-              Работать в SOFIYA
-            </Link>
+              {t("Работать в SOFIYA")}
+            </LocaleLink>
           </div>
         </div>
       </section>

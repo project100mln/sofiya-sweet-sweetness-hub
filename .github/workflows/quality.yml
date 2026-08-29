@@ -23,7 +23,7 @@ jobs:
 
   browser-smoke:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -33,3 +33,11 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
+      - name: Upload localization visual evidence
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: localization-visual-evidence
+          path: test-results/**/kz-*.png
+          if-no-files-found: warn
+          retention-days: 14

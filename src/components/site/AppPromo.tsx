@@ -4,19 +4,19 @@ import loyaltyCoffeeCup from "@/assets/loyalty-coffee-cup.webp";
 import lightPhoneSceneAsset from "@/assets/sofiya-club-mobile-scene-light.webp";
 import phoneSceneAsset from "@/assets/sofiya-club-mobile-scene.webp";
 import { waLink } from "@/config/site";
-
-const benefits = [
-  { icon: Coffee, label: "5+1 кофе в подарок" },
-  { icon: QrCode, label: "Персональный QR-код" },
-  { icon: Gift, label: "Бонусы и подарки" },
-  { icon: Sparkles, label: "Личные предложения" },
-];
-
-const reminderHref = waLink(
-  "Здравствуйте! Сообщите мне, пожалуйста, когда запустится программа лояльности SOFIYA Club.",
-);
+import { useI18n } from "@/i18n";
 
 export function AppPromo() {
+  const { t } = useI18n();
+  const benefits = [
+    { icon: Coffee, label: t("5+1 кофе в подарок") },
+    { icon: QrCode, label: t("Персональный QR-код") },
+    { icon: Gift, label: t("Бонусы и подарки") },
+    { icon: Sparkles, label: t("Личные предложения") },
+  ];
+  const reminderHref = waLink(
+    t("Здравствуйте! Сообщите мне, пожалуйста, когда запустится программа лояльности SOFIYA Club."),
+  );
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeStamp, setActiveStamp] = useState(-1);
@@ -90,7 +90,7 @@ export function AppPromo() {
       id="loyalty"
       data-testid="loyalty-section"
       className="relative scroll-mt-24 overflow-hidden"
-      aria-label="Программа лояльности SOFIYA Club"
+      aria-label={t("Программа лояльности SOFIYA Club")}
     >
       <div className="container-page py-3 md:py-24">
         <div
@@ -101,7 +101,7 @@ export function AppPromo() {
         >
           <img
             src={lightPhoneSceneAsset}
-            alt="Экран приложения SOFIYA Club с прогрессом: пять из шести кофе"
+            alt={t("Экран приложения SOFIYA Club с прогрессом: пять из шести кофе")}
             className="loyalty-phone-scene loyalty-mobile-backdrop absolute inset-0 h-full w-full select-none object-cover"
             data-loyalty-phone
             data-testid="loyalty-mobile-phone"
@@ -119,29 +119,31 @@ export function AppPromo() {
             className="absolute right-3 top-3 z-20 inline-flex min-h-9 items-center gap-1.5 rounded-full border border-white/25 bg-[#3d0d5a]/85 px-3 text-[0.68rem] font-semibold text-white shadow-lg backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4cc74]"
             data-testid="loyalty-mobile-play"
           >
-            <Play className="h-3.5 w-3.5 fill-current" aria-hidden /> Показать бонус
+            <Play className="h-3.5 w-3.5 fill-current" aria-hidden /> {t("Показать бонус")}
           </button>
 
           <div className="loyalty-story-copy loyalty-mobile-overlay-copy relative z-10 flex h-full min-h-0 w-full flex-col px-5 pb-4 text-white">
             <p className="loyalty-story-kicker inline-flex items-center gap-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.15em] text-white/75">
-              <Gift className="h-3.5 w-3.5" aria-hidden /> SOFIYA Club — скоро
+              <Gift className="h-3.5 w-3.5" aria-hidden /> SOFIYA Club — {t("скоро")}
             </p>
 
             <h2 className="loyalty-story-title mt-2 text-[1.9rem] font-semibold leading-[0.92] tracking-[-0.04em]">
-              Ваш 6-й кофе — <span className="text-[#f4cc74]">бесплатно</span>
+              {t("Ваш 6-й кофе —")} <span className="text-[#f4cc74]">{t("бесплатно")}</span>
             </h2>
 
             <p className="loyalty-story-description mt-2 text-[0.7rem] leading-[1.05rem] text-white/80">
-              Купите пять кофе — шестой получите в подарок. QR‑код и бонусы всегда в телефоне.
+              {t(
+                "Купите пять кофе — шестой получите в подарок. QR‑код и бонусы всегда в телефоне.",
+              )}
             </p>
 
             <p className="loyalty-progress-label mt-2 text-center text-[0.62rem] font-medium text-[#f4cc74]">
-              5 покупок → 6-й кофе в подарок
+              {t("5 покупок → 6-й кофе в подарок")}
             </p>
 
             <ol
               className="loyalty-stamps loyalty-stamps-mobile mt-1.5 grid grid-cols-6 gap-1"
-              aria-label="Пять покупок — шестой кофе бесплатно"
+              aria-label={t("Пять покупок — шестой кофе бесплатно")}
             >
               {Array.from({ length: 6 }, (_, index) => (
                 <li
@@ -167,7 +169,7 @@ export function AppPromo() {
                     {index + 1}
                   </span>
                   <span className="sr-only">
-                    {index === 5 ? "Шестой кофе бесплатно" : `Покупка ${index + 1}`}
+                    {index === 5 ? t("Шестой кофе бесплатно") : `${t("Покупка")} ${index + 1}`}
                   </span>
                 </li>
               ))}
@@ -175,12 +177,12 @@ export function AppPromo() {
 
             <div className="loyalty-story-benefits mt-2.5 grid grid-cols-2 gap-2 text-[0.65rem] text-white/80">
               <span className="flex items-center gap-1.5">
-                <QrCode className="h-3.5 w-3.5 shrink-0 text-[#f4cc74]" aria-hidden /> Персональный
-                QR
+                <QrCode className="h-3.5 w-3.5 shrink-0 text-[#f4cc74]" aria-hidden />{" "}
+                {t("Персональный QR")}
               </span>
               <span className="flex items-center gap-1.5">
-                <Gift className="h-3.5 w-3.5 shrink-0 text-[#f4cc74]" aria-hidden /> Бонусы и
-                подарки
+                <Gift className="h-3.5 w-3.5 shrink-0 text-[#f4cc74]" aria-hidden />{" "}
+                {t("Бонусы и подарки")}
               </span>
             </div>
 
@@ -191,7 +193,7 @@ export function AppPromo() {
               className="loyalty-reminder-cta mt-3 flex min-h-10 w-full items-center justify-center gap-2 rounded-full bg-white px-4 text-xs font-semibold text-[#501072] shadow-lg active:scale-[0.98]"
               data-testid="loyalty-mobile-reminder"
             >
-              <MessageCircle className="h-3.5 w-3.5" aria-hidden /> Напомнить в WhatsApp
+              <MessageCircle className="h-3.5 w-3.5" aria-hidden /> {t("Напомнить в WhatsApp")}
             </a>
           </div>
         </div>
@@ -205,7 +207,7 @@ export function AppPromo() {
           <div className="loyalty-story-visual relative order-2 flex h-full items-end justify-center overflow-hidden">
             <img
               src={phoneSceneAsset}
-              alt="Экран приложения SOFIYA Club с прогрессом: пять из шести кофе"
+              alt={t("Экран приложения SOFIYA Club с прогрессом: пять из шести кофе")}
               className="loyalty-phone-scene absolute bottom-[-3%] left-0 right-0 mx-auto h-[106%] w-auto max-w-none select-none lg:h-[110%]"
               data-loyalty-phone
               data-testid="loyalty-desktop-phone"
@@ -218,27 +220,28 @@ export function AppPromo() {
               className="loyalty-play-button absolute right-5 top-5 z-10 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/25 bg-[#3d0d5a]/80 px-4 text-xs font-semibold text-white shadow-lg backdrop-blur-sm transition-colors hover:bg-[#3d0d5a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f4cc74] focus-visible:ring-offset-2 focus-visible:ring-offset-[#67208c]"
               data-testid="loyalty-desktop-play"
             >
-              <Play className="h-4 w-4 fill-current" aria-hidden /> Показать бонус
+              <Play className="h-4 w-4 fill-current" aria-hidden /> {t("Показать бонус")}
             </button>
           </div>
 
           <div className="loyalty-story-copy loyalty-desktop-copy relative z-10 order-1 flex flex-col justify-center px-10 py-12 text-white lg:px-14">
             <p className="loyalty-story-kicker inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-white/75">
-              <Gift className="h-4 w-4" aria-hidden /> SOFIYA Club — скоро
+              <Gift className="h-4 w-4" aria-hidden /> SOFIYA Club — {t("скоро")}
             </p>
 
             <h2 className="loyalty-story-title mt-4 max-w-[14ch] text-[3.25rem] font-semibold leading-[0.96] tracking-[-0.04em] lg:text-[4rem]">
-              Ваш 6-й кофе — <span className="text-[#f4cc74]">бесплатно</span>
+              {t("Ваш 6-й кофе —")} <span className="text-[#f4cc74]">{t("бесплатно")}</span>
             </h2>
 
             <p className="loyalty-story-description mt-5 max-w-[38rem] text-base leading-7 text-white/80">
-              Купите пять кофе — шестой получите в подарок. Персональный QR-код, бонусы и история
-              покупок всегда в телефоне.
+              {t(
+                "Купите пять кофе — шестой получите в подарок. Персональный QR-код, бонусы и история покупок всегда в телефоне.",
+              )}
             </p>
 
             <ol
               className="loyalty-stamps loyalty-stamps-desktop mt-6 grid max-w-[29rem] grid-cols-6 gap-3"
-              aria-label="Пять покупок — шестой кофе бесплатно"
+              aria-label={t("Пять покупок — шестой кофе бесплатно")}
             >
               {Array.from({ length: 6 }, (_, index) => (
                 <li
@@ -264,7 +267,7 @@ export function AppPromo() {
                     {index + 1}
                   </span>
                   <span className="sr-only">
-                    {index === 5 ? "Шестой кофе бесплатно" : `Покупка ${index + 1}`}
+                    {index === 5 ? t("Шестой кофе бесплатно") : `${t("Покупка")} ${index + 1}`}
                   </span>
                 </li>
               ))}
@@ -288,7 +291,7 @@ export function AppPromo() {
               className="loyalty-reminder-cta mt-7 flex min-h-12 w-full max-w-[25rem] items-center justify-center gap-2 rounded-full bg-white px-5 text-sm font-semibold text-[#501072] shadow-lg transition-transform hover:-translate-y-0.5 active:scale-[0.98]"
               data-testid="loyalty-desktop-reminder"
             >
-              <Bell className="h-4 w-4" aria-hidden /> Напомнить о запуске
+              <Bell className="h-4 w-4" aria-hidden /> {t("Напомнить о запуске")}
             </a>
           </div>
         </div>

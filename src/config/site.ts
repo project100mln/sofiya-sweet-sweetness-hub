@@ -33,5 +33,17 @@ export const absoluteUrl = (path: string) => {
   return `${site.domain}${path.startsWith("/") ? path : `/${path}`}`;
 };
 
-export const canonicalLink = (path: string) =>
-  site.domain ? [{ rel: "canonical", href: absoluteUrl(path) }] : [];
+export const languageLinks = (path: string, locale: "ru" | "kk") => {
+  if (!site.domain) return [];
+  const basePath = path === "/" ? "/" : path.replace(/^\/kk(?=\/|$)/, "") || "/";
+  const ruUrl = absoluteUrl(basePath);
+  const kkUrl = absoluteUrl(basePath === "/" ? "/kk" : `/kk${basePath}`);
+  return [
+    { rel: "canonical", href: locale === "kk" ? kkUrl : ruUrl },
+    { rel: "alternate", hrefLang: "ru-KZ", href: ruUrl },
+    { rel: "alternate", hrefLang: "kk-KZ", href: kkUrl },
+    { rel: "alternate", hrefLang: "x-default", href: ruUrl },
+  ];
+};
+
+export const canonicalLink = (path: string) => languageLinks(path, "ru");

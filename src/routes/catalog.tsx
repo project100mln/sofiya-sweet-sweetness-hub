@@ -1,10 +1,12 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
-import { categories, products } from "@/data/catalog";
+import { createFileRoute, useNavigate, useSearch } from "@tanstack/react-router";
+import { useCallback, useMemo, useRef, useState } from "react";
+import { getCatalog } from "@/i18n/catalog";
+import { LocaleLink, useI18n } from "@/i18n";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Search, SlidersHorizontal, X } from "lucide-react";
-import { canonicalLink } from "@/config/site";
+import { staticHead } from "@/i18n/seo";
 import { PageHero } from "@/components/site/PageHero";
+import { useModalFocus } from "@/hooks/use-modal-focus";
 
 interface CatalogSearch {
   cat?: string;
@@ -18,29 +20,24 @@ export const Route = createFileRoute("/catalog")({
     q: typeof s.q === "string" ? s.q : undefined,
     sort: (["recommended", "new", "price-asc", "price-desc"] as const).includes(s.sort as never)
       ? (s.sort as CatalogSearch["sort"])
-      : "recommended",
+      : undefined,
   }),
-  head: () => ({
-    links: canonicalLink("/catalog"),
-    meta: [
-      { title: "Каталог — торты, десерты, выпечка | SOFIYA" },
-      {
-        name: "description",
-        content:
-          "Каталог SOFIYA: торты, порционные десерты, выпечка, самса, пироги, завтраки, пицца и напитки.",
-      },
-      { property: "og:title", content: "Каталог SOFIYA" },
-    ],
-  }),
+  head: () => staticHead("/catalog", "ru"),
   component: CatalogPage,
 });
 
-function CatalogPage() {
-  const search = Route.useSearch();
-  const navigate = useNavigate({ from: "/catalog" });
+export function CatalogPage() {
+  const { locale, t } = useI18n();
+  const { categories, products } = useMemo(() => getCatalog(locale), [locale]);
+  const search = useSearch({ strict: false }) as CatalogSearch;
+  const navigate = useNavigate();
   const [q, setQ] = useState(search.q ?? "");
   const [filterOpen, setFilterOpen] = useState(false);
   const [tags, setTags] = useState<Set<string>>(new Set());
+  const filterButtonRef = useRef<HTMLButtonElement>(null);
+  const filterDialogRef = useRef<HTMLDivElement>(null);
+  const closeFilters = useCallback(() => setFilterOpen(false), []);
+  useModalFocus(filterOpen, filterDialogRef, filterButtonRef, closeFilters);
 
   const filtered = useMemo(() => {
     let items = products.filter((p) => p.isPublished);
@@ -61,22 +58,10 @@ function CatalogPage() {
       items = [...items].filter((p) => p.price != null).sort((a, b) => b.price! - a.price!);
     if (search.sort === "new") items = [...items].sort((a, b) => Number(b.isNew) - Number(a.isNew));
     return items;
-  }, [search.cat, search.sort, q, tags]);
+  }, [search.cat, search.sort, q, tags, products]);
 
   const activeCat = categories.find((c) => c.slug === search.cat);
 
-  useEffect(() => {
-    if (!filterOpen) return;
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setFilterOpen(false);
-    };
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", closeOnEscape);
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", closeOnEscape);
-    };
-  }, [filterOpen]);
   const toggle = (t: string) => {
     const n = new Set(tags);
     if (n.has(t)) n.delete(t);
@@ -87,31 +72,33 @@ function CatalogPage() {
   return (
     <>
       <PageHero
-        eyebrow="Каталог"
-        title={activeCat ? activeCat.name : "Всё меню"}
+        eyebrow={t("Каталог")}
+        title={activeCat ? activeCat.name : t("Всё меню")}
         lead={
-          activeCat ? activeCat.short : "Торты, десерты, выпечка, самса, завтраки, пицца и напитки."
+          activeCat
+            ? activeCat.short
+            : t("Торты, десерты, выпечка, самса, завтраки, пицца и напитки.")
         }
       />
 
       <section className="container-page py-8">
         {/* Category chips */}
         <div className="no-scrollbar -mx-4 px-4 md:mx-0 md:px-0 flex gap-2 overflow-x-auto pb-2">
-          <Link
+          <LocaleLink
             to="/catalog"
-            className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold border ${!search.cat ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border text-foreground hover:border-primary"}`}
+            className={`inline-flex min-h-11 shrink-0 items-center rounded-full px-4 py-2 text-sm font-semibold border ${!search.cat ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border text-foreground hover:border-primary"}`}
           >
-            Все
-          </Link>
+            {t("Все")}
+          </LocaleLink>
           {categories.map((c) => (
-            <Link
+            <LocaleLink
               key={c.id}
               to="/catalog"
               search={(prev: CatalogSearch) => ({ ...prev, cat: c.slug })}
-              className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold border ${search.cat === c.slug ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border text-foreground hover:border-primary"}`}
+              className={`inline-flex min-h-11 shrink-0 items-center rounded-full px-4 py-2 text-sm font-semibold border ${search.cat === c.slug ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border text-foreground hover:border-primary"}`}
             >
               {c.name}
-            </Link>
+            </LocaleLink>
           ))}
         </div>
 
@@ -122,15 +109,15 @@ function CatalogPage() {
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              placeholder="Поиск по каталогу…"
-              aria-label="Поиск по каталогу"
+              placeholder={t("Поиск по каталогу…")}
+              aria-label={t("Поиск по каталогу")}
               className="w-full h-12 rounded-full border border-border bg-background pl-10 pr-11 text-sm focus:border-primary focus:outline-none"
             />
             {q && (
               <button
                 type="button"
                 onClick={() => setQ("")}
-                aria-label="Очистить поиск"
+                aria-label={t("Очистить поиск")}
                 className="absolute right-1.5 top-1/2 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full text-muted-foreground hover:bg-muted hover:text-foreground"
               >
                 <X className="h-4 w-4" />
@@ -138,24 +125,26 @@ function CatalogPage() {
             )}
           </div>
           <button
+            ref={filterButtonRef}
             onClick={() => setFilterOpen(true)}
             className="md:hidden inline-flex items-center gap-2 h-12 px-4 rounded-full border border-border bg-background text-sm font-semibold"
           >
-            <SlidersHorizontal className="h-4 w-4" /> Фильтры {tags.size ? `· ${tags.size}` : ""}
+            <SlidersHorizontal className="h-4 w-4" /> {t("Фильтры")}{" "}
+            {tags.size ? `· ${tags.size}` : ""}
           </button>
           <select
-            aria-label="Сортировка товаров"
-            value={search.sort}
+            aria-label={t("Сортировка товаров")}
+            value={search.sort ?? "recommended"}
             onChange={(e) => {
               const v = e.target.value as NonNullable<CatalogSearch["sort"]>;
-              navigate({ search: (prev: CatalogSearch) => ({ ...prev, sort: v }) });
+              navigate({ search: ((prev: CatalogSearch) => ({ ...prev, sort: v })) as never });
             }}
             className="h-12 rounded-full border border-border bg-background px-4 text-sm font-semibold"
           >
-            <option value="recommended">Рекомендуем</option>
-            <option value="new">Сначала новинки</option>
-            <option value="price-asc">Цена: по возрастанию</option>
-            <option value="price-desc">Цена: по убыванию</option>
+            <option value="recommended">{t("Рекомендуем")}</option>
+            <option value="new">{t("Сначала новинки")}</option>
+            <option value="price-asc">{t("Цена: по возрастанию")}</option>
+            <option value="price-desc">{t("Цена: по убыванию")}</option>
           </select>
         </div>
 
@@ -166,13 +155,13 @@ function CatalogPage() {
           </aside>
           <div>
             <p className="mb-4 text-sm text-muted-foreground" aria-live="polite">
-              Найдено: {filtered.length}
+              {t("Найдено")}: {filtered.length}
             </p>
             {filtered.length === 0 ? (
               <div className="premium-card p-12 text-center">
-                <p className="text-lg font-semibold">Ничего не найдено</p>
+                <p className="text-lg font-semibold">{t("Ничего не найдено")}</p>
                 <p className="mt-2 text-muted-foreground text-sm">
-                  Попробуйте изменить фильтры или поисковый запрос.
+                  {t("Попробуйте изменить фильтры или поисковый запрос.")}
                 </p>
                 <button
                   onClick={() => {
@@ -181,7 +170,7 @@ function CatalogPage() {
                   }}
                   className="mt-5 btn-outline btn-outline-hover"
                 >
-                  Сбросить фильтры
+                  {t("Сбросить фильтры")}
                 </button>
               </div>
             ) : (
@@ -198,32 +187,31 @@ function CatalogPage() {
       {/* Mobile filter drawer */}
       {filterOpen && (
         <div
+          ref={filterDialogRef}
           className="fixed inset-0 z-[60] bg-black/40"
-          onClick={() => setFilterOpen(false)}
+          onClick={closeFilters}
           role="dialog"
           aria-modal="true"
-          aria-label="Фильтры каталога"
+          aria-label={t("Фильтры каталога")}
+          tabIndex={-1}
         >
           <div
             className="absolute bottom-0 inset-x-0 bg-background rounded-t-3xl p-6 max-h-[80vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold">Фильтры</h3>
+              <h3 className="text-lg font-semibold">{t("Фильтры")}</h3>
               <button
-                onClick={() => setFilterOpen(false)}
+                onClick={closeFilters}
                 className="grid h-10 w-10 place-items-center rounded-full border border-border"
-                aria-label="Закрыть фильтры"
+                aria-label={t("Закрыть фильтры")}
               >
                 <X className="h-4 w-4" />
               </button>
             </div>
             <FiltersPanel tags={tags} toggle={toggle} />
-            <button
-              onClick={() => setFilterOpen(false)}
-              className="mt-6 w-full btn-primary btn-primary-hover"
-            >
-              Показать результаты
+            <button onClick={closeFilters} className="mt-6 w-full btn-primary btn-primary-hover">
+              {t("Показать результаты")}
             </button>
           </div>
         </div>
@@ -233,15 +221,18 @@ function CatalogPage() {
 }
 
 function FiltersPanel({ tags, toggle }: { tags: Set<string>; toggle: (t: string) => void }) {
+  const { t } = useI18n();
   const opts = [
-    { id: "bestseller", label: "Бестселлеры" },
-    { id: "new", label: "Новинки" },
-    { id: "preorder", label: "На заказ" },
-    { id: "seasonal", label: "Сезонные" },
+    { id: "bestseller", label: t("Бестселлеры") },
+    { id: "new", label: t("Новинки") },
+    { id: "preorder", label: t("На заказ") },
+    { id: "seasonal", label: t("Сезонные") },
   ];
   return (
     <div>
-      <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Метки</p>
+      <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+        {t("Метки")}
+      </p>
       <div className="mt-3 flex flex-col gap-2">
         {opts.map((o) => (
           <label

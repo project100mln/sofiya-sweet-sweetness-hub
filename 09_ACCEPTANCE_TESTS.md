@@ -57,10 +57,26 @@
 - **AT-21** `npm audit --omit=dev` reports no known production dependency
   vulnerabilities, or every exception is explicitly classified.
 - **AT-22** Critical desktop and mobile browser journeys pass with no application
-  console errors or broken first-party assets.
+  console errors, uncaught `pageerror` events or broken first-party assets.
 - **AT-23** Keyboard navigation, visible focus, dialog/menu semantics, form labels and
   reduced-motion behavior pass browser UAT.
 - **AT-24** `design-qa.md` cites the approved source and browser-rendered implementation,
   contains iteration evidence and ends with exactly `final result: passed`.
 - **AT-25** Production remains untouched; the final candidate is limited to the
   authorized `agent/*` branch until the owner separately approves release.
+
+## Kazakh localization
+
+- **AT-KK-01** All 15 public route families return SSR HTML under `/kk` with `html[lang="kk-KZ"]`; unknown Kazakh URLs return HTTP 404 with Kazakh UI.
+- **AT-KK-02** `Қазақша | Русский` is keyboard-accessible in desktop/mobile navigation and preserves path, dynamic slug, query and hash.
+- **AT-KK-03** Every Kazakh page has a self-canonical URL and reciprocal `ru-KZ`, `kk-KZ` and `x-default` alternate links.
+- **AT-KK-04** Sitemap contains exactly 140 current URLs: 70 Russian and 70 Kazakh, with reciprocal alternates.
+- **AT-KK-05** All 53 products and 9 categories preserve shared IDs, slugs, prices and images while exposing complete Kazakh names/descriptions/ingredients.
+- **AT-KK-06** All 17 stores preserve IDs, contacts, coordinates and 2GIS URLs while exposing approved Kazakh city/address/landmark text.
+- **AT-KK-07** All 3 news items and 2 featured promotions have localized list/detail pages, metadata and date/number formatting.
+- **AT-KK-08** Catalogue search/filter/sort works on Kazakh content and exposes localized empty/error/accessibility states.
+- **AT-KK-09** The 11-step cake journey stores stable IDs, survives language changes semantically and produces a correctly encoded Kazakh WhatsApp payload.
+- **AT-KK-10** Contact, catering and career journeys validate and produce language-correct RU/KK WhatsApp payloads without claiming delivery before the user's WhatsApp action.
+- **AT-KK-11** Every RU/KK review route at 320, 375, 768 and 1440 px has no horizontal overflow; the configured production font loads the required `Ә ә Ғ ғ Қ қ Ң ң Ө ө Ұ ұ Ү ү Һ һ І і` glyph set.
+- **AT-KK-12** Russian regression suite remains intact and both GitHub Actions jobs pass on the candidate SHA.
+- **AT-KK-13** Independent editorial, legal and technical reviewers record decisions against the exact candidate SHA before production.
