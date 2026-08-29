@@ -16,7 +16,7 @@ export function localizedSiteRegion(locale: Locale): string {
 
 export const promotionHoursPattern = {
   ru: "Ежедневно с {from} до {to}",
-  kk: "Күн сайын {from}–{to}",
+  kk: "Күн сайын {from} бастап –{to} дейін",
 } as const;
 
 export function formatPromotionHours(window: { from: string; to: string }, locale: Locale): string {
