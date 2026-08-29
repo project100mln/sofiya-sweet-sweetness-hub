@@ -33,3 +33,11 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
+      - name: Upload localization visual evidence
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: localization-visual-evidence
+          path: test-results/**/kz-*.png
+          if-no-files-found: warn
+          retention-days: 14

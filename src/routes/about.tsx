@@ -32,7 +32,7 @@ export function AboutPage() {
       <section className="container-page section-space">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {facts.map(([value, label]) => (
-            <div key={label} className="premium-card p-6 md:p-7">
+            <div key={label} className="localization-equal-card premium-card h-full p-6 md:p-7">
               <p className="font-display text-4xl font-semibold text-primary">{value}</p>
               <p className="mt-2 text-sm leading-6 text-muted-foreground">{label}</p>
             </div>
@@ -118,7 +118,7 @@ export function AboutPage() {
                 },
               ]
           ).map(({ i: Icon, t, d }) => (
-            <div key={t} className="premium-card p-6">
+            <div key={t} className="localization-equal-card premium-card h-full p-6">
               <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
                 <Icon className="h-6 w-6" aria-hidden />
               </div>

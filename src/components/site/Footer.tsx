@@ -31,7 +31,7 @@ export function Footer() {
               href={instagramLink}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 px-3 py-2 text-xs font-medium hover:bg-white/10"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/25 px-3 py-2 text-xs font-medium hover:bg-white/10"
             >
               <Instagram className="h-4 w-4" /> {site.instagramHandle}
             </a>
@@ -39,7 +39,7 @@ export function Footer() {
               href={waLink(t("Здравствуйте, SOFIYA!"))}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 px-3 py-2 text-xs font-medium hover:bg-white/10"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/25 px-3 py-2 text-xs font-medium hover:bg-white/10"
             >
               <MessageCircle className="h-4 w-4" /> WhatsApp
             </a>
@@ -48,7 +48,7 @@ export function Footer() {
                 href={site.tiktokUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/25 px-3 py-2 text-xs font-medium transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/25 px-3 py-2 text-xs font-medium transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 <SiTiktok className="h-4 w-4" aria-hidden="true" /> {site.tiktokHandle}
               </a>
@@ -172,7 +172,7 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-page py-5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/55">
-          <p className="flex items-center justify-center gap-2 whitespace-nowrap leading-none">
+          <p className="footer-copyright flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center leading-snug">
             <span>© {new Date().getFullYear()}</span>
             <SofiyaWordmark placement="center" />
             <span>{t("Все права защищены.")}</span>

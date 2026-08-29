@@ -93,7 +93,7 @@ export function PromotionCard({ promotion }: { promotion: PromotionCardContent }
       to="/promotions/$slug"
       params={{ slug: promotion.slug }}
       aria-label={`${t("Подробнее об акции")} «${promotion.title}»`}
-      className="group block rounded-3xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+      className="group block h-full min-w-0 rounded-3xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
     >
       {card}
     </LocaleLink>

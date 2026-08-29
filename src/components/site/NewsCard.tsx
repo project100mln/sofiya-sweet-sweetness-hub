@@ -24,7 +24,7 @@ export function NewsCard({ item, compact = false }: NewsCardProps) {
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
-      <div className={compact ? "p-5" : "p-6"}>
+      <div className={`${compact ? "p-5" : "p-6"} news-card-copy flex min-w-0 flex-1 flex-col`}>
         <p className="text-xs font-semibold uppercase tracking-widest text-primary">
           {formatDate(item.date, locale)}
         </p>
@@ -33,7 +33,9 @@ export function NewsCard({ item, compact = false }: NewsCardProps) {
         >
           {item.title}
         </h3>
-        <p className={`mt-2 text-sm text-muted-foreground ${compact ? "line-clamp-2" : ""}`}>
+        <p
+          className={`news-card-description mt-2 text-sm text-muted-foreground ${compact ? "line-clamp-2" : ""}`}
+        >
           {item.summary}
         </p>
         <span className="sr-only">{destinationLabel[item.destination]}</span>
@@ -42,7 +44,7 @@ export function NewsCard({ item, compact = false }: NewsCardProps) {
   );
 
   const className =
-    "premium-card group block overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4";
+    "news-card premium-card group flex h-full min-w-0 flex-col overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4";
   const ariaLabel = `${destinationLabel[item.destination]}: ${item.title}`;
 
   if (item.destination === "article") {

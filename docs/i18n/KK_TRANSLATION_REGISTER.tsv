@@ -437,8 +437,8 @@ ui-message	src/components/site/ProductCard.tsx:12	цена уточняется	
 ui-message	src/components/site/ProductCard.tsx:25; src/routes/catalog_.$slug.tsx:147	Хит	Хит	Хит	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/ProductCard.tsx:30; src/routes/catalog_.$slug.tsx:152	Новинка	Новинка	Жаңа	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/ProductCard.tsx:35	Бестселлер	Бестселлер	Бестселлер	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/ProductCard.tsx:47	Цена уточняется	Цена уточняется	Бағасы нақтылануда	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/ProductCard.tsx:49	Открыть →	Открыть →	Ашу →	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/ProductCard.tsx:49	Цена уточняется	Цена уточняется	Бағасы нақтылануда	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/ProductCard.tsx:51	Открыть →	Открыть →	Ашу →	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/ProductCarousel.tsx:40; src/routes/cake-preorder.tsx:315	Назад	Назад	Артқа	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/ProductCarousel.tsx:47; src/routes/cake-preorder.tsx:324	Далее	Далее	Келесі	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/PromotionCard.tsx:53	Спецпредложение	Спецпредложение	Арнайы ұсыныс	DRAFT_REQUIRES_KK_EDITORIAL

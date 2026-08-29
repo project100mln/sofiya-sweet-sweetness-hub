@@ -98,7 +98,7 @@ export function StoresPage() {
                 setQ("");
               }}
               aria-pressed={cityId === city.id}
-              className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold border ${cityId === city.id ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary"}`}
+              className={`inline-flex min-h-11 shrink-0 items-center rounded-full px-4 py-2 text-sm font-semibold border ${cityId === city.id ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border hover:border-primary"}`}
             >
               {city[locale]}{" "}
               <span className="text-xs opacity-70">

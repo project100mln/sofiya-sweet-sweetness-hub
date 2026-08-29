@@ -90,7 +90,7 @@ export function CareerPage() {
               { i: Sparkles, t: "Разные направления", d: "Пекари, кондитеры, бариста, менеджеры." },
             ]
         ).map(({ i: Icon, t, d }) => (
-          <div key={t} className="premium-card p-6">
+          <div key={t} className="localization-equal-card premium-card h-full p-6">
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
               <Icon className="h-6 w-6" />
             </div>

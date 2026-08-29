@@ -76,6 +76,11 @@ html[lang="kk-KZ"] {
   --font-display: "Inter", system-ui, -apple-system, sans-serif;
 }
 
+html[lang="kk-KZ"] :where(h1, h2, h3, h4, p, a, button, label, dt, dd) {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
@@ -153,6 +158,12 @@ html[lang="kk-KZ"] {
     transform 180ms ease;
 }
 
+.site-header-link {
+  min-width: 0;
+  text-align: center;
+  white-space: nowrap;
+}
+
 .site-header-link:hover::after,
 .site-header-link-active::after {
   opacity: 1;
@@ -195,6 +206,10 @@ html[lang="kk-KZ"] {
 
 .hero-title {
   text-wrap: wrap;
+}
+
+html[lang="kk-KZ"] .hero-title {
+  line-height: 1.03;
 }
 
 @keyframes hero-image-arrive {
@@ -339,6 +354,7 @@ html[lang="kk-KZ"] {
 }
 
 .premium-card {
+  min-width: 0;
   border: 1px solid color-mix(in oklab, var(--border) 88%, white);
   border-radius: 1.75rem;
   background: var(--card);
@@ -347,6 +363,16 @@ html[lang="kk-KZ"] {
     border-color 200ms ease,
     box-shadow 240ms ease,
     transform 240ms ease;
+}
+
+.product-carousel-item {
+  align-self: stretch;
+}
+
+.product-card-title,
+.news-card h3,
+.category-card-title {
+  text-wrap: balance;
 }
 
 .premium-card:hover {
@@ -371,6 +397,10 @@ html[lang="kk-KZ"] {
     box-shadow 0.2s ease,
     transform 0.2s ease;
   min-height: 44px;
+  min-width: 0;
+  line-height: 1.25;
+  text-align: center;
+  white-space: normal;
 }
 @utility btn-primary-hover {
   &:hover {
@@ -396,6 +426,10 @@ html[lang="kk-KZ"] {
     color 0.2s ease,
     border-color 0.2s ease;
   min-height: 44px;
+  min-width: 0;
+  line-height: 1.25;
+  text-align: center;
+  white-space: normal;
 }
 @utility btn-outline-hover {
   &:hover {
@@ -416,6 +450,89 @@ html[lang="kk-KZ"] {
 }
 .animate-fade-up {
   animation: fade-up 0.6s ease-out both;
+}
+
+html[lang="kk-KZ"] .product-card-description,
+html[lang="kk-KZ"] .news-card-description {
+  display: block;
+  overflow: visible;
+  -webkit-box-orient: initial;
+  -webkit-line-clamp: unset;
+}
+
+html[lang="kk-KZ"] .product-card-description {
+  line-height: 1.45;
+}
+
+html[lang="kk-KZ"] .news-card-description {
+  line-height: 1.5;
+}
+
+html[lang="kk-KZ"] .loyalty-story-title,
+html[lang="kk-KZ"] .loyalty-story-description,
+html[lang="kk-KZ"] .loyalty-reminder-cta {
+  text-wrap: balance;
+}
+
+@media (min-width: 1280px) and (max-width: 1399px) {
+  html[lang="kk-KZ"] .site-header-shell {
+    gap: 0.5rem;
+    padding-inline: 1.25rem;
+  }
+
+  html[lang="kk-KZ"] .site-header-link {
+    padding-inline: 0.65rem;
+    font-size: 0.84rem;
+  }
+
+  html[lang="kk-KZ"] .site-header-phone {
+    display: none;
+  }
+}
+
+@media (max-width: 639px) {
+  html[lang="kk-KZ"] .page-title {
+    font-size: clamp(2rem, 10.5vw, 2.5rem);
+    line-height: 1.06;
+  }
+
+  html[lang="kk-KZ"] .category-card-media {
+    min-height: 11.75rem;
+    aspect-ratio: 4 / 5;
+  }
+
+  html[lang="kk-KZ"] .category-card-copy {
+    padding: 1rem;
+  }
+
+  html[lang="kk-KZ"] .category-card-title {
+    font-size: clamp(1rem, 4.5vw, 1.2rem);
+    line-height: 1.15;
+  }
+
+  html[lang="kk-KZ"] .category-card-description {
+    font-size: 0.75rem;
+    line-height: 1.25;
+    text-wrap: pretty;
+  }
+
+  html[lang="kk-KZ"] .loyalty-mobile-overlay-copy {
+    padding-inline: 1.1rem;
+  }
+
+  html[lang="kk-KZ"] .loyalty-mobile-overlay-copy .loyalty-story-title {
+    font-size: clamp(1.55rem, 8.4vw, 1.85rem);
+    line-height: 1.03;
+  }
+
+  html[lang="kk-KZ"] .loyalty-mobile-overlay-copy .loyalty-story-description {
+    font-size: 0.75rem;
+    line-height: 1.15rem;
+  }
+
+  html[lang="kk-KZ"] .footer-copyright {
+    white-space: normal;
+  }
 }
 
 @keyframes loyalty-story-arrive {

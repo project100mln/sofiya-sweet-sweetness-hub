@@ -94,7 +94,7 @@ export function CateringPage() {
             const Icon = service.i;
             const copy = service[locale];
             return (
-              <div key={service.id} className="premium-card p-6">
+              <div key={service.id} className="localization-equal-card premium-card h-full p-6">
                 <div className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
                   <Icon className="h-6 w-6" />
                 </div>

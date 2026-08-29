@@ -58,7 +58,10 @@ export function ProductCarousel({
         className="no-scrollbar flex gap-5 overflow-x-auto snap-x snap-mandatory pb-2 -mx-4 px-4 md:mx-0 md:px-0"
       >
         {items.map((p) => (
-          <div key={p.id} className="snap-start shrink-0 w-[78%] sm:w-[46%] md:w-[32%] lg:w-[24%]">
+          <div
+            key={p.id}
+            className="product-carousel-item snap-start h-auto shrink-0 w-[78%] sm:w-[46%] md:w-[32%] lg:w-[24%]"
+          >
             <ProductCard p={p} />
           </div>
         ))}

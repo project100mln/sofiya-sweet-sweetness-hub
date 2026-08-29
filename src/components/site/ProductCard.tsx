@@ -10,7 +10,7 @@ export function ProductCard({ p }: { p: Product }) {
       params={{ slug: p.slug }}
       data-testid="product-card"
       aria-label={`${p.name}, ${p.price ? `${formatPrice(p.price, locale)} ${t("тенге")}` : t("цена уточняется")}`}
-      className="premium-card group flex flex-col overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+      className="product-card premium-card group flex h-full min-w-0 flex-col overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-muted">
         <img
@@ -37,12 +37,14 @@ export function ProductCard({ p }: { p: Product }) {
           )}
         </div>
       </div>
-      <div className="p-5 flex flex-col flex-1">
-        <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+      <div className="product-card-content p-5 flex min-w-0 flex-1 flex-col">
+        <h3 className="product-card-title text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
           {p.name}
         </h3>
-        <p className="mt-1.5 text-sm text-muted-foreground line-clamp-2">{p.shortDescription}</p>
-        <div className="mt-4 flex items-center justify-between pt-4 border-t border-border/60">
+        <p className="product-card-description mb-auto mt-1.5 pb-4 text-sm text-muted-foreground line-clamp-2">
+          {p.shortDescription}
+        </p>
+        <div className="product-card-meta mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-border/60 pt-4">
           <span className="font-semibold text-foreground" data-testid="product-price">
             {p.price ? `${formatPrice(p.price, locale)} ₸` : t("Цена уточняется")}
           </span>

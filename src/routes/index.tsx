@@ -158,7 +158,7 @@ export function Home() {
           <LocaleLink
             to="/catalog"
             search={{ cat: "breakfast" }}
-            className="group relative overflow-hidden rounded-[2rem] aspect-[4/3] shadow-soft"
+            className="home-feature-card group relative min-h-[20rem] overflow-hidden rounded-[2rem] shadow-soft md:min-h-0 md:aspect-[4/3]"
           >
             <img
               src={IMG.beignets}
@@ -183,7 +183,7 @@ export function Home() {
           <LocaleLink
             to="/catalog"
             search={{ cat: "pizza" }}
-            className="group relative overflow-hidden rounded-[2rem] aspect-[4/3] shadow-soft"
+            className="home-feature-card group relative min-h-[20rem] overflow-hidden rounded-[2rem] shadow-soft md:min-h-0 md:aspect-[4/3]"
           >
             <img
               src={pizzaImage ?? IMG.tartAssorti}

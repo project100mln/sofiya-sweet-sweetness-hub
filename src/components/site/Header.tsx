@@ -82,7 +82,7 @@ export function Header() {
               to={localizeHref(currentHref, "kk") as never}
               lang="kk"
               aria-current={locale === "kk" ? "page" : undefined}
-              className={`rounded-full px-2.5 py-1.5 ${locale === "kk" ? "bg-primary text-primary-foreground" : "text-foreground/70 hover:text-primary"}`}
+              className={`inline-flex min-h-11 items-center rounded-full px-2.5 py-1.5 ${locale === "kk" ? "bg-primary text-primary-foreground" : "text-foreground/70 hover:text-primary"}`}
             >
               Қазақша
             </Link>
@@ -90,14 +90,14 @@ export function Header() {
               to={localizeHref(currentHref, "ru") as never}
               lang="ru"
               aria-current={locale === "ru" ? "page" : undefined}
-              className={`rounded-full px-2.5 py-1.5 ${locale === "ru" ? "bg-primary text-primary-foreground" : "text-foreground/70 hover:text-primary"}`}
+              className={`inline-flex min-h-11 items-center rounded-full px-2.5 py-1.5 ${locale === "ru" ? "bg-primary text-primary-foreground" : "text-foreground/70 hover:text-primary"}`}
             >
               Русский
             </Link>
           </div>
           <a
             href={`tel:${site.whatsappDigits}`}
-            className="hidden items-center gap-2.5 whitespace-nowrap text-[0.94rem] font-semibold text-foreground/85 transition-colors hover:text-primary md:inline-flex"
+            className="site-header-phone hidden min-h-11 items-center gap-2.5 whitespace-nowrap text-[0.94rem] font-semibold text-foreground/85 transition-colors hover:text-primary md:inline-flex"
             aria-label={`${t("Позвонить")}: ${site.phone}`}
           >
             <Phone className="h-4 w-4 text-gold" aria-hidden />
@@ -177,7 +177,7 @@ export function Header() {
                     lang="kk"
                     onClick={closeMenu}
                     aria-current={locale === "kk" ? "page" : undefined}
-                    className={`flex-1 rounded-xl px-3 py-2 text-center ${locale === "kk" ? "bg-primary text-primary-foreground" : "text-foreground/75"}`}
+                    className={`inline-flex min-h-11 flex-1 items-center justify-center rounded-xl px-3 py-2 text-center ${locale === "kk" ? "bg-primary text-primary-foreground" : "text-foreground/75"}`}
                   >
                     Қазақша
                   </Link>
@@ -186,7 +186,7 @@ export function Header() {
                     lang="ru"
                     onClick={closeMenu}
                     aria-current={locale === "ru" ? "page" : undefined}
-                    className={`flex-1 rounded-xl px-3 py-2 text-center ${locale === "ru" ? "bg-primary text-primary-foreground" : "text-foreground/75"}`}
+                    className={`inline-flex min-h-11 flex-1 items-center justify-center rounded-xl px-3 py-2 text-center ${locale === "ru" ? "bg-primary text-primary-foreground" : "text-foreground/75"}`}
                   >
                     Русский
                   </Link>

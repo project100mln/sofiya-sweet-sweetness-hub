@@ -86,7 +86,7 @@ export function CatalogPage() {
         <div className="no-scrollbar -mx-4 px-4 md:mx-0 md:px-0 flex gap-2 overflow-x-auto pb-2">
           <LocaleLink
             to="/catalog"
-            className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold border ${!search.cat ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border text-foreground hover:border-primary"}`}
+            className={`inline-flex min-h-11 shrink-0 items-center rounded-full px-4 py-2 text-sm font-semibold border ${!search.cat ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border text-foreground hover:border-primary"}`}
           >
             {t("Все")}
           </LocaleLink>
@@ -95,7 +95,7 @@ export function CatalogPage() {
               key={c.id}
               to="/catalog"
               search={(prev: CatalogSearch) => ({ ...prev, cat: c.slug })}
-              className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold border ${search.cat === c.slug ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border text-foreground hover:border-primary"}`}
+              className={`inline-flex min-h-11 shrink-0 items-center rounded-full px-4 py-2 text-sm font-semibold border ${search.cat === c.slug ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border text-foreground hover:border-primary"}`}
             >
               {c.name}
             </LocaleLink>
