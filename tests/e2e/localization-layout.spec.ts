@@ -18,6 +18,7 @@ const routes = [
   "/privacy",
   "/terms",
   "/catalog/tort-praga",
+  "/catalog/profitroli",
   "/news/rastyom-po-turkistanu",
   "/promotions/samsa-happy-hours",
 ] as const;
