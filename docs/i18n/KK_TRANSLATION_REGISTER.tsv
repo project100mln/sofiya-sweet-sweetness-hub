@@ -316,7 +316,7 @@ store	src/i18n/content.ts	улица Уалиханова, 213/13	улица У�
 store	src/i18n/content.ts	улица Юсуфа Сареми, 66А	улица Юсуфа Сареми, 66А	Юсуф Сареми көшесі, 66А	DRAFT_REQUIRES_KK_EDITORIAL
 store	src/i18n/content.ts	Центр	Центр	Орталық	DRAFT_REQUIRES_KK_EDITORIAL
 store	src/i18n/content.ts	Шымкент	Шымкент	Шымкент	DRAFT_REQUIRES_KK_EDITORIAL
-structured-ui	/promotions/{slug}#hours	promotion-hours	Ежедневно с {from} до {to}	Күн сайын {from}–{to}	DRAFT_REQUIRES_KK_EDITORIAL
+structured-ui	/promotions/{slug}#hours	promotion-hours	Ежедневно с {from} до {to}	Күн сайын {from} бастап –{to} дейін	DRAFT_REQUIRES_KK_EDITORIAL
 structured-ui	src/config/navigation.ts#nav	[0]	Главная	Басты бет	DRAFT_REQUIRES_KK_EDITORIAL
 structured-ui	src/config/navigation.ts#nav	[1]	Каталог	Каталог	DRAFT_REQUIRES_KK_EDITORIAL
 structured-ui	src/config/navigation.ts#nav	[2]	Акции	Акциялар	DRAFT_REQUIRES_KK_EDITORIAL
@@ -573,8 +573,8 @@ ui-message	src/routes/index.tsx:111	Торт к событию	Торт к со�
 ui-message	src/routes/index.tsx:113	Соберите онлайн — заберите в удобной точке.	Соберите онлайн — заберите в удобной точке.	Онлайн құрастырып, ыңғайлы дүкеннен алып кетіңіз.	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/index.tsx:123	Кейтеринг SOFIYA	Кейтеринг SOFIYA	SOFIYA кейтерингі	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/index.tsx:132	Для офисов, событий и больших встреч.	Для офисов, событий и больших встреч.	Кеңселерге, іс-шараларға және үлкен кездесулерге.	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:143	Оформите торт к вашему празднику.	Оформите торт к вашему празднику.	Мерекеңізге арналған тортқа тапсырыс беріңіз.	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:150	Оформить	Оформить	Тапсырыс беру	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:143	Оформите торт к вашему празднику.	Оформите торт к вашему празднику.	Мерекеңізге арналған тортты рәсімдеңіз.	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:150	Оформить	Оформить	Рәсімдеу	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/index.tsx:165	Завтраки в SOFIYA	Завтраки в SOFIYA	SOFIYA-дағы таңғы ас	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/index.tsx:172	Завтраки	Завтраки	Таңғы ас	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/index.tsx:174	Кофе, тёплая выпечка и лёгкие блюда. Загляните с утра — начните день правильно.	Кофе, тёплая выпечка и лёгкие блюда. Загляните с утра — начните день правильно.	Кофе, жылы пісірмелер және жеңіл тағамдар. Таңертең келіп, күніңізді жақсы бастаңыз.	DRAFT_REQUIRES_KK_EDITORIAL
