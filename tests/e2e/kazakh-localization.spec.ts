@@ -345,7 +345,7 @@ test("Kazakh product, news and promotion details use localized copy and payloads
   await expect(
     page.getByRole("heading", { level: 1, name: "Тартылған етті самсалар" }),
   ).toBeVisible();
-  await expect(page.getByText("Күн сайын 20:00 бастап –22:00 дейін", { exact: true })).toBeVisible();
+  await expect(\n    page.getByText("Күн сайын 20:00 бастап –22:00 дейін", { exact: true }),\n  ).toBeVisible();
   await expect(page.getByText("Мини самса", { exact: true })).toBeVisible();
   expect(
     decodeURIComponent(
