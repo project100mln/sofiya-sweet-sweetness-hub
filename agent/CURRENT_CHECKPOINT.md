@@ -1,5 +1,24 @@
 # Current checkpoint
 
+## 2026-09-11 — isolated hero/favicon task
+
+- Branch: `agent/sofiya-hero-favicon-20260911`, based on current main
+  `95797652c06e8c1dc14e0a57498084f3c0342649`.
+- The first-slide seam was reproduced on production in RU/KK at 1363 × 936.
+  The duplicate 76%-width photo layer is removed in the local candidate.
+- Original SOFIYA heart SVG and 16/32/48 ICO are prepared with versioned links.
+- Local format/lint/types, 27 unit tests, translation invariance, both builds,
+  Worker verification, bilingual SSR, icon HTTP checks and secret scan passed.
+- Visual acceptance is BLOCKED: Cloud Browser cannot reach local preview;
+  Cloudflare dashboard requires human verification. Responsive after screenshots,
+  actual browser-tab favicon and browser regression remain pending.
+- Push is withheld until external build triggers are verified. No PR, merge,
+  production deploy, DNS or hosting changes were made.
+- Detailed evidence and remaining checks:
+  `docs/qa/hero-favicon-20260911/REPORT.md`.
+
+## Historical public-site checkpoint (previous task)
+
 - Branch: `agent/polish-public-site-v1`
 - Base: `main` at `7f38a8ef401e9af256285a9fab4c6374f96779cb`
 - Scope: Public Site v1 as defined in `docs/PUBLIC_SITE_V1.md`
