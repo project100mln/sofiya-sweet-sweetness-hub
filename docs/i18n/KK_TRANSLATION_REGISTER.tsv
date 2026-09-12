@@ -422,12 +422,12 @@ ui-message	src/components/site/Header.tsx:200	Написать в WhatsApp	На�
 ui-message	src/components/site/Header.tsx:44	SOFIYA — на главную	SOFIYA — на главную	SOFIYA — басты бетке	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/Header.tsx:58	Основная навигация	Основная навигация	Негізгі навигация	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/Header.tsx:79	Выбор языка	Выбор языка	Тілді таңдау	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/HeroCarousel.tsx:176	карусель	карусель	карусель	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/HeroCarousel.tsx:177	Предложения SOFIYA	Предложения SOFIYA	SOFIYA ұсыныстары	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/HeroCarousel.tsx:236	Предыдущий слайд	Предыдущий слайд	Алдыңғы слайд	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/HeroCarousel.tsx:242	Слайды	Слайды	Слайдтар	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/HeroCarousel.tsx:248	Слайд	Слайд	Слайд	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/HeroCarousel.tsx:262	Следующий слайд	Следующий слайд	Келесі слайд	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/HeroCarousel.tsx:174	карусель	карусель	карусель	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/HeroCarousel.tsx:175	Предложения SOFIYA	Предложения SOFIYA	SOFIYA ұсыныстары	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/HeroCarousel.tsx:223	Предыдущий слайд	Предыдущий слайд	Алдыңғы слайд	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/HeroCarousel.tsx:229	Слайды	Слайды	Слайдтар	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/HeroCarousel.tsx:235	Слайд	Слайд	Слайд	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/HeroCarousel.tsx:249	Следующий слайд	Следующий слайд	Келесі слайд	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/NewsCard.tsx:12	Открыть событие	Открыть событие	Оқиғаны ашу	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/NewsCard.tsx:13	Перейти к программе лояльности	Перейти к программе лояльности	Адалдық бағдарламасына өту	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/NewsCard.tsx:14	Перейти к заказу торта	Перейти к заказу торта	Торт тапсырысына өту	DRAFT_REQUIRES_KK_EDITORIAL
@@ -448,7 +448,7 @@ ui-message	src/components/site/PromotionCard.tsx:95	Подробнее об ак
 ui-message	src/components/site/StoreCard.tsx:41	На карте	На карте	Картада	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/StoreCard.tsx:41	Показать на карте	Показать на карте	Картадан көрсету	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/StoreCard.tsx:51	Маршрут в 2GIS →	Маршрут в 2GIS →	2GIS-тегі бағыт →	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/__root.tsx:131	Перейти к содержимому	Перейти к содержимому	Мазмұнға өту	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/__root.tsx:142	Перейти к содержимому	Перейти к содержимому	Мазмұнға өту	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/__root.tsx:23	Страница не найдена | SOFIYA	Страница не найдена | SOFIYA	Бет табылмады | SOFIYA	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/__root.tsx:24; src/routes/__root.tsx:41	Возможно, страница была перемещена или её адрес изменился.	Возможно, страница была перемещена или её адрес изменился.	Бет басқа жерге ауыстырылған немесе оның мекенжайы өзгерген болуы мүмкін.	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/__root.tsx:39	Страница не найдена	Страница не найдена	Бет табылмады	DRAFT_REQUIRES_KK_EDITORIAL

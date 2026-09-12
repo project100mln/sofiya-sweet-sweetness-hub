@@ -13,7 +13,6 @@ interface Slide {
   imageHd?: string;
   imageAlt: string;
   imagePosition?: string;
-  productFocus?: boolean;
   search?: Record<string, string>;
   kk: Pick<Slide, "eyebrow" | "title" | "desc" | "cta" | "imageAlt">;
 }
@@ -40,8 +39,7 @@ const slides: Slide[] = [
     image: IMG.cakeBerry,
     imageHd: IMG.cakeBerryHd,
     imageAlt: "Фирменный торт SOFIYA с ягодами и логотипом",
-    imagePosition: "56% 48%",
-    productFocus: true,
+    imagePosition: "56% 32%",
     search: { cat: "cakes" },
     kk: {
       eyebrow: "SOFIYA — 2014 жылдан бері",
@@ -188,17 +186,6 @@ export function HeroCarousel() {
           style={{ objectPosition: s.imagePosition }}
           fetchPriority={i === 0 ? "high" : "auto"}
         />
-        {s.productFocus && (
-          <img
-            src={s.image}
-            srcSet={s.imageHd ? `${s.image} 1280w, ${s.imageHd} 2560w` : undefined}
-            sizes="(min-width: 768px) 76vw, 100vw"
-            alt=""
-            className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[76%] select-none object-cover md:block"
-            style={{ objectPosition: "50% 48%" }}
-            aria-hidden
-          />
-        )}
         <div className="hero-overlay absolute inset-0" aria-hidden />
 
         <div
