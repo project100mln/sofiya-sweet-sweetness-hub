@@ -6,6 +6,7 @@ import { SiTiktok } from "react-icons/si";
 import { LocaleLink, useI18n } from "@/i18n";
 import { getCatalog } from "@/i18n/catalog";
 import { localizedSiteRegion } from "@/i18n/content";
+import { CatalogCategoryLink } from "@/components/site/CatalogCategoryLink";
 
 export function Footer() {
   const { t, pick, locale } = useI18n();
@@ -63,13 +64,12 @@ export function Footer() {
           <ul className="mt-4 space-y-2 text-sm">
             {categories.slice(0, 7).map((c) => (
               <li key={c.id}>
-                <LocaleLink
-                  to="/catalog"
-                  search={{ cat: c.slug }}
+                <CatalogCategoryLink
+                  category={c}
                   className="text-white/85 hover:text-[color:var(--gold)]"
                 >
                   {c.name}
-                </LocaleLink>
+                </CatalogCategoryLink>
               </li>
             ))}
           </ul>

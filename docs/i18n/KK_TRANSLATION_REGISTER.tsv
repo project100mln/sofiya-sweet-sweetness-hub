@@ -1,4 +1,23 @@
 section	context	id	ru_source	kk_draft	review_status
+cake-preorder-content	/cake-preorder	preorder-content.cards[0].description	Укажите торт «Сникерс» или опишите собственный вариант вкуса.	«Сникерс» тортын таңдаңыз немесе өзіңіз қалаған дәм нұсқасын сипаттаңыз.	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.cards[0].title	Выберите вариант	Торт нұсқасын таңдаңыз	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.cards[1].description	Выберите размер, количество порций, дату и удобную точку самовывоза.	Өлшемін, порция санын, күнін және алып кетуге ыңғайлы дүкенді таңдаңыз.	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.cards[1].title	Добавьте параметры	Параметрлерді көрсетіңіз	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.cards[2].description	Проверьте подготовленный текст и самостоятельно отправьте его менеджеру в WhatsApp.	Дайын мәтінді тексеріп, оны WhatsApp арқылы менеджерге өзіңіз жіберіңіз.	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.cards[2].title	Отправьте сообщение	Хабарламаны жіберіңіз	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.faq[0].answer	Заполните 11 шагов конструктора: выберите вариант, размер, количество порций, дату, время и магазин, затем укажите контактные данные.	Конструктордың 11 қадамын толтырыңыз: торт нұсқасын, өлшемін, порция санын, күнін, уақытын және дүкенді таңдаңыз, содан кейін байланыс деректерін көрсетіңіз.	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.faq[0].question	Как оформить торт на заказ?	Тортқа қалай тапсырыс беруге болады?	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.faq[1].answer	После последнего шага сайт откроет WhatsApp с подготовленным текстом. Заявка поступит менеджеру только после того, как вы нажмёте «Отправить» в WhatsApp.	Соңғы қадамнан кейін сайт дайын мәтіні бар WhatsApp терезесін ашады. Өтінім WhatsApp-та «Жіберу» батырмасын басқаннан кейін ғана менеджерге түседі.	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.faq[1].question	Когда заявка поступит менеджеру?	Өтінім менеджерге қашан түседі?	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.faq[2].answer	Итоговая стоимость зависит от выбранных параметров и индивидуальных пожеланий. Менеджер уточнит детали и подтвердит стоимость в WhatsApp.	Соңғы баға таңдалған параметрлер мен жеке тілектерге байланысты. Менеджер мәліметтерді нақтылап, бағасын WhatsApp арқылы растайды.	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.faq[2].question	Как узнать точную стоимость?	Нақты бағасын қалай білуге болады?	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.faq[3].answer	В конструкторе можно выбрать точку самовывоза из опубликованного списка магазинов SOFIYA. Адрес и время получения подтверждает менеджер.	Конструкторда SOFIYA дүкендерінің жарияланған тізімінен алып кету орнын таңдауға болады. Мекенжай мен алу уақытын менеджер растайды.	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.faq[3].question	Где получить готовый торт?	Дайын тортты қайдан алуға болады?	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.faqTitle	Вопросы о тортах на заказ	Тапсырыспен дайындалатын торттар туралы сұрақтар	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.lead	Выберите тип и размер торта, укажите дату события и точку самовывоза. Сайт подготовит сообщение для WhatsApp.	Торт түрі мен өлшемін таңдап, іс-шара күнін және алып кету дүкенін көрсетіңіз. Сайт WhatsApp үшін дайын хабарлама жасайды.	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.notice	Форма не подтверждает заказ автоматически. Стоимость, наличие выбранного варианта и возможность изготовления к указанной дате подтверждает менеджер после получения сообщения в WhatsApp.	Нысан тапсырысты автоматты түрде растамайды. Таңдалған нұсқаның бағасын, қолжетімділігін және көрсетілген күнге дайындау мүмкіндігін менеджер WhatsApp-та хабарлама алғаннан кейін растайды.	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.noticeTitle	Перед оформлением	Рәсімдеу алдында	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.title	Торты на заказ в Шымкенте	Шымкентте тапсырыспен дайындалатын торттар	DRAFT_REQUIRES_KK_EDITORIAL
 cake-steps	/cake-preorder	step[0]	Тип торта	Торт түрі	DRAFT_REQUIRES_KK_EDITORIAL
 cake-steps	/cake-preorder	step[1]	Размер	Өлшемі	DRAFT_REQUIRES_KK_EDITORIAL
 cake-steps	/cake-preorder	step[10]	Готово	Дайын	DRAFT_REQUIRES_KK_EDITORIAL
@@ -154,18 +173,19 @@ conditional-ui	src/routes/about.tsx:87	locale-branch[2].d	Создаём тёп�
 conditional-ui	src/routes/about.tsx:87	locale-branch[2].t	Забота	Қамқорлық	DRAFT_REQUIRES_KK_EDITORIAL
 conditional-ui	src/routes/about.tsx:87	locale-branch[3].d	Расширяем ассортимент и делаем любимые вкусы доступнее.	Ассортиментті кеңейтіп, сүйікті дәмдерді қолжетімді етеміз.	DRAFT_REQUIRES_KK_EDITORIAL
 conditional-ui	src/routes/about.tsx:87	locale-branch[3].t	Развитие	Даму	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/cake-preorder.tsx:53	locale-branch[0]	Тип торта	Торт түрі	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/cake-preorder.tsx:53	locale-branch[1]	Размер	Өлшемі	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/cake-preorder.tsx:53	locale-branch[10]	Готово	Дайын	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/cake-preorder.tsx:53	locale-branch[2]	Порции	Порция	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/cake-preorder.tsx:53	locale-branch[3]	Дата	Күні	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/cake-preorder.tsx:53	locale-branch[4]	Точка	Дүкен	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/cake-preorder.tsx:53	locale-branch[5]	Время	Уақыты	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/cake-preorder.tsx:53	locale-branch[6]	Упаковка	Қаптама	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/cake-preorder.tsx:53	locale-branch[7]	Имя	Аты	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/cake-preorder.tsx:53	locale-branch[8]	Телефон	Телефон	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/cake-preorder.tsx:53	locale-branch[9]	Комментарий	Пікір	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/cake-preorder.tsx:93	locale-branch	Здравствуйте, SOFIYA! Хочу оформить торт на заказ:\nТип: ${cakeType}\nРазмер: ${optionLabel(SIZES, data.size)}\nПорций: ${data.servings ?? "—"}\nДата: ${data.date ?? "—"}\nВремя: ${data.time ?? "—"}\nТочка самовывоза: ${pickup}\nУпаковка: ${optionLabel(PACKAGING, data.packaging)}\nИмя: ${data.name ?? "—"}\nТелефон: ${data.phone ?? "—"}\nКомментарий: ${data.comment || "—"}	Сәлеметсіз бе, SOFIYA! Тапсырыспен торт рәсімдегім келеді:\nТүрі: ${cakeType}\nӨлшемі: ${optionLabel(SIZES, data.size)}\nПорция саны: ${data.servings ?? "—"}\nКүні: ${data.date ?? "—"}\nУақыты: ${data.time ?? "—"}\nАлып кету дүкені: ${pickup}\nҚаптама: ${optionLabel(PACKAGING, data.packaging)}\nАты: ${data.name ?? "—"}\nТелефон: ${data.phone ?? "—"}\nПікір: ${data.comment || "—"}	DRAFT_REQUIRES_KK_LEGAL_AND_EDITORIAL
+conditional-ui	src/routes/cake-preorder.tsx:147	locale-branch[0]	Тип торта	Торт түрі	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/cake-preorder.tsx:147	locale-branch[1]	Размер	Өлшемі	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/cake-preorder.tsx:147	locale-branch[10]	Готово	Дайын	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/cake-preorder.tsx:147	locale-branch[2]	Порции	Порция	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/cake-preorder.tsx:147	locale-branch[3]	Дата	Күні	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/cake-preorder.tsx:147	locale-branch[4]	Точка	Дүкен	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/cake-preorder.tsx:147	locale-branch[5]	Время	Уақыты	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/cake-preorder.tsx:147	locale-branch[6]	Упаковка	Қаптама	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/cake-preorder.tsx:147	locale-branch[7]	Имя	Аты	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/cake-preorder.tsx:147	locale-branch[8]	Телефон	Телефон	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/cake-preorder.tsx:147	locale-branch[9]	Комментарий	Пікір	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/cake-preorder.tsx:188	locale-branch	Здравствуйте, SOFIYA! Хочу оформить торт на заказ:\nТип: ${cakeType}\nРазмер: ${optionLabel(SIZES, data.size)}\nПорций: ${data.servings ?? "—"}\nДата: ${data.date ?? "—"}\nВремя: ${data.time ?? "—"}\nТочка самовывоза: ${pickup}\nУпаковка: ${optionLabel(PACKAGING, data.packaging)}\nИмя: ${data.name ?? "—"}\nТелефон: ${data.phone ?? "—"}\nКомментарий: ${data.comment || "—"}	Сәлеметсіз бе, SOFIYA! Тапсырыспен торт рәсімдегім келеді:\nТүрі: ${cakeType}\nӨлшемі: ${optionLabel(SIZES, data.size)}\nПорция саны: ${data.servings ?? "—"}\nКүні: ${data.date ?? "—"}\nУақыты: ${data.time ?? "—"}\nАлып кету дүкені: ${pickup}\nҚаптама: ${optionLabel(PACKAGING, data.packaging)}\nАты: ${data.name ?? "—"}\nТелефон: ${data.phone ?? "—"}\nПікір: ${data.comment || "—"}	DRAFT_REQUIRES_KK_LEGAL_AND_EDITORIAL
+conditional-ui	src/routes/cake-preorder.tsx:272	locale-branch	Каталог тортов	Торттар каталогы	DRAFT_REQUIRES_KK_EDITORIAL
 conditional-ui	src/routes/career.tsx:34	locale-branch	Здравствуйте, SOFIYA! Отклик на вакансию:\nНаправление: ${positionLabel}\nИмя: ${f.name}\nТелефон: ${f.phone}\nГород: ${f.city}\nО себе: ${f.comment || "—"}	Сәлеметсіз бе, SOFIYA! Бос жұмыс орнына жауап:\nБағыт: ${positionLabel}\nАты: ${f.name}\nТелефон: ${f.phone}\nҚала: ${f.city}\nӨзі туралы: ${f.comment || "—"}	DRAFT_REQUIRES_KK_LEGAL_AND_EDITORIAL
 conditional-ui	src/routes/career.tsx:75	locale-branch[0].d	Растите вместе с сетью.	Желімен бірге өсіңіз.	DRAFT_REQUIRES_KK_EDITORIAL
 conditional-ui	src/routes/career.tsx:75	locale-branch[0].t	Развитие	Даму	DRAFT_REQUIRES_KK_EDITORIAL
@@ -177,12 +197,12 @@ conditional-ui	src/routes/career.tsx:75	locale-branch[3].d	Пекари, кон�
 conditional-ui	src/routes/career.tsx:75	locale-branch[3].t	Разные направления	Түрлі бағыттар	DRAFT_REQUIRES_KK_EDITORIAL
 conditional-ui	src/routes/catering.tsx:43	locale-branch	Здравствуйте, SOFIYA! Заявка на кейтеринг:\nТип: ${serviceLabel}\nДата: ${f.date}\nГостей: ${f.guests}\nБюджет: ${f.budget || "—"}\nИмя: ${f.name}\nТелефон: ${f.phone}\nКомментарий: ${f.comment || "—"}	Сәлеметсіз бе, SOFIYA! Кейтерингке өтінім:\nТүрі: ${serviceLabel}\nКүні: ${f.date}\nҚонақтар саны: ${f.guests}\nБюджет: ${f.budget || "—"}\nАты: ${f.name}\nТелефон: ${f.phone}\nПікір: ${f.comment || "—"}	DRAFT_REQUIRES_KK_LEGAL_AND_EDITORIAL
 conditional-ui	src/routes/contacts.tsx:30	locale-branch	Здравствуйте, SOFIYA!\nИмя: ${f.name}\nТелефон: ${f.phone}\nСообщение: ${f.message}	Сәлеметсіз бе, SOFIYA!\nАты: ${f.name}\nТелефон: ${f.phone}\nХабарлама: ${f.message}	DRAFT_REQUIRES_KK_LEGAL_AND_EDITORIAL
-conditional-ui	src/routes/index.tsx:272	locale-branch[0][0]	Кофе-брейки	Кофе-брейктер	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/index.tsx:272	locale-branch[0][1]	для встреч и конференций	кездесулер мен конференцияларға	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/index.tsx:272	locale-branch[1][0]	Десертные столы	Десерт үстелдері	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/index.tsx:272	locale-branch[1][1]	для праздников и событий	мерекелер мен іс-шараларға	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/index.tsx:272	locale-branch[2][0]	Большие заказы	Үлкен тапсырыстар	DRAFT_REQUIRES_KK_EDITORIAL
-conditional-ui	src/routes/index.tsx:272	locale-branch[2][1]	для компаний и команд	компаниялар мен командаларға	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/index.tsx:268	locale-branch[0][0]	Кофе-брейки	Кофе-брейктер	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/index.tsx:268	locale-branch[0][1]	для встреч и конференций	кездесулер мен конференцияларға	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/index.tsx:268	locale-branch[1][0]	Десертные столы	Десерт үстелдері	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/index.tsx:268	locale-branch[1][1]	для праздников и событий	мерекелер мен іс-шараларға	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/index.tsx:268	locale-branch[2][0]	Большие заказы	Үлкен тапсырыстар	DRAFT_REQUIRES_KK_EDITORIAL
+conditional-ui	src/routes/index.tsx:268	locale-branch[2][1]	для компаний и команд	компаниялар мен командаларға	DRAFT_REQUIRES_KK_EDITORIAL
 dynamic-seo	news detail metadata	news.homeBreadcrumb	Главная	Басты бет	DRAFT_REQUIRES_KK_EDITORIAL
 dynamic-seo	news detail metadata	news.notFoundTitle	Новость не найдена	Жаңалық табылмады	DRAFT_REQUIRES_KK_EDITORIAL
 dynamic-seo	news detail metadata	news.pageTitlePattern	{name} | SOFIYA	{name} | SOFIYA	DRAFT_REQUIRES_KK_EDITORIAL
@@ -199,10 +219,14 @@ dynamic-seo	promotion detail metadata	promotion.notFoundTitle	Акция не н
 dynamic-seo	promotion detail metadata	promotion.pageTitlePattern	{name} — акция SOFIYA	{name} — SOFIYA акциясы	DRAFT_REQUIRES_KK_EDITORIAL
 dynamic-seo	promotion detail metadata	promotion.sectionBreadcrumb	Акции	Акциялар	DRAFT_REQUIRES_KK_EDITORIAL
 dynamic-seo	promotion detail metadata	promotion.socialTitlePattern	{name} — акция SOFIYA	{name} — SOFIYA акциясы	DRAFT_REQUIRES_KK_EDITORIAL
-dynamic-ui	src/components/site/Footer.tsx:24	pick	${site.brand} Sweet — сеть фирменных магазинов в Шымкенте и Туркестанской области. Свежая выпечка, авторские торты и десерты каждый день.	${site.brand} Sweet — Шымкент пен Түркістан облысындағы фирмалық дүкендер желісі. Күн сайын балғын пісірмелер, авторлық торттар мен десерттер.	DRAFT_REQUIRES_KK_EDITORIAL
+dynamic-ui	src/components/site/CatalogLandingPage.tsx:19	pick	Здравствуйте, SOFIYA! Хочу уточнить наличие товаров из категории «${category.name}».	Сәлеметсіз бе, SOFIYA! «${category.name}» санатындағы өнімдердің қолжетімділігін нақтылағым келеді.	DRAFT_REQUIRES_KK_EDITORIAL
+dynamic-ui	src/components/site/CatalogLandingPage.tsx:57	pick	Товаров в категории	Санаттағы өнімдер	DRAFT_REQUIRES_KK_EDITORIAL
+dynamic-ui	src/components/site/CatalogLandingPage.tsx:79	pick	Уточнить наличие	Қолжетімділігін нақтылау	DRAFT_REQUIRES_KK_EDITORIAL
+dynamic-ui	src/components/site/CatalogLandingPage.tsx:82	pick	Наличие конкретной позиции подтвердит менеджер. Сообщение откроется в WhatsApp — отправьте его самостоятельно.	Белгілі бір өнімнің қолжетімділігін менеджер растайды. Хабарлама WhatsApp-та ашылады — оны өзіңіз жіберіңіз.	DRAFT_REQUIRES_KK_EDITORIAL
+dynamic-ui	src/components/site/Footer.tsx:25	pick	${site.brand} Sweet — сеть фирменных магазинов в Шымкенте и Туркестанской области. Свежая выпечка, авторские торты и десерты каждый день.	${site.brand} Sweet — Шымкент пен Түркістан облысындағы фирмалық дүкендер желісі. Күн сайын балғын пісірмелер, авторлық торттар мен десерттер.	DRAFT_REQUIRES_KK_EDITORIAL
 dynamic-ui	src/components/site/StoreCard.tsx:64	pick	Здравствуйте, SOFIYA! Интересует магазин: ${s.address}.	Сәлеметсіз бе, SOFIYA! Мына дүкен туралы білгім келеді: ${s.address}.	DRAFT_REQUIRES_KK_EDITORIAL
-dynamic-ui	src/routes/catalog_.$slug.tsx:202	pick	Здравствуйте, SOFIYA! Меня интересует «${p.name}».	Сәлеметсіз бе, SOFIYA! Мені «${p.name}» өнімі қызықтырады.	DRAFT_REQUIRES_KK_EDITORIAL
-dynamic-ui	src/routes/index.tsx:238	pick	${stores.length} магазинов рядом	Жаныңызда ${stores.length} дүкен	DRAFT_REQUIRES_KK_EDITORIAL
+dynamic-ui	src/routes/catalog_.$slug.tsx:207	pick	Здравствуйте, SOFIYA! Меня интересует «${p.name}».	Сәлеметсіз бе, SOFIYA! Мені «${p.name}» өнімі қызықтырады.	DRAFT_REQUIRES_KK_EDITORIAL
+dynamic-ui	src/routes/index.tsx:234	pick	${stores.length} магазинов рядом	Жаныңызда ${stores.length} дүкен	DRAFT_REQUIRES_KK_EDITORIAL
 dynamic-ui	src/routes/promotions_.$slug.tsx:138	pick	Здравствуйте, SOFIYA! Подскажите, пожалуйста, об акции «${promotion.title}».	Сәлеметсіз бе, SOFIYA! «${promotion.title}» акциясы туралы айтып беріңізші.	DRAFT_REQUIRES_KK_EDITORIAL
 dynamic-ui	src/routes/stores.tsx:73	pick	${stores.length} адресов в Шымкенте и Туркестанской области.	Шымкент пен Түркістан облысында ${stores.length} мекенжай.	DRAFT_REQUIRES_KK_EDITORIAL
 error-page	catastrophic HTTP 500	error-page.description	На нашей стороне произошла ошибка. Обновите страницу или вернитесь на главную.	Біздің тарапымызда қате пайда болды. Бетті жаңартыңыз немесе басты бетке оралыңыз.	DRAFT_REQUIRES_KK_EDITORIAL
@@ -253,12 +277,47 @@ promotion	/promotions/samsa-happy-hours#products	featured-samsa-happy-hours.prod
 promotion	/promotions/samsa-happy-hours#products	featured-samsa-happy-hours.product_names[1]	Самса №1	№1 самса	DRAFT_REQUIRES_KK_EDITORIAL
 promotion	/promotions/samsa-happy-hours#products	featured-samsa-happy-hours.product_names[2]	Самса пармуда	Пармуда самсасы	DRAFT_REQUIRES_KK_EDITORIAL
 promotion	/promotions/samsa-happy-hours#title	featured-samsa-happy-hours.title	Самсы с фаршем	Тартылған етті самсалар	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/cakes	cakes.description	Фирменные торты SOFIYA в Шымкенте: составы, вес и цены в каталоге. Выберите торт и уточните наличие в удобном магазине.	Шымкенттегі SOFIYA фирмалық торттары: құрамы, салмағы және бағасы каталогта. Тортты таңдап, дүкендегі қолжетімділігін нақтылаңыз.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/cakes	cakes.heading	Торты SOFIYA в Шымкенте	Шымкенттегі SOFIYA торттары	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/cakes	cakes.introTitle	Как выбрать торт в Шымкенте	Шымкентте тортты қалай таңдауға болады	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/cakes	cakes.lead	Фирменные торты для праздника и семейного стола — сравните состав, вес и цену в карточках каталога.	Мерекеге және отбасылық дастарқанға арналған фирмалық торттар — құрамы, салмағы мен бағасын каталогтан салыстырыңыз.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/cakes	cakes.paragraphs[0]	На этой странице собраны опубликованные торты SOFIYA. В карточке каждого торта указаны состав, доступный вес и цена, если она установлена в каталоге.	Бұл бетте SOFIYA каталогында жарияланған торттар ұсынылған. Әр торттың карточкасында құрамы, қолжетімді салмағы және каталогта белгіленген бағасы көрсетіледі.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/cakes	cakes.paragraphs[1]	Ассортимент и наличие могут отличаться по магазинам. Выберите подходящий вариант, откройте карточку товара и уточните наличие через WhatsApp или найдите ближайшую точку SOFIYA.	Ассортимент пен қолжетімділік дүкенге қарай өзгеруі мүмкін. Қажетті нұсқаны таңдап, өнім карточкасын ашыңыз және WhatsApp арқылы нақтылаңыз немесе жақын SOFIYA дүкенін табыңыз.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/cakes	cakes.title	Торты в Шымкенте — каталог и цены | SOFIYA	Шымкенттегі торттар — каталог және бағалар | SOFIYA	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/desserts	desserts.description	Порционные десерты и пирожные SOFIYA в Шымкенте: актуальный каталог, составы и цены. Уточните наличие в ближайшем магазине.	Шымкенттегі SOFIYA порциялық десерттері мен пирожныйлары: каталог, құрамы және бағалары. Жақын дүкендегі қолжетімділігін нақтылаңыз.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/desserts	desserts.heading	Десерты и пирожные в Шымкенте	Шымкенттегі десерттер мен пирожныйлар	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/desserts	desserts.introTitle	Порционные десерты SOFIYA	SOFIYA порциялық десерттері	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/desserts	desserts.lead	Трайфлы, рулеты, пирожные и другие порционные десерты SOFIYA с составами и ценами в карточках.	SOFIYA трайфлдары, рулеттері, пирожныйлары және басқа порциялық десерттері — құрамы мен бағасы карточкаларда көрсетілген.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/desserts	desserts.paragraphs[0]	Категория объединяет опубликованные порционные десерты SOFIYA. Карточки помогают сравнить название, состав и цену до обращения в магазин.	Бұл санатта SOFIYA каталогында жарияланған порциялық десерттер жинақталған. Карточкалар дүкенге хабарласпас бұрын атауын, құрамын және бағасын салыстыруға көмектеседі.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/desserts	desserts.paragraphs[1]	Наличие конкретного десерта зависит от точки и времени обращения. Перед поездкой можно уточнить выбранную позицию через WhatsApp, а адрес ближайшего магазина посмотреть на странице сети.	Белгілі бір десерттің қолжетімділігі дүкенге және өтініш уақытына байланысты. Бармас бұрын WhatsApp арқылы нақтылап, жақын дүкеннің мекенжайын желі парақшасынан көруге болады.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/desserts	desserts.title	Десерты и пирожные в Шымкенте | SOFIYA	Шымкенттегі десерттер мен пирожныйлар | SOFIYA	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/pastry	pastry.description	Выпечка SOFIYA в Шымкенте: булочки, слойки и другие позиции с составами и ценами. Выберите продукт и уточните наличие.	Шымкенттегі SOFIYA пісірмелері: тоқаштар, қатпарлы қамыр өнімдері, құрамы мен бағалары. Өнімді таңдап, қолжетімділігін нақтылаңыз.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/pastry	pastry.heading	Свежая выпечка SOFIYA в Шымкенте	Шымкенттегі SOFIYA балғын пісірмелері	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/pastry	pastry.introTitle	Выпечка из каталога SOFIYA	SOFIYA каталогындағы пісірмелер	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/pastry	pastry.lead	Булочки, слойки и сладкая выпечка из действующего каталога SOFIYA — выбирайте по составу и цене.	SOFIYA каталогындағы тоқаштар, қатпарлы қамыр өнімдері және тәтті пісірмелер — құрамы мен бағасы бойынша таңдаңыз.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/pastry	pastry.paragraphs[0]	На странице показана опубликованная выпечка SOFIYA с фотографиями, кратким описанием и ценой. Можно открыть карточку и заранее проверить состав выбранной позиции.	Бұл бетте SOFIYA каталогында жарияланған пісірмелер фотосуретімен, қысқаша сипаттамасымен және бағасымен көрсетілген. Өнім карточкасын ашып, құрамын алдын ала тексеруге болады.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/pastry	pastry.paragraphs[1]	Фактическое наличие зависит от магазина. Для уточнения используйте WhatsApp, а для выбора удобной точки — страницу с адресами и режимом работы магазинов SOFIYA.	Нақты қолжетімділік дүкенге байланысты. WhatsApp арқылы нақтылаңыз, ал ыңғайлы дүкенді таңдау үшін SOFIYA дүкендерінің мекенжайлары мен жұмыс уақытын қараңыз.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/pastry	pastry.title	Свежая выпечка в Шымкенте — каталог | SOFIYA	Шымкенттегі балғын пісірмелер — каталог | SOFIYA	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/pies	pies.description	Пироги SOFIYA в Шымкенте: медовые, творожные и другие позиции с составами и ценами. Выберите пирог в каталоге.	Шымкенттегі SOFIYA бәліштері: балды, сүзбелі және басқа өнімдердің құрамы мен бағалары. Каталогтан бәліш таңдаңыз.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/pies	pies.heading	Пироги SOFIYA в Шымкенте	Шымкенттегі SOFIYA бәліштері	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/pies	pies.introTitle	Пироги из каталога SOFIYA	SOFIYA каталогындағы бәліштер	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/pies	pies.lead	Пироги для семейного стола и праздника — фотографии, составы и актуальные цены в карточках каталога.	Отбасылық дастарқан мен мерекеге арналған бәліштер — фотосуреті, құрамы және каталогтағы бағасы карточкаларда.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/pies	pies.paragraphs[0]	Здесь собраны опубликованные пироги SOFIYA: карточки показывают фотографию, краткое описание, состав и цену, если она указана в каталоге.	Бұл бетте SOFIYA каталогында жарияланған бәліштер жинақталған. Карточкаларда фотосурет, қысқаша сипаттама, құрам және каталогта белгіленген баға көрсетіледі.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/pies	pies.paragraphs[1]	Выберите подходящий пирог и уточните его наличие через WhatsApp. Адреса и часы работы точек в Шымкенте и Туркестанской области опубликованы на странице магазинов.	Қажетті бәлішті таңдап, оның қолжетімділігін WhatsApp арқылы нақтылаңыз. Шымкент пен Түркістан облысындағы дүкендердің мекенжайлары мен жұмыс уақыты дүкендер парақшасында жарияланған.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/pies	pies.title	Пироги в Шымкенте — ассортимент и цены | SOFIYA	Шымкенттегі бәліштер — ассортимент және бағалар | SOFIYA	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/samsa	samsa.description	Самса и сытная выпечка SOFIYA в Шымкенте: виды начинок, составы и цены в каталоге. Уточните наличие в магазине.	Шымкенттегі SOFIYA самсасы мен тойымды пісірмелері: салма түрлері, құрамы және бағалары каталогта. Дүкендегі қолжетімділігін нақтылаңыз.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/samsa	samsa.heading	Самса и сытная выпечка в Шымкенте	Шымкенттегі самса және тойымды пісірмелер	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/samsa	samsa.introTitle	Сытная выпечка SOFIYA	SOFIYA тойымды пісірмелері	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/samsa	samsa.lead	Самса и другие позиции из сытной выпечки SOFIYA — сравните начинку, состав и цену в каталоге.	SOFIYA самсасы және басқа тойымды пісірмелер — салмасын, құрамын және бағасын каталогтан салыстырыңыз.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/samsa	samsa.paragraphs[0]	В категории собраны опубликованные позиции самсы и сытной выпечки SOFIYA. В карточках указаны начинка, состав и цена, доступная в текущем каталоге.	Бұл санатта SOFIYA каталогында жарияланған самса мен тойымды пісірмелер ұсынылған. Карточкаларда салмасы, құрамы және каталогтағы бағасы көрсетіледі.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/samsa	samsa.paragraphs[1]	Ассортимент в конкретной точке может меняться. Уточните выбранную позицию через WhatsApp или откройте список магазинов, чтобы найти ближайший адрес и часы работы.	Белгілі бір дүкендегі ассортимент өзгеруі мүмкін. Таңдалған өнімді WhatsApp арқылы нақтылаңыз немесе жақын мекенжай мен жұмыс уақытын табу үшін дүкендер тізімін ашыңыз.	DRAFT_REQUIRES_KK_EDITORIAL
+seo-category	/catalog/samsa	samsa.title	Самса и сытная выпечка в Шымкенте | SOFIYA	Шымкенттегі самса және тойымды пісірмелер | SOFIYA	DRAFT_REQUIRES_KK_EDITORIAL
 seo	/	/.description	SOFIYA — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.	SOFIYA — фирмалық торттар, балғын пісірмелер, таңғы ас пен пицца. Шымкент және Түркістан облысындағы дүкендер.	DRAFT_REQUIRES_KK_EDITORIAL
 seo	/	/.title	SOFIYA — фирменные магазины в Шымкенте	SOFIYA — Шымкенттегі фирмалық дүкендер	DRAFT_REQUIRES_KK_EDITORIAL
 seo	/about	/about.description	История SOFIYA с 2014 года: свежая выпечка, фирменные торты и сеть магазинов в Шымкенте и Туркестанской области.	SOFIYA тарихы, құндылықтары және Шымкент пен Түркістан облысындағы фирмалық дүкендер желісі.	DRAFT_REQUIRES_KK_EDITORIAL
 seo	/about	/about.title	О компании SOFIYA	SOFIYA туралы	DRAFT_REQUIRES_KK_EDITORIAL
-seo	/cake-preorder	/cake-preorder.description	Оформите фирменный торт SOFIYA к вашему событию: выберите тип, размер, дату и точку самовывоза.	Мерекеңізге арналған SOFIYA тортын онлайн таңдаңыз және өтінімді WhatsApp арқылы жіберіңіз.	DRAFT_REQUIRES_KK_EDITORIAL
-seo	/cake-preorder	/cake-preorder.title	Торты на заказ | SOFIYA	Тапсырыспен торттар | SOFIYA	DRAFT_REQUIRES_KK_EDITORIAL
+seo	/cake-preorder	/cake-preorder.description	Закажите фирменный торт SOFIYA в Шымкенте: выберите тип, размер, дату и точку самовывоза, затем отправьте заявку в WhatsApp.	Шымкентте мерекеңізге арналған SOFIYA тортын таңдаңыз: түрін, өлшемін, күнін және алып кету дүкенін көрсетіп, өтінімді WhatsApp арқылы жіберіңіз.	DRAFT_REQUIRES_KK_EDITORIAL
+seo	/cake-preorder	/cake-preorder.title	Торты на заказ в Шымкенте | SOFIYA	Шымкентте тапсырыспен дайындалатын торттар | SOFIYA	DRAFT_REQUIRES_KK_EDITORIAL
 seo	/career	/career.description	Работайте в растущей сети SOFIYA: пекари, кондитеры, бариста, менеджеры. Обучение и развитие.	SOFIYA командасына қосылыңыз: Шымкент пен Түркістан облысындағы бос жұмыс орындары мен жұмыс шарттары.	DRAFT_REQUIRES_KK_EDITORIAL
 seo	/career	/career.title	Карьера в SOFIYA	SOFIYA-дағы мансап	DRAFT_REQUIRES_KK_EDITORIAL
 seo	/catalog	/catalog.description	Каталог SOFIYA: торты, порционные десерты, выпечка, самса, пироги, завтраки, пицца и напитки.	SOFIYA каталогы: торттар, порциялық десерттер, пісірмелер, самса, бәліштер, таңғы ас, пицца және сусындар.	DRAFT_REQUIRES_KK_EDITORIAL
@@ -394,13 +453,13 @@ ui-message	src/components/site/AppPromo.tsx:196	Напомнить в WhatsApp	�
 ui-message	src/components/site/AppPromo.tsx:237	Купите пять кофе — шестой получите в подарок. Персональный QR-код, бонусы и история покупок всегда в телефоне.	Купите пять кофе — шестой получите в подарок. Персональный QR-код, бонусы и история покупок всегда в телефоне.	Бес кофе сатып алыңыз — алтыншысын сыйлыққа алыңыз. Жеке QR-код, бонустар және сатып алу тарихы әрқашан телефоныңызда.	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/AppPromo.tsx:294	Напомнить о запуске	Напомнить о запуске	Іске қосылғанын еске салу	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/AppPromo.tsx:93	Программа лояльности SOFIYA Club	Программа лояльности SOFIYA Club	SOFIYA Club адалдық бағдарламасы	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/CategoryGrid.tsx:11; src/components/site/Footer.tsx:61; src/routes/catalog.tsx:75; src/routes/catalog_.$slug.tsx:118	Каталог	Каталог	Каталог	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/CategoryGrid.tsx:12	Выберите любимый вкус	Выберите любимый вкус	Сүйікті дәміңізді таңдаңыз	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/CategoryGrid.tsx:13	Торты, десерты, выпечка и горячие блюда — всё в одном каталоге.	Торты, десерты, выпечка и горячие блюда — всё в одном каталоге.	Торттар, десерттер, пісірмелер мен ыстық тағамдар — барлығы бір каталогта.	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/CategoryGrid.tsx:16; src/routes/index.tsx:53	Весь каталог	Весь каталог	Бүкіл каталог	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/Footer.tsx:103	Магазины	Магазины	Дүкендер	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/Footer.tsx:111; src/routes/cake-preorder.tsx:154; src/routes/index.tsx:142	Торты на заказ	Торты на заказ	Тапсырыспен торттар	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/Footer.tsx:116; src/routes/catering.tsx:84; src/routes/index.tsx:130; src/routes/index.tsx:257	Кейтеринг	Кейтеринг	Кейтеринг	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/CatalogLandingPage.tsx:101; src/components/site/Footer.tsx:111; src/routes/cake-preorder.tsx:248; src/routes/cake-preorder.tsx:283; src/routes/index.tsx:138	Торты на заказ	Торты на заказ	Тапсырыспен торттар	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/CatalogLandingPage.tsx:26; src/components/site/CatalogLandingPage.tsx:31; src/components/site/CategoryGrid.tsx:12; src/components/site/Footer.tsx:62; src/routes/catalog.tsx:76; src/routes/catalog_.$slug.tsx:127	Каталог	Каталог	Каталог	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/CatalogLandingPage.tsx:34; src/components/site/CategoryGrid.tsx:17; src/routes/index.tsx:53	Весь каталог	Весь каталог	Бүкіл каталог	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/CatalogLandingPage.tsx:97; src/components/site/Footer.tsx:103; src/routes/cake-preorder.tsx:275	Магазины	Магазины	Дүкендер	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/CategoryGrid.tsx:13	Выберите любимый вкус	Выберите любимый вкус	Сүйікті дәміңізді таңдаңыз	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/CategoryGrid.tsx:14	Торты, десерты, выпечка и горячие блюда — всё в одном каталоге.	Торты, десерты, выпечка и горячие блюда — всё в одном каталоге.	Торттар, десерттер, пісірмелер мен ыстық тағамдар — барлығы бір каталогта.	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/Footer.tsx:116; src/routes/catering.tsx:84; src/routes/index.tsx:126; src/routes/index.tsx:253	Кейтеринг	Кейтеринг	Кейтеринг	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/Footer.tsx:121; src/routes/promotions.tsx:28	Акции	Акции	Акциялар	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/Footer.tsx:126; src/routes/news.tsx:19	Новости	Новости	Жаңалықтар	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/Footer.tsx:131; src/routes/career.tsx:67	Карьера	Карьера	Мансап	DRAFT_REQUIRES_KK_EDITORIAL
@@ -409,7 +468,7 @@ ui-message	src/components/site/Footer.tsx:163; src/components/site/Footer.tsx:16
 ui-message	src/components/site/Footer.tsx:178	Все права защищены.	Все права защищены.	Барлық құқық қорғалған.	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/Footer.tsx:182; src/routes/privacy.tsx:15	Политика конфиденциальности	Политика конфиденциальности	Құпиялық саясаты	DRAFT_REQUIRES_KK_LEGAL_AND_EDITORIAL
 ui-message	src/components/site/Footer.tsx:188; src/routes/terms.tsx:15	Пользовательское соглашение	Пользовательское соглашение	Пайдаланушы келісімі	DRAFT_REQUIRES_KK_LEGAL_AND_EDITORIAL
-ui-message	src/components/site/Footer.tsx:39; src/components/site/Header.tsx:195; src/routes/contacts.tsx:65	Здравствуйте, SOFIYA!	Здравствуйте, SOFIYA!	Сәлеметсіз бе, SOFIYA!	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/Footer.tsx:40; src/components/site/Header.tsx:195; src/routes/contacts.tsx:65	Здравствуйте, SOFIYA!	Здравствуйте, SOFIYA!	Сәлеметсіз бе, SOFIYA!	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/Footer.tsx:80	Компания	Компания	Компания	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/Footer.tsx:91; src/components/site/Footer.tsx:95	О	О	туралы	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/Header.tsx:101; src/components/site/StoreCard.tsx:59; src/routes/contacts.tsx:116	Позвонить	Позвонить	Қоңырау шалу	DRAFT_REQUIRES_KK_EDITORIAL
@@ -422,25 +481,25 @@ ui-message	src/components/site/Header.tsx:200	Написать в WhatsApp	На�
 ui-message	src/components/site/Header.tsx:44	SOFIYA — на главную	SOFIYA — на главную	SOFIYA — басты бетке	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/Header.tsx:58	Основная навигация	Основная навигация	Негізгі навигация	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/Header.tsx:79	Выбор языка	Выбор языка	Тілді таңдау	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/HeroCarousel.tsx:176	карусель	карусель	карусель	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/HeroCarousel.tsx:177	Предложения SOFIYA	Предложения SOFIYA	SOFIYA ұсыныстары	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/HeroCarousel.tsx:236	Предыдущий слайд	Предыдущий слайд	Алдыңғы слайд	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/HeroCarousel.tsx:242	Слайды	Слайды	Слайдтар	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/HeroCarousel.tsx:248	Слайд	Слайд	Слайд	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/HeroCarousel.tsx:262	Следующий слайд	Следующий слайд	Келесі слайд	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/HeroCarousel.tsx:174	карусель	карусель	карусель	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/HeroCarousel.tsx:175	Предложения SOFIYA	Предложения SOFIYA	SOFIYA ұсыныстары	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/HeroCarousel.tsx:234	Предыдущий слайд	Предыдущий слайд	Алдыңғы слайд	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/HeroCarousel.tsx:240	Слайды	Слайды	Слайдтар	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/HeroCarousel.tsx:246	Слайд	Слайд	Слайд	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/HeroCarousel.tsx:260	Следующий слайд	Следующий слайд	Келесі слайд	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/NewsCard.tsx:12	Открыть событие	Открыть событие	Оқиғаны ашу	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/NewsCard.tsx:13	Перейти к программе лояльности	Перейти к программе лояльности	Адалдық бағдарламасына өту	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/NewsCard.tsx:14	Перейти к заказу торта	Перейти к заказу торта	Торт тапсырысына өту	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/NewsCard.tsx:15	Посмотреть магазины	Посмотреть магазины	Дүкендерді көру	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/ProductCard.tsx:12	тенге	тенге	теңге	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/ProductCard.tsx:12	цена уточняется	цена уточняется	бағасы нақтылануда	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/ProductCard.tsx:25; src/routes/catalog_.$slug.tsx:147	Хит	Хит	Хит	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/ProductCard.tsx:30; src/routes/catalog_.$slug.tsx:152	Новинка	Новинка	Жаңа	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/ProductCard.tsx:25; src/routes/catalog_.$slug.tsx:152	Хит	Хит	Хит	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/ProductCard.tsx:30; src/routes/catalog_.$slug.tsx:157	Новинка	Новинка	Жаңа	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/ProductCard.tsx:35	Бестселлер	Бестселлер	Бестселлер	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/ProductCard.tsx:49	Цена уточняется	Цена уточняется	Бағасы нақтылануда	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/ProductCard.tsx:51	Открыть →	Открыть →	Ашу →	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/ProductCarousel.tsx:40; src/routes/cake-preorder.tsx:315	Назад	Назад	Артқа	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/ProductCarousel.tsx:47; src/routes/cake-preorder.tsx:324	Далее	Далее	Келесі	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/ProductCarousel.tsx:40; src/routes/cake-preorder.tsx:444	Назад	Назад	Артқа	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/ProductCarousel.tsx:47; src/routes/cake-preorder.tsx:453	Далее	Далее	Келесі	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/PromotionCard.tsx:53	Спецпредложение	Спецпредложение	Арнайы ұсыныс	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/PromotionCard.tsx:71	Промокод	Промокод	Промокод	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/PromotionCard.tsx:81	Подробнее	Подробнее	Толығырақ	DRAFT_REQUIRES_KK_EDITORIAL
@@ -479,39 +538,39 @@ ui-message	src/routes/about.tsx:69	филиалов, представленны�
 ui-message	src/routes/about.tsx:71	, а в команде работают до 150 сотрудников. Путь от производственного направления до собственной сети продолжается с той же задачей: делать любимые вкусы доступными каждый день.	, а в команде работают до 150 сотрудников. Путь от производственного направления до собственной сети продолжается с той же задачей: делать любимые вкусы доступными каждый день.	. Командада 150-ге дейін қызметкер жұмыс істейді. Өндірістік бағыттан жеке желіге дейінгі жол сол мақсатпен жалғасуда: сүйікті дәмдерді күн сайын қолжетімді ету.	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/about.tsx:82	Наш подход	Наш подход	Біздің тәсіл	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/about.tsx:83	То, что остаётся неизменным	То, что остаётся неизменным	Өзгермейтін құндылықтар	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:129; src/routes/career.tsx:139; src/routes/catering.tsx:117; src/routes/contacts.tsx:138	Сообщение подготовлено	Сообщение подготовлено	Хабарлама дайын	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:131	Проверьте готовый текст и нажмите «Отправить» в WhatsApp. Только после этого заявка будет передана менеджеру.	Проверьте готовый текст и нажмите «Отправить» в WhatsApp. Только после этого заявка будет передана менеджеру.	Дайын мәтінді тексеріп, WhatsApp-та «Жіберу» түймесін басыңыз. Өтінім содан кейін ғана менеджерге беріледі.	DRAFT_REQUIRES_KK_LEGAL_AND_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:141; src/routes/career.tsx:151; src/routes/catering.tsx:129; src/routes/contacts.tsx:150	Открыть WhatsApp	Открыть WhatsApp	WhatsApp-ты ашу	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:144	Оформить ещё торт	Оформить ещё торт	Тағы бір торт рәсімдеу	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:155	Соберите свой торт	Соберите свой торт	Өз тортыңызды құрастырыңыз	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:157	из	из	/	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:157	Шаг	Шаг	Қадам	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:171	Тип торта	Тип торта	Торт түрі	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:179	Опишите желаемый вкус	Опишите желаемый вкус	Қалаған дәміңізді сипаттаңыз	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:188	Ориентировочный размер	Ориентировочный размер	Шамамен өлшемі	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:197	Количество порций	Количество порций	Порция саны	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:202; src/routes/catering.tsx:69	Укажите число больше нуля	Укажите число больше нуля	Нөлден үлкен санды көрсетіңіз	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:209	Дата события	Дата события	Іс-шара күні	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:216; src/routes/catering.tsx:68	Выберите сегодняшнюю или будущую дату	Выберите сегодняшнюю или будущую дату	Бүгінгі немесе кейінгі күнді таңдаңыз	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:223	Точка самовывоза	Точка самовывоза	Алып кету дүкені	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:236	Удобное время (по желанию)	Удобное время (по желанию)	Ыңғайлы уақыт (қалауыңыз бойынша)	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:244; src/routes/cake-preorder.tsx:294	Упаковка	Упаковка	Қаптама	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:253	Ваше имя	Ваше имя	Атыңыз	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:256	Как к вам обращаться	Как к вам обращаться	Сізге қалай хабарласамыз	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:261; src/routes/cake-preorder.tsx:296; src/routes/career.tsx:189; src/routes/catering.tsx:201; src/routes/contacts.tsx:168	Телефон	Телефон	Телефон	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:271; src/routes/career.tsx:54; src/routes/catering.tsx:72; src/routes/contacts.tsx:45	Проверьте номер телефона	Проверьте номер телефона	Телефон нөмірін тексеріңіз	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:278	Комментарий (по желанию)	Комментарий (по желанию)	Пікір (қалауыңыз бойынша)	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:285	Проверьте заказ	Проверьте заказ	Тапсырысты тексеріңіз	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:288	Тип	Тип	Түрі	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:289	Размер	Размер	Өлшемі	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:290; src/routes/catalog_.$slug.tsx:174	Порций	Порций	Порция саны	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:291; src/routes/catering.tsx:153	Дата	Дата	Күні	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:292	Время	Время	Уақыты	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:293	Точка	Точка	Дүкен	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:295; src/routes/career.tsx:177; src/routes/catering.tsx:190; src/routes/contacts.tsx:156	Имя	Имя	Аты	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:297; src/routes/catering.tsx:218	Комментарий	Комментарий	Пікір	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:332; src/routes/career.tsx:229; src/routes/catering.tsx:227; src/routes/contacts.tsx:198	Перейти в WhatsApp	Перейти в WhatsApp	WhatsApp-қа өту	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/cake-preorder.tsx:88	Свой вариант	Свой вариант	Өз нұсқам	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:183	Свой вариант	Свой вариант	Өз нұсқам	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:224; src/routes/career.tsx:139; src/routes/catering.tsx:117; src/routes/contacts.tsx:138	Сообщение подготовлено	Сообщение подготовлено	Хабарлама дайын	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:226	Проверьте готовый текст и нажмите «Отправить» в WhatsApp. Только после этого заявка будет передана менеджеру.	Проверьте готовый текст и нажмите «Отправить» в WhatsApp. Только после этого заявка будет передана менеджеру.	Дайын мәтінді тексеріп, WhatsApp-та «Жіберу» түймесін басыңыз. Өтінім содан кейін ғана менеджерге беріледі.	DRAFT_REQUIRES_KK_LEGAL_AND_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:236; src/routes/career.tsx:151; src/routes/catering.tsx:129; src/routes/contacts.tsx:150	Открыть WhatsApp	Открыть WhatsApp	WhatsApp-ты ашу	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:239	Оформить ещё торт	Оформить ещё торт	Тағы бір торт рәсімдеу	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:284	Соберите свой торт	Соберите свой торт	Өз тортыңызды құрастырыңыз	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:286	из	из	/	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:286	Шаг	Шаг	Қадам	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:300	Тип торта	Тип торта	Торт түрі	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:308	Опишите желаемый вкус	Опишите желаемый вкус	Қалаған дәміңізді сипаттаңыз	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:317	Ориентировочный размер	Ориентировочный размер	Шамамен өлшемі	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:326	Количество порций	Количество порций	Порция саны	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:331; src/routes/catering.tsx:69	Укажите число больше нуля	Укажите число больше нуля	Нөлден үлкен санды көрсетіңіз	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:338	Дата события	Дата события	Іс-шара күні	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:345; src/routes/catering.tsx:68	Выберите сегодняшнюю или будущую дату	Выберите сегодняшнюю или будущую дату	Бүгінгі немесе кейінгі күнді таңдаңыз	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:352	Точка самовывоза	Точка самовывоза	Алып кету дүкені	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:365	Удобное время (по желанию)	Удобное время (по желанию)	Ыңғайлы уақыт (қалауыңыз бойынша)	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:373; src/routes/cake-preorder.tsx:423	Упаковка	Упаковка	Қаптама	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:382	Ваше имя	Ваше имя	Атыңыз	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:385	Как к вам обращаться	Как к вам обращаться	Сізге қалай хабарласамыз	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:390; src/routes/cake-preorder.tsx:425; src/routes/career.tsx:189; src/routes/catering.tsx:201; src/routes/contacts.tsx:168	Телефон	Телефон	Телефон	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:400; src/routes/career.tsx:54; src/routes/catering.tsx:72; src/routes/contacts.tsx:45	Проверьте номер телефона	Проверьте номер телефона	Телефон нөмірін тексеріңіз	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:407	Комментарий (по желанию)	Комментарий (по желанию)	Пікір (қалауыңыз бойынша)	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:414	Проверьте заказ	Проверьте заказ	Тапсырысты тексеріңіз	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:417	Тип	Тип	Түрі	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:418	Размер	Размер	Өлшемі	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:419; src/routes/catalog_.$slug.tsx:179	Порций	Порций	Порция саны	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:420; src/routes/catering.tsx:153	Дата	Дата	Күні	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:421	Время	Время	Уақыты	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:422	Точка	Точка	Дүкен	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:424; src/routes/career.tsx:177; src/routes/catering.tsx:190; src/routes/contacts.tsx:156	Имя	Имя	Аты	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:426; src/routes/catering.tsx:218	Комментарий	Комментарий	Пікір	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/cake-preorder.tsx:461; src/routes/career.tsx:229; src/routes/catering.tsx:227; src/routes/contacts.tsx:198	Перейти в WhatsApp	Перейти в WhatsApp	WhatsApp-қа өту	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/career.tsx:105	Направления работы	Направления работы	Жұмыс бағыттары	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/career.tsx:107	Оставьте короткую заявку по подходящему направлению. Команда рассмотрит её и свяжется, если появится подходящая позиция в вашем городе.	Оставьте короткую заявку по подходящему направлению. Команда рассмотрит её и свяжется, если появится подходящая позиция в вашем городе.	Сәйкес бағыт бойынша қысқа өтінім қалдырыңыз. Команда оны қарап, қалаңызда лайықты орын пайда болғанда хабарласады.	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/career.tsx:133	Оставить отклик	Оставить отклик	Жауап қалдыру	DRAFT_REQUIRES_KK_EDITORIAL
@@ -521,15 +580,15 @@ ui-message	src/routes/career.tsx:166; src/routes/catering.tsx:143	Выберит
 ui-message	src/routes/career.tsx:207	Город	Город	Қала	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/career.tsx:220	О себе	О себе	Өзіңіз туралы	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/career.tsx:49; src/routes/catering.tsx:63; src/routes/contacts.tsx:41	Заполните обязательное поле	Заполните обязательное поле	Міндетті өрісті толтырыңыз	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/career.tsx:68; src/routes/index.tsx:308	Станьте частью команды	Станьте частью команды	Команданың бір бөлігі болыңыз	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/career.tsx:68; src/routes/index.tsx:304	Станьте частью команды	Станьте частью команды	Команданың бір бөлігі болыңыз	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/career.tsx:69	Мы — растущая сеть фирменных магазинов. Ищем людей, которые любят своё дело и хотят расти вместе с нами.	Мы — растущая сеть фирменных магазинов. Ищем людей, которые любят своё дело и хотят расти вместе с нами.	Біз — өсіп келе жатқан фирмалық дүкендер желісіміз. Өз ісін сүйетін және бізбен бірге дамығысы келетін адамдарды іздейміз.	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/catalog_.$slug.tsx:114	Главная	Главная	Басты бет	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/catalog_.$slug.tsx:169	Вес	Вес	Салмағы	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/catalog_.$slug.tsx:187	Состав	Состав	Құрамы	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/catalog_.$slug.tsx:196	Оформить предзаказ	Оформить предзаказ	Алдын ала тапсырыс беру	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/catalog_.$slug.tsx:211	Спросить в WhatsApp	Спросить в WhatsApp	WhatsApp арқылы сұрау	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/catalog_.$slug.tsx:230	Вам может понравиться	Вам может понравиться	Сізге ұнауы мүмкін	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/catalog_.$slug.tsx:231	Похожие продукты	Похожие продукты	Ұқсас өнімдер	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/catalog_.$slug.tsx:123	Главная	Главная	Басты бет	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/catalog_.$slug.tsx:174	Вес	Вес	Салмағы	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/catalog_.$slug.tsx:192	Состав	Состав	Құрамы	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/catalog_.$slug.tsx:201	Оформить предзаказ	Оформить предзаказ	Алдын ала тапсырыс беру	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/catalog_.$slug.tsx:216	Спросить в WhatsApp	Спросить в WhatsApp	WhatsApp арқылы сұрау	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/catalog_.$slug.tsx:235	Вам может понравиться	Вам может понравиться	Сізге ұнауы мүмкін	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/catalog_.$slug.tsx:236	Похожие продукты	Похожие продукты	Ұқсас өнімдер	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/catalog.tsx:112	Поиск по каталогу…	Поиск по каталогу…	Каталогтан іздеу…	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/catalog.tsx:113	Поиск по каталогу	Поиск по каталогу	Каталогтан іздеу	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/catalog.tsx:120	Очистить поиск	Очистить поиск	Іздеуді тазарту	DRAFT_REQUIRES_KK_EDITORIAL
@@ -548,19 +607,19 @@ ui-message	src/routes/catalog.tsx:207	Закрыть фильтры	Закрыт
 ui-message	src/routes/catalog.tsx:214	Показать результаты	Показать результаты	Нәтижелерді көрсету	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/catalog.tsx:226	Бестселлеры	Бестселлеры	Бестселлерлер	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/catalog.tsx:227; src/routes/index.tsx:59	Новинки	Новинки	Жаңалар	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/catalog.tsx:228; src/routes/catalog_.$slug.tsx:157	На заказ	На заказ	Тапсырыспен	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/catalog.tsx:228; src/routes/catalog_.$slug.tsx:162	На заказ	На заказ	Тапсырыспен	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/catalog.tsx:229	Сезонные	Сезонные	Маусымдық	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/catalog.tsx:234	Метки	Метки	Белгілер	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/catalog.tsx:76	Всё меню	Всё меню	Барлық мәзір	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/catalog.tsx:80	Торты, десерты, выпечка, самса, завтраки, пицца и напитки.	Торты, десерты, выпечка, самса, завтраки, пицца и напитки.	Торттар, десерттер, пісірмелер, самса, таңғы ас, пицца және сусындар.	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/catalog.tsx:91	Все	Все	Барлығы	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/catering.tsx:111; src/routes/index.tsx:268	Оставить заявку	Оставить заявку	Өтінім қалдыру	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/catalog.tsx:77	Всё меню	Всё меню	Барлық мәзір	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/catalog.tsx:81	Торты, десерты, выпечка, самса, завтраки, пицца и напитки.	Торты, десерты, выпечка, самса, завтраки, пицца и напитки.	Торттар, десерттер, пісірмелер, самса, таңғы ас, пицца және сусындар.	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/catalog.tsx:92	Все	Все	Барлығы	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/catering.tsx:111; src/routes/index.tsx:264	Оставить заявку	Оставить заявку	Өтінім қалдыру	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/catering.tsx:119	Проверьте готовый текст и отправьте его в WhatsApp — только после этого заявка поступит менеджеру.	Проверьте готовый текст и отправьте его в WhatsApp — только после этого заявка поступит менеджеру.	Дайын мәтінді тексеріп, оны WhatsApp арқылы жіберіңіз — содан кейін ғана өтінім менеджерге түседі.	DRAFT_REQUIRES_KK_LEGAL_AND_EDITORIAL
 ui-message	src/routes/catering.tsx:134	Тип события	Тип события	Іс-шара түрі	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/catering.tsx:166	Гостей	Гостей	Қонақтар саны	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/catering.tsx:181	Бюджет (примерно)	Бюджет (примерно)	Бюджет (шамамен)	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/catering.tsx:186	Например: 50 000 ₸	Например: 50 000 ₸	Мысалы: 50 000 ₸	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/catering.tsx:85; src/routes/index.tsx:260	Для ваших событий	Для ваших событий	Сіздің іс-шараларыңызға	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/catering.tsx:85; src/routes/index.tsx:256	Для ваших событий	Для ваших событий	Сіздің іс-шараларыңызға	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/catering.tsx:86	Соберём меню под ваш формат: кофе-брейки, десертные столы, корпоративные события и большие заказы.	Соберём меню под ваш формат: кофе-брейки, десертные столы, корпоративные события и большие заказы.	Сіздің форматыңызға сай мәзір құрамыз: кофе-брейктер, десерт үстелдері, корпоративтік іс-шаралар және үлкен тапсырыстар.	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/contacts.tsx:125	География сети	География сети	Желі географиясы	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/contacts.tsx:132	Форма обратной связи	Форма обратной связи	Кері байланыс нысаны	DRAFT_REQUIRES_KK_EDITORIAL
@@ -568,35 +627,35 @@ ui-message	src/routes/contacts.tsx:140	Проверьте готовый тек�
 ui-message	src/routes/contacts.tsx:185	Сообщение	Сообщение	Хабарлама	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/contacts.tsx:58	Связаться с нами	Связаться с нами	Бізбен байланысу	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/contacts.tsx:59	Мы всегда на связи в WhatsApp и Instagram.	Мы всегда на связи в WhatsApp и Instagram.	Біз әрқашан WhatsApp және Instagram арқылы байланыстамыз.	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:104	Торт на заказ	Торт на заказ	Тапсырыспен торт	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:111	Торт к событию	Торт к событию	Іс-шараға арналған торт	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:113	Соберите онлайн — заберите в удобной точке.	Соберите онлайн — заберите в удобной точке.	Онлайн құрастырып, ыңғайлы дүкеннен алып кетіңіз.	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:123	Кейтеринг SOFIYA	Кейтеринг SOFIYA	SOFIYA кейтерингі	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:132	Для офисов, событий и больших встреч.	Для офисов, событий и больших встреч.	Кеңселерге, іс-шараларға және үлкен кездесулерге.	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:143	Оформите торт к вашему празднику.	Оформите торт к вашему празднику.	Мерекеңізге арналған тортты рәсімдеңіз.	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:150	Оформить	Оформить	Рәсімдеу	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:165	Завтраки в SOFIYA	Завтраки в SOFIYA	SOFIYA-дағы таңғы ас	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:172	Завтраки	Завтраки	Таңғы ас	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:174	Кофе, тёплая выпечка и лёгкие блюда. Загляните с утра — начните день правильно.	Кофе, тёплая выпечка и лёгкие блюда. Загляните с утра — начните день правильно.	Кофе, жылы пісірмелер және жеңіл тағамдар. Таңертең келіп, күніңізді жақсы бастаңыз.	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:179	Посмотреть завтраки →	Посмотреть завтраки →	Таңғы асты көру →	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:190	Пицца SOFIYA	Пицца SOFIYA	SOFIYA пиццасы	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:197	Пицца для семьи	Пицца для семьи	Отбасылық пицца	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:199	Тонкое тесто, много начинки и настроение большого стола.	Тонкое тесто, много начинки и настроение большого стола.	Жұқа қамыр, мол салма және үлкен дастарқанның көңіл күйі.	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:202	Посмотреть пиццу →	Посмотреть пиццу →	Пиццаны көру →	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:213	Новости и акции	Новости и акции	Жаңалықтар мен акциялар	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:214	Что нового	Что нового	Не жаңалық	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:215	Коллекции, события и предложения SOFIYA.	Коллекции, события и предложения SOFIYA.	SOFIYA топтамалары, оқиғалары және ұсыныстары.	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:219; src/routes/promotions_.$slug.tsx:85	Все акции	Все акции	Барлық акциялар	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:222; src/routes/news_.$slug.tsx:65	Все новости	Все новости	Барлық жаңалықтар	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:237; src/routes/stores.tsx:71	Сеть	Сеть	Желі	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:239	Шымкент и Туркестанская область.	Шымкент и Туркестанская область.	Шымкент және Түркістан облысы.	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:242	Все магазины	Все магазины	Барлық дүкендер	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:263	Кофе-брейки, десертные столы, корпоративные праздники и большие заказы. Соберём меню под ваш формат.	Кофе-брейки, десертные столы, корпоративные праздники и большие заказы. Соберём меню под ваш формат.	Кофе-брейктер, десерт үстелдері, корпоративтік мерекелер және үлкен тапсырыстар. Сіздің форматыңызға сай мәзір құрамыз.	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:310	Растущая сеть, обучение, разные направления работы: пекари, кондитеры, бариста, менеджеры.	Растущая сеть, обучение, разные направления работы: пекари, кондитеры, бариста, менеджеры.	Өсіп келе жатқан желі, оқыту және түрлі жұмыс бағыттары: наубайшылар, кондитерлер, баристалар, менеджерлер.	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:318	Посмотреть вакансии	Посмотреть вакансии	Бос жұмыс орындарын көру	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:329	Десерты в кадре	Десерты в кадре	Кадрдағы десерттер	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:331	Подписывайтесь на	Подписывайтесь на	Жазылыңыз	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:340	Открыть Instagram	Открыть Instagram	Instagram-ды ашу	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:100	Торт на заказ	Торт на заказ	Тапсырыспен торт	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:107	Торт к событию	Торт к событию	Іс-шараға арналған торт	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:109	Соберите онлайн — заберите в удобной точке.	Соберите онлайн — заберите в удобной точке.	Онлайн құрастырып, ыңғайлы дүкеннен алып кетіңіз.	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:119	Кейтеринг SOFIYA	Кейтеринг SOFIYA	SOFIYA кейтерингі	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:128	Для офисов, событий и больших встреч.	Для офисов, событий и больших встреч.	Кеңселерге, іс-шараларға және үлкен кездесулерге.	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:139	Оформите торт к вашему празднику.	Оформите торт к вашему празднику.	Мерекеңізге арналған тортты рәсімдеңіз.	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:146	Оформить	Оформить	Рәсімдеу	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:161	Завтраки в SOFIYA	Завтраки в SOFIYA	SOFIYA-дағы таңғы ас	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:168	Завтраки	Завтраки	Таңғы ас	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:170	Кофе, тёплая выпечка и лёгкие блюда. Загляните с утра — начните день правильно.	Кофе, тёплая выпечка и лёгкие блюда. Загляните с утра — начните день правильно.	Кофе, жылы пісірмелер және жеңіл тағамдар. Таңертең келіп, күніңізді жақсы бастаңыз.	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:175	Посмотреть завтраки →	Посмотреть завтраки →	Таңғы асты көру →	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:186	Пицца SOFIYA	Пицца SOFIYA	SOFIYA пиццасы	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:193	Пицца для семьи	Пицца для семьи	Отбасылық пицца	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:195	Тонкое тесто, много начинки и настроение большого стола.	Тонкое тесто, много начинки и настроение большого стола.	Жұқа қамыр, мол салма және үлкен дастарқанның көңіл күйі.	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:198	Посмотреть пиццу →	Посмотреть пиццу →	Пиццаны көру →	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:209	Новости и акции	Новости и акции	Жаңалықтар мен акциялар	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:210	Что нового	Что нового	Не жаңалық	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:211	Коллекции, события и предложения SOFIYA.	Коллекции, события и предложения SOFIYA.	SOFIYA топтамалары, оқиғалары және ұсыныстары.	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:215; src/routes/promotions_.$slug.tsx:85	Все акции	Все акции	Барлық акциялар	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:218; src/routes/news_.$slug.tsx:65	Все новости	Все новости	Барлық жаңалықтар	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:233; src/routes/stores.tsx:71	Сеть	Сеть	Желі	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:235	Шымкент и Туркестанская область.	Шымкент и Туркестанская область.	Шымкент және Түркістан облысы.	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:238	Все магазины	Все магазины	Барлық дүкендер	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:259	Кофе-брейки, десертные столы, корпоративные праздники и большие заказы. Соберём меню под ваш формат.	Кофе-брейки, десертные столы, корпоративные праздники и большие заказы. Соберём меню под ваш формат.	Кофе-брейктер, десерт үстелдері, корпоративтік мерекелер және үлкен тапсырыстар. Сіздің форматыңызға сай мәзір құрамыз.	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:306	Растущая сеть, обучение, разные направления работы: пекари, кондитеры, бариста, менеджеры.	Растущая сеть, обучение, разные направления работы: пекари, кондитеры, бариста, менеджеры.	Өсіп келе жатқан желі, оқыту және түрлі жұмыс бағыттары: наубайшылар, кондитерлер, баристалар, менеджерлер.	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:314	Посмотреть вакансии	Посмотреть вакансии	Бос жұмыс орындарын көру	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:325	Десерты в кадре	Десерты в кадре	Кадрдағы десерттер	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:327	Подписывайтесь на	Подписывайтесь на	Жазылыңыз	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:336	Открыть Instagram	Открыть Instagram	Instagram-ды ашу	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/index.tsx:48	Хиты недели	Хиты недели	Апта хиттері	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/index.tsx:49	Самые любимые торты и десерты наших гостей.	Самые любимые торты и десерты наших гостей.	Қонақтарымыздың ең сүйікті торттары мен десерттері.	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/index.tsx:60	Только что из пекарни — попробуйте первыми.	Только что из пекарни — попробуйте первыми.	Наубайханадан жаңа шықты — алғашқылардың бірі болып дәмін көріңіз.	DRAFT_REQUIRES_KK_EDITORIAL
@@ -604,7 +663,7 @@ ui-message	src/routes/index.tsx:72	Ягодная коллекция SOFIYA	Яг
 ui-message	src/routes/index.tsx:79	Сезонная коллекция	Сезонная коллекция	Маусымдық топтама	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/index.tsx:82	Ягодная коллекция	Ягодная коллекция	Жидектер топтамасы	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/index.tsx:85	Свежие ягоды, воздушные кремы и лёгкие цитрусовые ноты — вкус тёплого сезона.	Свежие ягоды, воздушные кремы и лёгкие цитрусовые ноты — вкус тёплого сезона.	Балғын жидектер, жеңіл кремдер мен нәзік цитрус реңктері — жылы маусымның дәмі.	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/routes/index.tsx:92	Смотреть коллекцию	Смотреть коллекцию	Топтаманы көру	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/routes/index.tsx:88	Смотреть коллекцию	Смотреть коллекцию	Топтаманы көру	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/news_.$slug.tsx:83	Ещё в SOFIYA	Ещё в SOFIYA	SOFIYA-да тағы	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/news_.$slug.tsx:84	Читайте также	Читайте также	Сондай-ақ оқыңыз	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/routes/news.tsx:20	Новости и события	Новости и события	Жаңалықтар мен оқиғалар	DRAFT_REQUIRES_KK_EDITORIAL

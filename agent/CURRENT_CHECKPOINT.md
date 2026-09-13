@@ -1,56 +1,52 @@
 # Current checkpoint
 
-- Branch: `agent/polish-public-site-v1`
-- Base: `main` at `7f38a8ef401e9af256285a9fab4c6374f96779cb`
-- Scope: Public Site v1 as defined in `docs/PUBLIC_SITE_V1.md`
-- Completed slice: portable first-party assets, graceful Supabase fallback, RLS
-  hardening migration, honest WhatsApp hand-offs, configurable TikTok, SEO files and
-  structured data, accessibility polish, regression tests and CI.
-- Completed promotions slice: two approved happy-hours offers are now first-party
-  content on `/promotions`; poster copy was moved into accessible card titles and
-  descriptions, while the cleaned 16:10 food imagery retains only the `-20%` and
-  `20:00–22:00` discount medallion. The samsa scene now uses the approved warm tabletop
-  styling, and both assets were optimized to WebP.
-- Promotions slice verification: GitHub Quality and Vercel passed for commit
-  `6cd17b3d137d1ba43515c6dae02da3bb58992994`; desktop browser UAT confirmed both
-  images and card copy render without site console errors.
-- Promotions interaction follow-up: the two featured cards now link to dedicated detail
-  pages, show the participating product names in their visible descriptions, and expose
-  the full product lists, offer hours and WhatsApp clarification action after navigation.
-- Homepage news-and-promotions navigation follow-up: the section now links directly to
-  `/promotions`; the loyalty card opens its dedicated event article, the cake card opens
-  `/cake-preorder`, and the network-growth card opens `/stores`. The same destination
-  behavior is reused on the full news page.
-- Green local gate: `npm --offline run check` (format, lint, typecheck, 8 unit tests,
-  production build and secret scan). Full dependency audit reports 0 vulnerabilities.
-- SSR route matrix: public routes return 200/redirect as expected; designed unknown
-  routes return 404; product pages render one canonical and three JSON-LD blocks.
-- Pull Request: GitHub Draft PR #1 with sequential commits on top of `main`.
-- CI status: `quality` and `browser-smoke` are green. Desktop and iPhone-size Chromium
-  smoke tests cover public routes, catalogue filtering/sorting, mobile navigation,
-  WhatsApp hand-off, confirmed social links and the designed 404.
-- Browser status: the published `main` visual baseline was inspected at 1363 × 936.
-  Branch Preview UAT remains pending a preview host. Lovable only tracks `main`; the
-  connected Vercel account requires explicit authorization to create a new public
-  project for this repository.
+- Branch: `agent/sofiya-seo-landing-pages-20260913`
+- Base: `main` at `95797652c06e8c1dc14e0a57498084f3c0342649`
+- Authorized slice: indexable RU/KK category landing pages and a stronger cake-preorder page.
+- Existing Draft PR #7 is intentionally separate and unchanged.
 
-## Owner gates
+## Implemented
 
-1. Official TikTok profile URL and public handle.
-2. Confirm the canonical custom domain, or approve the current Lovable URL as canonical.
-3. Confirm the 19 published locations, their hours/maps, and the two public phone sets
-   (`+7 707 558 06 05` and `+7 778 558 06 05`).
-4. Apply and verify `20260816090000_harden_public_promotions.sql` in the connected
-   Supabase project; no production database credentials are present locally.
-5. Authorize a new Vercel Preview project for this repository, or choose merging the
-   Draft PR into Lovable-connected `main` as the preview route.
+- Added indexable landing content at `/catalog/cakes`, `/catalog/desserts`,
+  `/catalog/pastry`, `/catalog/samsa` and `/catalog/pies`, with reciprocal `/kk/...`
+  variants.
+- Reused the existing dynamic catalog route so category and product URLs cannot collide.
+- Added distinct RU/KK title, description, H1, explanatory copy, product grids, store and
+  WhatsApp actions for each category.
+- Replaced strategic query-filter links with clean category URLs while keeping legacy
+  query filters for non-priority categories.
+- Strengthened `/cake-preorder` and `/kk/cake-preorder` with a local-intent H1, process
+  explanation, hand-off disclosure, catalogue/store links and FAQ content.
+- Expanded the sitemap to 150 unique URLs: 75 RU + 75 KK, with 450 exact alternates.
+- Added the new Kazakh copy to the translation register. All new public Kazakh phrases
+  remain `DRAFT_REQUIRES_KK_EDITORIAL` until qualified review.
+
+## Verification
+
+- Local format, ESLint, TypeScript, unit suite (28/28), translation-register freshness,
+  Node production build, secret scan and `git diff --check`: PASS.
+- Self-starting bilingual SSR verification: PASS for 75 RU + 75 KK pages, exact
+  canonical/hreflang pairs, 450 sitemap alternates, structured data and localized 404s.
+- Playwright discovery: 184 tests. Local execution is blocked because Chromium is not
+  installed and its download timed out; CI browser evidence is still required.
+- Cloudflare dry-run/preview was not run because it can transmit build artifacts to an
+  external service and requires separate authorization.
+
+## Remaining gates
+
+1. Push this branch and open a Draft PR.
+2. Obtain green repository CI, including desktop/mobile Chromium.
+3. Obtain qualified Kazakh editorial approval for the new public copy.
+4. Run an isolated preview and visual UAT after explicit authorization for the external
+   preview service.
+5. Production deployment or merge requires a separate owner decision.
 
 ## Files to read next
 
-1. `docs/PUBLIC_SITE_V1.md`
-2. `agent/WORK_QUEUE.md`
-3. `.github/workflows/quality.yml`
-4. `src/config/site.ts`
-5. Current Pull Request and CI result
+1. `agent/CURRENT_CHECKPOINT.md`
+2. `09_ACCEPTANCE_TESTS.md`
+3. `10_RELEASE_GATE.md`
+4. `docs/i18n/KK_TECHNICAL_EVIDENCE.md`
+5. Current Draft PR and CI results
 
 Update this file after every completed delivery slice.

@@ -36,13 +36,12 @@ const slides: Slide[] = [
       </>
     ),
     cta: "Выбрать десерт",
-    href: "/catalog",
+    href: "/catalog/cakes",
     image: IMG.cakeBerry,
     imageHd: IMG.cakeBerryHd,
     imageAlt: "Фирменный торт SOFIYA с ягодами и логотипом",
     imagePosition: "56% 48%",
     productFocus: true,
-    search: { cat: "cakes" },
     kk: {
       eyebrow: "SOFIYA — 2014 жылдан бері",
       title: (
@@ -68,11 +67,10 @@ const slides: Slide[] = [
     title: "Свежая выпечка каждый день",
     desc: "Слойки, самса и десерты — только что из печи.",
     cta: "Выбрать выпечку",
-    href: "/catalog",
+    href: "/catalog/pastry",
     image: IMG.samsa,
     imageAlt: "Свежая выпечка SOFIYA",
     imagePosition: "62% 56%",
-    search: { cat: "pastry" },
     kk: {
       eyebrow: "Күн сайын таңертең",
       title: "Күн сайын балғын пісірмелер",

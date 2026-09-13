@@ -4,6 +4,7 @@ import { collectBrowserErrors } from "./browser-evidence";
 const routes = [
   "/",
   "/catalog",
+  "/catalog/cakes",
   "/stores",
   "/about",
   "/promotions",
@@ -37,6 +38,34 @@ test("catalog filters and opens a product", async ({ page }) => {
   await expect(page.getByRole("link", { name: /Прага/i }).first()).toBeVisible();
   await page.getByRole("link", { name: /Прага/i }).first().click();
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Прага");
+});
+
+test("catalog category link opens an indexable landing page", async ({ page }) => {
+  await page.goto("/catalog", { waitUntil: "networkidle" });
+  await page.locator('a[href="/catalog/cakes"]').first().click();
+
+  await expect(page).toHaveURL(/\/catalog\/cakes$/);
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Торты SOFIYA в Шымкенте" }),
+  ).toBeVisible();
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    "https://sofiyabakery.com/catalog/cakes",
+  );
+  expect(await page.getByTestId("product-card").count()).toBeGreaterThan(0);
+});
+
+test("cake preorder explains the hand-off before the builder", async ({ page }) => {
+  await page.goto("/cake-preorder", { waitUntil: "networkidle" });
+
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Торты на заказ в Шымкенте" }),
+  ).toBeVisible();
+  await expect(page.getByText(/Форма не подтверждает заказ автоматически/)).toBeVisible();
+  await expect(page.getByRole("heading", { level: 2, name: "Соберите свой торт" })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { level: 2, name: "Вопросы о тортах на заказ" }),
+  ).toBeVisible();
 });
 
 test("catalog applies filters and price sorting", async ({ page }, testInfo) => {
@@ -85,7 +114,7 @@ test("original S logo and branded hero stay visible", async ({ page }) => {
   expect(titleLineInsets!.left).toBeGreaterThanOrEqual(16);
   expect(titleLineInsets!.right).toBeGreaterThanOrEqual(16);
   const heroCta = hero.getByRole("link", { name: "Выбрать десерт" });
-  await expect(heroCta).toHaveAttribute("href", /cat=cakes/);
+  await expect(heroCta).toHaveAttribute("href", "/catalog/cakes");
   await expect(heroCta).toHaveCSS("background-color", "rgb(90, 4, 189)");
   await expect(heroCta).toHaveCSS("color", "rgb(255, 255, 255)");
   await expect(hero.getByTestId("hero-eyebrow")).toHaveCSS("color", "rgb(90, 4, 189)");
