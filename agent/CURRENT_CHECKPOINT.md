@@ -4,6 +4,8 @@
 - Base: `main` at `95797652c06e8c1dc14e0a57498084f3c0342649`
 - Authorized slice: indexable RU/KK category landing pages and a stronger cake-preorder page.
 - Existing Draft PR #7 is intentionally separate and unchanged.
+- Draft PR: [#8](https://github.com/project100mln/sofiya-sweet-sweetness-hub/pull/8),
+  remote head `252328999cad6404c642fda8062578aa2c0b0437`.
 
 ## Implemented
 
@@ -29,17 +31,18 @@
   canonical/hreflang pairs, 450 sitemap alternates, structured data and localized 404s.
 - Playwright discovery: 184 tests. Local execution is blocked because Chromium is not
   installed and its download timed out; CI browser evidence is still required.
+- GitHub Quality was triggered and its final result is pending. The automatically
+  created Vercel status is green; isolated visual UAT is still pending.
 - Cloudflare dry-run/preview was not run because it can transmit build artifacts to an
   external service and requires separate authorization.
 
 ## Remaining gates
 
-1. Push this branch and open a Draft PR.
-2. Obtain green repository CI, including desktop/mobile Chromium.
-3. Obtain qualified Kazakh editorial approval for the new public copy.
-4. Run an isolated preview and visual UAT after explicit authorization for the external
+1. Obtain green repository CI, including desktop/mobile Chromium.
+2. Obtain qualified Kazakh editorial approval for the new public copy.
+3. Run an isolated preview and visual UAT after explicit authorization for the external
    preview service.
-5. Production deployment or merge requires a separate owner decision.
+4. Production deployment or merge requires a separate owner decision.
 
 ## Files to read next
 
