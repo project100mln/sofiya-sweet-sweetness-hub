@@ -24,8 +24,8 @@ Status: `LOCAL_GATE_PASS_CANDIDATE_VALIDATION_IN_PROGRESS`.
 | Accessibility             | Modal focus entry/trap/Escape/scroll lock/focus return; localized labels/errors and mobile navigation coverage                         |
 | Kazakh font coverage      | `/kk` display/body typography uses Inter, whose loaded faces cover every required Kazakh extended glyph; Playfair remains on Russian   |
 | SEO                       | Complete RU/KK static/dynamic metadata, reciprocal canonical/hreflang/x-default, localized Product/Breadcrumb JSON-LD                  |
-| Sitemap/SSR               | Self-starting verifier fetches all 140 pages and validates exact 70/70 families, 420 alternates, markup-language leaks and RU/KK 404s  |
-| Responsive browser matrix | Suite is configured to check all 70 RU + 70 KK routes at 320, 375, 768 and 1440 px; CI Chromium evidence is still pending              |
+| Sitemap/SSR               | Self-starting verifier fetches all 150 pages and validates exact 75/75 families, 450 alternates, markup-language leaks and RU/KK 404s  |
+| Responsive browser matrix | Suite is configured to check all 75 RU + 75 KK routes at 320, 375, 768 and 1440 px; CI Chromium evidence is still pending              |
 
 ## Local evidence collected before final candidate commit
 
@@ -33,14 +33,14 @@ Status: `LOCAL_GATE_PASS_CANDIDATE_VALIDATION_IN_PROGRESS`.
 - Prettier: PASS
 - ESLint with zero allowed warnings: PASS
 - TypeScript: PASS
-- Unit suite: 27/27 PASS, including localization 15/15 and localized HTTP 500 fallback 3/3
+- Unit suite: 28/28 PASS, including localization and localized HTTP 500 fallback coverage
 - Cloudflare production build: PASS
 - Node-server production build: PASS
 - Secret scan: PASS
-- Playwright discovery: 136 tests found across desktop/mobile projects
-- Bilingual SSR verifier: PASS — 70 RU + 70 KK pages, 140 unique sitemap URLs,
-  420 exact alternates, localized structured data and 404s
-- Translation-register freshness: PASS — 645 rows
+- Playwright discovery: 184 tests found across desktop/mobile projects
+- Bilingual SSR verifier: PASS — 75 RU + 75 KK pages, 150 unique sitemap URLs,
+  450 exact alternates, localized structured data and 404s
+- Translation-register freshness: PASS — 704 rows
 - `npm audit --omit=dev --package-lock-only --ignore-scripts`: PASS — 0 vulnerabilities
 
 The exact candidate SHA, independent recheck, CI run URLs and isolated preview

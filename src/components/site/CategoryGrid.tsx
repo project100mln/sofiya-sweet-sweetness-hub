@@ -1,5 +1,6 @@
 import { getCatalog } from "@/i18n/catalog";
 import { LocaleLink, useI18n } from "@/i18n";
+import { CatalogCategoryLink } from "@/components/site/CatalogCategoryLink";
 
 export function CategoryGrid() {
   const { locale, t } = useI18n();
@@ -18,10 +19,9 @@ export function CategoryGrid() {
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-5">
         {categories.map((c, i) => (
-          <LocaleLink
+          <CatalogCategoryLink
             key={c.id}
-            to="/catalog"
-            search={{ cat: c.slug }}
+            category={c}
             className={`category-card premium-card group relative overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 ${i === 0 ? "sm:col-span-2 sm:row-span-2" : ""}`}
           >
             <div
@@ -41,7 +41,7 @@ export function CategoryGrid() {
                 <p className="category-card-description mt-1 text-sm text-white/80">{c.short}</p>
               </div>
             </div>
-          </LocaleLink>
+          </CatalogCategoryLink>
         ))}
       </div>
     </section>

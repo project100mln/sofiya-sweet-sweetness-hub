@@ -7,6 +7,7 @@ import { Search, SlidersHorizontal, X } from "lucide-react";
 import { staticHead } from "@/i18n/seo";
 import { PageHero } from "@/components/site/PageHero";
 import { useModalFocus } from "@/hooks/use-modal-focus";
+import { CatalogCategoryLink } from "@/components/site/CatalogCategoryLink";
 
 interface CatalogSearch {
   cat?: string;
@@ -91,14 +92,13 @@ export function CatalogPage() {
             {t("Все")}
           </LocaleLink>
           {categories.map((c) => (
-            <LocaleLink
+            <CatalogCategoryLink
               key={c.id}
-              to="/catalog"
-              search={(prev: CatalogSearch) => ({ ...prev, cat: c.slug })}
+              category={c}
               className={`inline-flex min-h-11 shrink-0 items-center rounded-full px-4 py-2 text-sm font-semibold border ${search.cat === c.slug ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border text-foreground hover:border-primary"}`}
             >
               {c.name}
-            </LocaleLink>
+            </CatalogCategoryLink>
           ))}
         </div>
 

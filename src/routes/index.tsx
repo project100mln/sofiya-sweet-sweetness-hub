@@ -9,6 +9,7 @@ import { IMG } from "@/data/catalog";
 import { getCatalog } from "@/i18n/catalog";
 import { LocaleLink, useI18n } from "@/i18n";
 import { getLocalizedContent } from "@/i18n/content";
+import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
 import { instagramLink, site } from "@/config/site";
 import { staticHead } from "@/i18n/seo";
 import {
@@ -84,11 +85,7 @@ export function Home() {
               <p className="mt-3 max-w-md text-white/85">
                 {t("Свежие ягоды, воздушные кремы и лёгкие цитрусовые ноты — вкус тёплого сезона.")}
               </p>
-              <LocaleLink
-                to="/catalog"
-                search={{ cat: "cakes" }}
-                className="mt-6 w-fit btn-primary btn-primary-hover"
-              >
+              <LocaleLink to="/catalog/cakes" className="mt-6 w-fit btn-primary btn-primary-hover">
                 {t("Смотреть коллекцию")} <ArrowRight className="h-4 w-4" />
               </LocaleLink>
             </div>
@@ -212,7 +209,9 @@ export function Home() {
           <div>
             <p className="page-kicker">{t("Новости и акции")}</p>
             <h2>{t("Что нового")}</h2>
-            <p>{t("Коллекции, события и предложения SOFIYA.")}</p>
+            <p>
+              <SofiyaBrandText text={t("Коллекции, события и предложения SOFIYA.")} />
+            </p>
           </div>
           <div className="flex flex-wrap gap-3">
             <LocaleLink to="/promotions" className="btn-primary btn-primary-hover">

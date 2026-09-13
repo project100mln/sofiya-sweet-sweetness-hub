@@ -1,6 +1,7 @@
 import type { Product } from "@/data/types";
 import { Sparkles, Star, Flame } from "lucide-react";
 import { formatPrice, LocaleLink, useI18n } from "@/i18n";
+import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
 
 export function ProductCard({ p }: { p: Product }) {
   const { locale, t } = useI18n();
@@ -39,10 +40,10 @@ export function ProductCard({ p }: { p: Product }) {
       </div>
       <div className="product-card-content p-5 flex min-w-0 flex-1 flex-col">
         <h3 className="product-card-title text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-          {p.name}
+          <SofiyaBrandText text={p.name} wordmarkClassName="!h-[0.95em]" />
         </h3>
         <p className="product-card-description mb-auto mt-1.5 pb-4 text-sm text-muted-foreground line-clamp-2">
-          {p.shortDescription}
+          <SofiyaBrandText text={p.shortDescription} wordmarkClassName="!h-[1.05em]" />
         </p>
         <div className="product-card-meta mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-border/60 pt-4">
           <span className="font-semibold text-foreground" data-testid="product-price">

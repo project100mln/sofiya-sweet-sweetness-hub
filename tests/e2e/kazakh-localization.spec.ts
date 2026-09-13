@@ -5,6 +5,11 @@ const kkStaticRoutes = [
   "/kk",
   "/kk/about",
   "/kk/catalog",
+  "/kk/catalog/cakes",
+  "/kk/catalog/desserts",
+  "/kk/catalog/pastry",
+  "/kk/catalog/samsa",
+  "/kk/catalog/pies",
   "/kk/stores",
   "/kk/promotions",
   "/kk/cake-preorder",
@@ -29,10 +34,10 @@ async function sitemapReviewRoutes(page: Page): Promise<string[]> {
   const paths = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(
     (match) => new URL(match[1].replaceAll("&amp;", "&")).pathname,
   );
-  expect(paths).toHaveLength(140);
-  expect(new Set(paths).size).toBe(140);
-  expect(paths.filter((path) => path === "/kk" || path.startsWith("/kk/"))).toHaveLength(70);
-  expect(paths.filter((path) => path !== "/kk" && !path.startsWith("/kk/"))).toHaveLength(70);
+  expect(paths).toHaveLength(150);
+  expect(new Set(paths).size).toBe(150);
+  expect(paths.filter((path) => path === "/kk" || path.startsWith("/kk/"))).toHaveLength(75);
+  expect(paths.filter((path) => path !== "/kk" && !path.startsWith("/kk/"))).toHaveLength(75);
   return paths;
 }
 
@@ -335,11 +340,10 @@ test("Kazakh product, news and promotion details use localized copy and payloads
   await expect(
     page.getByRole("heading", { level: 1, name: "Түркістан облысында кеңейіп келеміз" }),
   ).toBeVisible();
-  await expect(
-    page.getByText("Леңгір, Сайрам, Ақсукент және Манкенттегі жаңа SOFIYA дүкендері.", {
-      exact: true,
-    }),
-  ).toBeVisible();
+  const newsSummary = page.locator("article > p.mt-8.text-lg").first();
+  await expect(newsSummary).toContainText("жаңа");
+  await expect(newsSummary).toContainText("дүкендері.");
+  await expect(newsSummary.getByAltText("SOFIYA")).toBeVisible();
 
   await page.goto("/kk/promotions/samsa-happy-hours");
   await expect(
@@ -619,7 +623,7 @@ test("Kazakh 404 and missing detail routes keep status, language and noindex", a
 
 for (const locale of ["ru", "kk"] as const) {
   for (const width of [320, 375, 768, 1440] as const) {
-    test(`${locale.toUpperCase()} all 70 sitemap routes render without errors or overflow at ${width}px`, async ({
+    test(`${locale.toUpperCase()} all 75 sitemap routes render without errors or overflow at ${width}px`, async ({
       page,
     }, testInfo) => {
       test.skip(testInfo.project.name.includes("mobile"), "explicit viewport matrix runs once");
@@ -630,7 +634,7 @@ for (const locale of ["ru", "kk"] as const) {
           ? path === "/kk" || path.startsWith("/kk/")
           : path !== "/kk" && !path.startsWith("/kk/"),
       );
-      expect(reviewRoutes).toHaveLength(70);
+      expect(reviewRoutes).toHaveLength(75);
       const errors = collectBrowserErrors(page);
       await page.setViewportSize({ width, height: width < 768 ? 844 : 1000 });
 

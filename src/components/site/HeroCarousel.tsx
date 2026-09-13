@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { IMG, products } from "@/data/catalog";
 import { LocaleLink, useI18n } from "@/i18n";
+import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
 
 interface Slide {
   eyebrow: ReactNode;
@@ -36,13 +37,12 @@ const slides: Slide[] = [
       </>
     ),
     cta: "Выбрать десерт",
-    href: "/catalog",
+    href: "/catalog/cakes",
     image: IMG.cakeBerry,
     imageHd: IMG.cakeBerryHd,
     imageAlt: "Фирменный торт SOFIYA с ягодами и логотипом",
     imagePosition: "56% 48%",
     productFocus: true,
-    search: { cat: "cakes" },
     kk: {
       eyebrow: "SOFIYA — 2014 жылдан бері",
       title: (
@@ -68,11 +68,10 @@ const slides: Slide[] = [
     title: "Свежая выпечка каждый день",
     desc: "Слойки, самса и десерты — только что из печи.",
     cta: "Выбрать выпечку",
-    href: "/catalog",
+    href: "/catalog/pastry",
     image: IMG.samsa,
     imageAlt: "Свежая выпечка SOFIYA",
     imagePosition: "62% 56%",
-    search: { cat: "pastry" },
     kk: {
       eyebrow: "Күн сайын таңертең",
       title: "Күн сайын балғын пісірмелер",
@@ -209,7 +208,15 @@ export function HeroCarousel() {
             className="hero-eyebrow text-xs font-bold uppercase tracking-[0.08em] text-primary md:text-sm"
             data-testid="hero-eyebrow"
           >
-            {s.eyebrow}
+            {typeof s.eyebrow === "string" ? (
+              <SofiyaBrandText
+                text={s.eyebrow}
+                wordmarkClassName="!h-[1.05em] rounded-sm bg-white/90 px-1 py-0.5"
+                placement="center"
+              />
+            ) : (
+              s.eyebrow
+            )}
           </span>
           <h1 className="hero-title mt-5 max-w-none text-[clamp(1.9rem,9vw,2.6rem)] font-medium leading-[0.98] tracking-[-0.035em] text-white sm:text-5xl md:text-6xl lg:text-[4.8rem]">
             {s.title}

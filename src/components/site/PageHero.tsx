@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { logoSources } from "@/config/branding";
+import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
 
 export function PageHero({
   eyebrow,
@@ -7,7 +8,7 @@ export function PageHero({
   lead,
   children,
 }: {
-  eyebrow: string;
+  eyebrow: ReactNode;
   title: ReactNode;
   lead?: ReactNode;
   children?: ReactNode;
@@ -24,9 +25,29 @@ export function PageHero({
           aria-hidden
         />
         <div className="relative max-w-3xl">
-          <p className="page-kicker">{eyebrow}</p>
-          <h1 className="page-title">{title}</h1>
-          {lead && <div className="page-lead">{lead}</div>}
+          <p className="page-kicker">
+            {typeof eyebrow === "string" ? (
+              <SofiyaBrandText text={eyebrow} wordmarkClassName="!h-[1.1em]" />
+            ) : (
+              eyebrow
+            )}
+          </p>
+          <h1 className="page-title">
+            {typeof title === "string" ? (
+              <SofiyaBrandText text={title} wordmarkClassName="!h-[0.82em]" />
+            ) : (
+              title
+            )}
+          </h1>
+          {lead && (
+            <div className="page-lead">
+              {typeof lead === "string" ? (
+                <SofiyaBrandText text={lead} wordmarkClassName="!h-[1.05em]" />
+              ) : (
+                lead
+              )}
+            </div>
+          )}
           {children}
         </div>
       </div>
