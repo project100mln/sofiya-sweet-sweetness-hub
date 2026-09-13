@@ -5,7 +5,7 @@
 - Authorized slice: indexable RU/KK category landing pages and a stronger cake-preorder page.
 - Existing Draft PR #7 is intentionally separate and unchanged.
 - Draft PR: [#8](https://github.com/project100mln/sofiya-sweet-sweetness-hub/pull/8),
-  remote head `252328999cad6404c642fda8062578aa2c0b0437`.
+  implementation commit `252328999cad6404c642fda8062578aa2c0b0437`.
 
 ## Implemented
 
