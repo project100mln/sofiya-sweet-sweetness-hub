@@ -99,7 +99,8 @@ test("original S logo and branded hero stay visible", async ({ page }) => {
   );
 
   const hero = page.getByTestId("hero-carousel");
-  await expect(hero.getByText("SOFIYA — с 2014 года", { exact: true })).toBeVisible();
+  await expect(hero.getByTestId("hero-eyebrow")).toContainText("— с 2014 года");
+  await expect(hero.getByTestId("hero-eyebrow").getByAltText("SOFIYA")).toBeVisible();
   const heroTitle = hero.getByRole("heading", {
     level: 1,
     name: "Незабываемый вкус каждый день",

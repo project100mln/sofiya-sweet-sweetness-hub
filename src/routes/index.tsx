@@ -9,6 +9,7 @@ import { IMG } from "@/data/catalog";
 import { getCatalog } from "@/i18n/catalog";
 import { LocaleLink, useI18n } from "@/i18n";
 import { getLocalizedContent } from "@/i18n/content";
+import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
 import { instagramLink, site } from "@/config/site";
 import { staticHead } from "@/i18n/seo";
 import {
@@ -208,7 +209,9 @@ export function Home() {
           <div>
             <p className="page-kicker">{t("Новости и акции")}</p>
             <h2>{t("Что нового")}</h2>
-            <p>{t("Коллекции, события и предложения SOFIYA.")}</p>
+            <p>
+              <SofiyaBrandText text={t("Коллекции, события и предложения SOFIYA.")} />
+            </p>
           </div>
           <div className="flex flex-wrap gap-3">
             <LocaleLink to="/promotions" className="btn-primary btn-primary-hover">
