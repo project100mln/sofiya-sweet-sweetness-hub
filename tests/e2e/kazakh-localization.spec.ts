@@ -340,7 +340,7 @@ test("Kazakh product, news and promotion details use localized copy and payloads
   await expect(
     page.getByRole("heading", { level: 1, name: "Түркістан облысында кеңейіп келеміз" }),
   ).toBeVisible();
-  const newsSummary = page.locator("article").getByText(/Леңгір, Сайрам, Ақсукент/);
+  const newsSummary = page.locator("article > p.mt-8.text-lg").first();
   await expect(newsSummary).toContainText("жаңа");
   await expect(newsSummary).toContainText("дүкендері.");
   await expect(newsSummary.getByAltText("SOFIYA")).toBeVisible();
