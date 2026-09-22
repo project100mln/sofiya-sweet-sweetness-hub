@@ -6,13 +6,20 @@ import { ProductCard } from "@/components/site/ProductCard";
 import { Instagram, MessageCircle, ChevronRight } from "lucide-react";
 import { formatPrice, LocaleLink, useI18n } from "@/i18n";
 import { getCatalog } from "@/i18n/catalog";
-import { dynamicSeoCopy, renderDynamicSeoPattern } from "@/i18n/seo";
+import { catalogLandingHead, dynamicSeoCopy, renderDynamicSeoPattern } from "@/i18n/seo";
+import { CatalogCategoryLink } from "@/components/site/CatalogCategoryLink";
+import { CatalogLandingPage } from "@/components/site/CatalogLandingPage";
+import { isCatalogLandingSlug } from "@/data/catalog-landing-pages";
+import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
 
 export const Route = createFileRoute("/catalog_/$slug")({
   loader: ({ params }) => {
+    if (isCatalogLandingSlug(params.slug)) {
+      return { kind: "landing", landingSlug: params.slug } as const;
+    }
     const product = getProduct(params.slug);
     if (!product) throw notFound();
-    return { product };
+    return { kind: "product", product } as const;
   },
   head: ({ loaderData }) => {
     const seo = dynamicSeoCopy.product.ru;
@@ -20,6 +27,7 @@ export const Route = createFileRoute("/catalog_/$slug")({
       return {
         meta: [{ title: seo.notFoundTitle }, { name: "robots", content: "noindex" }],
       };
+    if (loaderData.kind === "landing") return catalogLandingHead(loaderData.landingSlug, "ru");
     const p = loaderData.product;
     return {
       links: canonicalLink(`/catalog/${p.slug}`),
@@ -92,7 +100,9 @@ export const Route = createFileRoute("/catalog_/$slug")({
 });
 
 function ProductPage() {
-  return <ProductView product={Route.useLoaderData().product} />;
+  const data = Route.useLoaderData();
+  if (data.kind === "landing") return <CatalogLandingPage slug={data.landingSlug} />;
+  return <ProductView product={data.product} />;
 }
 
 export function ProductView({ product }: { product: Product }) {
@@ -120,17 +130,15 @@ export function ProductView({ product }: { product: Product }) {
           {category.slug && (
             <>
               <ChevronRight className="h-3.5 w-3.5" />
-              <LocaleLink
-                to="/catalog"
-                search={{ cat: category.slug }}
-                className="min-w-0 hover:text-primary"
-              >
+              <CatalogCategoryLink category={category} className="min-w-0 hover:text-primary">
                 {category.name}
-              </LocaleLink>
+              </CatalogCategoryLink>
             </>
           )}
           <ChevronRight className="h-3.5 w-3.5" />
-          <span className="min-w-0 break-words text-foreground">{p.name}</span>
+          <span className="min-w-0 break-words text-foreground">
+            <SofiyaBrandText text={p.name} wordmarkClassName="!h-[0.95em]" />
+          </span>
         </nav>
       </div>
 
@@ -158,8 +166,12 @@ export function ProductView({ product }: { product: Product }) {
               </span>
             )}
           </div>
-          <h1 className="product-detail-title mt-4 text-4xl font-semibold md:text-6xl">{p.name}</h1>
-          <p className="mt-3 text-lg text-muted-foreground">{p.shortDescription}</p>
+          <h1 className="product-detail-title mt-4 text-4xl font-semibold md:text-6xl">
+            <SofiyaBrandText text={p.name} wordmarkClassName="!h-[0.82em]" />
+          </h1>
+          <p className="mt-3 text-lg text-muted-foreground">
+            <SofiyaBrandText text={p.shortDescription} wordmarkClassName="!h-[1.05em]" />
+          </p>
 
           {p.price != null && (
             <p className="mt-6 text-3xl font-bold text-primary">{formatPrice(p.price, locale)} ₸</p>
@@ -177,7 +189,9 @@ export function ProductView({ product }: { product: Product }) {
 
           {p.fullDescription && (
             <div className="mt-6 prose prose-neutral">
-              <p className="text-foreground/85 leading-relaxed">{p.fullDescription}</p>
+              <p className="text-foreground/85 leading-relaxed">
+                <SofiyaBrandText text={p.fullDescription} wordmarkClassName="!h-[1.05em]" />
+              </p>
             </div>
           )}
 
@@ -186,7 +200,9 @@ export function ProductView({ product }: { product: Product }) {
               <h3 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
                 {t("Состав")}
               </h3>
-              <p className="mt-2 text-sm text-foreground/85">{p.ingredients.join(", ")}</p>
+              <p className="mt-2 text-sm text-foreground/85">
+                <SofiyaBrandText text={p.ingredients.join(", ")} wordmarkClassName="!h-[1.05em]" />
+              </p>
             </div>
           )}
 

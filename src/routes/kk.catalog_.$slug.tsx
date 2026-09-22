@@ -3,13 +3,18 @@ import { getProduct } from "@/data/catalog";
 import { absoluteUrl, languageLinks, site } from "@/config/site";
 import { localizeProduct } from "@/i18n/catalog";
 import { ProductView } from "./catalog_.$slug";
-import { dynamicSeoCopy, renderDynamicSeoPattern } from "@/i18n/seo";
+import { catalogLandingHead, dynamicSeoCopy, renderDynamicSeoPattern } from "@/i18n/seo";
+import { CatalogLandingPage } from "@/components/site/CatalogLandingPage";
+import { isCatalogLandingSlug } from "@/data/catalog-landing-pages";
 
 export const Route = createFileRoute("/kk/catalog_/$slug")({
   loader: ({ params }) => {
+    if (isCatalogLandingSlug(params.slug)) {
+      return { kind: "landing", landingSlug: params.slug } as const;
+    }
     const product = getProduct(params.slug);
     if (!product) throw notFound();
-    return { product };
+    return { kind: "product", product } as const;
   },
   head: ({ loaderData }) => {
     const seo = dynamicSeoCopy.product.kk;
@@ -18,6 +23,7 @@ export const Route = createFileRoute("/kk/catalog_/$slug")({
         meta: [{ title: seo.notFoundTitle }, { name: "robots", content: "noindex" }],
       };
     }
+    if (loaderData.kind === "landing") return catalogLandingHead(loaderData.landingSlug, "kk");
     const product = localizeProduct(loaderData.product, "kk");
     const path = `/catalog/${product.slug}`;
     return {
@@ -94,5 +100,7 @@ export const Route = createFileRoute("/kk/catalog_/$slug")({
 });
 
 function KazakhProductPage() {
-  return <ProductView product={Route.useLoaderData().product} />;
+  const data = Route.useLoaderData();
+  if (data.kind === "landing") return <CatalogLandingPage slug={data.landingSlug} />;
+  return <ProductView product={data.product} />;
 }

@@ -5,6 +5,7 @@ import lightPhoneSceneAsset from "@/assets/sofiya-club-mobile-scene-light.webp";
 import phoneSceneAsset from "@/assets/sofiya-club-mobile-scene.webp";
 import { waLink } from "@/config/site";
 import { useI18n } from "@/i18n";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 
 export function AppPromo() {
   const { t } = useI18n();
@@ -124,7 +125,12 @@ export function AppPromo() {
 
           <div className="loyalty-story-copy loyalty-mobile-overlay-copy relative z-10 flex h-full min-h-0 w-full flex-col px-5 pb-4 text-white">
             <p className="loyalty-story-kicker inline-flex items-center gap-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.15em] text-white/75">
-              <Gift className="h-3.5 w-3.5" aria-hidden /> SOFIYA Club — {t("скоро")}
+              <Gift className="h-3.5 w-3.5" aria-hidden />
+              <SofiyaWordmark
+                placement="center"
+                className="!h-[1.05em] rounded-sm bg-white/90 px-1 py-0.5"
+              />
+              <span>Club — {t("скоро")}</span>
             </p>
 
             <h2 className="loyalty-story-title mt-2 text-[1.9rem] font-semibold leading-[0.92] tracking-[-0.04em]">
@@ -226,7 +232,12 @@ export function AppPromo() {
 
           <div className="loyalty-story-copy loyalty-desktop-copy relative z-10 order-1 flex flex-col justify-center px-10 py-12 text-white lg:px-14">
             <p className="loyalty-story-kicker inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.16em] text-white/75">
-              <Gift className="h-4 w-4" aria-hidden /> SOFIYA Club — {t("скоро")}
+              <Gift className="h-4 w-4" aria-hidden />
+              <SofiyaWordmark
+                placement="center"
+                className="!h-[1.05em] rounded-sm bg-white/90 px-1 py-0.5"
+              />
+              <span>Club — {t("скоро")}</span>
             </p>
 
             <h2 className="loyalty-story-title mt-4 max-w-[14ch] text-[3.25rem] font-semibold leading-[0.96] tracking-[-0.04em] lg:text-[4rem]">
