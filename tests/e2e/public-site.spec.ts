@@ -48,6 +48,7 @@ test("catalog category link opens an indexable landing page", async ({ page }) =
   await expect(
     page.getByRole("heading", { level: 1, name: "Торты SOFIYA в Шымкенте" }),
   ).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1 }).locator('img[alt="SOFIYA"]')).toHaveCount(0);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     "href",
     "https://sofiyabakery.com/catalog/cakes",
@@ -101,6 +102,23 @@ test("original S logo and branded hero stay visible", async ({ page }) => {
   const hero = page.getByTestId("hero-carousel");
   await expect(hero.getByTestId("hero-eyebrow")).toContainText("— с 2014 года");
   await expect(hero.getByTestId("hero-eyebrow").getByAltText("SOFIYA")).toBeVisible();
+  const eyebrowAlignment = await hero.getByTestId("hero-eyebrow").evaluate((eyebrow) => {
+    const wordmark = eyebrow.querySelector<HTMLElement>('[data-testid="hero-brand-wordmark"]');
+    const suffix = eyebrow.querySelector<HTMLElement>('[data-testid="hero-brand-suffix"]');
+    if (!wordmark || !suffix) return null;
+    const wordmarkBox = wordmark.getBoundingClientRect();
+    const suffixBox = suffix.getBoundingClientRect();
+    return {
+      centerDelta: Math.abs(
+        wordmarkBox.top + wordmarkBox.height / 2 - (suffixBox.top + suffixBox.height / 2),
+      ),
+      wordmarkHeight: wordmarkBox.height,
+    };
+  });
+  expect(eyebrowAlignment).not.toBeNull();
+  expect(eyebrowAlignment!.centerDelta).toBeLessThanOrEqual(1);
+  expect(eyebrowAlignment!.wordmarkHeight).toBeGreaterThanOrEqual(24);
+  expect(eyebrowAlignment!.wordmarkHeight).toBeLessThanOrEqual(28);
   const heroTitle = hero.getByRole("heading", {
     level: 1,
     name: "Незабываемый вкус каждый день",

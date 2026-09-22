@@ -2,7 +2,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { IMG, products } from "@/data/catalog";
 import { LocaleLink, useI18n } from "@/i18n";
-import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 
 interface Slide {
   eyebrow: ReactNode;
@@ -208,12 +208,18 @@ export function HeroCarousel() {
             className="hero-eyebrow text-xs font-bold uppercase tracking-[0.08em] text-primary md:text-sm"
             data-testid="hero-eyebrow"
           >
-            {typeof s.eyebrow === "string" ? (
-              <SofiyaBrandText
-                text={s.eyebrow}
-                wordmarkClassName="!h-[1.05em] rounded-sm bg-white/90 px-1 py-0.5"
-                placement="center"
-              />
+            {typeof s.eyebrow === "string" && s.eyebrow.startsWith("SOFIYA — ") ? (
+              <span className="inline-flex items-center gap-2 align-middle leading-none">
+                <span
+                  className="inline-flex h-6 items-center justify-center rounded-md bg-white/95 px-2 shadow-sm md:h-7 md:px-2.5"
+                  data-testid="hero-brand-wordmark"
+                >
+                  <SofiyaWordmark className="!h-3.5 !w-auto md:!h-4" placement="center" />
+                </span>
+                <span className="whitespace-nowrap leading-none" data-testid="hero-brand-suffix">
+                  — {s.eyebrow.slice("SOFIYA — ".length)}
+                </span>
+              </span>
             ) : (
               s.eyebrow
             )}

@@ -483,10 +483,10 @@ ui-message	src/components/site/Header.tsx:58	Основная навигация
 ui-message	src/components/site/Header.tsx:79	Выбор языка	Выбор языка	Тілді таңдау	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/HeroCarousel.tsx:175	карусель	карусель	карусель	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/HeroCarousel.tsx:176	Предложения SOFIYA	Предложения SOFIYA	SOFIYA ұсыныстары	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/HeroCarousel.tsx:243	Предыдущий слайд	Предыдущий слайд	Алдыңғы слайд	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/HeroCarousel.tsx:249	Слайды	Слайды	Слайдтар	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/HeroCarousel.tsx:255	Слайд	Слайд	Слайд	DRAFT_REQUIRES_KK_EDITORIAL
-ui-message	src/components/site/HeroCarousel.tsx:269	Следующий слайд	Следующий слайд	Келесі слайд	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/HeroCarousel.tsx:249	Предыдущий слайд	Предыдущий слайд	Алдыңғы слайд	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/HeroCarousel.tsx:255	Слайды	Слайды	Слайдтар	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/HeroCarousel.tsx:261	Слайд	Слайд	Слайд	DRAFT_REQUIRES_KK_EDITORIAL
+ui-message	src/components/site/HeroCarousel.tsx:275	Следующий слайд	Следующий слайд	Келесі слайд	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/NewsCard.tsx:13	Открыть событие	Открыть событие	Оқиғаны ашу	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/NewsCard.tsx:14	Перейти к программе лояльности	Перейти к программе лояльности	Адалдық бағдарламасына өту	DRAFT_REQUIRES_KK_EDITORIAL
 ui-message	src/components/site/NewsCard.tsx:15	Перейти к заказу торта	Перейти к заказу торта	Торт тапсырысына өту	DRAFT_REQUIRES_KK_EDITORIAL

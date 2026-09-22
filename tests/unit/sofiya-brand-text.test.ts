@@ -10,13 +10,12 @@ describe("SofiyaBrandText", () => {
     );
   });
 
-  it("replaces every visible SOFIYA mention with the approved wordmark", () => {
+  it("keeps SOFIYA readable text when it appears inside a sentence", () => {
     const markup = renderToStaticMarkup(
       createElement(SofiyaBrandText, { text: "SOFIYA — магазины SOFIYA" }),
     );
 
-    expect(markup.match(/alt="SOFIYA"/g)).toHaveLength(2);
-    expect(markup).toContain("sofiya-wordmark-approved");
-    expect(markup).toContain(" — магазины ");
+    expect(markup).toBe("SOFIYA — магазины SOFIYA");
+    expect(markup).not.toContain("<img");
   });
 });
