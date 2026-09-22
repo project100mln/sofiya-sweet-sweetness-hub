@@ -342,8 +342,9 @@ test("Kazakh product, news and promotion details use localized copy and payloads
   ).toBeVisible();
   const newsSummary = page.locator("article > p.mt-8.text-lg").first();
   await expect(newsSummary).toContainText("жаңа");
+  await expect(newsSummary).toContainText("SOFIYA");
   await expect(newsSummary).toContainText("дүкендері.");
-  await expect(newsSummary.getByAltText("SOFIYA")).toBeVisible();
+  await expect(newsSummary.locator('img[alt="SOFIYA"]')).toHaveCount(0);
 
   await page.goto("/kk/promotions/samsa-happy-hours");
   await expect(
