@@ -1,7 +1,8 @@
 # SOFIYA SEO — продолжать отсюда
 
 2026-09-23. Читать docs/SEO_MASTER.md → docs/SEO_BACKLOG.md → docs/SEO_LOG.md.
-Текущий SEO-00: управление. Ветка agent/sofiya-seo-governance-20260923 от remote
+SEO-00 DONE: документация сохранена в PR #9, f0edfd5; следующий пункт SEO-02 TODO.
+Ветка agent/sofiya-seo-governance-20260923 от remote
 #8 57ef3dcb0cf0ef0ef4b9182c735553ddb80ebcf3. Только документация, без правок приложения.
 Старое локальное дерево расходится с remote и сохранено без reset.
 После SEO-00: SEO-02 — объединить #7/#8, сохранить сердце/hero, убрать лишнюю косметику.
