@@ -8,7 +8,7 @@ import { LocaleLink, useI18n } from "@/i18n";
 import { getLocalizedContent } from "@/i18n/content";
 import { useCakeDraft } from "@/i18n/use-cake-draft";
 import { PageHero } from "@/components/site/PageHero";
-import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
+
 import {
   isCalendarDateOnOrAfter,
   PHONE_PATTERN,
@@ -475,9 +475,7 @@ export function PreorderPage() {
                 <summary className="cursor-pointer list-none font-semibold marker:content-none">
                   {item.question}
                 </summary>
-                <p className="mt-3 leading-7 text-foreground/75">
-                  <SofiyaBrandText text={item.answer} wordmarkClassName="!h-[1.05em]" />
-                </p>
+                <p className="mt-3 leading-7 text-foreground/75">{item.answer}</p>
               </details>
             ))}
           </div>

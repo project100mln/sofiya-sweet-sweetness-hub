@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { staticHead } from "@/i18n/seo";
 import { PageHero } from "@/components/site/PageHero";
 import { useI18n } from "@/i18n";
-import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
 
 export const Route = createFileRoute("/privacy")({
   head: () => staticHead("/privacy", "ru"),
@@ -16,11 +15,9 @@ export function PrivacyPage() {
       <PageHero eyebrow={t("Документы")} title={t("Политика конфиденциальности")} />
       <article className="container-page max-w-3xl py-12 prose prose-neutral">
         <p className="text-muted-foreground">
-          <SofiyaBrandText
-            text={t(
-              "Настоящая политика описывает, как SOFIYA обрабатывает персональные данные, оставленные вами при оформлении предзаказов, заявок на кейтеринг, откликов на вакансии и обратной связи.",
-            )}
-          />
+          {t(
+            "Настоящая политика описывает, как SOFIYA обрабатывает персональные данные, оставленные вами при оформлении предзаказов, заявок на кейтеринг, откликов на вакансии и обратной связи.",
+          )}
         </p>
         <h2 className="mt-8 text-2xl font-semibold">{t("Какие данные мы обрабатываем")}</h2>
         <p className="mt-2 text-muted-foreground">

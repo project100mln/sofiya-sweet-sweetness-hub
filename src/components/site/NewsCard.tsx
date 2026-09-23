@@ -1,6 +1,5 @@
 import type { NewsItem } from "@/data/types";
 import { formatDate, LocaleLink, useI18n } from "@/i18n";
-import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
 
 interface NewsCardProps {
   item: NewsItem;
@@ -32,12 +31,12 @@ export function NewsCard({ item, compact = false }: NewsCardProps) {
         <h3
           className={`${compact ? "text-lg" : "text-xl"} mt-2 font-semibold text-foreground transition-colors group-hover:text-primary`}
         >
-          <SofiyaBrandText text={item.title} wordmarkClassName="!h-[0.95em]" />
+          {item.title}
         </h3>
         <p
           className={`news-card-description mt-2 text-sm text-muted-foreground ${compact ? "line-clamp-2" : ""}`}
         >
-          <SofiyaBrandText text={item.summary} wordmarkClassName="!h-[1.05em]" />
+          {item.summary}
         </p>
         <span className="sr-only">{destinationLabel[item.destination]}</span>
       </div>

@@ -10,7 +10,6 @@ import { catalogLandingHead, dynamicSeoCopy, renderDynamicSeoPattern } from "@/i
 import { CatalogCategoryLink } from "@/components/site/CatalogCategoryLink";
 import { CatalogLandingPage } from "@/components/site/CatalogLandingPage";
 import { isCatalogLandingSlug } from "@/data/catalog-landing-pages";
-import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
 
 export const Route = createFileRoute("/catalog_/$slug")({
   loader: ({ params }) => {
@@ -136,9 +135,7 @@ export function ProductView({ product }: { product: Product }) {
             </>
           )}
           <ChevronRight className="h-3.5 w-3.5" />
-          <span className="min-w-0 break-words text-foreground">
-            <SofiyaBrandText text={p.name} wordmarkClassName="!h-[0.95em]" />
-          </span>
+          <span className="min-w-0 break-words text-foreground">{p.name}</span>
         </nav>
       </div>
 
@@ -166,12 +163,8 @@ export function ProductView({ product }: { product: Product }) {
               </span>
             )}
           </div>
-          <h1 className="product-detail-title mt-4 text-4xl font-semibold md:text-6xl">
-            <SofiyaBrandText text={p.name} wordmarkClassName="!h-[0.82em]" />
-          </h1>
-          <p className="mt-3 text-lg text-muted-foreground">
-            <SofiyaBrandText text={p.shortDescription} wordmarkClassName="!h-[1.05em]" />
-          </p>
+          <h1 className="product-detail-title mt-4 text-4xl font-semibold md:text-6xl">{p.name}</h1>
+          <p className="mt-3 text-lg text-muted-foreground">{p.shortDescription}</p>
 
           {p.price != null && (
             <p className="mt-6 text-3xl font-bold text-primary">{formatPrice(p.price, locale)} ₸</p>
@@ -189,9 +182,7 @@ export function ProductView({ product }: { product: Product }) {
 
           {p.fullDescription && (
             <div className="mt-6 prose prose-neutral">
-              <p className="text-foreground/85 leading-relaxed">
-                <SofiyaBrandText text={p.fullDescription} wordmarkClassName="!h-[1.05em]" />
-              </p>
+              <p className="text-foreground/85 leading-relaxed">{p.fullDescription}</p>
             </div>
           )}
 
@@ -200,9 +191,7 @@ export function ProductView({ product }: { product: Product }) {
               <h3 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
                 {t("Состав")}
               </h3>
-              <p className="mt-2 text-sm text-foreground/85">
-                <SofiyaBrandText text={p.ingredients.join(", ")} wordmarkClassName="!h-[1.05em]" />
-              </p>
+              <p className="mt-2 text-sm text-foreground/85">{p.ingredients.join(", ")}</p>
             </div>
           )}
 

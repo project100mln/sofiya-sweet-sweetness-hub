@@ -6,7 +6,6 @@ import type { PromotionCardContent } from "@/types/promotions";
 import { LocaleLink, useI18n } from "@/i18n";
 import { formatPromotionHours, localizePromotion } from "@/i18n/content";
 import { breadcrumbScript, dynamicSeoCopy, renderDynamicSeoPattern } from "@/i18n/seo";
-import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
 
 export const Route = createFileRoute("/promotions_/$slug")({
   loader: ({ params }) => {
@@ -102,12 +101,10 @@ export function PromotionDetailView({ promotion: source }: { promotion: Promotio
           <p className="text-xs font-semibold uppercase tracking-widest text-primary">
             {t("Акция")}
           </p>
-          <h1 className="mt-3 text-4xl font-semibold md:text-6xl">
-            <SofiyaBrandText text={promotion.title} wordmarkClassName="!h-[0.82em]" />
-          </h1>
+          <h1 className="mt-3 text-4xl font-semibold md:text-6xl">{promotion.title}</h1>
           {promotion.description && (
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              <SofiyaBrandText text={promotion.description} wordmarkClassName="!h-[1.05em]" />
+              {promotion.description}
             </p>
           )}
 
@@ -122,8 +119,7 @@ export function PromotionDetailView({ promotion: source }: { promotion: Promotio
                     key={name}
                     className="premium-card flex items-center gap-2 rounded-2xl px-4 py-3 text-sm font-semibold"
                   >
-                    <Check className="h-4 w-4 shrink-0 text-primary" />
-                    <SofiyaBrandText text={name} wordmarkClassName="!h-[1.05em]" />
+                    <Check className="h-4 w-4 shrink-0 text-primary" /> {name}
                   </li>
                 ))}
               </ul>

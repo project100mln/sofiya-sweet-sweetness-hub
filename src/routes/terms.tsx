@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { staticHead } from "@/i18n/seo";
 import { PageHero } from "@/components/site/PageHero";
 import { useI18n } from "@/i18n";
-import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
 
 export const Route = createFileRoute("/terms")({
   head: () => staticHead("/terms", "ru"),
@@ -16,9 +15,7 @@ export function TermsPage() {
       <PageHero eyebrow={t("Документы")} title={t("Пользовательское соглашение")} />
       <article className="container-page max-w-3xl py-12 prose prose-neutral">
         <p className="text-muted-foreground">
-          <SofiyaBrandText
-            text={t("Используя сайт SOFIYA, вы соглашаетесь с условиями, изложенными ниже.")}
-          />
+          {t("Используя сайт SOFIYA, вы соглашаетесь с условиями, изложенными ниже.")}
         </p>
         <h2 className="mt-8 text-2xl font-semibold">{t("Использование сайта")}</h2>
         <p className="mt-2 text-muted-foreground">
@@ -34,11 +31,9 @@ export function TermsPage() {
         </p>
         <h2 className="mt-6 text-2xl font-semibold">{t("Материалы сайта")}</h2>
         <p className="mt-2 text-muted-foreground">
-          <SofiyaBrandText
-            text={t(
-              "Фотографии, тексты и логотипы SOFIYA используются как материалы бренда и защищаются применимым законодательством.",
-            )}
-          />
+          {t(
+            "Фотографии, тексты и логотипы SOFIYA используются как материалы бренда и защищаются применимым законодательством.",
+          )}
         </p>
       </article>
     </>

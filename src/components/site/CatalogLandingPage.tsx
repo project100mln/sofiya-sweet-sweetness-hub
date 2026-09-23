@@ -2,7 +2,7 @@ import { MessageCircle, Store } from "lucide-react";
 import { ProductCard } from "@/components/site/ProductCard";
 import { PageHero } from "@/components/site/PageHero";
 import { CatalogCategoryLink } from "@/components/site/CatalogCategoryLink";
-import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
+
 import { catalogLandingPages, type CatalogLandingSlug } from "@/data/catalog-landing-pages";
 import { waLink } from "@/config/site";
 import { getCatalog } from "@/i18n/catalog";
@@ -67,12 +67,10 @@ export function CatalogLandingPage({ slug }: { slug: CatalogLandingSlug }) {
       <section className="container-page py-10 md:py-16">
         <div className="grid gap-6 lg:grid-cols-[1.45fr_0.75fr]">
           <article className="premium-card p-6 md:p-9">
-            <h2 className="text-2xl font-semibold md:text-3xl">
-              <SofiyaBrandText text={copy.introTitle} wordmarkClassName="!h-[0.9em]" />
-            </h2>
+            <h2 className="text-2xl font-semibold md:text-3xl">{copy.introTitle}</h2>
             {copy.paragraphs.map((paragraph) => (
               <p key={paragraph} className="mt-4 leading-7 text-foreground/80">
-                <SofiyaBrandText text={paragraph} wordmarkClassName="!h-[1.05em]" />
+                {paragraph}
               </p>
             ))}
           </article>

@@ -7,7 +7,6 @@ import { LocaleLink, useI18n } from "@/i18n";
 import { getCatalog } from "@/i18n/catalog";
 import { localizedSiteRegion } from "@/i18n/content";
 import { CatalogCategoryLink } from "@/components/site/CatalogCategoryLink";
-import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
 
 export function Footer() {
   const { t, pick, locale } = useI18n();
@@ -23,13 +22,10 @@ export function Footer() {
             data-testid="footer-logo"
           />
           <p className="mt-4 text-sm text-white/70 leading-relaxed">
-            <SofiyaBrandText
-              text={pick(
-                `${site.brand} Sweet — сеть фирменных магазинов в Шымкенте и Туркестанской области. Свежая выпечка, авторские торты и десерты каждый день.`,
-                `${site.brand} Sweet — Шымкент пен Түркістан облысындағы фирмалық дүкендер желісі. Күн сайын балғын пісірмелер, авторлық торттар мен десерттер.`,
-              )}
-              wordmarkClassName="!h-[1.05em]"
-            />
+            {pick(
+              `${site.brand} Sweet — сеть фирменных магазинов в Шымкенте и Туркестанской области. Свежая выпечка, авторские торты и десерты каждый день.`,
+              `${site.brand} Sweet — Шымкент пен Түркістан облысындағы фирмалық дүкендер желісі. Күн сайын балғын пісірмелер, авторлық торттар мен десерттер.`,
+            )}
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
             <a

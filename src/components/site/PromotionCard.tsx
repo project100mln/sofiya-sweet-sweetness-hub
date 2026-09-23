@@ -2,7 +2,6 @@ import { ArrowUpRight, Clock, Percent, Tag, Ticket } from "lucide-react";
 import type { PromotionCardContent } from "@/types/promotions";
 import { logoSources } from "@/config/branding";
 import { formatPrice, LocaleLink, useI18n } from "@/i18n";
-import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
 
 const discountLabel = (
   promotion: PromotionCardContent,
@@ -58,11 +57,11 @@ export function PromotionCard({ promotion }: { promotion: PromotionCardContent }
 
       <div className="p-5 flex flex-col flex-1">
         <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-          <SofiyaBrandText text={promotion.title} wordmarkClassName="!h-[0.95em]" />
+          {promotion.title}
         </h3>
         {promotion.description && (
           <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-            <SofiyaBrandText text={promotion.description} wordmarkClassName="!h-[1.05em]" />
+            {promotion.description}
           </p>
         )}
 

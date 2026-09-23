@@ -6,7 +6,6 @@ import { NewsCard } from "@/components/site/NewsCard";
 import { formatDate, LocaleLink, useI18n } from "@/i18n";
 import { getLocalizedContent, localizeNewsItem } from "@/i18n/content";
 import { breadcrumbScript, dynamicSeoCopy, renderDynamicSeoPattern } from "@/i18n/seo";
-import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
 
 export const Route = createFileRoute("/news_/$slug")({
   loader: ({ params }) => {
@@ -68,26 +67,20 @@ export function NewsArticleView({ item: source }: { item: NewsItem }) {
         <p className="mt-6 text-xs uppercase tracking-widest text-primary font-semibold">
           {formatDate(item.date, locale)}
         </p>
-        <h1 className="mt-3 text-4xl font-semibold md:text-6xl">
-          <SofiyaBrandText text={item.title} wordmarkClassName="!h-[0.82em]" />
-        </h1>
+        <h1 className="mt-3 text-4xl font-semibold md:text-6xl">{item.title}</h1>
         <div className="premium-card mt-6 aspect-[16/9] overflow-hidden">
           <img src={item.cover} alt={item.title} className="h-full w-full object-cover" />
         </div>
-        <p className="mt-8 text-lg text-muted-foreground">
-          <SofiyaBrandText text={item.summary} />
-        </p>
+        <p className="mt-8 text-lg text-muted-foreground">{item.summary}</p>
         <div className="mt-6 text-foreground/85 leading-relaxed whitespace-pre-line">
-          <SofiyaBrandText text={item.body} />
+          {item.body}
         </div>
       </article>
       {related.length > 0 && (
         <section className="container-page py-12">
           <div className="section-heading">
             <div>
-              <p className="page-kicker">
-                <SofiyaBrandText text={t("Ещё в SOFIYA")} wordmarkClassName="!h-[1.1em]" />
-              </p>
+              <p className="page-kicker">{t("Ещё в SOFIYA")}</p>
               <h2>{t("Читайте также")}</h2>
             </div>
           </div>

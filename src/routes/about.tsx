@@ -4,7 +4,6 @@ import { staticHead } from "@/i18n/seo";
 import { PageHero } from "@/components/site/PageHero";
 import { LocaleLink, useI18n } from "@/i18n";
 import { getLocalizedContent } from "@/i18n/content";
-import { SofiyaBrandText } from "@/components/site/SofiyaBrandText";
 
 export const Route = createFileRoute("/about")({
   head: () => staticHead("/about", "ru"),
@@ -51,32 +50,22 @@ export function AboutPage() {
           </div>
           <div className="space-y-5 text-base leading-7 text-muted-foreground">
             <p>
-              <SofiyaBrandText
-                text={t(
-                  "История SOFIYA началась в 2014 году не с витрины, а с производства. Основатель бренда Ниязходжаев Бахадир Тураббаевич открыл кондитерское направление, которое работало преимущественно с B2B-клиентами и готовило продукцию для партнёров из разных сфер бизнеса.",
-                )}
-              />
+              {t(
+                "История SOFIYA началась в 2014 году не с витрины, а с производства. Основатель бренда Ниязходжаев Бахадир Тураббаевич открыл кондитерское направление, которое работало преимущественно с B2B-клиентами и готовило продукцию для партнёров из разных сфер бизнеса.",
+              )}
             </p>
             <p>
-              <SofiyaBrandText
-                text={t(
-                  "Со временем продукцию всё чаще хотели покупать напрямую. Покупатели обращались с просьбой открыть собственную точку, и в 2016 году появился первый фирменный магазин SOFIYA. Так кондитерское направление, созданное для бизнеса, сделало следующий шаг — стало ближе к семьям и ежедневным поводам своих гостей.",
-                )}
-              />
+              {t(
+                "Со временем продукцию всё чаще хотели покупать напрямую. Покупатели обращались с просьбой открыть собственную точку, и в 2016 году появился первый фирменный магазин SOFIYA. Так кондитерское направление, созданное для бизнеса, сделало следующий шаг — стало ближе к семьям и ежедневным поводам своих гостей.",
+              )}
             </p>
             <p>
-              <SofiyaBrandText
-                text={t(
-                  "Название SOFIYA выбрано осознанно. В него вложены понятия чистоты и внутренней чистоты — «тазалық» и «пәктік». Эти слова передают смысл, который основатель хотел связать с брендом с самого начала.",
-                )}
-              />
+              {t(
+                "Название SOFIYA выбрано осознанно. В него вложены понятия чистоты и внутренней чистоты — «тазалық» и «пәктік». Эти слова передают смысл, который основатель хотел связать с брендом с самого начала.",
+              )}
             </p>
             <p>
-              <SofiyaBrandText
-                text={t(
-                  "Миссия SOFIYA — экономить людям время и деньги, чтобы дарить незабываемый вкус.",
-                )}
-              />{" "}
+              {t("Миссия SOFIYA — экономить людям время и деньги, чтобы дарить незабываемый вкус.")}{" "}
               {t("Сегодня сеть объединяет")} {stores.length} {t("филиалов, представленных в")}{" "}
               {cities.join(", ")}
               {t(
@@ -143,11 +132,7 @@ export function AboutPage() {
       <section className="container-page pb-14 md:pb-20">
         <div className="rounded-[2rem] bg-primary p-8 text-center text-primary-foreground md:p-12">
           <h2 className="text-3xl font-semibold md:text-4xl">
-            <SofiyaBrandText
-              text={t("Загляните в ближайший SOFIYA")}
-              wordmarkClassName="!h-[0.82em] rounded bg-white px-1.5 py-1"
-              placement="center"
-            />
+            {t("Загляните в ближайший SOFIYA")}
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-white/80">
             {t("Выберите удобный адрес, посмотрите часы работы и постройте маршрут.")}
@@ -163,11 +148,7 @@ export function AboutPage() {
               to="/career"
               className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/35 px-6 font-semibold text-white transition-colors hover:bg-white/10"
             >
-              <SofiyaBrandText
-                text={t("Работать в SOFIYA")}
-                wordmarkClassName="!h-[1em] rounded bg-white px-1 py-0.5"
-                placement="center"
-              />
+              {t("Работать в SOFIYA")}
             </LocaleLink>
           </div>
         </div>
