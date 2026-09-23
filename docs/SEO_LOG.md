@@ -31,8 +31,15 @@ favicon.ico и favicon.svg — оригинальные файлы #7. Удал�
 это не редакторское утверждение. Другие worktree сохранены.
 PASS: typecheck, lint, format:check, 28 unit; node и Cloudflare build;
 SSR 75 RU + 75 KK, canonical/hreflang, sitemap 450 alternates, 404; secret:scan.
-NOT RUN: браузерная проверка — download Chromium failed (повреждённый ZIP).
-Нужен CI конкретного кандидата и визуальные снимки, статус не DONE.
+Первичная локальная браузерная проверка заблокирована: download Chromium failed.
+Затем GitHub CI Quality #112 завершился PASS на fe415810bb79675abe8904341abc22d8e69c05d5:
+28 unit; 159 browser passed, 25 skipped (не PASS). Draft PR #10.
+https://github.com/project100mln/sofiya-sweet-sweetness-hub/actions/runs/35866082173
+Артефакт localization-visual-evidence 10751479163 создан (4676582 bytes).
+Получение ZIP для визуального осмотра вернуло HTTP 403; изображения не осмотрены.
+Статус IMPLEMENTED: техническая проверка PASS, визуальная приёмка остаётся.
+Сравнение мультимножеств всех 704 RU/KK пар и review_status с #8: неизменны.
+favicon ICO/SVG побайтно идентичны #7. Local и remote tree совпадают: 2f097ba.
 Откат: revert integration commit. Production не изменён.
 Правило владельца: после каждого этапа обновлять карту в чате, не отправлять его в GitHub.
 
