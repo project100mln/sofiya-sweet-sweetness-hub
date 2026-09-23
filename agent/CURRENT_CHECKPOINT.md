@@ -1,5 +1,8 @@
 # Current checkpoint
 
+> SUPERSEDED 2026-09-23: resume from [SEO_CHECKPOINT.md](SEO_CHECKPOINT.md).
+> The evidence below is historical and predates CI #109; do not treat pending CI as current.
+
 - Branch: `agent/sofiya-seo-landing-pages-20260913`
 - Base: `main` at `95797652c06e8c1dc14e0a57498084f3c0342649`
 - Authorized slice: indexable RU/KK category landing pages and a stronger cake-preorder page.

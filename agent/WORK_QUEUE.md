@@ -1,5 +1,8 @@
 # Work queue
 
+> Active priorities: [SEO backlog](../docs/SEO_BACKLOG.md).
+> Start with [SEO checkpoint](SEO_CHECKPOINT.md). Below is historical Public Site v1.
+
 ## P0 — release blocking
 
 - [x] Make all local quality commands pass and add CI.
