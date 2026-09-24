@@ -58,6 +58,13 @@ SEO-07: главная, about, desserts, footer; без новых страни�
 Цель — явно описать кондитерскую в Шымкенте и сладости, добавить «София»;
 название footer приведено к SOFIYA по решению владельца.
 PASS локально: typecheck, lint, 28 unit, SSR150/450. Реестр KK706 строк.
-Новые KK тексты — draft; редактор не утверждал. Новый CI/preview ещё требуется.
+Новые KK тексты — draft; редактор не утверждал. CI #113 и preview PASS.
 Риск: поисковый эффект не измерен; GSC недоступен. Откат: revert SEO-07 commit.
 Следующее: QA нового SHA, аудит локальных карточек/аналитики; без публикации.
+
+2026-09-24: SEO-07 сохранён в remote 9bb4c305, local d464a27; tree 2492e9c совпадает.
+Preview проверен: новые title/copy RU/KK, десерты и about; overflow отсутствует на desktop.
+Quality #113 quality и browser-smoke PASS. SEO-09 первичный аудит в отдельном документе.
+
+Итог SEO-10: технический QA кода 9bb4c305 PASS, https://github.com/project100mln/sofiya-sweet-sweetness-hub/actions/runs/36021926531 .
+Редакторская приёмка KK и SEO-11 остаются до релиза; production не изменён.

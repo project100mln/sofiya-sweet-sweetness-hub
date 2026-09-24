@@ -15,8 +15,8 @@ PUBLISHED, MEASURED, DONE. Галочка только при выполнени
 | SEO-06 | [x] Бренд/семантика — DONE              | SEO-01 по доступности | Query→URL карта по намерениям/выдаче, SOFIYA/София/Сафия отдельно                                             |
 | SEO-07 | [ ] Кондитерская/сладости — IMPLEMENTED | SEO-06                | Усилить подходящие URL; новые только при отдельном намерении, без дублей                                      |
 | SEO-08 | [ ] Локальные карточки — TODO           | Проверенные данные    | Аудит GBP/2GIS: название, адрес, телефон, часы, сайт; изменения отдельно согласуются                          |
-| SEO-09 | [ ] Аналитика обращений — TODO          | Доступ/согласия       | События WhatsApp/call/directions/preorder; без PII; клик не продажа                                           |
-| SEO-10 | [ ] QA кандидата — IN_PROGRESS          | SEO-02–05             | Формат/lint/types/unit/SSR/browser; 200/404, robots, canonical/hreflang, sitemap150/450; SHA                  |
+| SEO-09 | [ ] Аналитика обращений — IN_PROGRESS   | Доступ/согласия       | События WhatsApp/call/directions/preorder; без PII; клик не продажа                                           |
+| SEO-10 | [ ] QA кандидата — VERIFIED_PREVIEW     | SEO-02–05             | Формат/lint/types/unit/SSR/browser; 200/404, robots, canonical/hreflang, sitemap150/450; SHA                  |
 | SEO-11 | [ ] Скорость/доступность — TODO         | SEO-10                | 3 mobile Lighthouse, медиана; CWV если есть; критические регрессии устранены                                  |
 | SEO-12 | [ ] Публикация — BLOCKED                | SEO-10/11 + владелец  | Разрешение точного SHA; Cloudflare deployment и post-release PASS, откат подготовлен                          |
 | SEO-13 | [ ] Индексация — TODO                   | SEO-12 + GSC          | Sitemap принят; URL Inspection ключевых URL/canonical/причины исключений                                      |
@@ -42,7 +42,14 @@ CI #112: 159 browser PASS, 25 skipped; код fe415810, Draft PR #10.
 Визуальный осмотр preview выполнен: docs/SEO_VISUAL_REVIEW.md; SEO-02 закрыт.
 SEO-06: docs/SEO_QUERY_MAP.md — карта намерений/URL готова, частотность не измерена.
 SEO-07: главная/about/desserts/footer обновлены; локально types/lint/28 unit/SSR150 PASS.
-Новый CI/preview после SEO-07 ещё не проверен. 706 строк реестра KK, новые тексты не утверждены.
+CI #113 и preview SEO-07 проверены: PASS. 706 строк реестра KK, новые тексты не утверждены.
 SEO-03/04: техническая и визуальная проверка пройдены; редакторская приёмка остаётся.
 После каждого этапа показывать эту карту в чате с результатами проверки.
 Блокировка GSC не блокирует разработку.
+
+Обновление 2026-09-24: SEO-07 сохранён в PR #10, SHA 9bb4c305cb6d9561a49699db8a73c7c9daa41a7e.
+Quality #113: quality и browser-smoke PASS. Preview: новая главная/десерты RU/KK и about проверены.
+SEO-09: первичный аудит исходников — docs/SEO_ANALYTICS_AUDIT.md; GA4/GTM не обнаружены, внешнее подключение не проверено.
+
+Итог SEO-10: технический QA кода 9bb4c305 PASS, https://github.com/project100mln/sofiya-sweet-sweetness-hub/actions/runs/36021926531 .
+Редакторская приёмка KK и SEO-11 остаются до релиза; production не изменён.

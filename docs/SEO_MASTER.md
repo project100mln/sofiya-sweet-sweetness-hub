@@ -29,7 +29,7 @@
 https://github.com/project100mln/sofiya-sweet-sweetness-hub/pull/10 .
 Проверенный код интеграции: fe415810bb79675abe8904341abc22d8e69c05d5.
 SEO-02 закрыт визуально; SEO-06 завершён: docs/SEO_QUERY_MAP.md.
-SEO-07 реализован следующим коммитом; локальный QA PASS, новый CI ещё требуется.
+SEO-07 реализован следующим коммитом; локальный QA PASS, новый CI #113 PASS.
 Ветка agent/sofiya-seo-integration-20260923; текущее исполнение смотреть в её
 docs/SEO_BACKLOG.md и agent/SEO_CHECKPOINT.md. Ниже сохранён исходный срез,
 он не означает публикацию кандидата. После каждого этапа показывать карту в чате.
@@ -93,3 +93,10 @@ backlog/log/checkpoint → отчитаться. Один активный пу�
 текущая и предыдущая Cloudflare version, план отката, отдельное разрешение владельца.
 После разрешённого релиза: HTTP, favicon, RU/KK, формы/ссылки; отдельно sitemap/GSC.
 Косметику не смешивать с SEO; использовать существующий стек. Не включать секреты/PII.
+
+Обновление 2026-09-24: SEO-07 сохранён в PR #10, SHA 9bb4c305cb6d9561a49699db8a73c7c9daa41a7e.
+Quality #113: quality и browser-smoke PASS. Preview: новая главная/десерты RU/KK и about проверены.
+SEO-09: первичный аудит исходников — docs/SEO_ANALYTICS_AUDIT.md; GA4/GTM не обнаружены, внешнее подключение не проверено.
+
+Итог SEO-10: технический QA кода 9bb4c305 PASS, https://github.com/project100mln/sofiya-sweet-sweetness-hub/actions/runs/36021926531 .
+Редакторская приёмка KK и SEO-11 остаются до релиза; production не изменён.
