@@ -3,7 +3,7 @@ import { LocaleLink, useI18n } from "@/i18n";
 import { CatalogCategoryLink } from "@/components/site/CatalogCategoryLink";
 
 export function CategoryGrid() {
-  const { locale, t } = useI18n();
+  const { locale, t, pick } = useI18n();
   const { categories } = getCatalog(locale);
   return (
     <section className="container-page py-14 md:py-20">
@@ -12,6 +12,12 @@ export function CategoryGrid() {
           <p className="page-kicker">{t("Каталог")}</p>
           <h2>{t("Выберите любимый вкус")}</h2>
           <p>{t("Торты, десерты, выпечка и горячие блюда — всё в одном каталоге.")}</p>
+          <p>
+            {pick(
+              "SOFIYA — кондитерская в Шымкенте с сетью фирменных магазинов. Выберите готовые торты, десерты и выпечку или перейдите к оформлению торта на заказ.",
+              "SOFIYA — Шымкенттегі фирмалық дүкендер желісі бар кондитерлік. Дайын торттарды, десерттер мен пісірмелерді таңдаңыз немесе жеке тортқа тапсырыс беру нысанына өтіңіз.",
+            )}
+          </p>
         </div>
         <LocaleLink to="/catalog" className="btn-outline btn-outline-hover">
           {t("Весь каталог")}

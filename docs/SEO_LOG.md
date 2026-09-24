@@ -46,3 +46,18 @@ favicon ICO/SVG побайтно идентичны #7. Local и remote tree с�
 Дата / ID / результат / scope и exclusions / зависимости / ответственный / branch/base.
 Файлы/URL / candidate SHA / команды и результаты / evidence links / пропуски.
 Статус / риск / откат / blocker / следующий шаг / разрешение релиза если было.
+
+## 2026-09-23 — SEO-02 DONE, SEO-06 DONE, SEO-07 IMPLEMENTED
+
+Владелец исполнения Codex; base PR10 0ade25b, код fe415810. Production вне scope.
+SEO-02: существующий preview PR10 визуально проверен через браузер (desktop1363px),
+RU/KK cakes/preorder, hero/footer/heart; подробности docs/SEO_VISUAL_REVIEW.md.
+SEO-06: карта намерений/URL в docs/SEO_QUERY_MAP.md. Источники SOFIYA/Safia;
+частотности и позиций нет. Сафия не используется как автоматическая опечатка.
+SEO-07: главная, about, desserts, footer; без новых страниц и смены дизайна.
+Цель — явно описать кондитерскую в Шымкенте и сладости, добавить «София»;
+название footer приведено к SOFIYA по решению владельца.
+PASS локально: typecheck, lint, 28 unit, SSR150/450. Реестр KK706 строк.
+Новые KK тексты — draft; редактор не утверждал. Новый CI/preview ещё требуется.
+Риск: поисковый эффект не измерен; GSC недоступен. Откат: revert SEO-07 commit.
+Следующее: QA нового SHA, аудит локальных карточек/аналитики; без публикации.
