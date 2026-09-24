@@ -1,9 +1,5 @@
 # SOFIYA — premium public-site improvement plan
 
-> SUPERSEDED 2026-09-23: active SEO plan is [docs/SEO_BACKLOG.md](docs/SEO_BACKLOG.md).
-> Read [SEO master](docs/SEO_MASTER.md) and [checkpoint](agent/SEO_CHECKPOINT.md).
-> Everything below is retained as historical design/localization work, not current priorities.
-
 ## Current milestone
 
 Bring every public route to one premium, mobile-first design system. The approved

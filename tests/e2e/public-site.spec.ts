@@ -4,6 +4,7 @@ import { collectBrowserErrors } from "./browser-evidence";
 const routes = [
   "/",
   "/catalog",
+  "/catalog/cakes",
   "/stores",
   "/about",
   "/promotions",
@@ -39,6 +40,35 @@ test("catalog filters and opens a product", async ({ page }) => {
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Прага");
 });
 
+test("catalog category link opens an indexable landing page", async ({ page }) => {
+  await page.goto("/catalog", { waitUntil: "networkidle" });
+  await page.locator('a[href="/catalog/cakes"]').first().click();
+
+  await expect(page).toHaveURL(/\/catalog\/cakes$/);
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Торты SOFIYA в Шымкенте" }),
+  ).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1 }).locator('img[alt="SOFIYA"]')).toHaveCount(0);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    "https://sofiyabakery.com/catalog/cakes",
+  );
+  expect(await page.getByTestId("product-card").count()).toBeGreaterThan(0);
+});
+
+test("cake preorder explains the hand-off before the builder", async ({ page }) => {
+  await page.goto("/cake-preorder", { waitUntil: "networkidle" });
+
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Торты на заказ в Шымкенте" }),
+  ).toBeVisible();
+  await expect(page.getByText(/Форма не подтверждает заказ автоматически/)).toBeVisible();
+  await expect(page.getByRole("heading", { level: 2, name: "Соберите свой торт" })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { level: 2, name: "Вопросы о тортах на заказ" }),
+  ).toBeVisible();
+});
+
 test("catalog applies filters and price sorting", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name.includes("mobile"), "desktop filters are covered here");
   await page.goto("/catalog", { waitUntil: "networkidle" });
@@ -70,7 +100,25 @@ test("original S logo and branded hero stay visible", async ({ page }) => {
   );
 
   const hero = page.getByTestId("hero-carousel");
-  await expect(hero.getByText("SOFIYA — с 2014 года", { exact: true })).toBeVisible();
+  await expect(hero.getByTestId("hero-eyebrow")).toContainText("— с 2014 года");
+  await expect(hero.getByTestId("hero-eyebrow").getByAltText("SOFIYA")).toBeVisible();
+  const eyebrowAlignment = await hero.getByTestId("hero-eyebrow").evaluate((eyebrow) => {
+    const wordmark = eyebrow.querySelector<HTMLElement>('[data-testid="hero-brand-wordmark"]');
+    const suffix = eyebrow.querySelector<HTMLElement>('[data-testid="hero-brand-suffix"]');
+    if (!wordmark || !suffix) return null;
+    const wordmarkBox = wordmark.getBoundingClientRect();
+    const suffixBox = suffix.getBoundingClientRect();
+    return {
+      centerDelta: Math.abs(
+        wordmarkBox.top + wordmarkBox.height / 2 - (suffixBox.top + suffixBox.height / 2),
+      ),
+      wordmarkHeight: wordmarkBox.height,
+    };
+  });
+  expect(eyebrowAlignment).not.toBeNull();
+  expect(eyebrowAlignment!.centerDelta).toBeLessThanOrEqual(1);
+  expect(eyebrowAlignment!.wordmarkHeight).toBeGreaterThanOrEqual(24);
+  expect(eyebrowAlignment!.wordmarkHeight).toBeLessThanOrEqual(28);
   const heroTitle = hero.getByRole("heading", {
     level: 1,
     name: "Незабываемый вкус каждый день",
@@ -85,7 +133,7 @@ test("original S logo and branded hero stay visible", async ({ page }) => {
   expect(titleLineInsets!.left).toBeGreaterThanOrEqual(16);
   expect(titleLineInsets!.right).toBeGreaterThanOrEqual(16);
   const heroCta = hero.getByRole("link", { name: "Выбрать десерт" });
-  await expect(heroCta).toHaveAttribute("href", /cat=cakes/);
+  await expect(heroCta).toHaveAttribute("href", "/catalog/cakes");
   await expect(heroCta).toHaveCSS("background-color", "rgb(90, 4, 189)");
   await expect(heroCta).toHaveCSS("color", "rgb(255, 255, 255)");
   await expect(hero.getByTestId("hero-eyebrow")).toHaveCSS("color", "rgb(90, 4, 189)");

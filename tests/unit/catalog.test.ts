@@ -2,6 +2,11 @@ import { describe, expect, it } from "vitest";
 import { categories, products } from "@/data/catalog";
 import { stores } from "@/data/stores";
 import { site, waLink } from "@/config/site";
+import {
+  catalogLandingPages,
+  catalogLandingSlugs,
+  isCatalogLandingSlug,
+} from "@/data/catalog-landing-pages";
 
 const unique = (values: string[]) => new Set(values).size === values.length;
 
@@ -28,6 +33,29 @@ describe("public catalogue data", () => {
       expect(
         products.some((product) => product.categoryId === category.id && product.isPublished),
       ).toBe(true);
+    }
+  });
+
+  it("keeps every SEO category landing connected to live catalogue data", () => {
+    expect(catalogLandingSlugs).toHaveLength(5);
+    expect(unique([...catalogLandingSlugs])).toBe(true);
+
+    for (const slug of catalogLandingSlugs) {
+      const category = categories.find((item) => item.slug === slug);
+      expect(category).toBeDefined();
+      expect(isCatalogLandingSlug(slug)).toBe(true);
+      expect(
+        products.some((product) => product.categoryId === category?.id && product.isPublished),
+      ).toBe(true);
+
+      for (const locale of ["ru", "kk"] as const) {
+        const copy = catalogLandingPages[slug][locale];
+        expect(copy.title.trim()).not.toBe("");
+        expect(copy.description.trim()).not.toBe("");
+        expect(copy.heading.trim()).not.toBe("");
+        expect(copy.paragraphs).toHaveLength(2);
+        expect(copy.paragraphs.every((paragraph) => paragraph.trim().length > 40)).toBe(true);
+      }
     }
   });
 

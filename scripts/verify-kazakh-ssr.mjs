@@ -219,8 +219,8 @@ async function verify(baseUrl) {
     decodeEntities(block.match(/<loc>([^<]+)<\/loc>/)?.[1] ?? ""),
   );
   const uniqueLocations = new Set(locations);
-  if (urlBlocks.length !== 140) failures.push(`sitemap URL block count is ${urlBlocks.length}`);
-  if (uniqueLocations.size !== 140)
+  if (urlBlocks.length !== 150) failures.push(`sitemap URL block count is ${urlBlocks.length}`);
+  if (uniqueLocations.size !== 150)
     failures.push(`sitemap unique URL count is ${uniqueLocations.size}`);
 
   const paths = locations.flatMap((location) => {
@@ -237,18 +237,37 @@ async function verify(baseUrl) {
   });
   const ruPaths = paths.filter((path) => path !== "/kk" && !path.startsWith("/kk/"));
   const kkPaths = paths.filter((path) => path === "/kk" || path.startsWith("/kk/"));
-  if (ruPaths.length !== 70) failures.push(`Russian sitemap URL count is ${ruPaths.length}`);
-  if (kkPaths.length !== 70) failures.push(`Kazakh sitemap URL count is ${kkPaths.length}`);
+  if (ruPaths.length !== 75) failures.push(`Russian sitemap URL count is ${ruPaths.length}`);
+  if (kkPaths.length !== 75) failures.push(`Kazakh sitemap URL count is ${kkPaths.length}`);
 
   const ruStatic = ruPaths.filter((path) => staticPaths.has(path));
-  const ruProducts = ruPaths.filter((path) => path.startsWith("/catalog/"));
+  const catalogLandingPaths = new Set([
+    "/catalog/cakes",
+    "/catalog/desserts",
+    "/catalog/pastry",
+    "/catalog/samsa",
+    "/catalog/pies",
+  ]);
+  const ruCatalogLandings = ruPaths.filter((path) => catalogLandingPaths.has(path));
+  const ruProducts = ruPaths.filter(
+    (path) => path.startsWith("/catalog/") && !catalogLandingPaths.has(path),
+  );
   const ruNews = ruPaths.filter((path) => path.startsWith("/news/"));
   const ruPromotions = ruPaths.filter((path) => path.startsWith("/promotions/"));
-  const classified = new Set([...ruStatic, ...ruProducts, ...ruNews, ...ruPromotions]);
+  const classified = new Set([
+    ...ruStatic,
+    ...ruCatalogLandings,
+    ...ruProducts,
+    ...ruNews,
+    ...ruPromotions,
+  ]);
   if (ruStatic.length !== 12 || [...staticPaths].some((path) => !ruStatic.includes(path))) {
     failures.push("sitemap static route family is incomplete");
   }
   if (ruProducts.length !== 53) failures.push(`sitemap product count is ${ruProducts.length}`);
+  if (ruCatalogLandings.length !== 5) {
+    failures.push(`sitemap catalog landing count is ${ruCatalogLandings.length}`);
+  }
   if (ruNews.length !== 3) failures.push(`sitemap news count is ${ruNews.length}`);
   if (ruPromotions.length !== 2) failures.push(`sitemap promotion count is ${ruPromotions.length}`);
   if (classified.size !== ruPaths.length) failures.push("sitemap contains an unknown route family");
@@ -353,7 +372,7 @@ async function verify(baseUrl) {
 
     const schemas = jsonLd(text, prefix, failures);
     const basePath = pair.ru;
-    const isProductDetail = basePath.startsWith("/catalog/");
+    const isProductDetail = basePath.startsWith("/catalog/") && !catalogLandingPaths.has(basePath);
     const isContentDetail = basePath.startsWith("/news/") || basePath.startsWith("/promotions/");
     const expectedSchemaTypes = [
       "Organization",
@@ -479,7 +498,7 @@ async function verify(baseUrl) {
   }
 
   console.log(
-    "Bilingual SSR verification passed: 70 RU + 70 KK pages, exact reciprocal SEO, 420 sitemap alternates, localized structured data and 404s.",
+    "Bilingual SSR verification passed: 75 RU + 75 KK pages, exact reciprocal SEO, 450 sitemap alternates, localized structured data and 404s.",
   );
   console.log(`Verified base URL: ${baseUrl}; canonical origin: ${productionOrigin}`);
 }

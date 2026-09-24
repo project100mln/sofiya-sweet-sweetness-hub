@@ -11,7 +11,7 @@ export const Route = createFileRoute("/about")({
 });
 
 export function AboutPage() {
-  const { locale, t } = useI18n();
+  const { locale, t, pick } = useI18n();
   const { stores } = getLocalizedContent(locale);
   const cities = [...new Set(stores.map((store) => store.city))];
   const facts = [
@@ -49,6 +49,12 @@ export function AboutPage() {
             </h2>
           </div>
           <div className="space-y-5 text-base leading-7 text-muted-foreground">
+            <p>
+              {pick(
+                "SOFIYA («София») — сеть фирменных магазинов кондитерских изделий в Шымкенте и Туркестанской области.",
+                "SOFIYA («София») — Шымкент пен Түркістан облысындағы кондитерлік өнімдердің фирмалық дүкендер желісі.",
+              )}
+            </p>
             <p>
               {t(
                 "История SOFIYA началась в 2014 году не с витрины, а с производства. Основатель бренда Ниязходжаев Бахадир Тураббаевич открыл кондитерское направление, которое работало преимущественно с B2B-клиентами и готовило продукцию для партнёров из разных сфер бизнеса.",

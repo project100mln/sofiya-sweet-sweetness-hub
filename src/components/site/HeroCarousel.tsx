@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { IMG, products } from "@/data/catalog";
 import { LocaleLink, useI18n } from "@/i18n";
+import { SofiyaWordmark } from "@/components/site/SofiyaWordmark";
 
 interface Slide {
   eyebrow: ReactNode;
@@ -13,7 +14,6 @@ interface Slide {
   imageHd?: string;
   imageAlt: string;
   imagePosition?: string;
-  productFocus?: boolean;
   search?: Record<string, string>;
   kk: Pick<Slide, "eyebrow" | "title" | "desc" | "cta" | "imageAlt">;
 }
@@ -36,13 +36,11 @@ const slides: Slide[] = [
       </>
     ),
     cta: "Выбрать десерт",
-    href: "/catalog",
+    href: "/catalog/cakes",
     image: IMG.cakeBerry,
     imageHd: IMG.cakeBerryHd,
     imageAlt: "Фирменный торт SOFIYA с ягодами и логотипом",
-    imagePosition: "56% 48%",
-    productFocus: true,
-    search: { cat: "cakes" },
+    imagePosition: "56% 32%",
     kk: {
       eyebrow: "SOFIYA — 2014 жылдан бері",
       title: (
@@ -68,11 +66,10 @@ const slides: Slide[] = [
     title: "Свежая выпечка каждый день",
     desc: "Слойки, самса и десерты — только что из печи.",
     cta: "Выбрать выпечку",
-    href: "/catalog",
+    href: "/catalog/pastry",
     image: IMG.samsa,
     imageAlt: "Свежая выпечка SOFIYA",
     imagePosition: "62% 56%",
-    search: { cat: "pastry" },
     kk: {
       eyebrow: "Күн сайын таңертең",
       title: "Күн сайын балғын пісірмелер",
@@ -188,17 +185,6 @@ export function HeroCarousel() {
           style={{ objectPosition: s.imagePosition }}
           fetchPriority={i === 0 ? "high" : "auto"}
         />
-        {s.productFocus && (
-          <img
-            src={s.image}
-            srcSet={s.imageHd ? `${s.image} 1280w, ${s.imageHd} 2560w` : undefined}
-            sizes="(min-width: 768px) 76vw, 100vw"
-            alt=""
-            className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[76%] select-none object-cover md:block"
-            style={{ objectPosition: "50% 48%" }}
-            aria-hidden
-          />
-        )}
         <div className="hero-overlay absolute inset-0" aria-hidden />
 
         <div
@@ -209,7 +195,21 @@ export function HeroCarousel() {
             className="hero-eyebrow text-xs font-bold uppercase tracking-[0.08em] text-primary md:text-sm"
             data-testid="hero-eyebrow"
           >
-            {s.eyebrow}
+            {typeof s.eyebrow === "string" && s.eyebrow.startsWith("SOFIYA — ") ? (
+              <span className="inline-flex items-center gap-2 align-middle leading-none">
+                <span
+                  className="inline-flex h-6 items-center justify-center rounded-md bg-white/95 px-2 shadow-sm md:h-7 md:px-2.5"
+                  data-testid="hero-brand-wordmark"
+                >
+                  <SofiyaWordmark className="!h-3.5 !w-auto md:!h-4" placement="center" />
+                </span>
+                <span className="whitespace-nowrap leading-none" data-testid="hero-brand-suffix">
+                  — {s.eyebrow.slice("SOFIYA — ".length)}
+                </span>
+              </span>
+            ) : (
+              s.eyebrow
+            )}
           </span>
           <h1 className="hero-title mt-5 max-w-none text-[clamp(1.9rem,9vw,2.6rem)] font-medium leading-[0.98] tracking-[-0.035em] text-white sm:text-5xl md:text-6xl lg:text-[4.8rem]">
             {s.title}

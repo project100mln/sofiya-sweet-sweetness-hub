@@ -1,17 +1,18 @@
 import { absoluteUrl, languageLinks } from "@/config/site";
+import { catalogLandingPages, type CatalogLandingSlug } from "@/data/catalog-landing-pages";
 import type { Locale } from "@/i18n";
 
 export const staticSeoCopy = {
   "/": {
     ru: {
-      title: "SOFIYA — фирменные магазины в Шымкенте",
+      title: "SOFIYA — кондитерская в Шымкенте, торты и выпечка",
       description:
-        "SOFIYA — фирменные торты, свежая выпечка, завтраки и пицца. Магазины в Шымкенте и Туркестанской области.",
+        "SOFIYA («София») — торты, десерты и свежая выпечка в Шымкенте. Выберите товары в каталоге, найдите фирменный магазин или оформите запрос на торт к празднику.",
     },
     kk: {
-      title: "SOFIYA — Шымкенттегі фирмалық дүкендер",
+      title: "SOFIYA — Шымкенттегі кондитерлік, торттар мен пісірмелер",
       description:
-        "SOFIYA — фирмалық торттар, балғын пісірмелер, таңғы ас пен пицца. Шымкент және Түркістан облысындағы дүкендер.",
+        "SOFIYA («София») — Шымкенттегі торттар, десерттер мен балғын пісірмелер. Каталогтан өнім таңдаңыз, фирмалық дүкенді табыңыз немесе мерекелік тортқа өтінім дайындаңыз.",
     },
   },
   "/about": {
@@ -61,14 +62,14 @@ export const staticSeoCopy = {
   },
   "/cake-preorder": {
     ru: {
-      title: "Торты на заказ | SOFIYA",
+      title: "Торты на заказ в Шымкенте | SOFIYA",
       description:
-        "Оформите фирменный торт SOFIYA к вашему событию: выберите тип, размер, дату и точку самовывоза.",
+        "Закажите фирменный торт SOFIYA в Шымкенте: выберите тип, размер, дату и точку самовывоза, затем отправьте заявку в WhatsApp.",
     },
     kk: {
-      title: "Тапсырыспен торттар | SOFIYA",
+      title: "Шымкентте тапсырыспен дайындалатын торттар | SOFIYA",
       description:
-        "Мерекеңізге арналған SOFIYA тортын онлайн таңдаңыз және өтінімді WhatsApp арқылы жіберіңіз.",
+        "Шымкентте мерекеңізге арналған SOFIYA тортын таңдаңыз: түрін, өлшемін, күнін және алып кету дүкенін көрсетіп, өтінімді WhatsApp арқылы жіберіңіз.",
     },
   },
   "/catering": {
@@ -224,6 +225,11 @@ export function localizedHead(
 export function staticHead(path: StaticSeoPath, locale: Locale) {
   const copy = staticSeoCopy[path][locale];
   return localizedHead(path, locale, copy.title, copy.description);
+}
+
+export function catalogLandingHead(slug: CatalogLandingSlug, locale: Locale) {
+  const copy = catalogLandingPages[slug][locale];
+  return localizedHead(`/catalog/${slug}`, locale, copy.title, copy.description);
 }
 
 export function russianHead(path: string, title: string, description: string) {

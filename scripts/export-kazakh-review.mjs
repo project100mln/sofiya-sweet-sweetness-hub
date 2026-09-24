@@ -425,6 +425,12 @@ for (const [surface, copy] of Object.entries(dynamicSeo)) {
   align("dynamic-seo", `${surface} detail metadata`, surface, copy.ru, copy.kk);
 }
 
+const catalogLandingFile = parsedFiles.get("src/data/catalog-landing-pages.ts");
+const catalogLandingPages = variable(catalogLandingFile, "catalogLandingPages");
+for (const [slug, copy] of Object.entries(catalogLandingPages)) {
+  align("seo-category", `/catalog/${slug}`, slug, copy.ru, copy.kk);
+}
+
 const errorPage = variable(parsedFiles.get("src/lib/error-page.ts"), "errorPageCopy");
 align("error-page", "catastrophic HTTP 500", "error-page", errorPage.ru, errorPage.kk);
 
@@ -466,6 +472,14 @@ align(
   "step",
   variable(cake, "STEPS_RU"),
   variable(cake, "STEPS_KK"),
+);
+const cakePreorderCopy = variable(cake, "PREORDER_COPY");
+align(
+  "cake-preorder-content",
+  "/cake-preorder",
+  "preorder-content",
+  cakePreorderCopy.ru,
+  cakePreorderCopy.kk,
 );
 
 const siteRegion = variable(content, "siteRegionCopy");
