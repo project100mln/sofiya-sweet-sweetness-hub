@@ -1,5 +1,5 @@
 section	context	id	ru_source	kk_draft	review_status
-cake-preorder-content	/cake-preorder	preorder-content.cards[0].description	Укажите торт «Сникерс» или опишите собственный вариант вкуса.	«Сникерс» тортын таңдаңыз немесе өзіңіз қалаған дәм нұсқасын сипаттаңыз.	DRAFT_REQUIRES_KK_EDITORIAL
+cake-preorder-content	/cake-preorder	preorder-content.cards[0].description	Выберите торт из каталога или опишите собственный вариант вкуса.	Каталогтан торт таңдаңыз немесе өзіңіз қалаған дәм нұсқасын сипаттаңыз.	DRAFT_REQUIRES_KK_EDITORIAL
 cake-preorder-content	/cake-preorder	preorder-content.cards[0].title	Выберите вариант	Торт нұсқасын таңдаңыз	DRAFT_REQUIRES_KK_EDITORIAL
 cake-preorder-content	/cake-preorder	preorder-content.cards[1].description	Выберите размер, количество порций, дату и удобную точку самовывоза.	Өлшемін, порция санын, күнін және алып кетуге ыңғайлы дүкенді таңдаңыз.	DRAFT_REQUIRES_KK_EDITORIAL
 cake-preorder-content	/cake-preorder	preorder-content.cards[1].title	Добавьте параметры	Параметрлерді көрсетіңіз	DRAFT_REQUIRES_KK_EDITORIAL
@@ -388,7 +388,6 @@ structured-ui	src/config/navigation.ts#nav	[6]	О нас	Біз туралы	DRA
 structured-ui	src/config/navigation.ts#nav	[7]	Карьера	Мансап	DRAFT_REQUIRES_KK_EDITORIAL
 structured-ui	src/config/navigation.ts#nav	[8]	Контакты	Байланыс	DRAFT_REQUIRES_KK_EDITORIAL
 structured-ui	src/data/cake-options.ts#CAKE_TYPES	custom	Свой вариант	Өз нұсқам	DRAFT_REQUIRES_KK_EDITORIAL
-structured-ui	src/data/cake-options.ts#CAKE_TYPES	snickers	Сникерс	Сникерс	DRAFT_REQUIRES_KK_EDITORIAL
 structured-ui	src/data/cake-options.ts#CANDLES	classic	Классические	Классикалық	DRAFT_REQUIRES_KK_EDITORIAL
 structured-ui	src/data/cake-options.ts#CANDLES	none	Не нужны	Қажет емес	DRAFT_REQUIRES_KK_EDITORIAL
 structured-ui	src/data/cake-options.ts#CANDLES	number	Цифра	Сан	DRAFT_REQUIRES_KK_EDITORIAL

@@ -182,7 +182,17 @@ describe("Kazakh localization", () => {
       expect(option.ru.trim()).not.toBe("");
       expect(option.kk.trim()).not.toBe("");
     }
-    expect(CAKE_TYPES.map(({ id }) => id)).toEqual(["snickers", "custom"]);
+    const catalogCakes = products.filter(
+      (product) => product.categoryId === "cakes" && product.isPublished,
+    );
+    expect(CAKE_TYPES).toHaveLength(catalogCakes.length + 1);
+    expect(CAKE_TYPES[0].id).toBe("snickers");
+    expect(CAKE_TYPES.at(-1)?.id).toBe("custom");
+    expect(new Set(CAKE_TYPES.map(({ id }) => id)).size).toBe(CAKE_TYPES.length);
+    expect(CAKE_TYPES.slice(0, -1).map(({ ru }) => ru)).toEqual(
+      catalogCakes.map(({ name }) => name),
+    );
+    for (const option of CAKE_TYPES.slice(0, -1)) expect(option.kk).not.toBe(option.ru);
     for (const service of SERVICES) {
       expect(service.id).toMatch(/^[a-z0-9-]+$/);
       expect(service.ru.t.trim()).not.toBe("");

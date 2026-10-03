@@ -498,11 +498,11 @@ for (const locale of ["ru", "kk"] as const) {
     await expect.poll(async () => (await recordedPopupUrls(page)).length).toBe(1);
     expect(decodeURIComponent((await recordedPopupUrls(page))[0])).toBe(payload);
     if (locale === "kk") {
-      expect(payload).toContain("Түрі: Сникерс");
+      expect(payload).toContain("Түрі: «Сникерс» торты");
       expect(payload).toContain("Қаптама: Стандартты қорап");
       expect(payload).toContain("Пікір: Сегіз порция");
     } else {
-      expect(payload).toContain("Тип: Сникерс");
+      expect(payload).toContain("Тип: Торт Сникерс");
       expect(payload).toContain("Упаковка: Стандартная коробка");
       expect(payload).toContain("Комментарий: Восемь порций");
     }
