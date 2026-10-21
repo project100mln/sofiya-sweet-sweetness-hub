@@ -1,0 +1,11 @@
+{
+  "source": "src/assets/sofiya-wordmark.png",
+  "source_sha256": "2e04fce0660a990a5a63e0ee5a1512357595b9044e8ff8b4bfd55aefaf5214a3",
+  "source_crop_xyxy": [1305, 50, 1440, 175],
+  "alpha_contour_threshold": 127.5,
+  "contour_points": 430,
+  "brand_color": "#5A04BD",
+  "mapping": "Uniform scale to 28 units wide; bounding-box centred in 32x32 viewBox",
+  "keyline": "0.9 unit white stroke behind purple fill for dark browser chrome",
+  "source_most_frequent_opaque_color": [[[90, 4, 189], 70263]]
+}

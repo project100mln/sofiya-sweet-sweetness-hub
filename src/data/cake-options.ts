@@ -1,11 +1,25 @@
+import { products } from "@/data/catalog";
+import { kkCatalogText } from "@/i18n/catalog";
+
 export interface LocalizedOption {
   id: string;
   ru: string;
   kk: string;
 }
 
+// Snickers keeps its original form ID so drafts saved before the catalogue
+// list was introduced still resolve to the same cake.
+const LEGACY_CAKE_IDS: Record<string, string> = { "p-snickers": "snickers" };
+
+// Every published cake from the catalogue is offered for preorder, in catalogue order.
 export const CAKE_TYPES: LocalizedOption[] = [
-  { id: "snickers", ru: "Сникерс", kk: "Сникерс" },
+  ...products
+    .filter((product) => product.categoryId === "cakes" && product.isPublished)
+    .map((product) => ({
+      id: LEGACY_CAKE_IDS[product.id] ?? product.slug,
+      ru: product.name,
+      kk: kkCatalogText[product.name] ?? product.name,
+    })),
   { id: "custom", ru: "Свой вариант", kk: "Өз нұсқам" },
 ];
 

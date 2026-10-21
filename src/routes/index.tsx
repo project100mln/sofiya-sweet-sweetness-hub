@@ -84,11 +84,7 @@ export function Home() {
               <p className="mt-3 max-w-md text-white/85">
                 {t("Свежие ягоды, воздушные кремы и лёгкие цитрусовые ноты — вкус тёплого сезона.")}
               </p>
-              <LocaleLink
-                to="/catalog"
-                search={{ cat: "cakes" }}
-                className="mt-6 w-fit btn-primary btn-primary-hover"
-              >
+              <LocaleLink to="/catalog/cakes" className="mt-6 w-fit btn-primary btn-primary-hover">
                 {t("Смотреть коллекцию")} <ArrowRight className="h-4 w-4" />
               </LocaleLink>
             </div>

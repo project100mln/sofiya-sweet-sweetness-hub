@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { products } from "@/data/catalog";
 import { news } from "@/data/news";
 import { featuredPromotions } from "@/data/featured-promotions";
+import { catalogLandingSlugs } from "@/data/catalog-landing-pages";
 import { site } from "@/config/site";
 
 const staticPaths = [
@@ -38,6 +39,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         const origin = site.domain;
         const paths = [
           ...staticPaths,
+          ...catalogLandingSlugs.map((slug) => `/catalog/${slug}`),
           ...products
             .filter((product) => product.isPublished)
             .map((product) => `/catalog/${product.slug}`),

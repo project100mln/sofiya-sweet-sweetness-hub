@@ -100,7 +100,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      {
+        rel: "icon",
+        href: "/favicon.ico?v=sofiya-heart-20260911",
+        type: "image/x-icon",
+        sizes: "16x16 32x32 48x48",
+      },
+      {
+        rel: "icon",
+        href: "/favicon.svg?v=sofiya-heart-20260911",
+        type: "image/svg+xml",
+        sizes: "any",
+      },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

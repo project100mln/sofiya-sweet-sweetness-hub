@@ -64,7 +64,7 @@ if (!sitemap.response.headers.get("content-type")?.includes("application/xml")) 
 const locations = [...sitemap.text.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) =>
   decodeEntities(match[1]),
 );
-if (locations.length !== 140) failures.push(`sitemap contains ${locations.length} routes, not 140`);
+if (locations.length !== 150) failures.push(`sitemap contains ${locations.length} routes, not 150`);
 if (new Set(locations).size !== locations.length)
   failures.push("sitemap contains duplicate routes");
 

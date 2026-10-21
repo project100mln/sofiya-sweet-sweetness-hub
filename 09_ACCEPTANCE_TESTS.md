@@ -70,7 +70,7 @@
 - **AT-KK-01** All 15 public route families return SSR HTML under `/kk` with `html[lang="kk-KZ"]`; unknown Kazakh URLs return HTTP 404 with Kazakh UI.
 - **AT-KK-02** `Қазақша | Русский` is keyboard-accessible in desktop/mobile navigation and preserves path, dynamic slug, query and hash.
 - **AT-KK-03** Every Kazakh page has a self-canonical URL and reciprocal `ru-KZ`, `kk-KZ` and `x-default` alternate links.
-- **AT-KK-04** Sitemap contains exactly 140 current URLs: 70 Russian and 70 Kazakh, with reciprocal alternates.
+- **AT-KK-04** Sitemap contains exactly 150 current URLs: 75 Russian and 75 Kazakh, with reciprocal alternates.
 - **AT-KK-05** All 53 products and 9 categories preserve shared IDs, slugs, prices and images while exposing complete Kazakh names/descriptions/ingredients.
 - **AT-KK-06** All 17 stores preserve IDs, contacts, coordinates and 2GIS URLs while exposing approved Kazakh city/address/landmark text.
 - **AT-KK-07** All 3 news items and 2 featured promotions have localized list/detail pages, metadata and date/number formatting.
