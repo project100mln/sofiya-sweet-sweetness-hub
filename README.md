@@ -12,3 +12,5 @@ Vite (`bun run build` их не ловит).
 ## Deployment
 
 Production (`sofiyabakery.com`) is built by Cloudflare Workers Builds from the `main` branch of this repository (connected 2026-10-21). Every merge to `main` triggers `npm ci && npm run build:cloudflare` and `npx wrangler deploy --config wrangler.jsonc --env production`.
+
+Cloudflare Workers Builds runs with `SKIP_DEPENDENCY_INSTALL=true` so that `bun.lock` (kept for Lovable) is ignored and `npm ci` from the build command installs dependencies.
