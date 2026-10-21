@@ -19,7 +19,7 @@ export function CatalogLandingPage({ slug }: { slug: CatalogLandingSlug }) {
   );
   const availabilityMessage = pick(
     `Здравствуйте, SOFIYA! Хочу уточнить наличие товаров из категории «${category.name}».`,
-    `Сәлеметсіз бе, SOFIYA! «${category.name}» санатындағы өнімдердің қолжетімділігін нақтылағым келеді.`,
+    `Сәлеметсіз бе, SOFIYA! «${category.name}» санатындағы өнімдердің бар-жоғын нақтылағым келеді.`,
   );
 
   return (
@@ -55,7 +55,7 @@ export function CatalogLandingPage({ slug }: { slug: CatalogLandingSlug }) {
         </div>
 
         <p className="mb-4 mt-8 text-sm text-muted-foreground" aria-live="polite">
-          {pick("Товаров в категории", "Санаттағы өнімдер")}: {items.length}
+          {pick("Товаров в категории", "Санаттағы өнімдер саны")}: {items.length}
         </p>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {items.map((product) => (
@@ -77,7 +77,7 @@ export function CatalogLandingPage({ slug }: { slug: CatalogLandingSlug }) {
 
           <aside className="premium-card p-6 md:p-8">
             <h2 className="text-xl font-semibold">
-              {pick("Уточнить наличие", "Қолжетімділігін нақтылау")}
+              {pick("Уточнить наличие", "Бар-жоғын нақтылау")}
             </h2>
             <p className="mt-3 text-sm leading-6 text-muted-foreground">
               {pick(
